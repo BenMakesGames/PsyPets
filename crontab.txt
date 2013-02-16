@@ -1,0 +1,2 @@
+0 0 * * * php /path/to/takestats.php
+0 30 * * * php /path/to/considergods.php

@@ -1,0 +1,8 @@
+# Add you MP3 or OGG Vorbis URLs in this playlist
+# Avoid extra characters such as "space, !, =, é, ; ..."
+# For jlGuiApplet full edition, your MP3 or OGG Vorbis must be hosted on the
+# web server that hosts the Applet. If you need to connect others web servers
+# then try the self-signed edition.
+
+#EXTINF:-1,MP3 Stream - PsyPets Live Broadcasting
+http://psypets.net:7000

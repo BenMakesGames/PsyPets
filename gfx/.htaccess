@@ -1,0 +1,11 @@
+ExpiresActive On
+ExpiresDefault "access plus 1 year"
+Header append Cache-Control "public"
+
+RewriteEngine on
+
+RewriteCond %{HTTPS} =on
+RewriteRule ^(emote|pets|npcs|ads|ancientscript|avatars|badges|emote|events|items|maze|monsters|moon|npcs|pets|plaza|town)/(.+) https://saffron.psypets.net/gfx/$1/$2 [L]
+
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(emote|pets|npcs|ads|ancientscript|avatars|badges|emote|events|items|maze|monsters|moon|npcs|pets|plaza|town)/(.+) http://saffron.psypets.net/gfx/$1/$2 [L]
