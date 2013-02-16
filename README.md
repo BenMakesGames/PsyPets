@@ -29,6 +29,7 @@ SOFTWARE.
 Server Requirements
 -------------------
 
+* A web server (I mostly used Apache)
 * PHP, with "short tags" enabled
 * MySQL
 * memcached (although you could probably edit it out of the code pretty easily)
@@ -62,6 +63,11 @@ also:
 		for an example of what constitutes a design pillar, check out this article:
 		http://diablo.incgamers.com/blog/comments/diablo-3s-seven-design-pillars-2
 
+finally:
+
+* check/update all the .htaccess files
+* set up cron jobs for each of the tasks in crontab/
+		
 Create Database Tables
 ----------------------
 
