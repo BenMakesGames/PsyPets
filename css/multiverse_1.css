@@ -1,0 +1,109 @@
+.universe * { color: #fff; }
+
+.universe a { color: #bdf; }
+
+#mahuniverse
+{
+  width: 600px;
+  height: 600px;
+  border: 1px solid #bdf;
+  margin: 1em 0;
+  background-image: url(//saffron.psypets.net/gfx/universe/deepfield.jpg);
+}
+
+#mahgalaxy
+{
+  width: 600px;
+  height: 600px;
+  border: 1px solid #bdf;
+  margin: 1em 0;
+  background-image: url(//saffron.psypets.net/gfx/universe/starfield.jpg);
+}
+
+#mahsolarsystem
+{
+  width: 600px;
+  height: 324px;
+  border: 1px solid #bdf;
+  margin: 1em 0;
+}
+
+#objectmenu
+{
+  display: none;
+  position: absolute;
+  background-color: #eee;
+  width: 120px;
+  padding: 0.25em;
+  z-index: 100;
+}
+
+#objectmenu *
+{
+  color: #000;
+}
+
+#objectmenu li
+{
+  list-style: none;
+  margin: 0;
+}
+
+#objectmenu a:hover
+{
+  background-color: #bdf;
+}
+
+#objectmenu ul
+{
+  list-style: none;
+  margin: 0;
+}
+
+#objectmenu a
+{
+  display: block;
+  padding: 0.25em;
+}
+
+#objectmenu .dim
+{
+  color: #888;
+  padding: 0.25em;
+}
+
+.universeobject
+{
+  position: relative;
+  width: 0;
+  height: 0;
+  overflow: visible;
+}
+
+.universeinput
+{
+  color: #000;
+}
+
+.universeprogressbar
+{
+  border: 1px solid #fff;
+  width: 54px;
+  text-align: left;
+}
+
+.universeprogressbar img
+{
+  height: 12px;
+  margin: 2px;
+}
+
+thead
+{
+  border-bottom: 1px solid #fff;
+}
+
+.failure
+{
+  color: red;
+}

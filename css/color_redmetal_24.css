@@ -1,0 +1,274 @@
+#contentbox
+{
+}
+
+#menu
+{
+}
+
+#footer
+{
+  font-style: italic;
+}
+
+#me
+{
+  background-color: #fff;
+  border-bottom: 1px solid #888;
+}
+
+#easteregg
+{
+  border: 1px solid black;
+  background-color: #fef;
+}
+
+#tip div
+{
+  border: 1px solid black;
+  background-color: #f0f0f0;
+}
+
+#kitchen
+{
+  border: 1px solid black;
+  background-color: #fff;
+}
+
+hr
+{
+  color: #000;
+  background-color: #000;
+}
+
+a,button,input[type="button"],input[type="submit"],input[type="reset"]
+{
+  color: #c00;
+  text-decoration: none;
+}
+
+#rearrangerooms
+{
+  color: #c00;
+}
+
+.leftbar
+{
+  background: #f0f0f0;
+}
+
+thead tr,.titlerow
+{
+  background: #999;
+}
+
+.row
+{
+  background: #fff;
+}
+
+.altrow
+{
+  background: #f0f0f0;
+}
+
+.row_backlit
+{
+  background: #fee;
+}
+
+.altrow_backlit
+{
+  background: #f0dfdf;
+}
+
+.row_alert
+{
+  background: #ffffef;
+}
+
+.altrow_alert
+{
+  background: #f0f0e0;
+}
+
+.dialog { padding: 0.5em; background: #f0f0f0; }
+.dialogtop { background-image: url(//www.psypets.net/gfx/dialog_top.png); background-repeat: repeat; }
+.dialogbottom { background-image: url(//www.psypets.net/gfx/dialog_bottom.png); background-repeat: repeat; }
+.dialogtop,.dialogbottom { height: 8px; }
+.dialogright
+{
+  background: #f0f0f0 url(//www.psypets.net/gfx/dialog_right.png) repeat-y;
+  background-position: right;
+}
+.dialogleft
+{
+  background: #f0f0f0 url(//www.psypets.net/gfx/dialog_left.png) repeat-y;
+  background-position: left;
+  padding-left: 8px;
+}
+
+.preview
+{
+  border: 2px solid #000;
+}
+
+ul.tabbed
+{
+  padding-bottom: 1px;
+  border-bottom: 1px solid #666;
+}
+
+ul.tabbed li
+{
+  background-color: #f0f0f0;
+  border-top: 1px solid #bbb;
+  border-left: 1px solid #bbb;
+  border-right: 1px solid #bbb;
+  border-bottom: 1px solid transparent;
+}
+
+ul.tabbed li a
+{
+  color: #933;
+}
+
+ul.tabbed li.activetab a
+{
+  color: #c00;
+}
+
+ul.tabbed li.activetab
+{
+  border-top: 1px solid #666;
+  border-left: 1px solid #666;
+  border-right: 1px solid #666;
+  background-color: #fff;
+  font-weight: bold;
+  border-bottom: 1px solid #fff;
+}
+
+#ingamead
+{
+  border: 1px solid black;
+}
+
+.tip th
+{
+  background-color: #eee;
+}
+
+#comments
+{
+  border-left: 1px solid #000;
+}
+
+table.inventory td
+{
+  border-top: 1px solid #888;
+}
+
+ul.inventory li
+{
+  border-top: 1px solid #888;
+}
+
+#townmap
+{
+  border: 1px solid black;
+}
+
+.progressbar
+{
+  border: 1px solid black;
+}
+
+.progressbar div
+{
+  background-color: red;
+}
+
+.popupmenu
+{
+  border-left: 2px solid #999;
+}
+
+.posttext
+{
+  background-color: #fff;
+}
+
+.infotip
+{
+  border: 1px solid;
+  background-color: #ffc;
+}
+
+.impact_small
+{
+  color: #639;
+}
+
+.impact_medium
+{
+  color: #369;
+}
+
+.impact_large
+{
+  color: #963;
+}
+
+ul.megamenu {
+  background-color: #eee;
+  background-image: -moz-linear-gradient(top, #eee 0%, #fff 100%); /* FF3.6+ */
+  background-image: -webkit-linear-gradient(top, #eee 0%,#fff 100%); /* Chrome10+,Safari5.1+ */
+  background-image: -o-linear-gradient(top, #eee 0%,#fff 100%); /* Opera11.10+ */
+  background-image: -ms-linear-gradient(top, #eee 0%,#fff 100%); /* IE10+ */
+  background-image: linear-gradient(top, #eee 0%,#fff 100%); /* W3C */
+  border-top: 1px solid #999;
+}
+
+ul.megamenu li div ul li a:hover
+{
+  background-color: #eee;
+}
+
+ul.megamenu a.mm-item-link-hover:link, ul.megamenu a.mm-item-link-hover:visited {
+  color: #444;
+  background: #FFF;
+  border-left: 1px solid #777;
+  border-right: 1px solid #777;
+}
+
+ul.megamenu div.mm-item-content {
+  background: #FFF;
+  border: 1px solid #777;
+}
+
+.mm-content-base {
+  background: #FFF;
+}
+.mm-js-shadow {
+  background: #555;
+}
+
+ul.jeegoocontext, ul.jeegoocontext ul
+{
+	background-color: #e8e8e8;
+	border-left: solid 1px #888;
+	border-right: solid 1px #888;
+	border-bottom: solid 1px #888;
+}
+
+ul.jeegoocontext li
+{
+	background-color: #e8e8e8;
+	color: #000;
+  border-top: solid 1px #888;
+}
+
+ul.jeegoocontext li.hover
+{
+  background-color: #fff;
+}

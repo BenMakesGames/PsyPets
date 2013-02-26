@@ -1,0 +1,6 @@
+Addtype application/vnd.ms-fontobject .eot
+Addtype application/font-woff .woff
+Addtype application/font-ttf .ttf
+Addtype application/font-otf .otf
+
+AddOutputFilterByType DEFLATE application/vnd.ms-fontobject application/font-woff application/font-ttf application/font-otf

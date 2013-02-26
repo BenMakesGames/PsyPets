@@ -1,0 +1,9 @@
+ExpiresActive On
+ExpiresDefault "access plus 1 year"
+Header append Cache-Control "public"
+
+<IfModule mod_deflate.c>
+<FilesMatch "\.css$">
+SetOutputFilter DEFLATE
+</FilesMatch>
+</IfModule>

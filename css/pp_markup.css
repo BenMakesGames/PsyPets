@@ -1,0 +1,57 @@
+.pp-emote
+{
+  font-family: 'EmoticonsOutline';
+}
+
+.pp-bold
+{
+  font-weight: bold;
+}
+
+.pp-italic
+{
+  font-style: italic;
+}
+
+.pp-underline
+{
+  text-decoration: underline;
+}
+
+.pp-strikethrough
+{
+  text-decoration: line-through;
+}
+
+.pp-superscript
+{
+  font-size: 66%;
+  vertical-align: top;
+}
+
+.pp-subscript
+{
+  font-size: 66%;
+  vertical-align: bottom;
+}
+
+.pp-fix,.pp-fix *
+{
+  white-space: pre;
+  font-family: monospace;
+}
+
+.pp-quote
+{
+  display: block;
+  margin-left: 1.5em;
+  margin-bottom: 0;
+  border: 1px solid #999;
+  padding: 4px;
+}
+
+.smiley
+{
+  border: 0;
+  vertical-align: middle;
+}

@@ -1,0 +1,36 @@
+body
+{
+}
+
+#mainbox
+{
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+#title
+{
+  float: left;
+}
+
+#adbox
+{
+  float: right;
+  position: relative;
+}
+
+#main
+{
+}
+
+#content
+{
+}
+
+#footer
+{
+}
+
+#rearrangepets
+{
+}

@@ -1,0 +1,33 @@
+div.rpskill h5
+{
+  background-color: #699;
+  color: #fff;
+  padding: 2px;
+}
+
+div.rpskill.Bloodline h5
+{
+  background-color: #976;
+}
+
+div.rpskill.Magic h5
+{
+  background-color: #869;
+}
+
+div.rpskill p
+{
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+div.rpskill.AlreadyKnown
+{
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+
+tr.altrow td.available { background-color: #6e6; color: #fff; }
+tr.row td.available { background-color: #8f8; color: #fff }
+
+textarea { width: 800px; height: 100px; }

@@ -1,0 +1,48 @@
+.plazapost
+{
+  width: 100%;
+}
+
+.plazapostdecoration img
+{
+  vertical-align: middle;
+}
+
+.plazapostdecoration
+{
+  width: 96px;
+  padding: 4px;
+}
+
+.plazaposttitle
+{
+  vertical-align: middle;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 4px;
+}
+
+.plazapostresident
+{
+  vertical-align: top;
+  padding: 4px 0;
+  width: 96px;
+}
+
+.plazaposttextarea
+{
+  vertical-align: top;
+  padding: 0;
+}
+
+.plazapostfooterrow td
+{
+  vertical-align: bottom;
+  padding: 0;
+}
+
+.plazapostfooter
+{
+  padding: 4px;
+  border-top: 1px solid #ccc;
+}

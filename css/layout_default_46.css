@@ -1,0 +1,41 @@
+body
+{
+}
+
+#mainbox
+{
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+#title
+{
+  float: left;
+}
+
+#adbox
+{
+  float: right;
+  position: relative;
+}
+
+#main
+{
+  width: 900px;
+}
+
+#content
+{
+  width: 880px;
+}
+
+#footer
+{
+}
+
+#rearrangepets
+{
+  width: 100%;
+}
