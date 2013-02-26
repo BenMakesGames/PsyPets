@@ -145,6 +145,8 @@ class User extends psyDBObject
   {
     $new_user = new User();
 
+    global $SETTINGS;
+
     if($_POST['login_name'] && $_POST['login_password'])
     {
       $new_user = User::GetByLogin($_POST['login_name']);
