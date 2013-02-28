@@ -114,8 +114,8 @@ Table Descriptions
 ------------------
 
 <pre>
-bay_spam										used by bayesian troll detector
-bay_totals									used by bayesian troll detector
+bay_spam                    used by bayesian troll detector
+bay_totals                  used by bayesian troll detector
 monster_admins              give an account administrative right by creating an entry in this table
 monster_auctions            running auction house auctions
 monster_events              park events, active and past
@@ -276,7 +276,7 @@ Crafting Tables
 
 crafting's a big part of the pet activities. here's a breakdown of every field used in the various crafting tables:
 
-idnum - just the id; let the DB assign these
+idnum - just the id; let the DB assign these (and actually, that's true of all tables: DO NOT TOUCH idnums! just let MySQL handle them.)
 
 difficulty - the difficulty to make. I used 1-25 (1 as easy, 20 as hard, 25 as mastery level)
 
