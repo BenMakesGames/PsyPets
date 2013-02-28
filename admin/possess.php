@@ -33,7 +33,12 @@ if(!$host_user->IsLoaded() || $host_user->ID() != $userid)
 $host_user->LogIn();
 $raw_host_user = $host_user->RawData();
 
-setcookie('psypets_session', $raw_host_user['idnum'] . ';' . $raw_host_user['sessionid'], time() + $raw_host_user['login_persist'], '/', $SETTINGS['cookie_domain']);
+setcookie(
+	$SETTINGS['cookie_rememberme'],
+	$raw_host_user['idnum'] . ';' . $raw_host_user['sessionid'],
+	time() + $raw_host_user['login_persist'],
+	$SETTINGS['cookie_path'],
+	$SETTINGS['cookie_domain']
+);
 
 header('Location: /');
-?>
