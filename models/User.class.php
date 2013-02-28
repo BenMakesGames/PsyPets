@@ -178,7 +178,7 @@ class User extends psyDBObject
 				add_cookie_message('<span class="failure">Login name and password must both be provided.</span>');
 		}
 		
-    list($userid, $sessionid) = take_apart(';', $_COOKIE['psypets_session']);
+    list($userid, $sessionid) = take_apart(';', $_COOKIE[$SETTINGS['cookie_rememberme']]);
     $userid = (int)$userid;
     $sessionid = (int)$sessionid;
 
