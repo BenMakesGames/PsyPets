@@ -194,7 +194,15 @@ class User extends psyDBObject
       ));
 
       if($new_user->IsLoaded())
-        setcookie('psypets_session', $new_user->_data['idnum'] . ';' . $new_user->_data['sessionid'], time() + $new_user->_data['login_persist'], '/', '.psypets.net');
+			{
+        setcookie(
+					$SETTINGS['cookie_rememberme'],
+					$new_user->_data['idnum'] . ';' . $new_user->_data['sessionid'],
+					time() + $new_user->_data['login_persist'],
+					$SETTINGS['cookie_path'],
+					$SETTINGS['cookie_domain']
+				);
+			}
     }
 
     return $new_user;
