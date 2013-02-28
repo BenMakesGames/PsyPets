@@ -113,6 +113,7 @@ some database tables to get started on:
 Table Descriptions
 ------------------
 
+<pre>
 bay_spam										used by bayesian troll detector
 bay_totals									used by bayesian troll detector
 monster_admins              give an account administrative right by creating an entry in this table
@@ -268,6 +269,7 @@ psypets_warninglog          admin tool to keep track of player offenses. 100% pr
 psypets_watchedthreads      "favorited" threads... (are there two tables for this? maybe one is unused? not sure what's going on here...)
 psypets_wired               virtual hide and go seek tag info
 psypets_zoos                menagerie addon
+</pre>
 
 Crafting Tables
 ---------------
@@ -275,14 +277,25 @@ Crafting Tables
 crafting's a big part of the pet activities. here's a breakdown of every field used in the various crafting tables:
 
 idnum - just the id; let the DB assign these
+
 difficulty - the difficulty to make. I used 1-25 (1 as easy, 20 as hard, 25 as mastery level)
+
 complexity - the time it takes. I tended to make this close to the difficulty level at low difficulties, and as much as twice as high for harder crafts
+
 priority - when a pet finds multiple projects it can make, it sorts the list by priority, and tries the higher-priority ones first. I used this to make crafts like Cloth more common, since it is used in more crafts. I recommend setting the VAST MAJORITY of projects to the default of 120, and only setting a different priority for those occasional projects which you want to be more or less common.
+
 ingredients - comma-separated items needed for the project, ex: "Copper,Copper,Iron,Red Dye"
+
 makes - the single item created, ex: "Awesome Axe of Awesomeness" (doesn't support comma-separated lists of items to make - but you should add support for that! it'd be cool!)
+
 mazeable - unused (used to specify whether the item could appear in the pattern, but now the pattern just searches people's stores to find items for sale)
+
 addon - whether or not the resulting craft is used to make house add-ons; pets give these projects priority when the house is full
+
 min_month and max_month - the range of months the item is available; 1 = January, 12 = December. if you want a range to cross years (ex: winter-only), you need two separate entries! lame.
+
 min_/max_ stats - the range of stats required by the pet to make this item. for personality stats, it's not a strict requirement, but pets that fall outside the range are less likely to make the item
+
 is_secret - if a pet project is marked as secret, it will never show up in the pet logs when a pet fails to make it
+
 is_berries/burny/etc - whether or not the project has that special quality. equipment and special pet abilities can give bonuses when crafting items with these special traits.
