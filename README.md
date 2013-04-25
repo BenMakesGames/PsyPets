@@ -29,16 +29,46 @@ SOFTWARE.
 Server Requirements
 -------------------
 
-* A web server (I mostly used Apache)
+* A web server (I've only worked with Apache/httpd)
 * PHP, with "short tags" enabled
 * MySQL
-* memcached (although you could probably edit it out of the code pretty easily)
+* memcache(d) (although you could probably edit it out of the code pretty easily)
+
+PHP no longer recommends the use of "short tags", and some hosts and installations disable it by default.
+sorry: PsyPets is way-old, and uses some funny old things like this :P you can enable short tags by
+finding the php.ini file on your server, and editing it. search the document for "short tags" or
+"short_tags" or something like that... you should find the line which says that they're off... edit that
+line to turn them on! (you may need to restart Apache/httpd/whatever after making changes to php.ini - 'depends
+on your exact configuration.)
+
+Installing Required Software
+----------------------------
+
+www.psypets.net runs on Linux. I have, at least at one time in the past, installed PsyPets on a Windows machine, but
+it was long ago, and I did not test it extensively. if you plan to install on Windows, you may encounter trouble.
+
+the install procedures will vary a lot depending on the exact OS you use. also keep in mind that not all Linuxes are alike (even basic tasks like installing software will vary from Linux to Linux).
+
+* if you have a host that installs software for you, you probably don't need to worry about anything, except that memcache(d) will probably not be installed; you'll need to ask for it to be installed, or edit it out of PsyPets.
+* if you are setting up your own Linux host, you probably don't need me to tell you how :P note that installing memcache(d) is a pain in the ass - google it.
+* if you want to set up PsyPets on your personal Windows PC, you should google for "WAMP" (a Windows Apache MySQL PHP bundle) and install one. most WAMP bundles come with lovely tools that make editing Apache, MySQL and PHP settings easy. memcache(d) may not be available for Windows - I haven't looked.
+* if you want to set up PsyPets on your personal Mac PC, you're on your own. (I haven't messed with Macs since the days of HyperCard and ResEdit.) but since Mac OS X is a special flavor of Linux, it should work well (with fewer problems than you'd get on Windows). memcache(d) may still be a problem.
+
+additional tools I have personally used for development and maintainance of PsyPets:
+
+* Notepad++ - you could also try PHPStorm: I use it at work, but never used it for PsyPets.
+* phpMyAdmin
+* Adobe Fireworks - for making graphics. it's amazing. I've used it for over 10 years now (god, that's terrifying to think about >_>)
+* FileZilla - for uploading to a remote server.
+* PuTTy - for command-line access to a remote server.
 
 Database and Other Settings
 ---------------------------
 
-* configure libraries/settings.php
-* configure commons/settings_light.php
+to start, edit these two files to get things running:
+
+* libraries/settings.php
+* commons/settings_light.php
 
 unfortunately, PsyPets used two different libraries to connect to the database.
 HandyDB is the newer, fancy method which uses better, faster functions; its
@@ -50,7 +80,7 @@ as well, including domain name, cookies, and others.
 also:
 
 * commons/settings.php
-    may have system-specific values you need to modify
+		may have system-specific variables you need to modifiy
 * meta/privacy.php
     your privacy policy goes here (how do you use users' email addresses?) and
 		be sure to note that the site uses cookies to maintain their sessions
@@ -67,6 +97,8 @@ finally:
 
 * check/update all the .htaccess files
 * set up cron jobs for each of the tasks in crontab/
+    if you don't know what cron jobs are, search the internets!
+		if you're hosting on Windows, it won't be cron jobs, it'll be scheduled tasks
 		
 Create Database Tables
 ----------------------
@@ -75,6 +107,9 @@ you'll find everything in:
 
 * db_structure.sql
 * db_globals.sql
+
+you can import these via phpMyAdmin (see "installing software", above), or the
+command-line, if you know how.
 
 Sign Up; Give Yourself Administrative Rights
 --------------------------------------------
@@ -274,28 +309,17 @@ psypets_zoos                menagerie addon
 Crafting Tables
 ---------------
 
-crafting's a big part of the pet activities. here's a breakdown of every field used in the various crafting tables:
+crafting's a big part of the pet activities. here's a breakdown of every field used in the various crafting tables (ex: psypets_jewelry):
 
-idnum - just the id; let the DB assign these (and actually, that's true of all tables: DO NOT TOUCH idnums! just let MySQL handle them.)
-
-difficulty - the difficulty to make. I used 1-25 (1 as easy, 20 as hard, 25 as mastery level)
-
-complexity - the time it takes. I tended to make this close to the difficulty level at low difficulties, and as much as twice as high for harder crafts
-
-priority - when a pet finds multiple projects it can make, it sorts the list by priority, and tries the higher-priority ones first. I used this to make crafts like Cloth more common, since it is used in more crafts. I recommend setting the VAST MAJORITY of projects to the default of 120, and only setting a different priority for those occasional projects which you want to be more or less common.
-
-ingredients - comma-separated items needed for the project, ex: "Copper,Copper,Iron,Red Dye"
-
-makes - the single item created, ex: "Awesome Axe of Awesomeness" (doesn't support comma-separated lists of items to make - but you should add support for that! it'd be cool!)
-
-mazeable - unused (used to specify whether the item could appear in the pattern, but now the pattern just searches people's stores to find items for sale)
-
-addon - whether or not the resulting craft is used to make house add-ons; pets give these projects priority when the house is full
-
-min_month and max_month - the range of months the item is available; 1 = January, 12 = December. if you want a range to cross years (ex: winter-only), you need two separate entries! lame.
-
-min_/max_ stats - the range of stats required by the pet to make this item. for personality stats, it's not a strict requirement, but pets that fall outside the range are less likely to make the item
-
-is_secret - if a pet project is marked as secret, it will never show up in the pet logs when a pet fails to make it
-
-is_berries/burny/etc - whether or not the project has that special quality. equipment and special pet abilities can give bonuses when crafting items with these special traits.
+* idnum - just the id; let the DB assign these (and actually, that's true of all tables: DO NOT TOUCH idnums! just let MySQL handle them.)
+* difficulty - the difficulty to make. I used 1-25 (1 as easy, 20 as hard, 25 as mastery level)
+* complexity - the time it takes. I tended to make this close to the difficulty level at low difficulties, and as much as twice as high for harder crafts
+* priority - when a pet finds multiple projects it can make, it sorts the list by priority, and tries the higher-priority ones first. I used this to make crafts like Cloth more common, since it is used in more crafts. I recommend setting the VAST MAJORITY of projects to the default of 120, and only setting a different priority for those occasional projects which you want to be more or less common.
+* ingredients - comma-separated items needed for the project, ex: "Copper,Copper,Iron,Red Dye"
+* makes - the single item created, ex: "Awesome Axe of Awesomeness" (doesn't support comma-separated lists of items to make - but you should add support for that! it'd be cool!)
+* mazeable - unused (used to specify whether the item could appear in the pattern, but now the pattern just searches people's stores to find items for sale)
+* addon - whether or not the resulting craft is used to make house add-ons; pets give these projects priority when the house is full
+* min_month and max_month - the range of months the item is available; 1 = January, 12 = December. if you want a range to cross years (ex: winter-only), you need two separate entries! lame.
+* min_/max_ stats - the range of stats required by the pet to make this item. for personality stats, it's not a strict requirement, but pets that fall outside the range are less likely to make the item
+* is_secret - if a pet project is marked as secret, it will never show up in the pet logs when a pet fails to make it
+* is_berries/burny/etc - whether or not the project has that special quality. equipment and special pet abilities can give bonuses when crafting items with these special traits.
