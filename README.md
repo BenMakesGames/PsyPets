@@ -90,7 +90,10 @@ also:
     references some rules in the ToS
 * help/design-philosophies.php
     what direction do you wish to take the game with your future developments?
-		for an example of what constitutes a design pillar, check out this article:
+		for some examples of design pillars, and how they're used in game design, check out these articles:
+		http://massively.joystiq.com/2013/03/29/gdc-2013-dean-hall-on-the-pillars-of-dayzs-design/
+		http://www.destinypedia.com/Seven_Pillars_of_Design
+		http://danielprimed.com/2010/07/design-discussions-deconstructing-the-video-game-three-pillars-of-design-for-interactive-drama-heavy-rain/
 		http://diablo.incgamers.com/blog/comments/diablo-3s-seven-design-pillars-2
 
 finally:
