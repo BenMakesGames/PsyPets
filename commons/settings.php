@@ -18,12 +18,12 @@ if(($maintenance_when >= 0 && $maintenance_when <= 20 && $_GET['maintenance'] !=
 }
 
 $SITE_LAYOUTS = array(
-  'default'  => 'Fixed-width',
-  'wide'     => 'Fluid',
+  'default'  => 'PsyPets in a Box',
+  'wide'     => 'PsyPets Wide',
 );
 
 $SITE_COLORS = array(
-  'telkoth'  => 'Wizard Blue',
+  'telkoth'  => 'PsyPets Blue',
   'ks'       => 'KS\' Green',
   'kirby'    => 'Kirby\'s Granite',
   'lune'     => 'Lune\'s Con-inspired',
@@ -45,6 +45,8 @@ $SETTINGS['secure_server'] = ($_SERVER['HTTPS'] == 'on');
 
 $SETTINGS['protocol'] = ($SETTINGS['secure_server'] ? 'https' : 'http');
 
+$SETTINGS['image_server_url'] = $SETTINGS['protocol'] . '://' . $SETTINGS['static_domain'];
+
 $SETTINGS['game_donatetag'] = true;
 $SETTINGS['game_postsize'] = 30;
 $SETTINGS['game_postsize_bonus'] = 50;
@@ -64,9 +66,9 @@ $SETTINGS['game_broadcastday'] = '';
 // uncomment to force broadcasting day
 //$BROADCAST = true;
 
-set_error_handler('CustomErrorHandler', E_ALL);
+set_error_handler('PsyPetsErrorHandler', E_ALL);
 
-function CustomErrorHandler($errno, $errstr, $errfile, $errline, $errcontext)
+function PsyPetsErrorHandler($errno, $errstr, $errfile, $errline, $errcontext)
 {
 	if($errno == E_STRICT || $errno == E_NOTICE || $errno == E_WARNING)
 		return;
@@ -95,9 +97,11 @@ function CustomErrorHandler($errno, $errstr, $errfile, $errline, $errcontext)
 
 	if($prepare_to_die)
 	{
-		echo '<h2>Gack!  Errors!</h2>' .
-				 '<p>' . $SETTINGS['site_name'] . ' has encountered an awful kind of error.  An administrator has been automatically notified, however depending on the situation it might be worth bugging one about this.<p>' .
-				 '<p>If you do bug an admin about this, please refer to this reference code ' . $ref_code . '.</p>';
+		echo
+            '<h2>Gack!  Errors!</h2>' .
+            '<p>PsyPets has encountered an awful kind of error.  An administrator has been automatically notified, however depending on the situation it might be worth bugging one about this.<p>' .
+			'<p>If you do bug an admin about this, please refer to this reference code ' . $ref_code . '.</p>'
+        ;
 	}
 
 	$logfile = '/var/www/html/errorlogs/' . $ref_code . '.html';
@@ -110,4 +114,3 @@ function CustomErrorHandler($errno, $errstr, $errfile, $errline, $errcontext)
 		die();
 	}
 }
-?>

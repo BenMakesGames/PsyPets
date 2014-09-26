@@ -17,6 +17,7 @@ $SITE_STATISTICS_LABELS = array(
   'Average level/pet' => 'average_level_per_pet',
   'Total raw Moneys' => 'total_moneys',
   'Average Moneys/Player' => 'average_money_per_resident',
+  'Free Favor collected to date' => 'voucherfavor',
   'Total items' => 'objects',
   'Average items/Player' => 'items_per_resident',
   'Plaza posts' => 'numposts',

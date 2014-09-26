@@ -238,7 +238,7 @@ function delete_post_byidnum($postid)
 
 function render_post(&$this_post, &$this_thread, &$this_plaza, &$user = array(), $page = 1)
 {
-  global $POST_BACKGROUNDS, $BADGE_DESC;
+  global $POST_BACKGROUNDS, $BADGE_DESC, $SETTINGS;
 
   $watcher_list = explode(',', $this_plaza['admins']);
   $is_watcher = in_array($user['idnum'], $watcher_list);
@@ -350,7 +350,7 @@ function render_post(&$this_post, &$this_thread, &$this_plaza, &$user = array(),
   if($this_post['egg'] != 'none' && $this_post['egg'] != 'taken')
   {
     $is_action = true;
-    $this_post['action'] .= '<p class="nomargin"><a href="/grabegg.php?id=' . $this_post['idnum'] . '"><img src="//' . $SETTINGS['static_domain'] . '/gfx/items/egg_dyed_' . $this_post['egg'] . '.png" border="0" style="vertical-align:middle;" /> OMG!  You found an egg!  Click it!  Click it!</a></p>';
+    $this_post['action'] .= '<p class="nomargin"><a href="/grabegg.php?id=' . $this_post['idnum'] . '"><img src="//saffron.psypets.net/gfx/items/egg_dyed_' . $this_post['egg'] . '.png" border="0" style="vertical-align:middle;" /> OMG!  You found an egg!  Click it!  Click it!</a></p>';
   }
 
   if($is_action)
@@ -372,8 +372,8 @@ function render_post(&$this_post, &$this_thread, &$this_plaza, &$user = array(),
   if($this_post['voted_on'] == 'no')
   {
     echo
-      '<a href="#" onmouseover="hoveron(\'thumbup' . $this_post['idnum'] . '\')" onmouseout="hoveroff(\'thumbup' . $this_post['idnum'] . '\')" onclick="thumbsup(' . $this_post['idnum'] . '); return false;"><img src="//' . $SETTINGS['static_domain'] . '/gfx/forum/thumbup.png" class="transparent_image" id="thumbup' . $this_post['idnum'] . '" /></a>',
-      '<a href="#" onmouseover="hoveron(\'thumbdown' . $this_post['idnum'] . '\')" onmouseout="hoveroff(\'thumbdown' . $this_post['idnum'] . '\')" onclick="thumbsdown(' . $this_post['idnum'] . '); return false;"><img src="//' . $SETTINGS['static_domain'] . '/gfx/forum/thumbdown.png" class="transparent_image" id="thumbdown' . $this_post['idnum'] . '" /></a>'
+      '<a href="#" onmouseover="hoveron(\'thumbup' . $this_post['idnum'] . '\')" onmouseout="hoveroff(\'thumbup' . $this_post['idnum'] . '\')" onclick="thumbsup(' . $this_post['idnum'] . '); return false;"><img src="//saffron.psypets.net/gfx/forum/thumbup.png" class="transparent_image" id="thumbup' . $this_post['idnum'] . '" /></a>',
+      '<a href="#" onmouseover="hoveron(\'thumbdown' . $this_post['idnum'] . '\')" onmouseout="hoveroff(\'thumbdown' . $this_post['idnum'] . '\')" onclick="thumbsdown(' . $this_post['idnum'] . '); return false;"><img src="//saffron.psypets.net/gfx/forum/thumbdown.png" class="transparent_image" id="thumbdown' . $this_post['idnum'] . '" /></a>'
     ;
   }
   else
@@ -382,22 +382,22 @@ function render_post(&$this_post, &$this_thread, &$this_plaza, &$user = array(),
 
     if($vote === false)
       echo
-        '<a href="#" onmouseover="hoveron(\'thumbup' . $this_post['idnum'] . '\')" onmouseout="hoveroff(\'thumbup' . $this_post['idnum'] . '\')" onclick="thumbsup(' . $this_post['idnum'] . '); return false;"><img src="//' . $SETTINGS['static_domain'] . '/gfx/forum/thumbup.png" class="transparent_image" id="thumbup' . $this_post['idnum'] . '" /></a>',
-        '<a href="#" onmouseover="hoveron(\'thumbdown' . $this_post['idnum'] . '\')" onmouseout="hoveroff(\'thumbdown' . $this_post['idnum'] . '\')" onclick="thumbsdown(' . $this_post['idnum'] . '); return false;"><img src="//' . $SETTINGS['static_domain'] . '/gfx/forum/thumbdown.png" class="transparent_image" id="thumbdown' . $this_post['idnum'] . '" /></a>'
+        '<a href="#" onmouseover="hoveron(\'thumbup' . $this_post['idnum'] . '\')" onmouseout="hoveroff(\'thumbup' . $this_post['idnum'] . '\')" onclick="thumbsup(' . $this_post['idnum'] . '); return false;"><img src="//saffron.psypets.net/gfx/forum/thumbup.png" class="transparent_image" id="thumbup' . $this_post['idnum'] . '" /></a>',
+        '<a href="#" onmouseover="hoveron(\'thumbdown' . $this_post['idnum'] . '\')" onmouseout="hoveroff(\'thumbdown' . $this_post['idnum'] . '\')" onclick="thumbsdown(' . $this_post['idnum'] . '); return false;"><img src="//saffron.psypets.net/gfx/forum/thumbdown.png" class="transparent_image" id="thumbdown' . $this_post['idnum'] . '" /></a>'
       ;
     else if($vote['vote'] == -1)
       echo
-        '<a href="#" onmouseover="hoveron(\'thumbup' . $this_post['idnum'] . '\')" onmouseout="hoveroff(\'thumbup' . $this_post['idnum'] . '\')" onclick="thumbsup(' . $this_post['idnum'] . '); return false;"><img src="//' . $SETTINGS['static_domain'] . '/gfx/forum/thumbup.png" class="transparent_image" id="thumbup' . $this_post['idnum'] . '" /></a>',
-        '<a href="#" onclick="return false;"><img src="//' . $SETTINGS['static_domain'] . '/gfx/forum/thumbdown.png" id="thumbdown' . $this_post['idnum'] . '" /></a>'
+        '<a href="#" onmouseover="hoveron(\'thumbup' . $this_post['idnum'] . '\')" onmouseout="hoveroff(\'thumbup' . $this_post['idnum'] . '\')" onclick="thumbsup(' . $this_post['idnum'] . '); return false;"><img src="//saffron.psypets.net/gfx/forum/thumbup.png" class="transparent_image" id="thumbup' . $this_post['idnum'] . '" /></a>',
+        '<a href="#" onclick="return false;"><img src="//saffron.psypets.net/gfx/forum/thumbdown.png" id="thumbdown' . $this_post['idnum'] . '" /></a>'
       ;
     else if($vote['vote'] == 1)
       echo
-        '<a href="#" onclick="return false;"><img src="//' . $SETTINGS['static_domain'] . '/gfx/forum/thumbup.png" id="thumbup' . $this_post['idnum'] . '" /></a>',
-        '<a href="#" onmouseover="hoveron(\'thumbdown' . $this_post['idnum'] . '\')" onmouseout="hoveroff(\'thumbdown' . $this_post['idnum'] . '\')" onclick="thumbsdown(' . $this_post['idnum'] . '); return false;"><img src="//' . $SETTINGS['static_domain'] . '/gfx/forum/thumbdown.png" class="transparent_image" id="thumbdown' . $this_post['idnum'] . '" /></a>'
+        '<a href="#" onclick="return false;"><img src="//saffron.psypets.net/gfx/forum/thumbup.png" id="thumbup' . $this_post['idnum'] . '" /></a>',
+        '<a href="#" onmouseover="hoveron(\'thumbdown' . $this_post['idnum'] . '\')" onmouseout="hoveroff(\'thumbdown' . $this_post['idnum'] . '\')" onclick="thumbsdown(' . $this_post['idnum'] . '); return false;"><img src="//saffron.psypets.net/gfx/forum/thumbdown.png" class="transparent_image" id="thumbdown' . $this_post['idnum'] . '" /></a>'
       ;
   }
 
-  echo '</span> <a href="#" onmouseover="hoveron(\'report' . $this_post['idnum'] . '\')" onmouseout="hoveroff(\'report' . $this_post['idnum'] . '\')" onclick="report_post(' . $this_post['idnum'] . ', \'' . tip_safe($my_user['display']) . '\'); return false;" style="vertical-align:middle;"><img src="//' . $SETTINGS['static_domain'] . '/gfx/forum/report.png" width="11" height="16" alt="report post" class="transparent_image" id="report' . $this_post['idnum'] . '" /></a> <i class="dim">Posted ' . local_time($this_post['creationdate'], $user['timezone'], $user['daylightsavings']);
+  echo '</span> <a href="#" onmouseover="hoveron(\'report' . $this_post['idnum'] . '\')" onmouseout="hoveroff(\'report' . $this_post['idnum'] . '\')" onclick="report_post(' . $this_post['idnum'] . ', \'' . tip_safe($my_user['display']) . '\'); return false;" style="vertical-align:middle;"><img src="//saffron.psypets.net/gfx/forum/report.png" width="11" height="16" alt="report post" class="transparent_image" id="report' . $this_post['idnum'] . '" /></a> <i class="dim">Posted ' . local_time($this_post['creationdate'], $user['timezone'], $user['daylightsavings']);
 
   if($this_post['updatedate'] > $this_post['creationdate'])
     echo '; edited ' . local_time($this_post['updatedate'], $user["timezone"], $user['daylightsavings']);

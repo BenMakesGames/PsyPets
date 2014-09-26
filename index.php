@@ -25,11 +25,12 @@ include 'commons/html.php';
  <head>
   <title><?= $SETTINGS['site_name'] ?> &gt; Home</title>
 <?php include 'commons/head.php'; ?>
-  <link rel="alternate" href="/rss_news.xml" type="application/rss+xml" title="<?= $SETTINGS['site_name'] ?> Latest News" />
+  <link rel="alternate" href="/rss_news.xml" type="application/rss+xml" title="PsyPets Latest News" />
   <link rel="signup" href="/signup.php" title="Sign Up" />
   <link rel="encyclopedia" href="/encyclopedia.php" title="Item Encyclopedia" />
   <link rel="pet-encyclopedia" href="/petencyclopedia.php" title="Pet Encyclopedia" />
   <link rel="stylesheet" href="//<?= $SETTINGS['static_domain'] ?>/styles/pp_markup.css" />
+  <link rel="browser-game-info" href="<?= $SETTINGS['protocol'] ?>://www.psypets.net/bghxml.xml" />
  </head>
  <body>
 <?php
@@ -52,10 +53,8 @@ $sender = get_user_byid($general_post['author']);
 
 $category = $general_post['category'];
 
-// if the site is experiencing catastrophic failure, enter a message about it to
-// the players here:
+// hack "terrible downtime" messages for all of PsyPets here:
 ?>
-
 <?php
 // -----------------------------------------------------------------------------
 
@@ -66,7 +65,7 @@ if($now_month == 1 && $now_day == 18 && $now_year == 2012)
 else
   include 'commons/index/' . $npc . '.php';
 ?>
-    <h4 style="clear:both;">Latest News <a href="/rss_news.xml"><img src="//<?= $SETTINGS['static_domain'] ?>/gfx/famfamfam/feed.png" width="16" height="16" alt="RSS Feed" class="inlineimage" /></a></h4>
+    <h4 style="clear:both;">Latest News <a href="/rss_news.xml"><img src="<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/gfx/famfamfam/feed.png" width="16" height="16" alt="RSS Feed" class="inlineimage" /></a></h4>
     <div id="latestnews" class="cityhallpost category_<?= $category ?>">
      <h5><?= format_text($general_post['subject']) ?></h5>
 		 <div style="max-height:500px; overflow:auto; padding:0;">

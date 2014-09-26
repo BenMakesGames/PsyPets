@@ -116,6 +116,8 @@ function get_bids_byuser($userid, $sort = 0)
 
 function meet_bids($itemname, $quantity, $bid_amount)
 {
+  global $SETTINGS;
+
   if($quantity == 0)
     return 0;
 
@@ -137,9 +139,7 @@ function meet_bids($itemname, $quantity, $bid_amount)
         delete_sellermarket_byid($bid['idnum']);
 
         if($buyer === false)
-				{
-					// TODO: message administrators that the items were sold, but not to anyone! (never happened before, but nice to know if it does happen!)
-				}
+          psymail_user($SETTINGS['author_login_name'], $SETTINGS['site_ingame_mailer'], 'Seller\'s Market: selling items to non-existant user', '{r ' . $user['display'] . '} sold ' . $bid['quantity'] . 'x ' . $itemname . ' to {i}{#888888}[Departed #' . $bid['buyer'] . ']{/}{/}');
         else
         {
           add_inventory_quantity($buyer['user'], '', $itemname, 'Bought from the Seller\'s Market', 'storage/incoming', $bid['quantity']);
@@ -159,9 +159,7 @@ function meet_bids($itemname, $quantity, $bid_amount)
         fetch_none($command, 'updating seller\'s market record');
 
         if($buyer === false)
-				{
-					// TODO: message administrators that the items were sold, but not to anyone! (never happened before, but nice to know if it does happen!)
-				}
+          psymail_user($SETTINGS['author_login_name'], $SETTINGS['site_ingame_mailer'], 'Seller\'s Market: selling items to non-existant user', '{r ' . $user['display'] . '} sold ' . $quantity . 'x ' . $itemname . ' to {i}{#888888}[Departed #' . $bid['buyer'] . ']{/}{/}');
         else
         {
           add_inventory_quantity($buyer['user'], '', $itemname, 'Bought from the Seller\'s Market', 'storage/incoming', $quantity);
