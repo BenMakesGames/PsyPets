@@ -104,10 +104,10 @@ function PsyPetsErrorHandler($errno, $errstr, $errfile, $errline, $errcontext)
         ;
     }
 
-    $logfile = '/var/www/html/errorlogs/' . $ref_code . '.html';
+    $logfile = $SETTINGS['error_log_dir'] . '/' . $ref_code . '.html';
 
     error_log($errorstring, 3, $logfile);
-    error_log($errorstring, 1, $_SERVER['SERVER_ADMIN'], '<p>Error log: ' . $logfile . '</p>');
+    error_log($errorstring, 1, $SETTINGS['author_email'], '<p>Error log: ' . $logfile . '</p>');
 
     if($prepare_to_die)
     {

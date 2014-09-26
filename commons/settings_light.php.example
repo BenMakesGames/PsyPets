@@ -35,3 +35,5 @@ $SETTINGS['handydb']['user'] = 'DB USERNAME HERE';
 $SETTINGS['handydb']['password'] = 'DB PASSWORD HERE';
 $SETTINGS['handydb']['database'] = 'DB NAME HERE';
 $SETTINGS['handydb']['charset'] = 'utf8';
+
+$SETTINGS['error_log_dir'] = '/var/www/html/PsyPetsErrorLogs'; // web server needs write access to this dir
