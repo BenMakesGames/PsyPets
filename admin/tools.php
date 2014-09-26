@@ -159,6 +159,16 @@ if($admin['manageitems'] == 'yes' || $admin['clairvoyant'] == 'yes')
   echo '</ul>';
 }
 
+// PAYMENT & FAVOR TOOLS
+if($admin['managedonations'] == 'yes')
+  echo '
+    <h5>Payment &amp; Favor Tools</h5>
+    <ul class="spacedlist">
+     <li><a href="/admin/donations.php" class="admintool">Manage Payments</a><br />To view and <a href="/admin/newdonate.php">add payment</a> records.</li>
+     <li><a href="/admin/favors.php" class="admintool">Manage Favors</a><br />To view and <a href="/admin/newfavor.php">add favor</a> records.</li>
+    </ul>
+  ';
+
 echo '
   <h5>Miscellaneous Tools</h5>
   <ul class="spacedlist">

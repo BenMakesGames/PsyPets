@@ -3,6 +3,13 @@ $_GET['maintenance'] = 'no';
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/commons/init.php';
 
+// mail both of these to me daily
+//
+//   df -h
+//   ls -s /mnt/backup/db/dump.db/schreider/*.sql
+//
+// ... | mail -s "subject" -a From:sender@psypets.net admin@psypets.net
+
 require_once 'commons/dbconnect.php';
 require_once 'commons/sessions.php';
 require_once 'commons/formatting.php';

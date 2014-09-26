@@ -21,7 +21,7 @@ if($user['admin']['manageitems'] != 'yes')
 
 if($_GET['action'] == 'recalc')
 {
-  $items = $database->FetchMultiple(('
+  $items = $database->FetchMultiple('
     SELECT itemname,idnum
     FROM monster_items
     WHERE custom=\'no\'
@@ -31,7 +31,7 @@ if($_GET['action'] == 'recalc')
   
   foreach($items as $item)
   {
-    $database->FetchNone(('
+    $database->FetchNone('
       UPDATE monster_items
       SET anagramname=\'' . alphabetize_letters($item['itemname']) . '\'
       WHERE idnum=' . $item['idnum'] . '
@@ -44,7 +44,7 @@ if($_GET['action'] == 'recalc')
   $CONTENT['messages'][] = 'Done updating item anagram info.  ' . $updated . ' ' . ($updated == 1 ? 'item was' : 'items were') . ' updated.';
 }
 
-$items = $database->FetchMultiple(('
+$items = $database->FetchMultiple('
   SELECT monster_items.itemname, monster_items.anagramname
   FROM monster_items
   INNER JOIN (

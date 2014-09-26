@@ -45,7 +45,7 @@ if($user['admin']['alphalevel'] >= 6)
 */
   $text = $poster['display'] . ' (' . $poster['user'] . ') ' . $this_post['title'] . ' ' . $this_post['body'];
     
-  // TODO: message administrators?
+  psymail_user('telkoth', $SETTINGS['site_ingame_mailer'], 'Spammy post deleted', '{r ' . $user['display'] . '} deleted following post for being spammy:<br /><br />' . $text);
 }
 
 header('Location: /viewthread.php?threadid=' . $this_post['threadid']);

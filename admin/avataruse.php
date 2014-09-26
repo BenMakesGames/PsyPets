@@ -31,19 +31,18 @@ require 'commons/html.php';
  if($error_message)
    echo "<p style=\"color:red;\">" . $error_message . "</p>\n";
 ?>
-<table border=0 cellspacing=0 cellpadding=4>
+<table>
  <tr class="titlerow">
   <th>Avatar</th>
   <th>Number</th>
  </tr>
 <?php
-$command = "SELECT * FROM `monster_users` WHERE 1";
-$result = mysql_query($command);
+$residents = fetch_multiple("SELECT graphic FROM `monster_users`")
 
 $pet_stats = array();
 $total = 0;
 
-while($this_resident = mysql_fetch_assoc($result))
+foreach($residents as $this_resident)
 {
   $resident_stats[$this_resident["graphic"]]++;
   $total++;
