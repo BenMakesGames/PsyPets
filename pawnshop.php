@@ -219,6 +219,7 @@ include 'commons/html.php';
      <h4>Pawn Shop</h4>
      <ul class="tabbed">
       <li class="activetab"><a href="pawnshop.php">Pawn Shop</a></li>
+      <li><a href="af_customavataritem2.php">Custom Avatar Item Builder</a></li>
      </ul>
 <?php
 if(strlen($_GET['msg']) > 0)

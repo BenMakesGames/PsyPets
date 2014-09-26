@@ -362,7 +362,7 @@ function get_projects_by_userid($userid)
 
 function psymail_user2(&$to, &$from, $subject, $body, $items)
 {
-  global $now;
+  global $now, $SETTINGS;
 
   $command = 'INSERT INTO `monster_mail` ' .
              '(`to`, `from`, `date`, `subject`, `message`, `attachments`) VALUES ' .
@@ -375,8 +375,6 @@ function psymail_user2(&$to, &$from, $subject, $body, $items)
   
   if($to[$field] == 'yes')
   {
-    global $SETTINGS;
-
     $mail_descriptions = array(
       'Sounds interesting!', 'How compelling!', 'That seems kind of interesting...',
       'Are you intrigued?  I\'m intrigued!', 'How thoughtful!', 'Sounds like a good read!',
@@ -394,7 +392,7 @@ function psymail_user2(&$to, &$from, $subject, $body, $items)
 
     $message = format_text($message);
 
-    mail($to['email'], 'PsyMail notification: a message from ' . $from['display'] . '!', $message, "MIME-Version: 1.0\nContent-type: text/html; charset=utf-8\nFrom: " . $SETTINGS['site_mailer']);
+    mail($to['email'], 'PsyMail notification: a message from ' . $from['display'] . '!', $message, "MIME-Version: 1.0\nContent-type: text/html; charset=iso-8859-1\nFrom: " . $SETTINGS['site_mailer']);
   }
 
   if($to['newmail'] != 'yes')

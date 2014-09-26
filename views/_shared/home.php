@@ -25,11 +25,12 @@ include 'commons/html.php';
  <head>
   <title><?= $SETTINGS['site_name'] ?> &gt; Home</title>
 <?php include 'commons/head.php'; ?>
-  <link href="rss_news.xml" rel="alternate" type="application/rss+xml" title="<?= $SETTINGS['site_name'] ?> Latest News" />
+  <link href="rss_news.xml" rel="alternate" type="application/rss+xml" title="PsyPets Latest News" />
   <link rel="signup" href="signup.php" title="Sign Up" />
   <link rel="encyclopedia" href="encyclopedia.php" title="Item Encyclopedia" />
   <link rel="pet-encyclopedia" href="petencyclopedia.php" title="Pet Encyclopedia" />
   <link rel="stylesheet" href="styles/pp_markup.css" />
+  <link rel="browser-game-info" href="<?= $SETTINGS['protocol'] ?>//www.psypets.net/bghxml.xml" />
  </head>
  <body>
 <?php
@@ -55,8 +56,10 @@ $sender = get_user_byid($general_post['author']);
 $category = $general_post['category'];
 ?>
 <!--
-    <h5>Important Message</h5>
-		<p>The database is down, or whatever.</p>
+    <h5>In Which Ben Hacks A Message Onto The Front Page - AGAIN!  ALREADY!  SO SOON!</h5>
+    <p>The same fucking thing happened!  AGAIN!  WHY?</p>
+    <p>Well at least it's only 6:40pm in California (where DreamHost is based)... so we shouldn't have to wait until tomorrow for things to get fixed >_></p>
+    <p>I'm going to make them tell me how they fix it, so that until a <em>permanent</em> solution is devised, I can at least quickly solve the problem myself every time it crops up (and hope it doesn't crop up while I'm sleeping e_e)</p>
     <hr />
 -->
 <?php

@@ -166,4 +166,4 @@ if($pass)
 }
 else
   header('Location: /pattern/?msg=58:' . link_safe($target_tile['obstacle']));
-?>
+

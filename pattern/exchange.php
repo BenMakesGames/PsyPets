@@ -80,6 +80,8 @@ if($_POST['submit'] == 'Exchange')
       $errors[] = 'Let me just... flip these around...</p><p>Ah!  Hahaha!  Is there nothing I <em>can\'t</em> do?!</p><p>You\'ll find the ' . $quantity . ' ' . $items_out[$out] . ' in your ' . $user['incomingto'] . '.</p><p>Feel free to call upon my services again at any time.';
     else
       $errors[] = 'Let me just... flip these around...</p><p>Ah!  Hahaha!  Is there nothing I <em>can\'t</em> do?!</p><p>You\'ll find the ' . $items_out[$out] . ' in your ' . $user['incomingto'] . '.</p><p>Feel free to call upon my services again at any time.';
+
+//    psymail_user('telkoth', 'psypets', $user['display'] . ' claimed a ' . $items_out[$out], 'they exchanged for ' . $payment[0] . 's');
   }
 }
 
@@ -101,6 +103,7 @@ if(strlen($_GET['msg']) > 0)
   $error_message = form_message(explode(',', $_GET['msg']));
 
 // NPC
+//echo '<a href="npcprofile.php?npc=Lakisha+Pawlak"><img src="//saffron.psypets.net/gfx/npcs/banker_lakisha.png" align="right" width="350" height="427" alt="(Lakisha the Banker)" /></a>';
 
 include 'commons/dialog_open.php';
 

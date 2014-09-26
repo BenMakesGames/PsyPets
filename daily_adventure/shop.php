@@ -360,7 +360,7 @@ include 'commons/html.php';
       <li class="activetab"><a href="/daily_adventure/shop.php">Adventurer's Shop</a></li>
      </ul>
 <?php
-echo '<a href="/npcprofile.php?npc=Adventurer"><img src="//' . $SETTINGS['static_domain'] . '/gfx/npcs/adventurer.png" align="right" width="350" height="" alt="(The Adventurer)" /></a>';
+echo '<a href="/npcprofile.php?npc=Jerrad+Shiflett"><img src="//saffron.psypets.net/gfx/npcs/adventurer.png" align="right" width="350" height="410" alt="(Jerrad the Adventurer)" /></a>';
 
 include 'commons/dialog_open.php';
 

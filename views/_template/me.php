@@ -208,6 +208,9 @@ $(function() {
   if($user['karma'] > 0)
     echo '<li><a href="/wheeloffate.php">' . $user['karma'] . '<img src="/gfx/karma.png" alt=" Karma" title="Karma" width="16" height="16" class="inlineimage" /></a></li>';
 
+  if($user['favor'] > 0)
+    echo '<li>' . $user['favor'] . ' <a href="/autofavor.php">Favor</a></li>';
+
   $command = '
     SELECT
       a.amount,
@@ -247,8 +250,8 @@ $(function() {
 else
 {
   echo '<div id="loggedoutbar">';
-  if($NO_LOGIN === true) // enter message about why login has been disabled here:
-    echo '<p class="nomargin" style="padding:2px 10px;"><strong class="failure">' . . '</strong></p>';
+  if($NO_LOGIN === true)
+    echo '<p class="nomargin" style="padding:2px 10px;"><strong class="failure">ALRIGHT:  PsyPets needs some <em>serious fixin\'</em>, and it\'s the work week, so I don\'t have as much time as I\'d like to do this.  To prevent further data loss, PsyPets will be down until I get things sorted out.<br /><br />Sorry about all the trouble these last few days.  When PsyPets returns, it <em>will</em> be fully functioning!  In the meanwhile: <a href="http://www.facebook.com/psypets">http://www.facebook.com/psypets</a></strong></p>';
   else
   {
 ?>

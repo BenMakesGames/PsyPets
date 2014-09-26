@@ -12,6 +12,7 @@ require_once 'commons/messages.php';
 require_once 'commons/userlib.php';
 require_once 'commons/itemlib.php';
 require_once 'commons/questlib.php';
+require_once 'commons/favorlib.php';
 
 $free_use = false;
 
@@ -74,6 +75,31 @@ if($_POST['payment'] == 'items')
 	else
 	{
 		header('Location: /alchemist_pool.php?msg=70');
+		exit();
+	}
+}
+else if($_POST['payment'] == 'favor')
+{
+	if($user['favor'] >= 250)
+	{
+		if($this_pet['gender'] == 'male')
+			$new_gender = 'female';
+		else
+			$new_gender = 'male';
+
+    // record the Favor
+    spend_favor($user, 250, 'switched a pet\'s gender', 0);
+
+		require_once 'commons/statlib.php';
+		record_stat($user['idnum'], 'Dunked a Pet In the Cursed Pool', 1);
+
+		$database->FetchNone('UPDATE monster_pets SET pregnant_asof=0,gender=' . quote_smart($new_gender) . ' WHERE idnum=' . (int)$this_pet['idnum'] . ' LIMIT 1');
+
+		set_pet_badge($this_pet, 'genderswitcher');
+	}
+	else
+	{
+		header('Location: /alchemist_pool.php?msg=149:You do not have enough Favor.');
 		exit();
 	}
 }
