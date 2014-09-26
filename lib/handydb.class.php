@@ -131,6 +131,8 @@ class HandyDB
 	
 	public function HandleError($query)
 	{
+        global $SETTINGS;
+
 		$message = '
 			<h3>' . $_SERVER['REQUEST_URI'] . '</h3>
 			<p>Referrer: ' . $_SERVER['HTTP_REFERER'] . '</p>
