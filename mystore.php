@@ -443,7 +443,16 @@ if($num_inventory_items > 0)
 else
   echo '<p>Your store is empty.</p>';
 ?>
-     <p><i>(Post an <a href="broadcast.php">in-game ad</a> to advertise your store!)</i></p>
+     <h5 style="padding-top: 2em; clear:both;">A Few Tips</h5>
+     <p>
+      The code for a link to your store is:<br />
+      <span style="white-space:pre; font-family:monospace;">{link <?= $SETTINGS['protocol'] ?>://www.psypets.net/userstore.php?user=<?= link_safe($user['display']) ?>}</span>
+     </p>
+     <p>
+      If you want to make the name of your store appear as the link, instead of the URL, use this:<br />
+      <span style="white-space:pre; font-family:monospace;">{link <?= $SETTINGS['protocol'] ?>://www.psypets.net/userstore.php?user=<?= link_safe($user['display']) ?> <?= $user['storename'] ?>}</span>
+     </p>
+     <p>Use these links to advertise your store in the <a href="viewplaza.php?plaza=5">Commerce</a> section of the plaza, or in an <a href="broadcast.php">in-game ad</a>!</p>
 <?php include 'commons/footer_2.php'; ?>
  </body>
 </html>

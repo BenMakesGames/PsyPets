@@ -1,6 +1,7 @@
 <?php
 require_once 'commons/settings.php';
 require_once 'commons/formatting.php';
+require_once 'libraries/ad_box.php';
 
 $NO_LOGIN = true;
 
