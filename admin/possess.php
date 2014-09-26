@@ -34,7 +34,7 @@ $host_user->LogIn();
 $raw_host_user = $host_user->RawData();
 
 setcookie(
-	$SETTINGS['cookie_rememberme'],
+	$SETTINGS['cookie_name'],
 	$raw_host_user['idnum'] . ';' . $raw_host_user['sessionid'],
 	time() + $raw_host_user['login_persist'],
 	$SETTINGS['cookie_path'],

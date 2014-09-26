@@ -1,0 +1,37 @@
+<?php
+header('X-Frame-Options: sameorigin');
+
+date_default_timezone_set('America/Los_Angeles');
+ini_set('default_charset', 'UTF-8');
+
+//$NO_LOGIN = true && ($_SERVER['REMOTE_ADDR'] != '184.6.30.60');
+
+$SETTINGS = array();
+
+$SETTINGS['author_real_name'] = 'Ben';
+$SETTINGS['author_email'] = 'ben@benmakesgames.com';
+$SETTINGS['author_resident_name'] = 'That Guy Ben';
+$SETTINGS['author_login_name'] = 'telkoth';
+
+
+$SETTINGS['site_domain'] = 'DOMAIN.TLD (or IP ADDRESS)';
+$SETTINGS['site_name'] = 'PsyPets';
+$SETTINGS['site_ingame_mailer'] = 'psypets';
+$SETTINGS['site_url'] = 'http://' . $SETTINGS['site_domain'];
+$SETTINGS['site_mailer'] = 'sender@psypets.net';
+
+$SETTINGS['wiki_domain'] = 'wiki.psypets.net';
+
+$SETTINGS['static_domain'] = 'STATIC DOMAIN NAME HERE';
+
+
+$SETTINGS['cookie_rememberme'] = 'psypets_rememberme';
+$SETTINGS['cookie_name'] = 'psypets_session';
+$SETTINGS['cookie_path'] = '/';
+$SETTINGS['cookie_domain'] = $SETTINGS['site_domain']; // or ".domain.tld"
+
+$SETTINGS['handydb']['host'] = 'localhost';
+$SETTINGS['handydb']['user'] = 'DB USERNAME HERE';
+$SETTINGS['handydb']['password'] = 'DB PASSWORD HERE';
+$SETTINGS['handydb']['database'] = 'DB NAME HERE';
+$SETTINGS['handydb']['charset'] = 'utf8';

@@ -91,7 +91,7 @@ abstract class psyDBObject
                     'p:' . $SETTINGS['handydb']['host'],
                     $SETTINGS['handydb']['user'],
                     $SETTINGS['handydb']['password'],
-                    $SETTINGS['mysql']['db']
+                    $SETTINGS['handydb']['database']
                 );
             }
             catch(\Exception $e)

@@ -13,11 +13,10 @@ if($user['multi_login'] == 'no' || $user['lastactivity'] < $now - 15 * 60)
   $database->FetchNone($command, 'logout.php');
 }
 
-setcookie($SETTINGS['cookie_rememberme'], '', 1, $SETTINGS['cookie_path'], $SETTINGS['cookie_domain']);
+setcookie($SETTINGS['cookie_name'], '', 1, $SETTINGS['cookie_path'], $SETTINGS['cookie_domain']);
 $_COOKIE = array();
 
 require_once 'commons/statlib.php';
 record_stat($user['idnum'], 'Logged Out', 1);
 
 header('Location: /');
-?>
