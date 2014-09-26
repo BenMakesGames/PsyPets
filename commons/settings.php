@@ -40,7 +40,7 @@ $CONTENT_STYLE = '';
 require_once 'commons/settings_light.php';
 require_once 'libraries/get_ip.php';
 
-$SETTINGS['secure_server'] = ($_SERVER['HTTPS'] == 'on');
+$SETTINGS['secure_server'] = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on');
 
 $SETTINGS['protocol'] = ($SETTINGS['secure_server'] ? 'https' : 'http');
 
