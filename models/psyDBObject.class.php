@@ -1,239 +1,252 @@
 <?php
 abstract class psyDBObject
 {
-  private static $db_connection = false;
+    private static $db_connection = false;
 
-  protected $_table;
-  protected $_data = false;
+    protected $_table;
+    protected $_data = false;
 
-  public function RawData() { return $this->_data; }
-  public function IsLoaded() { return($this->_data !== false); }
+    public function RawData() { return $this->_data; }
+    public function IsLoaded() { return($this->_data !== false); }
 
-  protected function Insert($params = array())
-  {
-    $command = '
-      INSERT INTO ' . $this->_table . '
-      (' . implode(', ', array_keys($params)) . ')
-      VALUES
-      (' . implode(', ', $this->QuoteArray($params)) . ')
-    ';
-    $this->FetchNone($command);
-    
-    return mysql_insert_id();
-  }
-
-  protected function Update($params = array())
-  {
-    if($params['where'] && count($params['where']) > 0)
-      ;
-    else
-      $this->HandleError('No WHERE given for ::Update');
-
-    $command = '
-      UPDATE ' . $this->_table . '
-      SET ' . implode(', ', $params['set']) . '
-      WHERE ' . implode(' AND ', $params['where']);
-
-    if($params['limit'])
-      $command .= ' LIMIT ' . $params['limit'];
-
-    $this->FetchNone($command);
-  }
-
-  protected function Count($params = array())
-  {
-    $command = '
-      SELECT COUNT(*) AS qty FROM ' . $this->_table . '
-      WHERE ' . implode(' AND ', $params['where']);
-
-    $data = $this->FetchSingle($command);
-
-    return $data['qty'];
-  }
-  
-  protected function Select($params = array())
-  {
-    $command = '
-      SELECT * FROM ' . $this->_table . '
-      WHERE ' . implode(' AND ', $params['where']);
-
-    if($params['order'])
-      $command .= ' ORDER BY ' . implode(', ', $params['order']);
-
-    if($params['limit'])
-      $command .= ' LIMIT ' . $params['limit'];
-
-    $this->_data = $this->FetchMultiple($command);
-
-    return $this->_data;
-  }
-
-  protected function SelectOne($params = array())
-  {
-    $command = '
-      SELECT * FROM ' . $this->_table . '
-      WHERE ' . implode(' AND ', $params['where']);
-
-    if($params['order'])
-      $command .= ' ORDER BY ' . implode(', ', $params['order']);
-
-    $command .= ' LIMIT 1';
-
-    $this->_data = $this->FetchSingle($command);
-
-    return $this->_data;
-  }
-
-  protected function __construct($table)
-  {
-    global $SETTINGS;
-  
-    if(psyDBObject::$db_connection === false)
+    protected function Insert($params = array())
     {
-      psyDBObject::$db_connection = @mysql_pconnect($SETTINGS['mysql']['uri'], $SETTINGS['mysql']['user'], $SETTINGS['mysql']['password']);
+        $this->FetchNone('
+          INSERT INTO ' . $this->_table . '
+            (' . implode(', ', array_keys($params)) . ')
+            VALUES
+            (' . implode(', ', $this->QuoteArray($params)) . ')
+        ');
 
-      if(!psyDBObject::$db_connection)
-      {
-        // 1203 == ER_TOO_MANY_USER_CONNECTIONS
-        if(mysql_errno() == 1203)
-        {
-          header('Location: /mysql_1203.php');
-          exit();
-        }
-        // 1040 == ER_CON_COUNT_ERROR
-        else if(mysql_errno() == 1040)
-        {
-          header('Location: /mysql_1040.php');
-          exit();
-        }
-        else
-        {
-          header('Location: /mysql_error.php?id=' . mysql_errno());
-          exit();
-        }
-      }
-
-      mysql_select_db($SETTINGS['mysql']['db'], psyDBObject::$db_connection);
-
-      $this->QueryDB('SET NAMES \'utf8\'');
+        return mysqli_insert_id(self::$db_connection);
     }
-    
-    $this->_table = $table;
-  }
 
-  public function QuoteArray($array)
-  {
-    $values = array();
+    protected function Update($params = array())
+    {
+        if($params['where'] && count($params['where']) > 0)
+            ;
+        else
+            $this->HandleError('No WHERE given for ::Update');
 
-    foreach($array as $value)
-      $values[] = $this->QuoteSmart($value);
+        $command = '
+            UPDATE ' . $this->_table . '
+            SET ' . implode(', ', $params['set']) . '
+            WHERE ' . implode(' AND ', $params['where']);
 
-    return $values;
-  }
+        if($params['limit'])
+            $command .= ' LIMIT ' . $params['limit'];
 
-  public function QuoteString($string)
-  {
-    // Stripslashes
-    if(get_magic_quotes_gpc())
-      $string = utf8_stripslashes($string);
+        $this->FetchNone($command);
+    }
 
-    // Quote if not integer
-    if(!is_numeric($string))
-      $string = "'" . mysql_real_escape_string($string, psyDBObject::$db_connection) . "'";
+    protected function Count($params = array())
+    {
+        $command = 'SELECT COUNT(*) AS qty FROM ' . $this->_table . ' WHERE ' . implode(' AND ', $params['where']);
 
-    return $string;
-  }
-  
-  public function QuoteSmart($value)
-  {
-    if(is_array($value))
-      return $this->QuoteArray($value);
-    else
-      return $this->QuoteString($value);
-  }
+        $data = $this->FetchSingle($command);
 
-  private function QueryDB($command)
-  {
-    return mysql_query($command);
-  }
+        return $data['qty'];
+    }
 
-  private function HandleError($query)
-  {
-    // e-mail me the details of the error!
-    $message =
-      '<p>Query: ' . $query . '</h3>' . "\n" .
-      '<p>MySQL Error: ' . mysql_error() . '</p>' . "\n" .
-      '<pre>' . '' . '</pre>' . "\n"
-    ;
+    protected function Select($params = array())
+    {
+        $command = 'SELECT * FROM ' . $this->_table . ' WHERE ' . implode(' AND ', $params['where']);
 
-    mail($SETTINGS['author_email'], $SETTINGS['site_name'] . ' particularly nasty database error', $message, 'From: ' . $SETTINGS['site_mailer']);
-    die('<p>A particularly nasty database error has occurred.  ' . $SETTINGS['author_resident_name'] . ' has been e-mailed with the details of this error.</p><p>Use the refresh button of your browser to retry doing whatever it was you were trying to do.  If the problem persists, please contact ' . $SETTINGS['author_resident_name'] . ' with details about what you were trying to do.  It\'ll help him fix whatever bug may be at work here.</p><p>Sorry about the inconvenience!</p>');
-  }
+        if($params['order'])
+            $command .= ' ORDER BY ' . implode(', ', $params['order']);
 
-  protected function FetchNone($command)
-  {
-    $result = $this->QueryDB($command);
+        if($params['limit'])
+            $command .= ' LIMIT ' . $params['limit'];
 
-    if(!$result)
-      $this->HandleError($command);
-  }
+        $this->_data = $this->FetchMultiple($command);
 
-  protected function FetchSingle($command)
-  {
-    $result = $this->QueryDB($command);
+        return $this->_data;
+    }
 
-    if(!$result)
-      $this->HandleError($command);
+    protected function SelectOne($params = array())
+    {
+        $command = '
+            SELECT * FROM ' . $this->_table . '
+            WHERE ' . implode(' AND ', $params['where']);
 
-    if(mysql_num_rows($result) == 0)
-      return false;
+        if($params['order'])
+            $command .= ' ORDER BY ' . implode(', ', $params['order']);
 
-    $data = mysql_fetch_assoc($result);
+        $command .= ' LIMIT 1';
 
-    mysql_free_result($result);
+        $this->_data = $this->FetchSingle($command);
 
-    return $data;
-  }
+        return $this->_data;
+    }
 
-  protected function FetchMultiple($command)
-  {
-    $result = $this->QueryDB($command);
+    protected function __construct($table)
+    {
+        global $SETTINGS;
 
-    if(!$result)
-      $this->HandleError($command);
+        if(psyDBObject::$db_connection === false)
+        {
+            try
+            {
+                psyDBObject::$db_connection = mysqli_connect(
+                    'p:' . $SETTINGS['handydb']['host'],
+                    $SETTINGS['handydb']['user'],
+                    $SETTINGS['handydb']['password'],
+                    $SETTINGS['mysql']['db']
+                );
+            }
+            catch(\Exception $e)
+            {
+                var_dump($e);
+                die();
+            }
 
-    if(mysql_num_rows($result) == 0)
-      return array();
+            if(mysqli_connect_errno())
+            {
+                // 1203 == ER_TOO_MANY_USER_CONNECTIONS
+                if(mysqli_connect_errno() == 1203)
+                {
+                    header('Location: /mysql_1203.php');
+                    exit();
+                }
+                // 1040 == ER_CON_COUNT_ERROR
+                else if(mysqli_connect_errno() == 1040)
+                {
+                    header('Location: /mysql_1040.php');
+                    exit();
+                }
+                else
+                {
+                    header('Location: /mysql_error.php?id=' . mysqli_connect_errno());
+                    exit();
+                }
+            }
 
-    $data = array();
+            $this->QueryDB('SET NAMES \'utf8\'');
+        }
 
-    while($row = mysql_fetch_assoc($result))
-      $data[] = $row;
+        $this->_table = $table;
+    }
 
-    mysql_free_result($result);
+    public function QuoteArray($array)
+    {
+        $values = array();
 
-    return $data;
-  }
+        foreach($array as $value)
+            $values[] = $this->QuoteSmart($value);
 
-  // fetches all available rows into an array indexed by the row's $by field value
-  protected function FetchMultipleBy($command, $by)
-  {
-    $result = $this->QueryDB($command);
+        return $values;
+    }
 
-    if(!$result)
-      $this->HandleError($command);
+    public function QuoteString($string)
+    {
+        // Quote if not numeric
+        if(!is_numeric($string))
+            $string = "'" . mysqli_real_escape_string(psyDBObject::$db_connection, $string) . "'";
 
-    if(mysql_num_rows($result) == 0)
-      return array();
+        return $string;
+    }
 
-    $data = array();
+    public function QuoteSmart($value)
+    {
+        if(is_array($value))
+            return $this->QuoteArray($value);
+        else
+            return $this->QuoteString($value);
+    }
 
-    while($row = mysql_fetch_assoc($result))
-      $data[$row[$by]] = $row;
+    /**
+     * @return mysqli_result|bool
+     */
+    private function QueryDB($command)
+    {
+        return mysqli_query(self::$db_connection, $command);
+    }
 
-    mysql_free_result($result);
+    private function HandleError($query)
+    {
+        // e-mail me the details of the error!
+        $message =
+            '<p>Query: ' . $query . '</h3>' . "\n" .
+            '<p>MySQL Error: ' . mysqli_error(self::$db_connection) . '</p>' . "\n" .
+            '<pre>' . '' . '</pre>' . "\n"
+        ;
 
-    return $data;
-  }
+        mail('admin@psypets.net', 'PsyPets particularly nasty database error', $message, 'From: sender@psypets.net');
+        die('<p>A particularly nasty database error has occurred.  That Guy Ben has been e-mailed with the details of this error.</p><p>Use the refresh button of your browser to retry doing whatever it was you were trying to do.  If the problem persists, please contact That Guy Ben with details about what you were trying to do.  It\'ll help him fix whatever bug may be at work here.</p><p>Sorry about the inconvenience!</p>');
+    }
+
+    protected function FetchNone($command)
+    {
+        $result = $this->QueryDB($command);
+
+        if(!$result)
+            $this->HandleError($command);
+    }
+
+    /**
+     * @return array|bool|null
+     */
+    protected function FetchSingle($command)
+    {
+        $result = $this->QueryDB($command);
+
+        if(!$result)
+            $this->HandleError($command);
+
+        if(mysqli_num_rows($result) == 0)
+            return false;
+
+        $data = mysqli_fetch_assoc($result);
+
+        mysqli_free_result($result);
+
+        return $data;
+    }
+
+    /**
+     * @return array
+     */
+    protected function FetchMultiple($command)
+    {
+        $result = $this->QueryDB($command);
+
+        if(!$result)
+            $this->HandleError($command);
+
+        if(mysqli_num_rows($result) == 0)
+            return array();
+
+        $data = array();
+
+        while($row = mysqli_fetch_assoc($result))
+            $data[] = $row;
+
+        mysqli_free_result($result);
+
+        return $data;
+    }
+
+    /**
+     * fetches all available rows into an array indexed by the row's $by field value
+     * @return array
+     */
+    protected function FetchMultipleBy($command, $by)
+    {
+        $result = $this->QueryDB($command);
+
+        if(!$result)
+            $this->HandleError($command);
+
+        if(mysqli_num_rows($result) == 0)
+            return array();
+
+        $data = array();
+
+        while($row = mysqli_fetch_assoc($result))
+            $data[$row[$by]] = $row;
+
+        mysqli_free_result($result);
+
+        return $data;
+    }
 }
-?>

@@ -60,9 +60,13 @@ if($_POST["submit"] == "Activate")
 
         psymail_user($this_user['user'], 'csilloway', 'Welcome to ' . $SETTINGS['site_name'] . '!', $message);
 
-				// give some starting items, ex:
-        
-				// add_inventory($this_user['user'], '', 'Orange', "Oranges are a delicious and filling treat.", "home");
+        add_inventory($this_user['user'], '', 'Small Painting', "Paintings and other decorative items in the house make your pets feel accomplished and successful.", "home");
+        add_inventory($this_user['user'], '', 'Beginner\'s Cards', "Every half-hour, instead of petting, you may play a game with your pet.", "home");
+        add_inventory($this_user['user'], '', 'White Pillow', "Comfort items, such as pillows, make your pet feel safe when kept around the house.", "home");
+        add_inventory($this_user['user'], '', 'Sugar', "While sugar cannot be fed directly to pets, it is a common ingredient in many recipes.", "home");
+        add_inventory($this_user['user'], '', 'Orange', "Oranges are a delicious and filling treat.", "home");
+        add_inventory($this_user['user'], '', 'Rice', "Prepare Rice on its own to create Rice Flour; prepare that to make Rice Noodles!", "home");
+        add_inventory($this_user['user'], '', 'Rubble', "Rummaging through debris might reveal something useful...", "home");
 
         $command = 'UPDATE monster_houses SET lasthour=' . ($now - 60 * 60) . ' WHERE userid=' . $this_user['idnum'] . ' LIMIT 1';
         $database->FetchNone($command, 'activating house');

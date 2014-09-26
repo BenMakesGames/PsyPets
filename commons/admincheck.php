@@ -10,4 +10,3 @@ if(!in_array($_SERVER['REMOTE_ADDR'], $allowed_ips))
 }
 
 $_GET['maintenance'] = 'no';
-?>

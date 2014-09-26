@@ -66,7 +66,7 @@ if($_GET['dialog'] == 'explanation' && $ark_quest['value'] == 0)
   $dialog_text = '<p>What?  Why?  A good question!  An excellent question!  Allow me to explain!</p>' .
                  '<p>It\'s a puzzle!</p>' .
                  '<p>Yes!  A puzzle!  And their chromosomes, they contains the pieces!  What\'s the full picture?  Hard to say... a literal picture?  A graphic?  Maybe!  Some kind of note, anyway... maybe a video!  That would be exciting!  Maybe even a 3D video!  Who knows!  So many possibilities!</p>' .
-                 '<p>Ah, but it\'s tricky business!  Whoever laid this puzzle was very clever; very sneaky.  The pets\' chromosomes, they\'re not quite like a human\'s!  Not like most animals\'!  No, no, not at all.  So many chromosomes.  It isn\'t just a matter of XX, or XY, or YY... their gender isn\'t even defined that way!  Well, monotremes - such as the platypus - are a bit odd, but not like this... no, this is different...</p>';
+                 '<p>Ah, but it\'s tricky business!  Whoever laid this puzzle was very clever; very sneaky.  The PsyPets\' chromosomes, they\'re not quite like a human\'s!  Not like most animals\'!  No, no, not at all.  So many chromosomes.  It isn\'t just a matter of XX, or XY, or YY... their gender isn\'t even defined that way!  Well, monotremes - such as the platypus - are a bit odd, but not like this... no, this is different...</p>';
   $options[] = '<a href="ark.php?dialog=confusion">(No, this is <em>confusing</em>...)</a>'; 
 }
 else if($_GET['dialog'] == 'confusion' && $ark_quest['value'] == 0) 
@@ -87,7 +87,7 @@ else if($_GET['dialog'] == 'okay' && $ark_quest['value'] == 0)
 }
 else if($badges['dna'] == 'no' && $item_count >= 50)
 {
-  $dialog_text = '<p>Oh, ' . $user['display'] . '!  Good to see you!  I have something for you: for your continued efforts!</p><p>And support!</p><p>50 pets!  Quite a lot!</p>' .
+  $dialog_text = '<p>Oh, ' . $user['display'] . '!  Good to see you!  I have something for you: for your continued efforts!</p><p>And support!</p><p>50 PsyPets!  Quite a lot!</p>' .
                  '<p><i>(You received the DNA Badge.)</i></p>' .
                  '<p>Ah?  Was I supposed to give this to you sooner?  Sorry, must have slipped the mind!  Lots to do, you know!  Lots of things slip by!  That\'s what the computer is for, of course... to make sure nothing important is lost...</p>' .
                  '<p>But badges?  Not part of the computer\'s job, of course!  To burden it with even such a trivial task... nonsense!  Wouldn\'t stand for it!  Every cycle must be devoted to piecing the sequences together!  There are so many combinations!</p>' .
@@ -107,7 +107,7 @@ else
                  '<p>But I should introduce myself!  I\'m Professor Maple, and this is my sidekick Mahog-- um... well, she was here a moment ago.  Huh... well, she tends to run off like that quite often.  I\'ll introduce you another time.</p>' .
                  '<p>Anyway, what was I saying?</p>' .
                  '<p>Oh yes!  What this is all for!</p>' .
-                 '<p>Well, collecting, of course!  Samples!  Samples of all of the Hollow Earth creatures - all of the pets.</p><p>Well, their chromosomes, to be precise.</p>';
+                 '<p>Well, collecting, of course!  Samples!  Samples of all of the Hollow Earth creatures - all of the PsyPets.</p><p>Well, their chromosomes, to be precise.</p>';
 
   $options[] = '<a href="ark.php?dialog=explanation">Ask why he\'s doing this.</a>';
 }
@@ -115,7 +115,7 @@ else
 include 'commons/html.php';
 ?>
  <head>
-  <title><?= $SETTINGS['site_name'] ?> &gt; The Ark</title>
+  <title>PsyPets &gt; The Ark</title>
 <?php include "commons/head.php"; ?>
  </head>
  <body>

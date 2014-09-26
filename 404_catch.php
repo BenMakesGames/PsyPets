@@ -1,1 +1,2 @@
-<?php Header("Location: /404.php?referer=" . $_GET['referer']); ?>
+<?php
+Header("Location: /404.php?referer=" . $_GET['referer']);

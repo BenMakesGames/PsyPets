@@ -264,6 +264,7 @@ if($_POST['submit'] == 'Exchange Items')
 
     require_once 'commons/statlib.php';
     record_stat($user['idnum'], 'Made an Exchange at the Potion Shop', $quantity);
+//    psymail_user('telkoth', 'psypets', $user['display'] . ' claimed a ' . $items_out[$out], 'they exchanged for ' . $payment[0] . 's');
   }
 }
 
@@ -279,6 +280,7 @@ include 'commons/html.php';
      <ul class="tabbed">
       <li><a href="/alchemist.php">General Shop</a></li>
       <li class="activetab"><a href="/alchemist_potions.php">Potion Shop</a></li>
+      <li><a href="/af_trinkets.php">Rare Trinkets</a></li>
       <li><a href="/alchemist_pool.php">Cursed Pool</a></li>
       <li><a href="/alchemist_transmute.php">Pet Transmutations</a></li>
      </ul>

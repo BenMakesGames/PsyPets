@@ -96,7 +96,7 @@ class House extends psyDBObject
         if($addon->Name() == $this_addon)
           $classes[] = 'activetab';
       
-        $xhtml .= ' <li class="' . implode(' ', $classes) . '" style="background-image: url(//' . $SETTINGS['static_domain'] . '/gfx/addons/' . urlize($addon->Name()) . '.png);"><nobr><a href="/myhouse/addon/' . urlize($addon->Name()) . '.php">' . $addon->Name() . '</a></nobr></li>';
+        $xhtml .= ' <li class="' . implode(' ', $classes) . '" style="background-image: url(//saffron.psypets.net/gfx/addons/' . urlize($addon->Name()) . '.png);"><nobr><a href="/myhouse/addon/' . urlize($addon->Name()) . '.php">' . $addon->Name() . '</a></nobr></li>';
       }
     }
 

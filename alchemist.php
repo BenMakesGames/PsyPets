@@ -218,6 +218,7 @@ include 'commons/html.php';
      <ul class="tabbed">
       <li class="activetab"><a href="/alchemist.php">General Shop</a></li>
       <li><a href="/alchemist_potions.php">Potion Shop</a></li>
+      <li><a href="/af_trinkets.php">Rare Trinkets</a></li>
       <li><a href="/alchemist_pool.php">Cursed Pool</a></li>
       <li><a href="/alchemist_transmute.php">Pet Transmutations</a></li>
      </ul>
@@ -225,7 +226,7 @@ include 'commons/html.php';
 if(strlen($_GET['msg']) > 0)
   $error_message = form_message(explode(',', $_GET['msg']));
 
-echo '<a href="/npcprofile.php?npc=The Alchemist"><img src="//' . $SETTINGS['static_domain'] . '/gfx/npcs/thealchemist.png" align="right" width="350" height="" alt="(The Alchemist)" /></a>';
+echo '<a href="/npcprofile.php?npc=Thaddeus"><img src="//' . $SETTINGS['static_domain'] . '/gfx/npcs/thaddeus.png" align="right" width="350" height="250" alt="(Thaddeus the Alchemist)" /></a>';
 
 include 'commons/dialog_open.php';
 

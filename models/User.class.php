@@ -144,8 +144,7 @@ class User extends psyDBObject
   static public function GetBySession()
   {
     $new_user = new User();
-
-    global $SETTINGS;
+		global $SETTINGS;
 
     if($_POST['login_name'] && $_POST['login_password'])
     {
@@ -160,7 +159,7 @@ class User extends psyDBObject
       {
         $new_user->LogIn();
 
-        setcookie($SETTINGS['cookie_rememberme'], $new_user->_data['idnum'] . ';' . $new_user->_data['sessionid'], time() + $new_user->_data['login_persist'], $SETTINGS['cookie_path'], $SETTINGS['cookie_domain']);
+        setcookie($SETTINGS['cookie_name'], $new_user->_data['idnum'] . ';' . $new_user->_data['sessionid'], time() + $new_user->_data['login_persist'], $SETTINGS['cookie_path'], $SETTINGS['cookie_domain']);
     
         return $new_user;
       }
@@ -178,7 +177,7 @@ class User extends psyDBObject
 				add_cookie_message('<span class="failure">Login name and password must both be provided.</span>');
 		}
 		
-    list($userid, $sessionid) = take_apart(';', $_COOKIE[$SETTINGS['cookie_rememberme']]);
+    list($userid, $sessionid) = take_apart(';', $_COOKIE['psypets_session']);
     $userid = (int)$userid;
     $sessionid = (int)$sessionid;
 
@@ -194,15 +193,7 @@ class User extends psyDBObject
       ));
 
       if($new_user->IsLoaded())
-			{
-        setcookie(
-					$SETTINGS['cookie_rememberme'],
-					$new_user->_data['idnum'] . ';' . $new_user->_data['sessionid'],
-					time() + $new_user->_data['login_persist'],
-					$SETTINGS['cookie_path'],
-					$SETTINGS['cookie_domain']
-				);
-			}
+        setcookie('psypets_session', $new_user->_data['idnum'] . ';' . $new_user->_data['sessionid'], time() + $new_user->_data['login_persist'], '/', '.psypets.net');
     }
 
     return $new_user;
@@ -210,4 +201,3 @@ class User extends psyDBObject
 
   protected function __construct() { parent::__construct('monster_users'); }
 }
-?>

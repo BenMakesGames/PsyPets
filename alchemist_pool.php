@@ -52,6 +52,7 @@ include 'commons/html.php';
      <ul class="tabbed">
       <li><a href="/alchemist.php">General Shop</a></li>
       <li><a href="/alchemist_potions.php">Potion Shop</a></li>
+      <li><a href="/af_trinkets.php">Rare Trinkets</a></li>
       <li class="activetab"><a href="/alchemist_pool.php">Cursed Pool</a></li>
       <li><a href="/alchemist_transmute.php">Pet Transmutations</a></li>
      </ul>
@@ -110,6 +111,26 @@ if(($inventory['Astrolabe']['qty'] >= 60 && $inventory['The Smiling Sun']['qty']
 }
 else
 	echo '<p class="failure">You don\'t have the items needed in your Storage.</p>';
+?>
+<h5>Pay 250 Favor to Use</h5>
+<p>You may pay 250 <a href="/buyfavors.php">Favor</a> to allow one pet access to the Cursed Pool.</p>
+<?php	
+if($user['idnum'] == 1 || $user['favor'] >= 250)
+{
+?>
+  <form action="/cursedpool.php" method="post">
+	<input type="hidden" name="payment" value="favor" />
+  <p><select name="petid">
+<?php
+  foreach($userpets as $pet)
+    echo '   <option value="' . $pet['idnum'] . '">' . $pet['petname'] . '</a>';
+?>
+  </select> <input type="submit" style="width:150px;" style value='"Take a dip" (250 Favor)' /></p>
+  </form>
+<?php
+}
+else
+	echo '<p class="failure">You don\'t have enough <a href="/buyfavors.php">Favor</a>.</p>';
 ?>
 <?php include 'commons/footer_2.php'; ?>
  </body>

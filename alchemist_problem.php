@@ -81,6 +81,7 @@ include 'commons/html.php';
      <ul class="tabbed">
       <li class="activetab"><a href="alchemist.php">General Shop</a></li>
       <li><a href="alchemist_potions.php">Potion Shop</a></li>
+      <li><a href="af_trinkets.php">Rare Trinkets</a></li>
       <li><a href="alchemist_pool.php">Cursed Pool</a></li>
       <li><a href="alchemist_transmute.php">Pet Transmutations</a></li>
      </ul>

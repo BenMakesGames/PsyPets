@@ -1,0 +1,62 @@
+<?php
+if($okay_to_be_here !== true)
+  exit();
+
+require_once 'commons/petlib.php';
+
+$pet_field = 'special_love';
+
+if(count($userpets) == 0)
+  echo '<p>You have no pet to give this to.</p>';
+else
+{
+  $petid = (int)$_POST['petid'];
+
+  if($petid > 0)
+    $target_pet = get_pet_byid($petid);
+  else
+    $target_pet = array();
+
+  if($target_pet['user'] != $user['user'] || $target_pet['dead'] != 'no' || $target_pet['zombie'] == 'yes' || $target_pet['location'] != 'home')
+  {
+?>
+<p>Who will you feed this strange potion to?</p>
+ <form method="post">
+ <p>
+  <select name="petid">
+<?php
+    foreach($userpets as $this_pet)
+    {
+      if($this_pet['dead'] != 'no')
+        echo '   <option disabled>' . $this_pet['petname'] . ' (is dead)</option>';
+      else if($this_pet['zombie'] == 'yes')
+        echo '   <option disabled>' . $this_pet['petname'] . ' (is a zombie)</option>';
+      else
+        echo '   <option value="' . $this_pet['idnum'] . '">' . $this_pet['petname'] . '</option>';
+    }
+?>
+  </select> <input type="submit" name="submit" value="Give" />
+ </p>
+ </form>
+<?php
+  }
+  else
+  {
+    delete_inventory_byid($this_inventory['idnum']);
+
+    if($target_pet[$pet_field] == 'no')
+    {
+      $command = 'UPDATE monster_pets SET ' . $pet_field . '=\'yes\' WHERE idnum=' . $target_pet['idnum'] . ' LIMIT 1';
+      $database->FetchNone($command, 'granting pet ' . $power_description);
+      
+      echo '<a href="/petprofile.php?petid=' . $petid . '">' . $target_pet['petname'] . '</a> has acquired a strange aura!</p>';
+    }
+    else
+    {
+      echo '<p>It seems to have no effect on ' . $target_pet['petname'] . '...</p>';
+    }
+
+    $AGAIN_WITH_ANOTHER = true;
+  }
+}
+?>

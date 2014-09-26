@@ -51,7 +51,7 @@ include 'commons/html.php';
 
 include 'commons/dialog_open.php';
 
-echo '<p>Ah, curious to see other Residents\' contributions?</p><p>What?  Why so many collections?  I told you, the chromosome combinations for pets are very strange!  And breeding can be very unreliable, as I\'m sure you know!  Mutations might also occur... I require redundancy to ensure accuracy!  This requires thoroughness if the puzzle is to be correctly solved!</p><p>At any rate, I wouldn\'t put the entire burden of collection on you!  No, no!  That would be ridiculous!  Even if you could manage, it\'d take far too long!</p>';
+echo '<p>Ah, curious to see other Residents\' contributions?</p><p>What?  Why so many collections?  I told you, the chromosome combinations for PsyPets are very strange!  And breeding can be very unreliable, as I\'m sure you know!  Mutations might also occur... I require redundancy to ensure accuracy!  This requires thoroughness if the puzzle is to be correctly solved!</p><p>At any rate, I wouldn\'t put the entire burden of collection on you!  No, no!  That would be ridiculous!  Even if you could manage, it\'d take far too long!</p>';
 
 include 'commons/dialog_close.php';
 
