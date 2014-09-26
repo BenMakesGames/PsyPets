@@ -2,10 +2,10 @@
 if(class_exists('Memcache'))
 {
   $MEMCACHE_SERVER = new Memcache;
-  $MEMCACHE_SERVER->connect('localhost', 11211) or die("Someone tell an admin that the Memcached server is down! It should be an easy fix, at least...");
+  $MEMCACHE_SERVER->connect('localhost', 11211) or die("Someone tell That Guy Ben that the Memcached server is down.  He'll know what to do.");
 }
 else
-  die("Someone tell the administrator that Memcached isn't installed.  He'll know what to do.");
+  die("Someone tell That Guy Ben that Memcached isn't installed.  He'll know what to do.");
 
 function cache_get($key)
 {

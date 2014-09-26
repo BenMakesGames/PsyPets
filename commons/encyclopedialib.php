@@ -7,6 +7,9 @@ $CUSTOM_DESC = array(
   'no' => 'Common',
   'yes' => 'Custom',
   'limited' => 'Limited',
+  'monthly' => 'Erstwhile',
+  'recurring' => 'Favor',
+  'x-game' => 'Cross-game',
 );
 
 
@@ -281,6 +284,7 @@ function RenderEncyclopediaItem(&$item, &$user, &$pets)
   }
 
   if($item['cursed'] == 'yes') $properties[] = '<li>Is "cursed" (cannot be moved out of the house)</li>';
+  if($item['cancombine'] == 'yes') $properties[] = '<li>Can be combined at the <a href="/af_combinationstation3.php">Combination Station</a></li>';
 
   if($item['questitem'] == 'yes')
     $properties[] = '<li>This item is important!  Hold on to it!</li>';

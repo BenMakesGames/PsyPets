@@ -399,7 +399,7 @@ function dream_description_aliens(&$pet)
       case 1: return $intro . '  They enslaved the entire planet!';
       case 2: return $intro . '  They stripped the planet of its natural resources, and left!';
       case 3: return $intro . '  In the end, Earth was destroyed!';
-      case 4: return $intro . '  But then an Ice Age suddenly struck, freezing everyone: aliens, humans, and pets!';
+      case 4: return $intro . '  But then an Ice Age suddenly struck, freezing everyone: aliens, humans, and PsyPets!';
     }
   }
   else

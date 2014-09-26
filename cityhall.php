@@ -190,6 +190,8 @@ if($city_hall_tutorial_quest === false)
 if($quest_totem['value'] >= 4)
   echo '<li><a href="cityhall_210.php">Room 210</a></li>';
 ?>
+      <li><a href="/af_resrename2.php">Name Change Application</a></li>
+      <li><a href="/af_movepet2.php">Pet Exchange</a></li>
      </ul>
 <?php
 if($error_message)
@@ -217,13 +219,30 @@ else
      <table>
      <tr><td valign="top">
 <?php
+  require_once 'commons/benlib.php';
   require_once 'commons/polllib.php';
+
+
+  $command = 'SELECT COUNT(*) AS count,AVG(pets) AS rating FROM psypets_whatisbendoing WHERE pets!=0';
+  $rate_pets = $database->FetchSingle($command, 'fetching pets votes');
+
+  $command = 'SELECT COUNT(*) AS count,AVG(community) AS rating FROM psypets_whatisbendoing WHERE community!=0';
+  $rate_community = $database->FetchSingle($command, 'fetching community totals');
+
+  $command = 'SELECT COUNT(*) AS count,AVG(gameplay) AS rating FROM psypets_whatisbendoing WHERE gameplay!=0';
+  $rate_gameplay = $database->FetchSingle($command, 'fetching game play totals');
 
   $current_poll = get_global('currentpoll');
 
   $poll = get_poll_byid($current_poll);
 ?>
 <div style="border: 1px solid #888; background-color: #f8f8f8; padding: 0.25em 0.5em; margin-bottom: 1em;"><table border="0" cellspacing="0" cellpadding="4" style="margin: 0; padding: 0;">
+ <tr>
+  <td><a href="/gamerating.php">How do you feel? <strong>Vote!</strong></a></td>
+  <td>Pets</td><td><nobr><?= rate_graphic((float)$rate_pets['rating']) ?></nobr></td>
+  <td>Community</td><td><nobr><?= rate_graphic((float)$rate_community['rating']) ?></nobr></td>
+  <td>Game&nbsp;Play</td><td><nobr><?= rate_graphic((float)$rate_gameplay['rating']) ?></nobr></td>
+ </tr>
  <tr>
   <td colspan="7" style="border-top: 1px solid #ccc;">
    <b>Current Poll:</b> <a href="pollstandalone.php"><?= $poll['title'] ?></a>

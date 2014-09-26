@@ -61,7 +61,7 @@ function max_active_pets(&$user, &$house)
 
 function room_display(&$house)
 {
-  global $THIS_ROOM;
+  global $THIS_ROOM, $SETTINGS;
 
   $m_rooms = take_apart(',', $house['rooms']);
   $addons = take_apart(',', $house['addons']);

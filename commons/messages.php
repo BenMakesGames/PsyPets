@@ -3,6 +3,8 @@ require_once 'commons/grammar.php';
 
 function message($msg, $custom)
 {
+  global $SETTINGS;
+
   $custom = strip_tags($custom);
 
   $messages = array(
@@ -106,7 +108,7 @@ function message($msg, $custom)
     97 => '<span class="failure">' . $custom . ' is not a member of this Group.</span>',
     98 => '<span class="failure">You do not have enough Votes.</span>',
     99 => '<span class="success">Your Votes have been cast.</span>',
-    100 => '<span class="success">Your report has been sent.  Thanks for helping! :)</span>',
+    100 => '<span class="success">Your report has been sent.  Thank you for helping PsyPets :)</span>',
     101 => '<span class="failure">You do not have the ingredients necessary to prepare that recipe.</span>',
     102 => '<span class="success">Your pets have been listed!</span>',
     103 => '<span class="success">Your pet has been listed!</span>',
@@ -118,6 +120,7 @@ function message($msg, $custom)
     109 => '<span class="failure">You did not select any pets.</span>',
     110 => '<span class="success">Your event has been cancelled.</span>',
     111 => '<span class="failure">None of the selected items were edible...</span>',
+    112 => '<span class="progress">Your access to the plaza has been restored.  Please remember that future infringements of the PsyPets Communication Agreement may remove your access to the plaza permanently!</span>',
     113 => '<span class="failure">Did not find any bids matching "' . $custom . '".</span>',
     114 => '<span class="failure">Did not find any bids matching exactly "' . $custom . '".</span>',
     115 => '<span class="success">Thank you for helping your pet develop and grow!</span>',
@@ -169,7 +172,7 @@ function message($msg, $custom)
     157 => '<span class="progress">' . $custom . ' wasn\'t able to make much progress in the adventure.</span>',
     158 => '<span class="success">' . $custom . ' went adventuring!</span>',
     159 => '<span class="failure">There is no resident named ' . $custom . '.</span>',
-    160 => '<span class="failure"><span class="failure">This thread is over a month old.  If it needs to be moved, trashed, stickied, etc, please ask ' . resident_link($SETTINGS['author_resident_name']) . ' to do so.</span>',
+    160 => '<span class="failure"><span class="failure">This thread is over a month old.  If it needs to be moved, trashed, stickied, etc, please ask ' . resident_link('That Guy Ben') . ' to do so.</span>',
     161 => '<span class="success">Your request has been added.  If you are also a watcher of the thread\'s destination, you may visit that section of the plaza and accept the move yourself.</span>',
     162 => '<span class="failure">You are already hosting three park events.</span>',
     163 => '<span class="failure">There is no such item.  Try using the search below to find what you\'re looking for.</span>',
@@ -201,4 +204,3 @@ function form_message($msgs)
   else
     return false;
 }
-?>

@@ -86,6 +86,8 @@ include 'commons/html.php';
 if($quest_totem['value'] >= 4)
   echo '<li><a href="cityhall_210.php">Room 210</a></li>';
 ?>
+      <li><a href="af_resrename2.php">Name Change Application</a></li>
+      <li><a href="af_movepet2.php">Pet Exchange</a></li>
      </ul>
 <?php
 if($EASTER)

@@ -51,7 +51,7 @@ function get_card_game($userid)
 
 function render_card_game($game, $link)
 {
-  global $CARD_IMAGES, $CARD_ITEMS;
+  global $CARD_IMAGES, $CARD_ITEMS, $SETTINGS;
 
   echo '<table>';
 

@@ -64,7 +64,7 @@ function unenter_pet($petid, $eventid)
 
 function DoEvent($idnum)
 {
-  global $now;
+  global $now, $SETTINGS;
 
   $command = 'SELECT * FROM monster_events ' .
              'WHERE idnum=' . (int)$idnum . ' LIMIT 1';
@@ -91,7 +91,7 @@ function DoEvent($idnum)
                'WHERE `idnum`=' . $petid . ' LIMIT 1';
     $this_pet = fetch_single($command, 'fetching participating pet');
 
-    if($this_pet === false || $this_pet['user'] == $SETTINGS['site_ingame_mailer'] || $this_pet['location'] != 'home' || $this_pet['dead'] != 'no' || $this_pet['zombie'] == 'yes')
+    if($this_pet === false || $this_pet['user'] == 'psypets' || $this_pet['location'] != 'home' || $this_pet['dead'] != 'no' || $this_pet['zombie'] == 'yes')
     {
       unenter_pet($petid, $idnum);
       $good_to_go = false;
@@ -327,7 +327,7 @@ function DoEvent($idnum)
 
     psymail_user(
       $event['host'],
-      $SETTINGS['site_ingame_mailer'],
+      'psypets',
       'Your event, ' . $event['name'] . ', completed',
       'You collected ' . $amount . '{m} from entrance fees for this event' . $and_tokens . '. (<a href="eventdetails.php?idnum=' . $event['idnum'] . '">See event results</a>.)' . $extra_message
     );
@@ -573,12 +573,20 @@ function DoTugofWar($event, $pets, $users)
 
     save_pet($pets[$idnum], array('love', 'safety', 'esteem', 'str', 'sta', 'dex', 'athletics', 'str_count', 'sta_count', 'dex_count', 'athletics_count'));
   }
+/*
+  $extra_report .= '</ul>' .
+    '<p>$user_places: ' . print_r($user_places, true) . '</p>' .
+    '<p>$user_prizes: ' . print_r($user_prizes, true) . '</p>';
 
+  psymail_user('telkoth', 'psypets', 'ToW debugging', $extra_report);
+*/
   return array($user_places, $user_prizes, $event_report);
 }
 
 function DoPicturades($event, $pets, $users)
 {
+  global $SETTINGS;
+
   $avg_level = floor(($event['minlevel'] + $event['maxlevel']) / 2);
   $exp_mult = ceil($avg_level / 4);
 
@@ -689,7 +697,7 @@ function DoPicturades($event, $pets, $users)
       $random_resident['user'],
       $SETTINGS['site_ingame_mailer'],
       'You participated in a Picturades tie-breaking bonus-round!',
-      'You were asked to draw ' . $thing . ' for the pets involved! ({link //' . $SETTINGS['site_domain'] . '/eventdetails.php?idnum=' . $event['idnum'] . ' View the event\'s details?})'
+      'You were asked to draw ' . $thing . ' for the pets involved! ({link http://' . $SETTINGS['site_domain'] . '/eventdetails.php?idnum=' . $event['idnum'] . ' View the event\'s details?})'
     );
   
     require_once 'commons/statlib.php';
@@ -1988,7 +1996,7 @@ function DoCookOff($event, $pets, $users)
     'Potato' => '<i>potato factoids</i>',
     'Cream Cheese' => '<i>cream cheese factoids</i>',
     'Azuki Bean' => '<i>azuki bean factoids</i>',
-    'Broccoli' => 'There is also, of course, living broccoli, but don\'t worry!  That\'s not what we have the contestants working with here today.  These are your standard broccolis.  Hopefully we don\'t startle any of the contestants by using it.  Ha, ha!',
+    'Broccoli' => 'There are of course living, PsyPets broccoli, but don\'t worry!  That\'s not what we have the contestants working with here today.  These are your standard broccolis.  Hopefully we don\'t startle any of the contestants by using it.  Ha, ha!',
     'Ginger' => 'If there\'s ever been a secret ingredient that had a wide range of possibilities, <em>this</em> is it.',
     'Coconut' => '<i>coconut factoids</i>',
     'Corn' => '<i>corn factoids</i>',

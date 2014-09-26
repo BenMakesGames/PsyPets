@@ -666,6 +666,8 @@ function has_any_spell_bonuses(&$pvp)
 
 function render_airship_bonuses_as_list_xhtml($bonuses)
 {
+  global $SETTINGS;
+
   $items = array();
 
   foreach($bonuses as $type=>$details)
@@ -685,7 +687,7 @@ function render_airship_bonuses_as_list_xhtml($bonuses)
         $items[] = ($details >= 0 ? '+' : '') . $details . ' Seat' . ($details == 1 || $details == -1 ? '' : 's');
         break;
       case 'movement':
-        $items[] = 'Movement: <img src="//' . $SETTINGS['static_domain'] . '/gfx/airship/move-' . $details['direction'] . '-' . $details['distance'] . '.png" class="inlineimage" />';
+        $items[] = 'Movement: <img src="//saffron.psypets.net/gfx/airship/move-' . $details['direction'] . '-' . $details['distance'] . '.png" class="inlineimage" />';
         break;
       default:
         $items[] = '&lt;undefined&gt;';
@@ -698,4 +700,3 @@ function render_airship_bonuses_as_list_xhtml($bonuses)
   else
     return '';
 }
-?>

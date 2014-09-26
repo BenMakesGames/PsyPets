@@ -79,6 +79,8 @@ include 'commons/html.php';
       <li><a href="/help/">Help Desk</a></li>
       <li><a href="cityhall_106.php">Room 106</a></li>
       <li class="activetab"><a href="cityhall_210.php">Room 210</a></li>
+      <li><a href="af_resrename2.php">Name Change Application</a></li>
+      <li><a href="af_movepet2.php">Pet Exchange</a></li>
      </ul>
 <?php
 if($julio_is_away)
@@ -88,6 +90,9 @@ if($julio_is_away)
 }
 else
 {
+?>
+<!--     <img src="//saffron.psypets.net/gfx/npcs/julio_beiler.png" align="right" width="350" alt="(HERG Archaeologist Julio Beiler)" />-->
+<?php
   include 'commons/dialog_open.php';
 
   if($complete_totem_quest_dialog)
