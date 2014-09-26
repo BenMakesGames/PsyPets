@@ -1,4 +1,6 @@
 <?php
+require_once 'commons/settings_light.php';
+
 // "G" is 24-hour hour sans leading zero, "i" is minutes with leading 0
 $maintenance_when = (int)date('Gi');
 
@@ -37,7 +39,6 @@ $SITE_COLORS = array(
 $CONTENT_CLASS = 'paddedcell';
 $CONTENT_STYLE = '';
 
-require_once 'commons/settings_light.php';
 require_once 'libraries/get_ip.php';
 
 $SETTINGS['secure_server'] = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on');
