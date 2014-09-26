@@ -34,8 +34,8 @@ include 'commons/html.php';
 if($user['readtos'] == 'no')
 {
 ?>
-     <h4>The Terms of Service Have Changed!</h4>
-     <p>You must agree to the Terms of Service to play.  Since they have been changed, you are being presented them again.</p>
+     <h4>PsyPets' Terms of Service Have Changed!</h4>
+     <p>You must agree to PsyPets' Terms of Service to play.  Since they have been changed, you are being presented them again.</p>
 <?php
 }
 

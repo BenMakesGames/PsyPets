@@ -51,9 +51,8 @@ if($ad !== false && $ad['permanent'] == 'no' && $option >= 1 && $option <= 4)
       
       $poster = get_user_byid($ad['userid'], 'user,display');
       
-      psymail_user($poster['user'], $SETTINGS['site_name'], 'Your ad was removed!', 'The ' . $SETTINGS['site_name'] . ' community found the following ad to be inappropriate.  The ad has been canceled.  No refund will be issued.{hr}' . $ad['ad'] . '{hr}If you believe your ad was unjustly removed, please contact <a href="admincontact.php">an administrator</a>.');
-      
-			// TODO: send administrators a mail about this, as well
+      psymail_user($poster['user'], $SETTINGS['site_ingame_mailer'], 'Your ad was removed!', 'The PsyPets community found the following ad to be inappropriate.  The ad has been canceled.  No refund will be issued.{hr}' . $ad['ad'] . '{hr}If you believe your ad was unjustly removed, please contact <a href="admincontact.php">an administrator</a>.');
+      psymail_user($SETTINGS['author_login_name'], $SETTINGS['site_ingame_mailer'], $poster['display'] . '\'s ad was removed!', 'The PsyPets community found the following ad to be inappropriate.  The ad has been canceled.{hr}' . $ad['ad']);
     }
     else
     {
@@ -65,4 +64,3 @@ if($ad !== false && $ad['permanent'] == 'no' && $option >= 1 && $option <= 4)
 
 if($_POST['ajax'] != 'yes')
   header('Location: ./park.php');
-?>

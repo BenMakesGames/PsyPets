@@ -47,11 +47,8 @@ $increment = pow(10, max(0, floor(log($auction_details["bidvalue"], 10)) - 1));
 
 $match_name = '/' . preg_replace('/[0-9]+/', '[0-9]*', $user['user']) . '/';
 
-// TODO: message an administrator if the user accounts bidding and hosting are suspiciously similar
-/*
 if(preg_match($match_name, $auction_owner['user']) > 0)
-  psymail_user('telkoth', $SETTINGS['site_ingame_mailer'], 'possible self-bidding', $user['display'] . ' (' . $user['user'] . ') bid on auction #' . $auction_details['idnum'] . ' hosted by ' . $auction_owner['display'] . ' (' . $auction_owner['user'] . ')');
-*/
+  psymail_user($SETTINGS['author_login_name'], $SETTINGS['site_ingame_mailer'], 'possible self-bidding', $user['display'] . ' (' . $user['user'] . ') bid on auction #' . $auction_details['idnum'] . ' hosted by ' . $auction_owner['display'] . ' (' . $auction_owner['user'] . ')');
 
 // ---
 

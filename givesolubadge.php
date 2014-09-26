@@ -39,10 +39,10 @@ $badges = get_badges_byuserid($profile_user['idnum']);
 
 if($badges['worstideaever'] == 'no' && $user['idnum'] != $profile_user['idnum'])
 {
-  // if the browsing account is older than the profile's account by one year, or the browsing account was
-  // one of the first 10 in existence, then the browsing account may give the profile's
+  // if the browsing account is older than the profile's account by one year, or the browsing account was created
+  // before July 4th 2004 (3 months after PsyPets' creation), then the browsing account may give the profile's
   // account the 'worstideaever' badge.
-  if($user['signupdate'] <= $profile_user['signupdate'] - 365 * 24 * 60 * 60 || $user['idnum'] <= 10)
+  if($user['signupdate'] <= $profile_user['signupdate'] - 365 * 24 * 60 * 60 || $user['signupdate'] <= 1088930100)
     $give_worst_idea_ever_badge = 'yes';
   else
     $give_worst_idea_ever_badge = 'no';

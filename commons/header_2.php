@@ -1,6 +1,15 @@
 <?php
 $_title_items_ = array(
-  'item1.png', 'item2.png', 'item3.png',
+  'fruit/banana.png', 'vase_uncommon.png', 'tool_thimble.png',
+  'potion/undex.png', 'sword/clouds.png', 'cape/goodhope.png', 'city/losangeles.png',
+  'muffin/blueberry.png', 'alcohol/pinacolada.png', 'wand/amber.png', 'book/dead.png',
+  'calc_graphing.png', 'chess/blackqueen.png', 'celery_peanutbutter.png',
+  'copperpipe.png', 'fish.png', 'flower/plilac.png', 'hamburger_cheese_dressed.png',
+  'honey.png', 'hungry_cherub_4.png', 'instrument_azureguitar.png', 'keyhole.png',
+  'kimono_starry.png', 'mac_and_cheese.png', 'megaphone.png', 'necklace/pearltriad.png',
+  'onigiri_plain.png', 'pen_magicfeather.png', 'photon.png', 'ring/hactcin.png',
+  'ring/nullloop.png', 'scroll1.png', 'slingshot.png', 'staff/looooove.png',
+  'steak.png', 'supernova.png', 'telescope.png', 'whip_pleiades.png', 'love.png',
 );
 
 if($now_month == 12 || $now_month == 1)

@@ -155,6 +155,14 @@ else
 $walls = explode(',', $house['wallpapers']);
 $wallpaper = $walls[$offset];
 
+if($user['take_survey_please'] == 'yes')
+{
+  psymail_user($user['user'], 'csilloway', 'Monthly Survey', 'Hey, ' . $user['display'] . '!  I was hoping you could take this quick survey for me.  We collect responses every month, to try and get a feel for how you think everything is going.<br /><br />The survey is no more than three questions long - sometimes less for newer players - and while it\'s entirely optional, we\'d really love to hear from you!<br /><br /><ul><li><a href="gamerating.php">Take the survey</a></li></ul>');
+
+  $command = 'UPDATE monster_users SET take_survey_please=\'no\' WHERE idnum=' . $user['idnum'] . ' LIMIT 1';
+  $database->FetchNone($command, 'clearing survey alert from user account');
+}
+
 if($wallpaper != 'none')
 {
   if(is_numeric($wallpaper))
@@ -201,7 +209,7 @@ include 'commons/html.php';
  <head>
 <?php include 'commons/head.php'; ?>
   <title><?= $SETTINGS['site_name'] ?> &gt; <?= $user['display'] ?>'s House &gt; <?= $sayroom ?> Room</title>
-  <script type="text/javascript" src="//<?= $SETTINGS['static_domain'] ?>/js/scrolldetect.js"></script>
+  <script type="text/javascript" src="<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/js/scrolldetect.js"></script>
 <?php include 'commons/ajaxinventoryjs.php'; ?>
   <script type="text/javascript">
   function select_new_destination(id)
@@ -683,7 +691,7 @@ echo '</p>';
 
 if($page_note)
 {
-  echo '<p><i>(You have over 2000 items in this room!  When this happens, ' . $SETTINGS['site_name'] . ' paginates your room\'s display.)</i></p>';
+  echo '<p><i>(You have over 2000 items in this room!  When this happens, PsyPets paginates your room\'s display.)</i></p>';
   echo paginate($num_pages, $page, 'myhouse.php?page=%s');
 }
 

@@ -14,6 +14,9 @@ require_once 'commons/messages.php';
 require_once 'commons/userlib.php';
 require_once 'commons/itemlib.php';
 
+$special_offer = (($now_month == 10 && $now_day >= 21) || ($now_month == 11 && $now_day <= 3));
+$special_offer = $special_offer || (($now_month == 12 && $now_day >= 12) || $now_month == 1);
+
 $command = 'SELECT COUNT(*) AS c FROM monster_inventory WHERE user=' . quote_smart($user['user']) . ' AND location=\'storage\' AND itemname=\'Duct Tape\'';
 $data = $database->FetchSingle($command, 'fetching duct tape count');
 $duct_tape = (int)$data['c'];
@@ -149,6 +152,13 @@ include 'commons/html.php';
      <ul class="tabbed">
       <li><a href="/smith.php">Smith</a></li>
       <li class="activetab"><a href="/repair.php">Repair</a></li>
+      <li><a href="/af_getrare2.php">Unique Item Shop</a></li>
+      <li><a href="/af_combinationstation3.php">Combination Station</a></li>
+<?php
+if($special_offer)
+  echo '<li><a href="/specialoffer_smith.php">Special Offer <i style="color:red;">ooh!</i></a></li>';
+?>
+<!--      <li><a href="af_replacegraphic.php">Broken Image Repair</a></li>-->
      </ul>
 <?php
 // SMITHY NPC NINA

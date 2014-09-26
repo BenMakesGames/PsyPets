@@ -63,6 +63,8 @@ if($_POST['submit'] == 'Exchange')
       $errors[] = 'Nice, nice... I\'ll have \'em dropped off at your ' . $user['incomingto'] . '.';
     else
       $errors[] = 'Nice, nice... I\'ll have it dropped off at your ' . $user['incomingto'] . '.';
+
+//    psymail_user('telkoth', 'psypets', $user['display'] . ' claimed a ' . $items_out[$out], 'they exchanged for ' . $payment[0] . 's');
   }
 }
 
@@ -79,6 +81,7 @@ include 'commons/html.php';
      <ul class="tabbed">
       <li><a href="pawnshop.php">Pawn Shop</a></li>
       <li class="activetab"><a href="pawnshop_exchange.php">Back Room</a></li>
+      <li><a href="af_customavataritem2.php">Custom Avatar Item Builder</a></li>
      </ul>
 <?php
 if(strlen($_GET['msg']) > 0)

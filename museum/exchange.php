@@ -72,6 +72,8 @@ if($_POST['submit'] == 'Exchange')
       $errors[] = 'Fantastic!  You\'ll find the ' . $quantity . ' ' . $items_out[$out] . ' in your ' . $user['incomingto'] . '!';
     else
       $errors[] = 'Fantastic!  You\'ll find the ' . $items_out[$out] . ' in your ' . $user['incomingto'] . '!';
+
+//    psymail_user('telkoth', 'psypets', $user['display'] . ' claimed a ' . $items_out[$out], 'they exchanged for ' . $payment[0] . 's');
   }
 }
 

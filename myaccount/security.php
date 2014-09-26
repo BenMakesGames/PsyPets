@@ -85,6 +85,11 @@ else if($_POST["action"] == "updateemail" && $user['childlockout'] == 'no')
 
     $email_message = "Please enter a valid e-mail address.";
   }
+  else if(strpos($_POST['newemail'], '@psypets.net'))
+  {
+    $email_message = 'That e-mail address is already in use.';
+    $errored = true;
+  }
   else
   {
 		$existing = $database->FetchSingle('
@@ -110,7 +115,7 @@ else if($_POST["action"] == "updateemail" && $user['childlockout'] == 'no')
       $message  = "<p>To confirm this e-mail address as your new address, click this link (or copy and paste it into your browser):</p>\n\n";
       $message .= '<p>//' . $SETTINGS['site_domain'] . '/updateemail.php?id=' . $user["idnum"] . "&confirm=$activekey</p>\n\n";
 
-      mail($_POST["newemail"], $SETTINGS['site_name'] . " E-Mail Address Change-o-Matic", $message, "MIME-Version: 1.0\nContent-type: text/html; charset=utf-8\nFrom: " . $SETTINGS['site_mailer']);
+      mail($_POST["newemail"], $SETTINGS['site_name'] . " E-Mail Address Change-o-Matic", $message, "MIME-Version: 1.0\nContent-type: text/html; charset=iso-8859-1\nFrom: sender@psypets.net");
 
       $general_message = "E-mail address change submitted.  Check your mail at " . $_POST["newemail"] . " to confirm the change.  If you entered the wrong e-mail address just now, go ahead and enter the correct one and click \"Change E-mail\" again.";
 

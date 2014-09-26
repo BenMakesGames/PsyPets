@@ -210,8 +210,8 @@ if($st_patricks_bank['value'] > 0 || $st_patricks_totem['value'] > 0)
 
       if($st_patricks_bank['value'] > 1)
       {
-/*        $rewards[] = 'And for being one of the top 10: 50 Favor Ticket';
-        add_inventory($user['user'], 'u:28357', '50 Favor Ticket', 'For helping Lakisha on St. Patrick\'s Day', 'storage/incoming');*/
+        $rewards[] = 'And for being one of the top 10: 50 Favor Ticket';
+        add_inventory($user['user'], 'u:28357', '50 Favor Ticket', 'For helping Lakisha on St. Patrick\'s Day', 'storage/incoming');
       }
 
       flag_new_incoming_items($user['user']);
@@ -225,8 +225,8 @@ if($st_patricks_bank['value'] > 0 || $st_patricks_totem['value'] > 0)
 
       if($st_patricks_totem['value'] > 1)
       {
-/*        $rewards[] = 'And for being one of the top 10: 50 Favor Ticket';
-        add_inventory($user['user'], 'u:28356', '50 Favor Ticket', 'For helping Matalie on St. Patrick\'s Day', 'storage/incoming');*/
+        $rewards[] = 'And for being one of the top 10: 50 Favor Ticket';
+        add_inventory($user['user'], 'u:28356', '50 Favor Ticket', 'For helping Matalie on St. Patrick\'s Day', 'storage/incoming');
       }
 
       flag_new_incoming_items($user['user']);
@@ -310,11 +310,13 @@ include 'commons/html.php';
       <li><a href="/bank_exchange.php">Exchanges</a></li>
       <li><a href="/ltc.php">License to Commerce</a></li>
       <li><a href="/allowance.php">Allowance Preference</a></li>
+      <li><a href="/af_favortickets.php">Get Favor Tickets</a></li>
+      <li><nobr><a href="/af_favortransfer2.php">Transfer Favor</a></nobr></li>
 <?= $st_patricks ? '<li class="stpatrick"><nobr><a href="/stpatricks.php?where=bank">St. Patrick\'s Day Competition</a></nobr></li>' : '' ?>
      </ul>
 <?php
 // BANKER LAKISHA
-echo '<a href="/npcprofile.php?npc=The Banker"><img src="//' . $SETTINGS['static_domain'] . '/gfx/npcs/thebanker.png" align="right" width="350" height="" alt="(The Banker)" /></a>';
+echo '<a href="/npcprofile.php?npc=Lakisha+Pawlak"><img src="//' . $SETTINGS['static_domain'] . '/gfx/npcs/banker_lakisha.png" align="right" width="350" height="427" alt="(Lakisha the Banker)" /></a>';
 
 include 'commons/dialog_open.php';
 

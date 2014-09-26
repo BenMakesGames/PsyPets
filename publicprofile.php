@@ -2,7 +2,12 @@
 $require_petload = 'no';
 $require_login = 'no';
 
-if($_GET['resident'] == $SETTINGS['site_ingame_mailer'])
+if($_GET['resident'] == 'broadcasting')
+{
+  header('Location: ./broadcast.php');
+  exit();
+}
+if($_GET['resident'] == 'psypets')
 {
   header('Location: ./cityhall.php');
   exit();
