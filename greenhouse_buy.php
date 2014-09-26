@@ -126,7 +126,7 @@ if(strlen($_GET['msg']) > 0)
   $error_message = form_message(explode(',', $_GET['msg']));
 
 // VANESSA ROSELLE
-echo '<a href="npcprofile.php?npc=The Florist"><img src="//' . $SETTINGS['static_domain'] . '/gfx/npcs/theflorist.jpg" align="right" width="350" height="" alt="(The Florist)" /></a>';
+echo '<a href="npcprofile.php?npc=Vanessa+Roselle"><img src="' . $SETTINGS['protocol'] . '://saffron.psypets.net/gfx/npcs/flowergirl.jpg" align="right" width="350" height="706" alt="(Vanessa the Florist)" /></a>';
 
 include 'commons/dialog_open.php';
 

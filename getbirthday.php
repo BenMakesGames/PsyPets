@@ -58,7 +58,7 @@ include 'commons/html.php';
  <body>
 <?php include 'commons/header_2.php'; ?>
      <h4>Your Date of Birth</h4>
-     <p>The <a href="http://www.ftc.gov/ogc/coppa1.htm">Children's Online Privacy Protection Act of 1998</a> tells me that players under the age of 13 may not sign up.  Sorry.</p>
+     <p>The <a href="http://www.ftc.gov/ogc/coppa1.htm">Children's Online Privacy Protection Act of 1998</a> tells me that players under the age of 13 may not sign up for PsyPets.  Sorry.</p>
      <p>Please re-enter your birthday:</p>
 <?php
 if($birthday_error)

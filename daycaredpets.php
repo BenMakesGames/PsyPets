@@ -2,7 +2,12 @@
 $require_petload = 'no';
 $require_login = 'no';
 
-if($_GET['resident'] == $SETTINGS['site_ingame_mailer'])
+if($_GET['resident'] == 'broadcasting')
+{
+  header('Location: ./broadcast.php');
+  exit();
+}
+if($_GET['resident'] == 'psypets')
 {
   header('Location: ./cityhall.php');
   exit();
@@ -127,9 +132,10 @@ if($user['idnum'] > 0)
 {
   if($badges['worstideaever'] == 'no' && $user['idnum'] != $profile_user['idnum'])
   {
-    // if the browsing account is older than the profile's account by one year, or the browsing account is one of the
-		// first 10 in existence, then the browsing account may give the profile's account the 'worstideaever' badge.
-    if($user['signupdate'] <= $profile_user['signupdate'] - 365 * 24 * 60 * 60 || $user['idnum'] <= 10)
+    // if the browsing account is older than the profile's account by one year, or the browsing account was created
+    // before July 4th 2004 (3 months after PsyPets' creation), then the browsing account may give the profile's
+    // account the 'worstideaever' badge.
+    if($user['signupdate'] <= $profile_user['signupdate'] - 365 * 24 * 60 * 60 || $user['signupdate'] <= 1088930100)
       $give_worst_idea_ever_badge = 'yes';
     else
       $give_worst_idea_ever_badge = 'no';
@@ -187,6 +193,8 @@ if($admin['clairvoyant'] == 'yes')
 
 if($profile_user['idnum'] == $user['idnum'])
   echo '      <li><a href="/myaccount/profile.php">Edit my profile</a></li>';
+else if($admin["managedonations"] == "yes")
+  echo '      <li><a href="/myaccount/favorhistory.php?idnum=' . $profile_user['idnum'] . '">View Favor history</a></li>';
 
 if($admin['manageaccounts'] == 'yes')
 {

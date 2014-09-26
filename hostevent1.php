@@ -426,7 +426,7 @@ else
 if($size_error)
   echo '<td class="failure">' . $size_error . '</td>';
 else
-  echo '<td>The number of participants.  The Park Service will charge you ' . $event_cost . '<span class="money">m</span> per pet.</td>';
+  echo '<td>The number of participants.  The PsyPets Park Service will charge you ' . $event_cost . '<span class="money">m</span> per pet.</td>';
 ?>
       </tr>
       <tr>

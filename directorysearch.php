@@ -89,7 +89,7 @@ if($_POST['action'] == 'search')
   else
   {
     if($_POST['minage'] > 0)
-      $warnings[] = '<p class="obstacle">The law prevents children under the age of 13 from signing up. If you lie, and are caught, your account will be deleted!</p>';
+      $warnings[] = '<p class="obstacle">Children under the age of 13 cannot play PsyPets.</p>';
     $_POST['minage'] = '';
   }
 
@@ -102,7 +102,7 @@ if($_POST['action'] == 'search')
   else
   {
     if($maxage > 0)
-      $warnings[] = '<p class="obstacle">The law prevents children under the age of 13 from signing up. If you lie, and are caught, your account will be deleted!</p>';
+      $warnings[] = '<p class="obstacle">Children under the age of 13 cannot play PsyPets.</p>';
     $_POST['maxage'] = '';
   }
 
@@ -185,7 +185,7 @@ if(count($errors) > 0)
 else
 {
 ?>
-     <p>All the search fields are optional.  <strong>Remember:</strong> this does not search all of the Residents, only those who opted to be searchable (<a href="/myaccount/searchable.php">edit your searchable profile</a>).</p>
+     <p>All the search fields are optional.  <strong>Remember:</strong> this does not search all of the PsyPets residents, only those who opted to be searchable (<a href="/myaccount/searchable.php">edit your searchable profile</a>).</p>
 <?php
 }
 ?>

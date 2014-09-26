@@ -14,8 +14,8 @@ $npc = array(
   'graphic' => '//' . $SETTINGS['static_domain'] . '/gfx/npcs/receptionist.png',
   'width' => 350,
   'height' => 275,
-  'name' => 'The Receptionist',
-  'dialog' => '<p>New to ' . $SETTINGS['site_name'] . '? Feeling a little confused? ' . $SETTINGS['site_name'] . ' is a big place, and there\'s a lot to it, but hopefully I can point you in the right direction.</p>',
+  'name' => 'Claire Silloway',
+  'dialog' => '<p>New to ' . $SETTINGS['site_name'] . '? Feeling a little confused? PsyPets is a big place, and there\'s a lot to it, but hopefully I can point you in the right direction.</p>',
 );
 
 if($user !== false)
@@ -25,6 +25,8 @@ if($user !== false)
     'Help Desk' => '',
     'Room 106' => '/cityhall_106.php',
     'Room 210' => '/cityhall_210.php',
+    'Name Change Application' => '/af_resrename2.php',
+    'Pet Transfer' => '/af_movepet2.php',
   );
 
   $totem_quest = QuestValue::Get($user['idnum'], 'totem quest');
@@ -67,26 +69,54 @@ include 'commons/html.php';
       <a href="/help/petcare.php">Pet Care</a><br />
       Information on how to take care of, raise, and even equip your pets.
      </li>
+     <li>
+      <a href="http://wiki.psypets.net/The_Psychology_Behind_PsyPets">The Psychology Behind PsyPets</a> (at <a href="http://wiki.psypets.net/">PsyHelp</a>)<br />
+      The theories behind the game, and their application.
+     </li>
+     <li>
+      <a href="http://wiki.psypets.net/Game_mechanics">Game Mechanics</a> (at <a href="http://wiki.psypets.net/">PsyHelp</a>)<br />
+      Explains some of the mechanics of the game, such as time-flow, leveling up, and so on.
+     </li>
+     <li>
+      <a href="http://wiki.psypets.net/FAQ">Frequently Asked Questions</a> (at <a href="http://wiki.psypets.net/">PsyHelp</a>)<br />
+      How to interpret your pet's feelings, how to make money, the rules for Capture the Flag, and more.
+     </li>
+     <li>
+      <a href="/wherethemoneygoes.php">What Is "Favor"?</a><br />
+      Information about supporting PsyPets with money (thank you!), receiving "Favor" in exchange, and the history behind the system.
+     </li>
     </ul>
     <h5>Other Resources</h5>
     <ul class="spacedlist">
      <li>
-      <a href="/help/npclist.php">NPC Directory</a><br />
-      Links to the profiles of the various game NPCs (non-player characters).
+      <a href="/help/npclist.php">HERG Staff</a> (NPCs)<br />
+      Links to the profiles of the HERG staff, and the various entrepreneurs.
+     </li>
+     <li>
+      <a href="http://wiki.psypets.net/">PsyHelp</a><br />
+      A PsyPets wiki maintained by other PsyPets players.  It contains collected knowledge on items, game mechanics, and other things.  Since it is maintained by other players, it's accuracy cannot be guaranteed... but it's pretty good :)
+     </li>
+     <li>
+      <a href="http://wiki.psypets.net/How_PsyPets_Was_Made">How PsyPets Was Made</a> (at <a href="http://wiki.psypets.net/">PsyHelp</a>)<br />
+      Lots of people are curious to know how I actually created the game.  This should give you an idea.
      </li>
      <li>
       <a href="/help/design-philosophies.php">Design Philosophies</a><br />
       There are certain feelings <?= $SETTINGS['site_name'] ?> wants to convey, and experiences it wants to create.
      <li>
       <a href="/help/bannedurls.php">Banned URLs</a><br />
-      A scant few URLs are banned on <?= $SETTINGS['site_name'] ?>, and cannot be included in Plaza posts or messages.  This page contains a list of the URLs, and the reasons for their banning.
+      A scant few URLs are banned on <?= $SETTINGS['site_name'] ?>, and cannot be included in Plaza posts or PsyMail.  This page contains a list of the URLs, and the reasons for their banning.
+     </li>
+     <li>
+      <a href="/recreading.php">"Recommended" Reading</a><br />
+      A list of books that have given me ideas for <?= $SETTINGS['site_name'] ?> and/or been purchased with the idea that they'll give me ideas for PsyPets :P  Some of these are really fun, and definitely worth checking out, or even buying.
      </li>
     </ul>
     <h5>Contacts</h5>
     <ul class="spacedlist">
      <li>
       <a href="/admincontact.php">Contact an Administrator In-Game</a><br />
-      Sends an in-game message.  You must be logged in..
+      Sends a PsyMail.  You must be logged in to send PsyMails.
      </li>
      <li>
       <a href="/contactme.php">Contact an Administrator Out-of-Game</a><br />
@@ -97,11 +127,11 @@ include 'commons/html.php';
     <ul class="spacedlist">
      <li>
       <a href="/meta/termsofservice.php">Terms of Service</a><br />
-      The Terms of Sevice, or "Play Like This, Or Not At All."
+      PsyPets' Terms of Sevice, or "Play <?= $SETTINGS['site_name'] ?> Like This, Or Not At All."
      </li>
      <li>
       <a href="/meta/privacy.php">Privacy Policy</a><br />
-      Policy on how information you provide about yourself is used.
+      How information you provide about yourself is used.
      </li>
      <li>
       <a href="/meta/copyright.php">Copyright Information</a><br />

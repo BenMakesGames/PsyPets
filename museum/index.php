@@ -20,7 +20,7 @@ $badges = get_badges_byuserid($user['idnum']);
 if($_GET['dialog'] == 'explainmuseum')
 {
   $dialog_text = '<p>Hm?  This?  Why, this is a museum, of course!  Here we catalog and categorize everything!  <em>Everything!</em></p>' .
-                 '<p>Well, that\'s not entirely accurate.  We are primarily interested in samples from the Hollow Earth, and the creations of the pets.</p>' .
+                 '<p>Well, that\'s not entirely accurate.  We are primarily interested in samples from the Hollow Earth, and the creations of the PsyPets.</p>' .
                  '<p>Perhaps you could help!  In fact, we\'re counting on your help!  Depending on it!</p>' .
                  '<p>You see, we\'d like a single, good sample of everything!  <em>Everything!</em>  Anything you can get your hands on, we\'ll take one!</p>';
 }
