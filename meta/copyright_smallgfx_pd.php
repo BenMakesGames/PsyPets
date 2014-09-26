@@ -39,7 +39,7 @@ $pages = paginate($max_pages, $page, '/meta/copyright_smallgfx_pd.php?order=$ord
 include 'commons/html.php';
 ?>
  <head>
-  <title><?= $SETTINGS['site_name'] ?> &gt; Help &gt; Copyright Information &gt; Public Domain Item, Pet and Avatar Graphics</title>
+  <title>PsyPets &gt; Help &gt; Copyright Information &gt; Public Domain Item, Pet and Avatar Graphics</title>
 <?php include 'commons/head.php'; ?>
  </head>
  <body>
@@ -48,6 +48,7 @@ include 'commons/html.php';
 <ul class="tabbed">
  <li><a href="/meta/copyright.php">General Copyright Information</a></li>
  <li class="activetab"><a href="/meta/copyright_smallgfx.php">Item, Pet and Avatar Graphics</a></li>
+ <li><a href="/meta/copyright_mahjong.php">Mahjong Graphics</a></li>
  <li><a href="/meta/copyright_largegfx.php">NPC Graphics</a></li>
  <li><a href="/meta/copyright_code.php">Code Libraries</a></li>
 </ul>
@@ -93,6 +94,13 @@ foreach($notices as $notice)
       $source = '';
 ?>
         <p><i><?= $notice["title"] ?></i><?= strlen($notice['names']) > 0 ? ' by ' . str_replace(',', ', ', $notice["names"]) : '' ?><br /><span class="size8">found in the public domain<?= $source ?></span></p>
+        <?= (strlen($notice["text"]) > 0) ? '<p><i>' . $notice['text'] . '</i></p>' : '' ?>
+<?php
+  }
+  else if($notice['rights'] == 'unlimited')
+  {
+?>
+        <p><i><?= $notice["title"] ?></i> &copy; <?= $notice['year'] ?> <?= str_replace(',', ', ', $notice["names"]) ?><br /><span class="size8"><a href="/meta/copyright_contracts.php?item=<?= $notice['idnum'] ?>">most rights reserved</a> (click for details)</span></p>
         <?= (strlen($notice["text"]) > 0) ? '<p><i>' . $notice['text'] . '</i></p>' : '' ?>
 <?php
   }

@@ -25,7 +25,7 @@ if($_POST['action'] == 'ireadit' && (int)$user['idnum'] > 0)
 include 'commons/html.php';
 ?>
  <head>
-  <title><?= $SETTINGS['site_name'] ?> &gt; Terms of Service</title>
+  <title>PsyPets &gt; Terms of Service</title>
 <?php include 'commons/head.php'; ?>
  </head>
  <body>
@@ -46,7 +46,7 @@ if($user['readtos'] == 'no')
 ?>
      <hr />
      <form method="post">
-     <p>To continue playing <?= $SETTINGS['site_name'] ?>, you must read and agree to these Terms of Service.</p>
+     <p>To continue playing PsyPets, you must read and agree to these Terms of Service.</p>
      <p>If you are not willing to read or agree to these Terms of Service, log out now.</p>
      <p><input type="hidden" name="action" value="ireadit" /><input type="submit" value="I Agree" /></p>
 <?php
