@@ -40,6 +40,15 @@ sudo nano /etc/php.ini
 cd /var/www/html
 sudo git clone http://github.com/BenMakesGames/PsyPets.git
 
+	IMPORT DB
+
+mysql --user=root -p
+	create database psypets;
+	exit
+mysql --user=root -p psypets < db_structure.sql
+mysql --user=root -p psypets < db_globals.sql
+
+
 	CONFIGURE PSYPETS
 
 sudo nano /var/www/html/PsyPets/lib/commons/settings_light.php.example

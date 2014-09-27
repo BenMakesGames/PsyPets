@@ -26,8 +26,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Server Requirements
--------------------
+Server Requirements & Installation
+----------------------------------
 
 * A web server (I've only worked with Apache/httpd)
 * PHP, with "short tags" enabled
@@ -47,72 +47,50 @@ Installing Required Software
 www.psypets.net runs on Linux. I have, at least at one time in the past, installed PsyPets on a Windows machine, but
 it was long ago, and I did not test it extensively. if you plan to install on Windows, you may encounter trouble.
 
-the install procedures will vary a lot depending on the exact OS you use. also keep in mind that not all Linuxes are alike (even basic tasks like installing software will vary from Linux to Linux).
+see INSTALL.TXT for installation instructions. these were written for CentOS/RedHat 7. if you are using a different
+flavor of linux, your install procedures will no doubt be different. not all Linuxes are alike.
 
 * if you have a host that installs software for you, you probably don't need to worry about anything, except that memcache(d) will probably not be installed; you'll need to ask for it to be installed, or edit it out of PsyPets.
-* if you are setting up your own Linux host, you probably don't need me to tell you how :P note that installing memcache(d) is a pain in the ass - google it.
+* if you are setting up your own Linux host, you probably don't need me to tell you how :P
 * if you want to set up PsyPets on your personal Windows PC, you should google for "WAMP" (a Windows Apache MySQL PHP bundle) and install one. most WAMP bundles come with lovely tools that make editing Apache, MySQL and PHP settings easy. memcache(d) may not be available for Windows - I haven't looked.
 * if you want to set up PsyPets on your personal Mac PC, you're on your own. (I haven't messed with Macs since the days of HyperCard and ResEdit.) but since Mac OS X is a special flavor of Linux, it should work well (with fewer problems than you'd get on Windows). memcache(d) may still be a problem.
 
-additional tools I have personally used for development and maintainance of PsyPets:
+additional tools I have personally used for development and maintenance of PsyPets:
 
-* Notepad++ - you could also try PHPStorm: I use it at work, but never used it for PsyPets.
+* PHPStorm - I used to notepad++, and that WORKED, but a real IDE is highly recommended
 * phpMyAdmin
 * Adobe Fireworks - for making graphics. it's amazing. I've used it for over 10 years now (god, that's terrifying to think about >_>)
 * FileZilla - for uploading to a remote server.
 * PuTTy - for command-line access to a remote server.
 
-Database and Other Settings
----------------------------
+Configuration
+-------------
 
-to start, edit these two files to get things running:
-
-* libraries/settings.php
-* commons/settings_light.php
-
-unfortunately, PsyPets used two different libraries to connect to the database.
-HandyDB is the newer, fancy method which uses better, faster functions; its
-settings are in library/settings.php.  the code which uses the older functions
-uses the settings in commons/settings_light.php  there are a lot of other
-settings in commons/settings_light.php which you should be sure to configure,
-as well, including domain name, cookies, and others.
-
-also:
-
-* commons/settings.php
-		may have system-specific variables you need to modifiy
-* meta/privacy.php
-    your privacy policy goes here (how do you use users' email addresses?) and
-		be sure to note that the site uses cookies to maintain their sessions
-* commons/tos.php
-    should be edited to have the site's Terms of Service
-* commons/abuseexamples.php
-    references some rules in the ToS
-* help/design-philosophies.php
-    what direction do you wish to take the game with your future developments?
-		for some examples of design pillars, and how they're used in game design, check out these articles:
-		http://massively.joystiq.com/2013/03/29/gdc-2013-dean-hall-on-the-pillars-of-dayzs-design/
-		http://www.destinypedia.com/Seven_Pillars_of_Design
-		http://danielprimed.com/2010/07/design-discussions-deconstructing-the-video-game-three-pillars-of-design-for-interactive-drama-heavy-rain/
-		http://diablo.incgamers.com/blog/comments/diablo-3s-seven-design-pillars-2
+* lib/commons/settings_light.php.example
+	edit and rename to lib/commons/settings_light.php
+* lib/commons/settings.php
+	may have system-specific variables you need to modify
+* web/meta/privacy.php
+	your privacy policy goes here (how do you use users' email addresses?) and
+	be sure to note that the site uses cookies to maintain their sessions
+* lib/commons/tos.php
+	should be edited to have the site's Terms of Service
+* lib/commons/abuseexamples.php
+	references some rules in the ToS
+* web/help/design-philosophies.php
+	what direction do you wish to take the game with your future developments?
+	for some examples of design pillars, and how they're used in game design, check out these articles:
+	http://massively.joystiq.com/2013/03/29/gdc-2013-dean-hall-on-the-pillars-of-dayzs-design/
+	http://www.destinypedia.com/Seven_Pillars_of_Design
+	http://danielprimed.com/2010/07/design-discussions-deconstructing-the-video-game-three-pillars-of-design-for-interactive-drama-heavy-rain/
+	http://diablo.incgamers.com/blog/comments/diablo-3s-seven-design-pillars-2
 
 finally:
 
 * check/update all the .htaccess files
 * set up cron jobs for each of the tasks in crontab/
-    if you don't know what cron jobs are, search the internets!
-		if you're hosting on Windows, it won't be cron jobs, it'll be scheduled tasks
-		
-Create Database Tables
-----------------------
-
-you'll find everything in:
-
-* db_structure.sql
-* db_globals.sql
-
-you can import these via phpMyAdmin (see "installing software", above), or the
-command-line, if you know how.
+	if you don't know what cron jobs are, search the internets!
+	if you're hosting on Windows, it won't be cron jobs, it'll be scheduled tasks
 
 Sign Up; Give Yourself Administrative Rights
 --------------------------------------------
@@ -135,18 +113,18 @@ recipes which appear in the game.
 
 a COUPLE of the admin tools provide interfaces for this, but even some of those
 are old and do not work properly. it is probably best to edit things in the
-database directly (I recommend installing phpMyAdmin!)
+database directly (phpMyAdmin! so useful!)
 
 some database tables to get started on:
 
 * monster_items
-    contains all of the game's item definitions
+	contains all of the game's item definitions
 * monster_monster and monster_prey
-    contains the monsters and prey which your pets may adventure/hunt
+	contains the monsters and prey which your pets may adventure/hunt
 * monster_recipes
-    contains recipes which players can prepare
+	contains recipes which players can prepare
 * psypets_jewelry (and many others)
-    contains crafting information for the pets
+	contains crafting information for the pets
 
 Table Descriptions
 ------------------
