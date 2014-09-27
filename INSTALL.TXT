@@ -1,0 +1,60 @@
+it goes something like this. if I missed anything, lemme know!
+
+	INSTALL EVERYTHING
+
+sudo yum update
+sudo yum install mariadb mariadb-server
+sudo yum install httpd sendmail
+sudo yum install php php-mysql php-mbstring php-mcrypt php-devel php-pear
+sudo yum install memcached
+sudo yum install git gcc gcc-g++ make
+sudo yum install zlib zlib-devel
+sudo pecl install memcache
+	near the end of the memcache install, you will see a path to memcache.so; note this
+
+	START EVERYTHING
+
+sudo service httpd start
+sudo service mariadb start
+sudo service memcached start
+sudo chkconfig httpd on
+sudo chkconfig mariadb on
+sudo chkconfig memcached on
+
+	CONFIGURE EVERYTHING
+
+sudo secure_mysql_installation
+
+sudo nano /etc/httpd/conf/httpd.conf
+	modify web root to be /var/www/html/PsyPets/web
+		AllowOverride All
+	add index.php to DirectoryIndex (before index.html)
+
+sudo nano /etc/php.ini
+	set "date.timezone" to something
+	add "extension=/usr/lib64/php/modules/memcache.so"
+		might be different; see above notes regarding pecl install memcache
+
+	DOWNLOAD PSYPETS
+
+cd /var/www/html
+sudo git clone http://github.com/BenMakesGames/PsyPets.git
+
+	CONFIGURE PSYPETS
+
+sudo nano /var/www/html/PsyPets/lib/commons/settings_light.php.example
+	modify, and save as settings_light.php
+
+	FUCKIN' SELINUX
+
+sudo semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/html/PsyPets/errorlogs(/.*)?'
+sudo restorecon -v '/var/www/html/PsyPets/errorlogs'
+
+sudo semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/html/PsyPets/lib/commons/standalone/HTMLPurifier/DefinitionCache/Serializer/(HTML|CSS|URI)(/.*)?'
+sudo restorecon -v '/var/www/html/PsyPets/lib/commons/standalone/HTMLPurifier/DefinitionCache/Serializer/HTML'
+sudo restorecon -v '/var/www/html/PsyPets/lib/commons/standalone/HTMLPurifier/DefinitionCache/Serializer/CSS'
+sudo restorecon -v '/var/www/html/PsyPets/lib/commons/standalone/HTMLPurifier/DefinitionCache/Serializer/URI'
+
+	RESTART APACHE
+
+sudo service httpd restart
