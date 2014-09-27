@@ -58,4 +58,3 @@ $FLAVORS = array(
 $COLORS = array(
   'none', 'red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'white', 'black',
 );
-?>

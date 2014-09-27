@@ -494,4 +494,3 @@ function house_is_full($myuser, $mypets)
 {
   return(house_bulk($myuser, $mypets) >= $myuser['homesize']);
 }
-?>

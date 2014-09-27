@@ -67,4 +67,3 @@ function tapestry_food_value($itemname)
 {
   return ceil(generic_craft_value($itemname) / 1.4);
 }
-?>

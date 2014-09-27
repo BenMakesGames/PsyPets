@@ -7,4 +7,3 @@ function __autoload($class_name)
   if(file_exists(WEB_ROOT . '/models/' . $class_name . '.class.php'))
     require_once WEB_ROOT . '/models/' . $class_name . '.class.php';
 }
-?>
