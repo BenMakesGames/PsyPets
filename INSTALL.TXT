@@ -48,11 +48,17 @@ mysql --user=root -p
 mysql --user=root -p psypets < db_structure.sql
 mysql --user=root -p psypets < db_globals.sql
 
-
 	CONFIGURE PSYPETS
 
 sudo nano /var/www/html/PsyPets/lib/commons/settings_light.php.example
 	modify, and save as settings_light.php
+
+	PERMISSIONS
+
+sudo chown apache:apache /var/www/html/PsyPets/errorlogs -R
+sudo chmod 755 /var/www/html/PsyPets/errorlogs -R
+sudo chown apache:apache /var/www/html/PsyPets/lib/commons/standalone/HTMLPurifier/DefinitionsCache/Serializer -R
+sudo chmod 755 /var/www/html/PsyPets/lib/commons/standalone/HTMLPurifier/DefinitionsCache/Serializer -R
 
 	FUCKIN' SELINUX
 

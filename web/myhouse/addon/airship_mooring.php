@@ -61,11 +61,7 @@ require 'commons/html.php';
 echo $message;
 
 room_display($house);
-?>
-     <ul>
-      <li><a href="/myhouse/addon/airship_mooring_new.php">Make new Airship</a></li>
-     </ul>
-<?php
+
 if(count($airships) > 0)
 {
   $rowclass = begin_row_class();
@@ -98,7 +94,7 @@ if(count($airships) > 0)
        </td>
        <td class="centered"><?= item_display($part_chassis, '') ?></td>
        <td><?= $part_chassis['chassis'] ?></td>
-       <td><?= airship_link($airship) ?></td>
+       <td></td>
        <td><ul class="plainlist"><?= $details ?></ul></td>
        <td><?php
     if($airship['disabled'] == 'yes')

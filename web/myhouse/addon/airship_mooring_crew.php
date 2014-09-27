@@ -65,51 +65,39 @@ room_display($house);
       <tr><th>Weight</th><td><?= ($airship['weight'] / 10) ?></td></tr>
      </table>
      <h5>Crew (<?= $crew_count . '/' . $airship['seats'] ?>)</h5>
-<?php
-if($airship['seats'] == 0)
-  echo '<p>This airship has no Seats.  To add Seats, add chairs or couches to the airship.</p>';
-else if($airship['returntime'] > $now)
-  echo '     <ul><li class="dim">Change crew (cannot change crew while ship is out)</li></ul>';
-else
-  echo '     <ul><li><a href="/myhouse/addon/airship_mooring_addcrew.php?idnum=' . $shipid . '">Change crew</a></li></ul>';
-
-if($crew_count > 0)
-{
-?>
+<?php if($crew_count > 0): ?>
      <table>
       <tr class="titlerow">
        <th></th><th></th><th>Pet</th><th>Bonuses</th>
       </tr>
-<?php
-  $members = explode(',', $airship['crewids']);
+    <?php
+      $members = explode(',', $airship['crewids']);
 
-  $rowclass = begin_row_class();
-  $count = 0;
+      $rowclass = begin_row_class();
+      $count = 0;
 
-  foreach($members as $member)
-  {
-    $pet = get_pet_byid($member);
-    $count++;
+      foreach($members as $member)
+      {
+        $pet = get_pet_byid($member);
+        $count++;
 
-    $bonuses = airship_pet_bonus_direct($pet, $user['user']);
-    
-    if($count > $airship['seats'])
-      $extra_class = ' dim';
-?>
+        $bonuses = airship_pet_bonus_direct($pet, $user['user']);
+
+        if($count > $airship['seats'])
+          $extra_class = ' dim';
+    ?>
       <tr class="<?= $rowclass . $extra_class ?>">
        <td></td>
        <td><?= pet_graphic($pet) ?></td>
        <td><?= $pet['petname'] ?></td>
        <td>&lt;undefined&gt;</td>
       </tr>
-<?php
-    $rowclass = alt_row_class();
-  }
-?>
+    <?php
+        $rowclass = alt_row_class($rowclass);
+      }
+    ?>
      </table>
-<?php
-}
-?>
+<?php endif; ?>
 <?php include 'commons/footer_2.php'; ?>
  </body>
 </html>

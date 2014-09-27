@@ -92,7 +92,12 @@ foreach($ship_parts as $this_part)
     $details = get_item_byname($this_part);
 
     foreach($parts[$this_part] as $stat=>$bonus)
-      $newairship[$stat] += $bonus;
+    {
+        if(array_key_exists($stat, $newairship))
+            $newairship[$stat] += $bonus;
+        else
+            $newairship[$stat] = $bonus;
+    }
 
     $newairship['bulk'] += $details['bulk'];
     $newairship['weight'] += $details['weight'];
@@ -121,4 +126,3 @@ foreach($refund as $itemname)
   add_inventory($user['user'], '', $itemname, 'Recovered from an Airship', 'home');
 
 header('Location: /myhouse/addon/airship_mooring_edit.php?idnum=' . $shipid . '&msg=131');
-?>

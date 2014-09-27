@@ -128,11 +128,6 @@ function airship_can_attack(&$airship)
   return($airship['disabled'] == 'no' && $airship['propulsion'] > 0 && $airship['crewids'] != '' && $airship['mana'] >= 0 && $airship['power'] >= 0 && $airship['seats'] >= 1 || $airship['returntime'] > $now);
 }
 
-function airship_link(&$airship)
-{
-  return '<a href="/myhouse/addon/airshipprofile.php?idnum=' . $airship['idnum'] . '">' . $airship['name'] . '</a>';
-}
-
 function airship_record_win(&$airship)
 {
   $airship['wins']++;

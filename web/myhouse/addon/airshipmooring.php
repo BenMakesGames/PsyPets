@@ -15,6 +15,8 @@ $owner = get_user_bydisplay($_GET['resident']);
 $command = 'SELECT * FROM psypets_airships WHERE ownerid=' . $owner['idnum'] . ' ORDER BY name ASC';
 $airships = fetch_multiple($command, 'fetching this resident\'s airships');
 
+$airship_count = count($airships);
+
 include 'commons/html.php';
 ?>
  <head>
@@ -30,38 +32,31 @@ include 'commons/html.php';
  <body>
 <?php include 'commons/header_2.php'; ?>
      <h4><?= resident_link($owner['display']) ?> &gt; Airship Mooring</h4>
-<?php
-$airship_count = count($airships);
-
-if($airship_count > 0)
-{
-?>
+<?php if($airship_count > 0): ?>
      <h5>Airships (<?= $airship_count ?>)</h5>
      <table>
       <tr class="titlerow">
        <th></th><th>Chassis</th><th>Name</th>
       </tr>
-<?php
-  $rowclass = begin_row_class();
+    <?php
+      $rowclass = begin_row_class();
 
-  foreach($airships as $airship)
-  {
-    $chassis = get_item_byname($airship['chassis']);
+      foreach($airships as $airship)
+      {
+        $chassis = get_item_byname($airship['chassis']);
 
-    echo '<tr class="' . $rowclass . '">' .
-         '<td class="centered">' . item_display($chassis, '') . '</td>' .
-         '<td>' . $chassis['itemname'] . '</td>' .
-         '<td>' . airship_link($airship)  . '</td></tr>';
-    
-    $rowclass = alt_row_class($rowclass);
-  }
-?>
+        echo '<tr class="' . $rowclass . '">' .
+             '<td class="centered">' . item_display($chassis, '') . '</td>' .
+             '<td>' . $chassis['itemname'] . '</td>' .
+             '<td></td></tr>';
+
+        $rowclass = alt_row_class($rowclass);
+      }
+    ?>
      </table>
-<?php
-}
-else
-  echo '<p>This Resident has no Airships.</p>';
-?>
+<?php else: ?>
+  <p>This Resident has no Airships.</p>
+<?php endif; ?>
 <?php include 'commons/footer_2.php'; ?>
  </body>
 </html>

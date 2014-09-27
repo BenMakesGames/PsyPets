@@ -71,11 +71,6 @@ echo '<p>' . $message_text . '</p>';
      <h5>Parts</h5>
      <ul>
 <?php
-if($airship['returntime'] > $now)
-  echo '<li class="dim">Add part (cannot add parts while Airship is out)</li>';
-else
-  echo '<li><a href="/myhouse/addon/airship_mooring_addpart.php?idnum=' . $shipid . '">Add part</a></li>';
-
 echo '<li><a href="/myhouse/addon/airship_mooring_recycle.php?idnum=' . $shipid . '" onclick="return confirm(\'Really retire this Airship?  All of its parts, as well as the chassis, will be returned to your Incoming, and all record of this ship will be removed - FOREVER.\');">Retire this Airship</a></li>';
 ?>
      </ul>
