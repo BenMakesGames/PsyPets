@@ -63,12 +63,23 @@ $npc = floor($now / (24 * 60 * 60)) % 3 + 1;
 if($now_month == 1 && $now_day == 18 && $now_year == 2012)
   include 'commons/index/nocopapipa.php';
 else
-  include 'commons/index/' . $npc . '.php';
+{
 ?>
-    <h4 style="clear:both;">Latest News <a href="/rss_news.xml"><img src="<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/gfx/famfamfam/feed.png" width="16" height="16" alt="RSS Feed" class="inlineimage" /></a></h4>
-    <div id="latestnews" class="cityhallpost category_<?= $category ?>">
+    <div style="margin:70px 85px 100px;"><a href="/signup.php"><img src="//<?= $SETTINGS['static_domain'] ?>/gfx/ui/what-is-psypets.png" width="710" height="364" /></a></div>
+<?php
+}
+?>
+    <h4 style="clear:both;">Latest News <a href="/rss_news.xml"><img src="//<?= $SETTINGS['static_domain'] ?>/gfx/famfamfam/feed.png" width="16" height="16" alt="RSS Feed" class="inlineimage" /></a></h4>
+    <div style="float:right;width:200px; border:2px solid #9c9;border-radius:5px; padding:10px 10px 0;color:#999;background-color:#efe;">
+        <p>PsyPets is an open-source project! That means you can contribute to the game, or even start your own copy!</p>
+
+        <p><a href="http://github.com/BenMakesGames/PsyPets/">The source code is available on GitHub.</a></p>
+
+        <p><a href="http://terrepets.com">Try out out TerrePets</a>, one of PsyPets' siblings!</p>
+    </div>
+    <div id="latestnews" class="cityhallpost category_<?= $category ?>" style="width:630px;">
      <h5><?= format_text($general_post['subject']) ?></h5>
-		 <div style="max-height:500px; overflow:auto; padding:0;">
+		 <div style="max-height:500px;min-height:100px; overflow:auto; padding:0;">
       <p><?= format_text($general_post['message']) ?></p>
 		 </div>
      <p class="dim nomargin" style="border-top:1px solid rgba(0, 0, 0, 0.5);"><i>&mdash; posted by <?= $sender['display'] ?> on <?= local_time($general_post['date'], 0, 'no') ?> UTC</i></p>
