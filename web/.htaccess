@@ -20,3 +20,5 @@ RewriteRule . /404.php
 
 # Protect our various directories...
 Options -Indexes
+
+php_value include_path ".:/var/www/html/PsyPets/lib"

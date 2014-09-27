@@ -4,8 +4,8 @@
 
 $maintenance_when = (int)date('Gi');
 
-// midnight through 12:20, we are in maitenance
-if(($maintenance_when >= 0 && $maintenance_when <= 20 && $_GET['maintenance'] != 'no') || $_GET['maintenance'] == 'yes')
+// midnight through 12:20, we are in maintenance
+if($maintenance_when >= 0 && $maintenance_when <= 20 && !$IGNORE_MAINTENANCE)
   die('Maintenance, fool!');
 
 // --- BEGIN! ---

@@ -12,13 +12,12 @@ if($npc['graphic'] && $npc['width'] && $npc['height'])
 
 if($npc['dialog'])
 {
-  require WEB_ROOT . '/views/_template/dialog_open.php';
+  require LIB_ROOT . '/views/_template/dialog_open.php';
 
   echo $npc['dialog'];
 
-  require WEB_ROOT . '/views/_template/dialog_close.php';
+  require LIB_ROOT . '/views/_template/dialog_close.php';
 }
 
 if($npc['options'])
   echo '<ul><li>' . implode('</li><li>', $npc['options']) . '</li></ul>';
-?>

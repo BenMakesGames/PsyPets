@@ -2,7 +2,7 @@
 /* records daily statistics
 */
 
-$_GET['maintenance'] = 'no';
+$IGNORE_MAINTENANCE = true;
 
 //ini_set('include_path', '/your/web/root');
 
