@@ -280,10 +280,17 @@ include 'commons/html.php';
      <ul class="tabbed">
       <li class="activetab"><a href="<?= $url ?>">Smith</a></li>
       <li><a href="repair.php">Repair</a></li>
+      <li><a href="af_getrare2.php">Unique Item Shop</a></li>
+      <li><a href="af_combinationstation3.php">Combination Station</a></li>
+<?php
+if($special_offer)
+  echo '<li><a href="specialoffer_smith.php">Special Offer <i style="color:red;">ooh!</i></a></li>';
+?>
+<!--      <li><a href="af_replacegraphic.php">Broken Image Repair</a></li>-->
      </ul>
 <?php
 // SMITHY NPC NINA
-// echo '<a href="/npcprofile.php?npc=The+Smithy"><img src="gfx/npcs/smithy2.png" align="right" width="350" height="280" alt="(The Smithy)" /></a>';
+echo '<a href="npcprofile.php?npc=Nina+Faber"><img src="gfx/npcs/smithy2.png" align="right" width="350" height="280" alt="(Nina the Smithy)" /></a>';
 
 if(strlen($_GET['msg']) > 0)
   $error_messages[] = form_message(explode(',', $_GET['msg']));

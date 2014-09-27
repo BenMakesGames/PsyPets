@@ -88,7 +88,7 @@ if($quest_totem['value'] == 2)
 
 if($_GET['dialog'] == 'totems')
 {
-  $message = 'For the most part, your pets will make the Totems.  Those pets really are clever creatures!</p>' .
+  $message = 'For the most part, your pets will make the Totems.  Those PsyPets really are clever creatures!</p>' .
              '<p>But a few can be found in other ways.  I hear there\'s one in The Pattern, if you\'re familiar with that place.  And I know Nina can smith a Chess Totem, but she doesn\'t mention the option unless you already have all the supplies in your Storage.  You need... well, a Log, but also some Black Dye, White Paint, and a couple chess pieces, though I forget which ones.</p>' .
              '<p>Oh, and there\'s a couple Totems you can only get for trading in your totem pole.</p>' .
              '<p>If you want a list of all the Totems in existence, search <a href="encyclopedia.php">The Encyclopedia</a> that HERG offers.</p>' .
@@ -268,8 +268,8 @@ if(strlen($message) == 0)
       if($mytotem['rating'] >= 550)
       {
 ?>
-     <h5 style="margin-top:8px;">The Temple Monk</h5>
-     <p>The Temple Monk would like your totem pole.  In exchange, he offers a vial of extremely rare <?= item_text_link('Holy Water') ?>, and a burnt-up copy of the book <?= item_text_link('The Passage of Time') ?>.</p>
+     <h5 style="margin-top:8px;">Lance</h5>
+     <p>Lance, one of the Temple monks, would like your totem pole.  In exchange, he offers a vial of extremely rare <?= item_text_link('Holy Water') ?>, and a burnt-up copy of the book <?= item_text_link('The Passage of Time') ?>.</p>
      <form action="totemtrade.php?offer=5" method="post"><p><input type="submit" value="Accept Offer" onclick="javascript:return confirm('Really accept this offer?');" class="bigbutton" /></p></form>
 <?php
       }
@@ -286,8 +286,9 @@ if(strlen($message) == 0)
       if($mytotem['rating'] >= 700)
       {
 ?>
-     <h5 style="margin-top:8px;">The Alchemist</h5>
-     <p>The Alchemist says he'll give you two <?= item_text_link('Magic Voucher', false, 'Magic Vouchers') ?> for your Totem Pole.</p>
+     <h5 style="margin-top:8px;">Thaddeus</h5>
+     <p>Thaddeus says he'll give you two <?= item_text_link('Magic Voucher', false, 'Magic Vouchers') ?> for your Totem Pole.</p>
+     <p>Hey, wait: doesn't he run that <a href="/af_trinkets.php">Rare Trinkets</a> shop thing?  That's kind of sneaky of him!</p>
      <form action="totemtrade.php?offer=15" method="post"><p><input type="submit" value="Accept Offer" onclick="javascript:return confirm('Really accept this offer?');" class="bigbutton" /></p></form>
 <?php
       }

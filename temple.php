@@ -169,6 +169,8 @@ include 'commons/html.php';
      <ul class="tabbed">
       <li class="activetab"><a href="temple.php">Donations</a></li>
       <li><a href="temple_exchange.php">Exchanges</a></li>
+      <li><a href="af_revive2.php">Resurrections</a></li>
+      <li><a href="af_respec.php">Proselytism's Broth</a></li>
      </ul>
 <?php
 // MONK LANCE

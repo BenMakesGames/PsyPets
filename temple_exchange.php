@@ -71,6 +71,8 @@ if($_POST['submit'] == 'Exchange')
       $errors[] = 'Glad to have been of service.  You\'ll find the ' . $quantity . ' ' . $items_out[$out] . ' in your ' . $user['incomingto'] . '.';
     else
       $errors[] = 'Glad to have been of service.  You\'ll find the ' . $items_out[$out] . ' in your ' . $user['incomingto'] . '.';
+
+//    psymail_user('telkoth', 'psypets', $user['display'] . ' claimed a ' . $items_out[$out], 'they exchanged for ' . $payment[0] . 's');
   }
 }
 
@@ -86,6 +88,8 @@ include 'commons/html.php';
      <ul class="tabbed">
       <li><a href="temple.php">Donations</a></li>
       <li class="activetab"><a href="temple_exchange.php">Exchanges</a></li>
+      <li><a href="af_revive2.php">Resurrections</a></li>
+      <li><a href="af_respec.php">Proselytism's Broth</a></li>
      </ul>
 <?php
 if(strlen($_GET['msg']) > 0)

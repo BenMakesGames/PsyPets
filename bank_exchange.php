@@ -82,6 +82,8 @@ if($_POST['submit'] == 'Exchange')
       $errors[] = 'It\'s a deal, then!  You\'ll find the ' . $quantity . ' ' . $items_out[$out] . ' in your ' . $user['incomingto'] . '.';
     else
       $errors[] = 'It\'s a deal, then!  You\'ll find the ' . $items_out[$out] . ' in your ' . $user['incomingto'] . '.';
+
+//    psymail_user('telkoth', 'psypets', $user['display'] . ' claimed a ' . $items_out[$out], 'they exchanged for ' . $payment[0] . 's');
   }
 }
 
@@ -100,6 +102,8 @@ include 'commons/html.php';
       <li class="activetab"><a href="/bank_exchange.php">Exchanges</a></li>
       <li><a href="/ltc.php">License to Commerce</a></li>
       <li><a href="/allowance.php">Allowance Preference</a></li>
+      <li><a href="/af_favortickets.php">Get Favor Tickets</a></li>
+      <li><a href="/af_favortransfer2.php">Transfer Favor</a></li>
 <?= $st_patricks ? '<li class="stpatrick"><a href="/stpatricks.php?where=bank">St. Patrick\'s Day Competition</a></li>' : '' ?>
      </ul>
 <?php

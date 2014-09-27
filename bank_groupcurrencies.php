@@ -89,6 +89,8 @@ include 'commons/html.php';
       <li><a href="bank_exchange.php">Exchanges</a></li>
       <li><a href="ltc.php">License to Commerce</a></li>
       <li><a href="allowance.php">Allowance Preference</a></li>
+      <li><a href="af_favortickets.php">Get Favor Tickets</a></li>
+      <li><a href="af_favortransfer2.php">Transfer Favor</a></li>
 <?= $st_patricks ? '<li class="stpatrick"><a href="stpatricks.php?where=bank">St. Patrick\'s Day Competition</a></li>' : '' ?>
      </ul>
 <?php

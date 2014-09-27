@@ -20,13 +20,13 @@ if($now_month != 10)
 }
 
 $message = array(
-  '<p>Hi there!  I run this Tailory.  You might remember me from last year.  That was quite an event!</p>' .
+  '<p>Hi there!  My name is Valerie, and I run this Tailory.  You might remember me from last year.  That was quite an event!</p>' .
   '<p>Anyway, please take a look at my designs.  I may come up with more before Halloween night, so be sure to check back now and again!</p>'
 );
 
 if($_GET['dialog'] == 'alien')
 {
-  $dialog = '<p>Oh, that?  The Alchemist gave me the money to pay for a bunch of the costumes, but said he doesn\'t actually want one himself... and rather, that if a Resident asks for one, I should offer to put it together for free by using the money he gave me.</p>' .
+  $dialog = '<p>Oh, that?  Thaddeus gave me the money to pay for a bunch of the costumes, but said he doesn\'t actually want one himself... and rather, that if a PsyPets Resident asks for one, I should offer to put it together for free by using the money he gave me.</p>' .
             '<p>You don\'t think there\'s going to be another alien attack, like last year, do you...?</p>';
 }
 else

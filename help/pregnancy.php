@@ -18,7 +18,7 @@ include 'commons/html.php';
  <body>
 <?php include 'commons/header_2.php'; ?>
      <h4><a href="/help/">Help Desk</a> &gt; <a href="/help/petcare.php">Pet Care</a> &gt; Pet Pregnancy</h4>
-     <h5>How Pets Become Pregnant (Or "When Two Pets Love Each Other Very Much")</h5>
+     <h5>How Pets Become Pregnant (Or "When Two PsyPets Love Each Other Very Much")</h5>
 		 <p>Yes, in <?= $SETTINGS['site_name'] ?> your pets can have sex.  And when an unfixed male and unfixed female have sex, it's possible that the female becomes pregnant.</p>
 		 <p>When two pets with a strong and loving relationship hang out, there's a strong possibility that they have sex.  When they do, a heart icon (&hearts;) will appear in the activity log.</p>
 		 <p>Not every &hearts; hangout results in pregnancy.</p>
@@ -36,7 +36,7 @@ include 'commons/html.php';
      <h5>The Number and Kinds of Pets Born</h5>
      <p>Pets give birth to between 1 and 3 pets if you do not have the Breeder's License, between 1 and 5 if you do.  The number of pets averages on the low end of this range.</p>
      <p>The kinds of pets born depend on the parents.  Babies tend to have the same number of limbs, length of ears and tail, skin-type (hairy, scaly...), etc as their parents.</p>
-     <p>For example, because mice, dogs, and cats all have four legs, ears, long tails, and fur, it is actually very likely for one of these to give birth to the other!  The pets are strange creatures.</p>
+     <p>For example, because mice, dogs, and cats all have four legs, ears, long tails, and fur, it is actually very likely for one of these to give birth to the other!  PsyPets are strange creatures.</p>
 <?php include 'commons/footer_2.php'; ?>
  </body>
 </html>

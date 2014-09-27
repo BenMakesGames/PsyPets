@@ -175,7 +175,7 @@ if($dialog === false && $_GET['dialog'] == 'breeding')
 {
   $dialog = '<p>Breeding can be a lot of work, but it\'s worth it!  A female pet will become pregnant on its own, provided you haven\'t spayed it of course.  Since the pets are free to wander outside, you don\'t even need to have a fertile male in the house, although having one (or more) increases the chance of pet pregnancy.</p>' .
        '<p>Once a pet is pregnant, it will take weeks to give birth.  During the later stages of pregnancy, the pet will require more food, and become less active, so it\'s important to make sure to check up on it a lot and make sure it\'s doing alright!</p>' .
-       '<p>When the pet finally gives birth, you will be rewarded with a small litter of pets.  The pets may resemble their mother, of course, but they can sometimes be surprisingly different!  The pets are strange creatures...</p>' .
+       '<p>When the pet finally gives birth, you will be rewarded with a small litter of pets.  The pets may resemble their mother, of course, but they can sometimes be surprisingly different!  PsyPets are strange things...</p>' .
        '<p>There\'s something else you should know:  do you remember when you first signed up, and you got to choose what kind of pet you want?  Well there are some pets that are very uncommon, and so are not offered to new Residents, however these pets <em>can</em> be acquired through breeding!</p>';
 
   if($badges['goatherder'] == 'no')
