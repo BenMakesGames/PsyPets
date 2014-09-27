@@ -1,2 +1,4 @@
 .idea/
 static/
+/commons/standalone/HTMLPurifier/DefinitionCache/Serializer/CSS
+/commons/standalone/HTMLPurifier/DefinitionCache/Serializer/HTML

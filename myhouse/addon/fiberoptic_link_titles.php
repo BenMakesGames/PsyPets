@@ -68,6 +68,7 @@ room_display($house);
  <li><a href="/myhouse/addon/fiberoptic_link.php">Pixel Assembler</a></li>
  <li class="activetab"><a href="/myhouse/addon/fiberoptic_link_titles.php">Title Databank</a></li>
 </ul>
+<ul><li><a href="/myhouse/addon/fiberoptic_link_titles_add.php">Add Entry</a></li></ul>
 <h5>Change Title</h5>
 <ul>
 <?php

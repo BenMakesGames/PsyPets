@@ -114,7 +114,7 @@ else
 
     
   if(count($userpets) > $giveupable)
-    echo '<p>The pet you received when you joined ' . $SETTINGS['site_name'] . ' cannot be given up.</p>';
+    echo '<p>The pet you received when you joined PsyPets cannot be given up.  I\'m also unable to take pets which have <a href="/af_custompetgraphic2.php">been given custom appearances</a> - not that you\'d <em>want</em> to give up such a pet!</p>';
 }
 
 include 'commons/dialog_close.php';

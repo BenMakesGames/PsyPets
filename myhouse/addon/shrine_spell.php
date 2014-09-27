@@ -30,7 +30,10 @@ if($shrine === false)
   $shrine = create_shrine($user['idnum']);
 
 if($shrine === false)
-  die('Error loading or creating Shrine.  This shouldn\'t happen unless the game is having weird database problems >_>');
+{
+  echo 'Error loading or creating Shrine.  This shouldn\'t happen unless ' . $SETTINGS['site_name'] . ' is having weird database problems >_>';
+  die();
+}
 
 $spells = take_apart(';', $shrine['spells']);
 

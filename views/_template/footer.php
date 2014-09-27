@@ -7,7 +7,7 @@ if($user['idnum'] > 0)
     <div id="bottom"></div>
    </div>
    <div id="footer">
-    <p><?= $SETTINGS['site_name'] &copy; 2004-<?= date('Y') ?> (<a href="/meta/copyright.php">copyright information</a>, <a href="/meta/privacy.php">privacy policy</a>, <a href="/meta/termsofservice.php">terms of service</a>)</p>
+    <p><?= $SETTINGS['site_name'] ?>, an open-source game by Ben Hendel-Doying and Aileen MacKay (<a href="/meta/copyright.php">copyright information</a>, <a href="/meta/privacy.php">privacy policy</a>, <a href="/meta/termsofservice.php">terms of service</a>)</p>
 <?php
 if($_page_info)
   echo '<p>' . $_page_info . '</p>'
