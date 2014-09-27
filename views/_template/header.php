@@ -1,11 +1,11 @@
 <?php
 $SITE_LAYOUTS = array(
-  'default'  => 'Fixed-width',
-  'wide'     => 'Fluid',
+  'default'  => 'PsyPets in a Box',
+  'wide'     => 'PsyPets Wide',
 );
 
 $SITE_COLORS = array(
-  'telkoth'  => 'Wizard Blue',
+  'telkoth'  => 'PsyPets Blue',
   'ks'       => 'KS\' Green',
   'kirby'    => 'Kirby\'s Granite',
   'lune'     => 'Lune\'s Con-inspired',
@@ -37,6 +37,11 @@ header('X-UA-Compatible: IE=edge');
 <html>
  <head>
   <title><?= $SETTINGS['site_name'] ?> &gt; <?= build_title($_title, false) ?></title>
+  <meta name="description" content="Free browser-based pet game blending sci-fi and fantasy themes with theories from Psychology." />
+  <meta name="keywords" content="pet,game,online,browser,virtual,sci-fi,fantasy,psychology,maslow,love" />
+  <meta name="author" content="Ben Hendel-Doying,Aileen MacKay" />
+  <meta name="designer" content="Ben Hendel-Doying" />
+	<meta name="powered-by" content="Sparkles and Moon Dust" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
   <link rel="copyright" href="/meta/copyright.php" title="Copyright Information" />
   <link rel="privacy" href="/meta/privacy.php" title="Privacy Policy" />
@@ -46,6 +51,16 @@ header('X-UA-Compatible: IE=edge');
   <link rel="stylesheet" href="//<?= $SETTINGS['static_domain'] ?>/css/layout_<?= $style_layout ?>_<?= $layout_style_version ?>.css" />
   <link rel="stylesheet" href="//<?= $SETTINGS['static_domain'] ?>/css/color_<?= $style_color ?>_<?= $color_style_version ?>.css" />
   <link rel="stylesheet" href="//<?= $SETTINGS['static_domain'] ?>/css/pp_markup.css" />
+  <meta name="application-name" content="<?= $SETTINGS['site_name'] ?>" />
+  <meta name="msapplication-window" content="width=device-width;height=device-height" />
+  <meta name="msapplication-tooltip" content="Play <?= $SETTINGS['site_name'] ?>!" />
+  <meta name="msapplication-starturl" content="/" />
+  <meta name="msapplication-task" content="name=My House;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/myhouse.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/myhouse.ico" />
+  <meta name="msapplication-task" content="name=Incoming;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/incoming.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/incoming.ico" />
+  <meta name="msapplication-task" content="name=My Notepad;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/mynotepad.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/mynotepad.ico" />
+  <meta name="msapplication-task" content="name=Mailbox;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/post.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/mailbox.ico" />
+  <meta name="msapplication-task" content="name=Plaza;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/plaza.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/plaza.ico" />
+  <meta name="msapplication-task" content="name=City Hall;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/cityhall.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/cityhall.ico" />
   <script type="text/javascript" src="//<?= $SETTINGS['static_domain'] ?>/js/jquery-1.7.2.min.js"></script>
   <script type="text/javascript" src="//<?= $SETTINGS['static_domain'] ?>/js/jquery.hoverIntent.minified.js"></script>
   <script type="text/javascript" src="//<?= $SETTINGS['static_domain'] ?>/js/jquery.megamenu<?= $mm_js_version ?>.js"></script>

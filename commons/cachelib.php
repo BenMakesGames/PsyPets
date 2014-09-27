@@ -34,4 +34,3 @@ function cache_add($key, $item)
 }
 
 $PER_SCRIPT_CACHE = array();
-?>

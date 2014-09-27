@@ -17,8 +17,11 @@ if($user['idnum'] == 1)
 ?>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="author" content="<?= $SETTINGS['author_real_name'] ?>" />
-  <meta name="designer" content="<?= $SETTINGS['author_real_name'] ?>" />
+  <meta name="description" content="Free browser-based pet game blending sci-fi and fantasy themes with theories from Psychology." />
+  <meta name="keywords" content="pet,game,online,browser,virtual,sci-fi,fantasy,psychology,maslow,love" />
+  <meta name="author" content="Ben Hendel-Doying,Aileen MacKay" />
+  <meta name="designer" content="Ben Hendel-Doying" />
+	<meta name="powered-by" content="Sparkles and Moon Dust" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
   <link rel="copyright" href="/meta/copyright.php" title="Copyright Information" />
   <link rel="privacy" href="/meta/privacy.php" title="Privacy Policy" />
@@ -29,14 +32,24 @@ if($user['idnum'] == 1)
   <link rel="stylesheet" href="//<?= $SETTINGS['static_domain'] ?>/css/layout_<?= $style_layout ?>_<?= $layout_style_version ?>.css" />
   <link rel="stylesheet" href="//<?= $SETTINGS['static_domain'] ?>/css/color_<?= $style_color ?>_<?= $color_style_version ?>.css" />
   <link rel="stylesheet" href="//<?= $SETTINGS['static_domain'] ?>/css/pp_markup.css" />
-  <script type="text/javascript" src="//<?= $SETTINGS['static_domain'] ?>/js/jquery-1.7.2.min.js"></script>
-  <script type="text/javascript" src="//<?= $SETTINGS['static_domain'] ?>/js/jquery.hoverIntent.minified.js"></script>
-  <script type="text/javascript" src="//<?= $SETTINGS['static_domain'] ?>/js/jquery.megamenu<?= $mm_js_version ?>.js"></script>
-  <script type="text/javascript" src="//<?= $SETTINGS['static_domain'] ?>/js/jquery.watch.js"></script>
-  <script type="text/javascript" src="//<?= $SETTINGS['static_domain'] ?>/js/jquery.makedraggable.js"></script>
-  <script type="text/javascript" src="//<?= $SETTINGS['static_domain'] ?>/js/jquery.textarearesizer.compressed.js"></script>
-  <script type="text/javascript" src="//<?= $SETTINGS['static_domain'] ?>/js/jquery.jeegoocontext.min.js"></script>
-  <script type="text/javascript" src="//<?= $SETTINGS['static_domain'] ?>/js/psypetsjs<?= $pp_js_version ?>.js"></script>
+  <meta name="application-name" content="PsyPets" />
+  <meta name="msapplication-window" content="width=device-width;height=device-height" />
+  <meta name="msapplication-tooltip" content="Play PsyPets!" />
+  <meta name="msapplication-starturl" content="/" />
+  <meta name="msapplication-task" content="name=My House;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/houseaction.php?room=Common;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/myhouse.ico" />
+  <meta name="msapplication-task" content="name=Incoming;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/incoming.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/incoming.ico" />
+  <meta name="msapplication-task" content="name=My Notepad;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/mynotepad.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/mynotepad.ico" />
+  <meta name="msapplication-task" content="name=Mailbox;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/post.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/mailbox.ico" />
+  <meta name="msapplication-task" content="name=Plaza;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/plaza.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/plaza.ico" />
+  <meta name="msapplication-task" content="name=City Hall;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/cityhall.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/cityhall.ico" />
+  <script type="text/javascript" src="<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/js/jquery.hoverIntent.minified.js"></script>
+  <script type="text/javascript" src="<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/js/jquery.megamenu<?= $mm_js_version ?>.js"></script>
+  <script type="text/javascript" src="<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/js/jquery.watch.js"></script>
+  <script type="text/javascript" src="<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/js/jquery.makedraggable.js"></script>
+  <script type="text/javascript" src="<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/js/jquery.textarearesizer.compressed.js"></script>
+  <script type="text/javascript" src="<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/js/jquery.jeegoocontext.min.js"></script>
+  <script type="text/javascript" src="<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/js/psypetsjs<?= $pp_js_version ?>.js"></script>
 <?php
 if($user['idnum'] == 0)
 {
@@ -57,4 +70,4 @@ else
   <style type="text/css">
   body { background-image: url(//<?= $SETTINGS['static_domain'] ?>/gfx/backdrops/<?= $background_image ?>); }
   </style>
-<?php /* include 'commons/google_analytics.php'; */ ?>
+<?php include 'commons/google_analytics.php'; ?>

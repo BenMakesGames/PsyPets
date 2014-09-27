@@ -9,7 +9,7 @@ require_once 'commons/itemlib.php';
 require_once 'commons/formatting.php';
 require_once 'commons/questlib.php';
 
-if(date('M d') != 'Mar 17' && $user['user'] != 'telkoth')
+if(date('M d') != 'Mar 17' && $user['user'] != $SETTINGS['author_login_name'])
 {
   header('Location: ./cityhall.php');
   exit();
@@ -26,10 +26,10 @@ if($where == 'totem')
     <li><a href="totemgardenview.php">Browse Garden</a></li>
     <li><a href="mahjong.php">Mahjong Exchange</a></li>
   ';
-  $npc_name = 'The Totem Pole Fanatic';
-  $npc_graphic = '<a href="/npcprofile.php?npc=The Totem Fanatic"><img src="" align="right" width="350" height="501" alt="(The Totem Pole Fanatic)" /></a>';
+  $npc_name = 'Matalie';
+  $npc_graphic = '<a href="/npcprofile.php?npc=Matalie Mansur"><img src="//' . $SETTINGS['static_domain'] . '/gfx/npcs/totemgirl.jpg" align="right" width="350" height="501" alt="(Totem Pole aficionado Matalie)" /></a>';
   $title = 'Totem Pole Garden';
-  $options[] = '<a href="/stpatricks.php?where=bank">Check on The Banker</a>';
+  $options[] = '<a href="/stpatricks.php?where=bank">Check on Lakisha</a>';
   $not_where = 'bank';
 }
 else if($where == 'bank')
@@ -40,11 +40,13 @@ else if($where == 'bank')
     <li><a href="bank_exchange.php">Exchanges</a></li>
     <li><a href="ltc.php">License to Commerce</a></li>
     <li><a href="allowance.php">Allowance Preference</a></li>
+    <li><a href="af_favortickets.php">Get Favor Tickets</a></li>
+    <li><nobr><a href="af_favortransfer2.php">Transfer Favor</a></nobr></li>
   ';
-  $npc_name = 'The Banker';
-  $npc_graphic = '<a href="/npcprofile.php?npc=The Banker"><img src="" align="right" width="350" height="427" alt="(The Banker)" /></a>';
+  $npc_name = 'Lakisha';
+  $npc_graphic = '<a href="/npcprofile.php?npc=Lakisha Pawlak"><img src="//' . $SETTINGS['static_domain'] . '/gfx/npcs/banker_lakisha.png" align="right" width="350" height="427" alt="(Lakisha the Banker)" /></a>';
   $title = 'Bank';
-  $options[] = '<a href="/stpatricks.php?where=totem">Check on The Totem Pole Fanatic</a>';
+  $options[] = '<a href="/stpatricks.php?where=totem">Check on Matalie</a>';
   $not_where = 'totem';
 }
 else

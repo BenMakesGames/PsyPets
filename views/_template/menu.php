@@ -196,6 +196,12 @@ if($user['childlockout'] == 'no')
      <li class="separator"><a href="/featuredrive.php"><img src="//<?= $SETTINGS['static_domain'] ?>/gfx/menu/houseaddondrive.png" width="24" height="24" alt="" /> House Add-on Drive</a></li>
     </ul>
    </div>
+   <div class="column">
+    <ul class="plainlist nomargin">
+     <li><a href="/autofavor.php"><img src="//<?= $SETTINGS['static_domain'] ?>/gfx/menu/favors.png" width="24" height="24" alt="" /> Favor Dispenser</a></li>
+     <li><a href="/gl_browse.php"><img src="//<?= $SETTINGS['static_domain'] ?>/gfx/menu/gl.png" width="24" height="24" alt="" /> Graphics Library</a></li>
+    </ul>
+   </div>
    <div style="clear:both;"></div>
   </div>
  </li>
