@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/commons/init.php';
+require_once 'commons/init.php';
 
 // confirm the session...
 require_once 'commons/dbconnect.php';
@@ -47,7 +47,7 @@ require 'commons/html.php';
 	 <li><a href="/daily_adventure/shop.php">Adventurer's Shop</a></li>
 	</ul>
 <?php
-require WEB_ROOT . '/views/_template/npc.php';
+require LIB_ROOT . '/views/_template/npc.php';
 ?>
 	<?= $pages ?>
 	<table>
