@@ -31,14 +31,13 @@ function xhtml_npc($_npc)
 
   if($_npc['dialog'])
   {
-    require WEB_ROOT . '/views/_template/dialog_open.php';
+    require LIB_ROOT . '/views/_template/dialog_open.php';
 
     echo $_npc['dialog'];
 
-    require WEB_ROOT . '/views/_template/dialog_close.php';
+    require LIB_ROOT . '/views/_template/dialog_close.php';
   }
 
   if($_npc['options'])
     echo '<ul><li>' . implode('</li><li>', $_npc['options']) . '</li></ul>';
 }
-?>

@@ -1,5 +1,5 @@
 .idea/
-static/
-/commons/standalone/HTMLPurifier/DefinitionCache/Serializer/CSS
-/commons/standalone/HTMLPurifier/DefinitionCache/Serializer/HTML
-/commons/settings_light.php
+web/static/
+lib/commons/standalone/HTMLPurifier/DefinitionCache/Serializer/CSS
+lib/commons/standalone/HTMLPurifier/DefinitionCache/Serializer/HTML
+lib/commons/settings_light.php

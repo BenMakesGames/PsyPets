@@ -5,7 +5,7 @@ require_once 'commons/settings_light.php';
 $maintenance_when = (int)date('Gi');
 
 // midnight through 12:20, we are in maitenance
-if(($maintenance_when >= 0 && $maintenance_when <= 20 && $_GET['maintenance'] != 'no') || $_GET['maintenance'] == 'yes')
+if($maintenance_when >= 0 && $maintenance_when <= 20 && !$IGNORE_MAINTENANCE)
 {
     if($AJAX)
     {

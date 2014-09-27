@@ -1,6 +1,6 @@
 <?php
 $allowed_ips = array(
-  '184.6.30.60',
+  '192.168.245.1',
 );
 
 if(!in_array($_SERVER['REMOTE_ADDR'], $allowed_ips))
@@ -9,4 +9,4 @@ if(!in_array($_SERVER['REMOTE_ADDR'], $allowed_ips))
   exit();
 }
 
-$_GET['maintenance'] = 'no';
+$IGNORE_MAINTENANCE = true;
