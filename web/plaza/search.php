@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/commons/init.php';
+require_once 'commons/init.php';
 
 // confirm the session...
 require_once 'commons/dbconnect.php';
