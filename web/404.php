@@ -1,5 +1,5 @@
 ﻿<?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/commons/init.php';
+require_once 'commons/init.php';
 
 $require_login = 'no';
 $invisible = 'yes';
@@ -58,7 +58,7 @@ if($database->AffectedRows() == 0)
 <?php include 'commons/header_2.php'; ?>
 <h4>Four-oh-four!</h4>
 <?php
-require WEB_ROOT . '/views/_template/npc.php';
+require LIB_ROOT . '/views/_template/npc.php';
 ?>
 <?php include 'commons/footer_2.php'; ?>
  </body>
