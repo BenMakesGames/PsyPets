@@ -52,10 +52,8 @@ if($user['admin']['alphalevel'] >= 6)
     $text = $poster['display'] . ' (' . $poster['user'] . ') ' . $this_post['title'] . ' ' . $this_post['body'];
     train_as_trolling($text);
 
-		// TODO: message administrators about this
-    //psymail_user('telkoth', $SETTINGS['site_ingame_mailer'], $subject_line, '{r ' . $user['display'] . '} marked the following post as containing trolls: <a href="jumptopost.php?postid=' . $postid . '">post #' . $postid . '</a>');
+    psymail_user('telkoth', $SETTINGS['site_ingame_mailer'], $subject_line, '{r ' . $user['display'] . '} marked the following post as containing trolls: <a href="jumptopost.php?postid=' . $postid . '">post #' . $postid . '</a>');
   }
 }
 
 header('Location: /jumptopost.php?postid=' . $postid);
-?>

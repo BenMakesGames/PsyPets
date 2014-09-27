@@ -88,7 +88,7 @@ if($_POST['action'] == 'apply')
   else
     $user['confirm_skip'] = 'no';
 
-  setcookie($SETTINGS['cookie_rememberme'], $user['user'] . ';' . $user['pass'], $now + $login_duration, $SETTINGS['cookie_path'], $SETTINGS['cookie_domain']);
+  setcookie($SETTINGS['cookie_name'], $user['user'] . ';' . $user['pass'], $now + $login_duration, $SETTINGS['cookie_path'], $SETTINGS['cookie_domain']);
 
   $command = '
     UPDATE monster_users SET

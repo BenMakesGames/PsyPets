@@ -39,7 +39,7 @@ include 'commons/html.php';
  <body>
 <?php include 'commons/header_2.php'; ?>
      <h4><a href="/admin/tools.php">Administrative Tools</a> &gt; Live Broadcasting Suggestion Details</h4>
-     <p style="color: red; text-align: center;"><strong>Hey, <?= $SETTINGS['author_name'] ?>!</strong>  When you talk, <em>sloooooow doooowwwnn</em> so people can understand (and transcribe) you!</p>
+     <p style="color: red; text-align: center;"><strong>Hey, <?= $SETTINGS['author_real_name'] ?>!</strong>  When you talk, <em>sloooooow doooowwwnn</em> so people can understand (and transcribe) you!</p>
      <ul>
       <li><a href="/livebroadcast.php">Go to Live Broadcasting page</a></li>
      </ul>
