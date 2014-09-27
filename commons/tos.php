@@ -21,5 +21,5 @@
 <h5>Some Helpful Rules of Thumb</h5>
 <p>Be a good person.  Be responsible.  "If you don't have anything nice to say, don't say anything at all."  Remember what you learned in kindergarten.</p>
 <h5>Legal Business</h5>
-<p>Your accounts (and their items, pets, etc) are property of <a href="http://www.telkoth.net">telkoth</a>.  (With this in mind, some players like to buy/sell promises for in-game actions, such as exchanging items or control of an account.  This is not recommended, as it is easy to be scammed; do so at your own risk!)</p>
+<p>Your accounts (and their items, pets, etc) are property of <a href="http://benmakesgames.com">BenMakesGames</a>.  (With this in mind, some players like to buy/sell promises for in-game actions, such as exchanging items or control of an account.  This is not recommended, as it is easy to be scammed; do so at your own risk!)</p>
 <p>It is the right of the admin to deny a player access to PsyPets for any reason (especially for repeatedly ignoring the above rules).</p>

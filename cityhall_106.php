@@ -179,7 +179,7 @@ else if($allowance_miniquest_dialog)
 <?php include 'commons/dialog_open.php'; ?>
      <p>Oh!  You found me just to ask about that?</p>
      <p>Well, no it isn't a government grant.  When you mention <em>the Hollow Earth</em>, well, people tend to stop listening, I guess you'd say.</p>
-     <p>No, we're funded by a private business called telkoth.net.  I'm not really sure what they do, but it seems that they're very interested in the Hollow Earth, enough so to have purchased this entire island for our use, the tidal generators to power it, and, yes, your "allowances."</p>
+     <p>No, we're funded by a private, mysterious business.  I'm not really sure what they do, but it seems that they're very interested in the Hollow Earth, enough so to have purchased this entire island for our use, the tidal generators to power it, and, yes, your "allowances."</p>
      <p>We have some pamphlets about it... oh, in fact, I have one right here.</p>
      <p>Go ahead and keep it.  I'm surprised you didn't get one when you first signed up to participate.</p>
 <?php include 'commons/dialog_close.php'; ?>

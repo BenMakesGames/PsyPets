@@ -8,7 +8,7 @@ if($okay_to_be_here !== true)
 
 <h6>About HERG</h6>
 <p>Started in March of 2004, HERG, the Hollow Earth Research Group, consists of a handful of scientists who are currently exploring the Hollow Earth, and its peculiar denizens.</p>
-<p>HERG is almost exclusively funded by telkoth.net, an upstart US-based business.  By working together, HERG and telkoth.net have been able to make take significant strides in quantum mechanics and string theory, particularly where they apply to the Hollow Earth.</p>
+<p>HERG is almost exclusively funded by a mysterious, upstart, US-based business.  By working together, HERG and this mysterious company have been able to make take significant strides in quantum mechanics and string theory, particularly where they apply to the Hollow Earth.</p>
 
 <h6>What is the Hollow Earth?</h6>
 <p>The classical Hollow Earth theory, largely unsupported, suggests that the Earth is not as we know it - a solid ball with an Iron core - but rather is hollow, with a cloudy sun at its center.  Dwelling within the Hollow Earth, according to believers, are, or were, an advanced alien race.  It is also said to be the resting place of Atlantis and Lumeria.</p>
