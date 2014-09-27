@@ -1,6 +1,6 @@
 <?php
 $require_petload = 'no';
-$_GET['maintenance'] = 'no';
+$IGNORE_MAINTENANCE = true;
 
 // confirm the session...
 require_once 'commons/dbconnect.php';
