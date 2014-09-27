@@ -1,4 +1,0 @@
-database: ppbeta
-hostname: ppbeta.psypets.net
-username: p001337
-password: cl@ndestin3
