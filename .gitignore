@@ -1,5 +1,3 @@
 .idea/
 web/static/gfx/
-lib/commons/standalone/HTMLPurifier/DefinitionCache/Serializer/CSS
-lib/commons/standalone/HTMLPurifier/DefinitionCache/Serializer/HTML
 lib/commons/settings_light.php
