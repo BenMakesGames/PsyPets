@@ -2,3 +2,4 @@
 static/
 /commons/standalone/HTMLPurifier/DefinitionCache/Serializer/CSS
 /commons/standalone/HTMLPurifier/DefinitionCache/Serializer/HTML
+/commons/settings_light.php
