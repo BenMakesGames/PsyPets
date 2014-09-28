@@ -241,7 +241,7 @@ if($user['favor'] >= $favor_cost)
 ?>
      <p>From here you can make an avatar-changing item.  Its name, appearance, the graphic it changes your avatar into, and even the name of the action on the item, are all customizable.</p>
      <form action="af_customavataritem2.php" method="post">
-     <h5>Item Name</h6>
+     <h5>Item Name</h5>
      <p><input type="text" name="itemname" value="<?= $_POST["itemname"] ?>" maxlength="48" /></p>
      <h5>Item Classification</h5>
      <p>For example: "clothing/hat", or "whateverNoOneCares" (without the quotes).  Letters and slashes only.</p>
