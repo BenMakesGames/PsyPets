@@ -52,7 +52,7 @@ if($_GET['dialog'] == 2)
 {
 ?>
      <p><img src="gfx/admintag.gif" width="16" height="16" alt="(administrator)" class="inlineimage" /> indicates that the Resident is an Administrator.</p>
-     <p><img src="gfx/donator.gif" width="16" height="16" alt="(paid)" class="inlineimage" /> indicates that the Resident has purchased <a href="wherethemoneygoes.php">Favor</a>.</p>
+     <p><img src="gfx/donator.gif" width="16" height="16" alt="(paid)" class="inlineimage" /> indicates that the Resident has purchased <a href="buyfavors.php">Favor</a>.</p>
      <p><img src="gfx/forsale.png" width="16" height="16" alt="(store)" class="inlineimage" /> indicates the the Resident has an open store in the <a href="/fleamarket/">Flea Market</a>.  Click on this symbol to immediately visit it.</p>
 <?php
 }

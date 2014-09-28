@@ -28,10 +28,6 @@ include 'commons/html.php';
      <h5>The Graphics Library</h5>
      <p>When uploading graphics to the graphics library you are asked to provide the name of the artist (probably you).  This name is displayed on the <a href="/meta/copyright.php">Copyright Information</a> page, which is accessible even to non-players.  If you are not comfortable having your name displayed in this way, feel free to use an alias.  Many players use their in-game "resident" name.</p>
      <ul><li>See also: <a href="/meta/copyright.php">Copyright Information</a></li></ul>
-     <h5>Payments Made With PayPal</h5>
-     <p>Payments made to PsyPets via PayPal include your full name and e-mail address (as you have given it to PayPal).  This information is recorded and associated with the PsyPets account receiving the Favor for the payment.</p>
-     <p>A player may, at any time, review their history of payments, along with the information provided by PayPal.  (One more reason to keep your login name and password to yourself!)</p>
-     <ul><li>See also: <a href="/wherethemoneygoes.php">What Is "Favor"?</a></li></ul>
 <?php include 'commons/footer_2.php'; ?>
  </body>
 </html>

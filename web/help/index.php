@@ -82,8 +82,8 @@ include 'commons/html.php';
       How to interpret your pet's feelings, how to make money, the rules for Capture the Flag, and more.
      </li>
      <li>
-      <a href="/wherethemoneygoes.php">What Is "Favor"?</a><br />
-      Information about supporting PsyPets with money (thank you!), receiving "Favor" in exchange, and the history behind the system.
+      <a href="/buyfavors.php">What Is "Favor"?</a><br />
+      Information about "Favor", how to get it, and the history behind the system.
      </li>
     </ul>
     <h5>Other Resources</h5>

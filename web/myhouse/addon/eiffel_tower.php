@@ -138,7 +138,7 @@ else
 $blueprint = get_item_byname('Eiffel Tower Blueprint');
 ?>
 <h4>Commission Another</h4>
-<p>You may get additional <?= item_text_link('Eiffel Tower Blueprint'); ?>s for 300 Favor<a href="/wherethemoneygoes.php" class="help">?</a> each; you currently have <?= $user['favor'] ?>.</p>
+<p>You may get additional <?= item_text_link('Eiffel Tower Blueprint'); ?>s for 300 Favor<a href="/buyfavors.php" class="help">?</a> each; you currently have <?= $user['favor'] ?>.</p>
 <ul><li><a href="/buyfavors.php">Buy more Favor</a></li></ul>
 <table>
 <thead>

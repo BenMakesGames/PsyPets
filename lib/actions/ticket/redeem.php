@@ -35,7 +35,7 @@ else
     <p>Using this Ticket will credit your account with ' . $favor . ' Favor.</p>
     <ul>
      <li><a href="itemaction.php?idnum=' . $this_inventory['idnum'] . '&step=2">Use it!</a></li>
-     <li><a href="wherethemoneygoes.php">What Is "Favor"?</a></li>
+     <li><a href="buyfavors.php">What Is "Favor"?</a></li>
     </ul>
   ';
 }
