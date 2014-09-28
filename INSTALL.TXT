@@ -10,7 +10,8 @@ sudo yum install memcached
 sudo yum install git gcc gcc-g++ make
 sudo yum install zlib zlib-devel
 sudo pecl install memcache
-	near the end of the memcache install, you will see a path to memcache.so; note this
+sudo pecl install apc
+	near the end of the memcache and apc installs, it will tell you where on the system memcache.so and apc.so can be found; take note
 
 	START EVERYTHING
 
@@ -33,7 +34,8 @@ sudo nano /etc/httpd/conf/httpd.conf
 sudo nano /etc/php.ini
 	set "date.timezone" to something
 	add "extension=/usr/lib64/php/modules/memcache.so"
-		might be different; see above notes regarding pecl install memcache
+    add "extension=/usr/lib64/php/modules/apc.so"
+        paths to memcache.so and apc.so may be different on your system; see note under "INSTALL EVERYTHING", above, or "sudo find / -name memcache.so", etc
 
 	DOWNLOAD PSYPETS
 
@@ -52,6 +54,9 @@ mysql --user=root -p psypets < db_globals.sql
 
 sudo nano /var/www/html/PsyPets/lib/commons/settings_light.php.example
 	modify, and save as settings_light.php
+
+crontab -e
+    check contents of crontab/INSTALL.TXT for a sample crontab settings
 
 	PERMISSIONS
 

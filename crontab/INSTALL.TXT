@@ -1,0 +1,13 @@
+# every midnight, do the following task; give each a couple minutes to run.
+# takestats and dailyoptimize are longer tasks, though, so give them longer.
+1 0 * * * php /path/to/PsyPets/crontab/dailyitemvalue.php
+3 0 * * * php /path/to/PsyPets/crontab/considergods.php
+5 0 * * * php /path/to/PsyPets/crontab/dailygroupcheck.php
+7 0 * * * php /path/to/PsyPets/crontab/takestats.php
+12 0 * * * php /path/to/PsyPets/crontab/dailyoptimize.php
+
+# whenever the "minute" of day is 0 or 30, run this
+0,30 * * * * php /path/to/PsyPets/crontab/neglectedstores.php
+
+# every minute of every day, maybe host a game-hosted event
+* * * * * php /path/to/PsyPets/crontab/hostedevents.php
