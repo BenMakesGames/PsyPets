@@ -140,11 +140,6 @@ if($admin['manageitems'] == 'yes' || $admin['clairvoyant'] == 'yes')
       <li><a href="/admin/training.php" class="admintool">Training Items by Stat</a></li>
     ';
 
-  if($admin['manageitems'] == 'yes')
-    echo '
-      <li><a href="/admin/marketinflation.php" class="admintool">Market Inflation</a>
-    ';
-
   if($admin['clairvoyant'] == 'yes')
     echo '
       <li><a href="/admin/itemthrowaways.php" class="admintool">Top Throw-away Items</a></li>
