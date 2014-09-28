@@ -14,6 +14,8 @@ require_once "commons/formatting.php";
 require_once "commons/userlib.php";
 require_once 'commons/threadfunc.php';
 
+// admin check is below (for some reason...)
+
 $postid = (int)$_GET['postid'];
 
 $command = 'SELECT threadid,createdby,troll_flag FROM monster_posts WHERE idnum=' . $postid . ' LIMIT 1';

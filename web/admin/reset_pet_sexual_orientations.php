@@ -5,7 +5,13 @@ require_once 'commons/init.php';
 require_once 'commons/dbconnect.php';
 require_once 'commons/rpgfunctions.php';
 
-$pets = $database->FetchMultiple(('SELECT idnum,gender FROM monster_pets');
+if($user['admin']['manageitems'] != 'yes')
+{
+    header('Location: /404/');
+    exit();
+}
+
+$pets = $database->FetchMultiple('SELECT idnum,gender FROM monster_pets');
 
 foreach($pets as $pet)
 {
@@ -20,7 +26,7 @@ foreach($pets as $pet)
 		$pet['attracted_to_females'] = mt_rand(0, mt_rand(0, 100));
 	}
 
-  $database->FetchNone(('
+  $database->FetchNone('
     UPDATE monster_pets
     SET
       attraction_to_males=' . $pet['attracted_to_males'] . ',
@@ -29,4 +35,3 @@ foreach($pets as $pet)
     LIMIT 1
   ');
 }
-?>

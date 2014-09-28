@@ -33,7 +33,7 @@ if($admin["manageitems"] != "yes")
   exit();
 }
 
-$history = $database->FetchMultiple(('
+$history = $database->FetchMultiple('
   SELECT
     b.petname,
     b.user,

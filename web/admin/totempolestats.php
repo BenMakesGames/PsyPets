@@ -68,7 +68,7 @@ else
       $graphic = 'totem_x' . $totem . '.png';
       $item = $database->FetchSingle('SELECT * FROM monster_items WHERE graphic=' . quote_smart($graphic) . ' LIMIT 1');
       
-      echo '<tr class="', $rowclass, '"><td class="centered">', item_display($item), '</td><td>', $item['itemname'], '</td><td class="centered">', $count, '</td></tr>';
+      echo '<tr class="', $rowclass, '"><td class="centered">', item_display($item, ''), '</td><td>', $item['itemname'], '</td><td class="centered">', $count, '</td></tr>';
       
       $rowclass = alt_row_class($rowclass);
     }

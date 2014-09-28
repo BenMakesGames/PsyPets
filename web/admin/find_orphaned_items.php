@@ -37,7 +37,7 @@ if($_POST['submit'] == 'Restore')
     if(count($itemids) > 0)
     {
       $command = 'UPDATE monster_inventory SET location=\'storage/incoming\',user=' . quote_smart($sendto['user']) . ',changed=' . $now . ' WHERE idnum IN (' . implode(',', $itemids) . ') LIMIT ' . count($itemids);
-      $database->FetchNone(($command, 'restoring selected items');
+      $database->FetchNone($command, 'restoring selected items');
       
       $item_count = $database->AffectedRows();
 
@@ -63,7 +63,7 @@ else if($_POST['submit'] == 'Trash')
   if(count($itemids) > 0)
   {
     $command = 'UPDATE monster_inventory SET location=\'storage\',user=\'junkyard\',changed=' . $now . ' WHERE idnum IN (' . implode(',', $itemids) . ') LIMIT ' . count($itemids);
-    $database->FetchNone(($command, 'deleting selected items');
+    $database->FetchNone($command, 'deleting selected items');
   
     $item_count = $database->AffectedRows();
 
@@ -87,13 +87,13 @@ if($page < 1)
 $start = ($page - 1) * 1000;
 
 $command = 'SELECT itemname,idnum FROM monster_inventory WHERE user=\'psypets\' LIMIT ' . $start . ',1000';
-$items = $database->FetchMultiple(_by($command, 'idnum', 'fetching items belonging to "psypets"');
+$items = $database->FetchMultipleBy($command, 'idnum', 'fetching items belonging to "psypets"');
 
 $initial_count = count($items);
 
 // remove any items which are in pending trades
 $command = 'SELECT items1,items2 FROM monster_trades WHERE step<3';
-$pending_trades = $database->FetchMultiple(($command, 'fetching pending trades');
+$pending_trades = $database->FetchMultiple($command, 'fetching pending trades');
 
 $trade_items = 0;
 
@@ -118,7 +118,7 @@ foreach($pending_trades as $trade)
 
 // remove any items which are in auctions
 $command = 'SELECT itemid FROM monster_auctions WHERE claimed=\'no\'';
-$waiting_auctions = $database->FetchMultiple(($command, 'fetching waiting auctions');
+$waiting_auctions = $database->FetchMultiple($command, 'fetching waiting auctions');
 
 foreach($waiting_auctions as $auction)
   unset($items[$auction['itemid']]);
@@ -127,7 +127,7 @@ $auction_items = count($waiting_auctions);
 
 // remove any items which are in waiting park events
 $command = 'SELECT prizes FROM monster_events WHERE finished=\'no\'';
-$park_events = $database->FetchMultiple(($command, 'fetching waiting park events');
+$park_events = $database->FetchMultiple($command, 'fetching waiting park events');
 
 $event_items = 0;
 

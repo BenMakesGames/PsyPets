@@ -72,7 +72,7 @@ if($_POST["action"] == "create")
       )
     ';
 
-    $database->FetchNone(($command, 'adminnewmonster.php');
+    $database->FetchNone($command, 'adminnewmonster.php');
     
     Header("Location: ./adminmonstereditor.php?edit=$edittype");
     exit();

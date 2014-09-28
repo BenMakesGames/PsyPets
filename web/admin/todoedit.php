@@ -26,18 +26,18 @@ if($idea === false)
   exit();
 }
 
-$tags = array_keys($database->FetchMultiple(_by(
-  'SELECT * FROM psypets_ideachart_tags	WHERE ideaid=' . $ideaid,
-  'tag'
-));
-
 $is_manager = ($user['admin']['managewishlist'] == 'yes');
 
 if(!$is_manager)
 {
-  header('Location: /tododetails.php?id=' . $ideaid);
-  exit();
+    header('Location: /tododetails.php?id=' . $ideaid);
+    exit();
 }
+
+$tags = array_keys($database->FetchMultipleBy(
+  'SELECT * FROM psypets_ideachart_tags	WHERE ideaid=' . $ideaid,
+  'tag'
+));
 
 $statuses = array('implemented', 'obsolete', 'duplicate', 'against-philosophies');
 
@@ -46,7 +46,7 @@ if($_POST['action'] == 'delete')
   $status = $_POST['status'];
   if(in_array($status, $statuses))
   {
-    $database->FetchNone(('
+    $database->FetchNone('
       INSERT INTO psypets_ideachart_complete
       (postdate, completedate, status, sdesc, ldesc, category, authorid, moverid)
       VALUES
@@ -63,9 +63,9 @@ if($_POST['action'] == 'delete')
     ');
 
 		// delete to-do list entry, and associated data
-    $database->FetchNone(('DELETE FROM psypets_ideachart WHERE idnum=' . $ideaid . ' LIMIT 1');
-    $database->FetchNone(('DELETE FROM psypets_ideachart_tags WHERE ideaid=' . $ideaid);
-    $database->FetchNone(('DELETE FROM psypets_ideavotes WHERE ideaid=' . $ideaid);
+    $database->FetchNone('DELETE FROM psypets_ideachart WHERE idnum=' . $ideaid . ' LIMIT 1');
+    $database->FetchNone('DELETE FROM psypets_ideachart_tags WHERE ideaid=' . $ideaid);
+    $database->FetchNone('DELETE FROM psypets_ideavotes WHERE ideaid=' . $ideaid);
 
     header('Location: /todolist_completed.php');
     exit();
@@ -82,7 +82,7 @@ else if($_POST['action'] == 'Edit')
     if(!in_array($category, $TODO_LIST_CATEGORIES))
       $category = $idea['category'];
     
-    $database->FetchNone(('
+    $database->FetchNone('
       UPDATE psypets_ideachart
       SET
         sdesc=' . quote_smart($sdesc) . ',
@@ -98,12 +98,12 @@ else if($_POST['action'] == 'Edit')
 		
 		$tags = explode(',', $_POST['tags']);
 
-		$database->FetchNone(('DELETE FROM psypets_ideachart_tags WHERE ideaid=' . $ideaid);
+		$database->FetchNone('DELETE FROM psypets_ideachart_tags WHERE ideaid=' . $ideaid);
 		
 		foreach($tags as $i=>$tag)
 		{
 			$tags[$i] = trim($tag);
-			$database->FetchNone(('INSERT INTO psypets_ideachart_tags (ideaid, tag) VALUES (' . $ideaid . ', ' . quote_smart(trim($tags[$i])) . ')');
+			$database->FetchNone('INSERT INTO psypets_ideachart_tags (ideaid, tag) VALUES (' . $ideaid . ', ' . quote_smart(trim($tags[$i])) . ')');
 		}
   }
 }

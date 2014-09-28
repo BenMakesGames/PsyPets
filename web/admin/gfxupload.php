@@ -13,7 +13,6 @@ require_once "commons/sessions.php";
 require_once "commons/grammar.php";
 require_once "commons/formatting.php";
 
-// must be at least admin level 5 to view this page
 if($admin["uploadpetgraphics"] != "yes")
 {
   header("Location: /");

@@ -6,18 +6,21 @@ require_once "commons/formatting.php";
 require_once "commons/itemlib.php";
 require_once 'commons/petlib.php';
 
+if($admin['clairvoyant'] != 'yes')
+{
+    header('Location: /');
+    exit();
+}
+
 $levels = array();
 
 $command = 'SELECT * FROM monster_pets WHERE user!=\'psypets\' ORDER BY level ASC';
-$result = mysql_query($command);
+$pets = fetch_multiple($command);
 
-while($pet = mysql_fetch_assoc($result))
+foreach($pets as $pet)
 {
   $levels[pet_level($pet)]++;
 }
-
-mysql_free_result($result);
-
 ?>
 <table>
 <tr>

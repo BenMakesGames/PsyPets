@@ -56,7 +56,7 @@ else if($page > $num_pages)
   $page = $num_pages;
 
 $command = 'SELECT * FROM monster_posts WHERE createdby=' . $target['idnum'] . ' ORDER BY idnum DESC LIMIT ' . (($page - 1) * 20) . ',20';
-$posts = $database->FetchMultiple(($command, 'fetching residents posts');
+$posts = $database->FetchMultiple($command, 'fetching residents posts');
 
 $page_list = paginate($num_pages, $page, '/admin/spamcontrol.php?userid=' . $target['idnum'] . '&page=%s');
 

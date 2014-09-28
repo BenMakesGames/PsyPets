@@ -28,7 +28,7 @@ if($admin['createpolls'] == 'yes')
     set_global('currentpoll', (int)$_POST['current']);
     
     $command = 'UPDATE monster_users SET newpoll=\'yes\'';
-    $database->FetchNone(($command, 'setting newpoll flag for all players');
+    $database->FetchNone($command, 'setting newpoll flag for all players');
     
     $user['newpoll'] = 'yes';
   }

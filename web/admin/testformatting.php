@@ -14,6 +14,12 @@ require_once "commons/grammar.php";
 require_once "commons/formatting.php";
 require_once "commons/donationlib.php";
 
+if($user['admin']['clairvoyant'] != 'yes')
+{
+    header('Location: /admin/tools.php');
+    exit();
+}
+
 if($_POST['submit'] == 'Submit')
 {
   $NO_PIRATE = ($_POST['pirateor'] == 'yes' || $_POST['pirateor'] == 'on');

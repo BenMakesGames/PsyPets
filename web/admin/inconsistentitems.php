@@ -22,7 +22,7 @@ if($admin["manageitems"] != "yes")
 if($_POST['action'] == 'cursedpemanent')
 {
   $command = 'UPDATE monster_items SET nosellback=\'yes\' WHERE cursed=\'yes\'';
-  $database->FetchNone(($command, 'fixing inconsistent items (2)');
+  $database->FetchNone($command, 'fixing inconsistent items (2)');
 }
 
 require 'commons/html.php';
@@ -42,7 +42,7 @@ require 'commons/html.php';
 <h5>Items with "NOSELLBACK" and "PAWNABLE":</h5>
 <?php
 $command = 'SELECT idnum,itemname FROM monster_items WHERE can_pawn_for=\'yes\' AND nosellback=\'yes\'';
-$items = $database->FetchMultiple(($command, 'fetching inconsistent items (1)');
+$items = $database->FetchMultiple($command, 'fetching inconsistent items (1)');
 
 if(count($items) > 0)
 {
@@ -73,7 +73,7 @@ else
 <h5>Items with "CURSED", but not "NOSELLBACK":</h5>
 <?php
 $command = 'SELECT idnum,itemname,cursed FROM monster_items WHERE cursed=\'yes\' AND nosellback=\'no\'';
-$items = $database->FetchMultiple(($command, 'fetching inconsistent items (2)');
+$items = $database->FetchMultiple($command, 'fetching inconsistent items (2)');
 
 if(count($items) > 0)
 {

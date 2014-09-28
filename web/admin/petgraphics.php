@@ -38,7 +38,7 @@ $total = $data['c'];
 echo '<p>Total pets reported here: ' . $total . '</p>';
 
 $command = "SELECT graphic,COUNT(graphic) AS c FROM `monster_pets` WHERE graphic NOT LIKE '%/%' GROUP BY (graphic) ORDER BY c DESC";
-$graphics = $database->FetchMultiple(($command);
+$graphics = $database->FetchMultiple($command);
 
 ?>
 <table>

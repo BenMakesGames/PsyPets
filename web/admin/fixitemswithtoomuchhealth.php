@@ -9,15 +9,21 @@ $require_petload = 'no';
 // confirm the session...
 require_once "commons/dbconnect.php";
 
+if($admin['manageitems'] != 'yes')
+{
+    header('Location: /admin/tools.php');
+    exit();
+}
+
 $command = 'SELECT a.idnum,a.itemname FROM monster_inventory AS a LEFT JOIN monster_items AS b ON a.itemname=b.itemname WHERE a.health>0 AND b.durability=0 LIMIT 5000';
-$items = $database->FetchMultiple(($command, 'fetching items with durability they don\'t need');
+$items = $database->FetchMultiple($command, 'fetching items with durability they don\'t need');
 
 $items_fixed = array();
 
 foreach($items as $item)
 {
   $command = 'UPDATE monster_inventory SET health=0 WHERE idnum=' . $item['idnum'] . ' LIMIT 1';
-  $database->FetchNone(($command, 'updating health of item');
+  $database->FetchNone($command, 'updating health of item');
 
   $items_fixed[$item['itemname']]++;
 }

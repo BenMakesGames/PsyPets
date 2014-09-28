@@ -22,7 +22,7 @@ if($admin['clairvoyant'] != 'yes')
   exit();
 }
 
-$possible_items = $database->FetchMultiple(('
+$possible_items = $database->FetchMultiple('
   SELECT idnum,itemname,graphic,graphictype,value
   FROM monster_items
   WHERE

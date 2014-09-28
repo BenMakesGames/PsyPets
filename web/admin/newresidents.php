@@ -32,7 +32,7 @@ if($_POST['action'] == 'Search')
 }
 
 $command = 'SELECT idnum,user,display,email,signupdate,last_ip_address,activated,sessionid,lastactivity,timezone FROM monster_users WHERE signupdate>=' . ($now - $max_age * 60 * 60) . ' ORDER BY idnum DESC';
-$users_found = $database->FetchMultiple(($command, 'fetching recently-signed-up users');
+$users_found = $database->FetchMultiple($command, 'fetching recently-signed-up users');
 
 include 'commons/html.php';
 ?>

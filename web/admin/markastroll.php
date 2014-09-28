@@ -30,7 +30,7 @@ if($user['admin']['alphalevel'] >= 6)
     $is_watcher = in_array($user['idnum'], $watcher_list);
 
     $command = 'UPDATE monster_posts SET troll_flag=\'yes\',locked=\'yes\' WHERE idnum=' . $postid . ' LIMIT 1';
-    $database->FetchNone(($command, 'marking post as containing trolls');
+    $database->FetchNone($command, 'marking post as containing trolls');
 
     $poster = get_user_byid($this_post['createdby'], 'user,display');
 

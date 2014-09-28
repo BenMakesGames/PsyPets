@@ -172,7 +172,7 @@ if(array_key_exists('addon', $craft) && !array_key_exists('addon', $existing))
 if($existing === false)
 {
   $command = 'INSERT INTO psypets_' . $to_type . ' (' . implode(',', array_keys($craft)) . ') VALUES (' . implode(',', $craft) . ')';
-  $database->FetchNone(($command, 'creating ' . $to_type);
+  $database->FetchNone($command, 'creating ' . $to_type);
 
   $new_id = $database->InsertID();
 
@@ -186,11 +186,11 @@ else
 }
 
 $command = 'UPDATE monster_projects SET type=\'' . $project_to_type . '\',projectid=' . $new_id . ' WHERE type=\'' . $project_from_type . '\' AND projectid=' . $id;
-$database->FetchNone(($command, 'updating existing projects');
+$database->FetchNone($command, 'updating existing projects');
 
 echo 'updated ' . $database->AffectedRows() . ' existing projects<br />';
 
 $command = 'DELETE FROM psypets_' . $from_type . ' WHERE idnum=' . $id . ' LIMIT 1';
-$database->FetchNone(($command, 'deleting ' . $from_type);
+$database->FetchNone($command, 'deleting ' . $from_type);
 
 echo 'deleted ' . $from_type . '<br />';

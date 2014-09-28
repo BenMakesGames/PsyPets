@@ -94,7 +94,7 @@ foreach($items as $this_item)
 {
   echo '
     <tr class="' . $rowclass . '">
-     <td class="centered">' . item_display($this_item) . '</td>
+     <td class="centered">' . item_display($this_item, '') . '</td>
      <td>' . $this_item['itemname'] . '</td>
      <td>"' . $this_item['playdesc'] . '"</td>
      <td>' . ($this_item['custom'] != 'no' ? $this_item['custom'] : '') . '</td>

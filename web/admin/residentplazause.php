@@ -26,7 +26,7 @@ $this_user = get_user_byid($userid);
 $plazaid = (int)$_GET['plazaid'];
 
 $command = 'SELECT COUNT(a.idnum) AS posts,b.plaza FROM monster_posts AS a LEFT JOIN monster_threads AS b ON a.threadid=b.idnum WHERE a.createdby=' . $userid . ' GROUP BY b.plaza';
-$counts = $database->FetchMultiple(($command, 'fetching post counts');
+$counts = $database->FetchMultiple($command, 'fetching post counts');
 
 if($plazaid > 0)
 {
@@ -35,7 +35,7 @@ if($plazaid > 0)
     $page = 1;
 
   $command = 'SELECT a.* FROM monster_posts AS a RIGHT JOIN monster_threads AS b ON a.threadid=b.idnum WHERE a.createdby=' . $userid . ' AND b.plaza=' . $plazaid . ' ORDER BY idnum DESC LIMIT ' . (($page - 1) * 20) . ',20';
-  $posts = $database->FetchMultiple(($command, 'fetching posts from plaza section');
+  $posts = $database->FetchMultiple($command, 'fetching posts from plaza section');
 }
 
 include 'commons/html.php';

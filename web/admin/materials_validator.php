@@ -21,7 +21,7 @@ if($admin['manageitems'] != 'yes')
 
 $starttime = microtime();
 
-$items_to_check = $database->FetchMultiple(('
+$items_to_check = $database->FetchMultiple('
   SELECT itemname,recycle_for
   FROM monster_items
   WHERE recycle_for!=\'\'

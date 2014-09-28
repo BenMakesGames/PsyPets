@@ -31,7 +31,7 @@ if($page < 1 || $page > $num_pages)
   $page = 1;
 
 $command = 'SELECT * FROM psypets_favor_history WHERE value<0 ORDER BY idnum DESC LIMIT ' . (($page - 1) * 50) . ',50';
-$favors = $database->FetchMultiple(($command, 'fetching favor history');
+$favors = $database->FetchMultiple($command, 'fetching favor history');
 
 require 'commons/html.php';
 ?>

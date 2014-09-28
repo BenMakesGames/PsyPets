@@ -25,18 +25,9 @@ if($admin["clairvoyant"] != "yes")
 
 $validtypes = array_keys($categories);
 
-$command = "SELECT * FROM monster_items WHERE 1";
-$result = mysql_query($command);
+$results = fetch_multiple("SELECT * FROM monster_items WHERE 1");
 
-if(!$result)
-{
-  echo "adminitemtypes.php<br />\n" .
-       "Error in <i>$command</i><br />\n" .
-       mysql_error() . "<br />\n";
-  exit();
-}
-
-while($item = mysql_fetch_assoc($result))
+foreach($results as $item)
 {
   $i = strpos($item["itemtype"], "/");
   if($i === false)
@@ -51,8 +42,6 @@ while($item = mysql_fetch_assoc($result))
 
 }
 
-mysql_free_result($result);
-
 ksort($types);
 
 include 'commons/html.php';
@@ -64,7 +53,7 @@ include 'commons/html.php';
  <body>
 <?php include 'commons/header_2.php'; ?>
      <h4><a href="/admin/tools.php">Administrative Tools</a> &gt; Market Analyzer</h4>
-<table border=0 cellspacing=0 cellpadding=4>
+<table>
 <tr class="titlerow">
  <th>Item Type</th>
  <th>Number</th>

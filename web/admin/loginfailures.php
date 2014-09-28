@@ -21,14 +21,14 @@ if($user['admin']['clairvoyant'] != 'yes' && $user['admin']['manageaccounts'] !=
 if($_POST['submit'] == 'Clear')
 {
   $command = 'TRUNCATE TABLE `psypets_failedlogins`';
-  $database->FetchNone(($command, 'clearing failed login reports');
+  $database->FetchNone($command, 'clearing failed login reports');
   
 	// TODO: mail an administrator about this action
   //psymail_user('telkoth', $SETTINGS['site_ingame_mailer'], $user['display'] . ' cleared the failed login logs', $user['display'] . ' cleared the failed login logs');
 }
 
 $command = 'SELECT * FROM psypets_failedlogins ORDER BY ip,timestamp DESC';
-$attempts = $database->FetchMultiple(($command, 'fetching overbuy reports');
+$attempts = $database->FetchMultiple($command, 'fetching overbuy reports');
 
 include 'commons/html.php';
 ?>

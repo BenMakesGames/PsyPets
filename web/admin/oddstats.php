@@ -33,7 +33,7 @@ if(!array_key_exists($tab, $tabs))
 if($tab == 1)
 {
   $command = 'SELECT COUNT(*) AS c, graphic FROM `monster_items` WHERE custom=\'no\' AND graphic LIKE \'%book%\' GROUP BY graphic ORDER BY c DESC';
-  $result = $database->FetchMultiple(($command, 'adminoddstats.php');
+  $result = $database->FetchMultiple($command, 'adminoddstats.php');
 
   $content = '<table><tr class="titlerow"><th></th><th>Graphic</th><th>Count</th></tr>';
 
@@ -51,7 +51,7 @@ if($tab == 1)
 else if($tab == 3)
 {
   $command = 'SELECT COUNT(*) AS c,durability,itemname FROM monster_items GROUP BY durability ORDER BY durability DESC';
-  $result = $database->FetchMultiple(($command, 'adminoddstats.php');
+  $result = $database->FetchMultiple($command, 'adminoddstats.php');
 
   $content = '<table><tr class="titlerow"><th>Durability</th><th>Count</th><th></th></tr>';
 
@@ -73,7 +73,7 @@ else if($tab == 4)
   foreach($GROUPS as $group)
   {
     $command = 'SELECT COUNT(*) AS c,ingredients,GROUP_CONCAT(makes) AS makes FROM `psypets_' . $group . '` GROUP BY(ingredients) ORDER BY c DESC LIMIT 20';
-    $result = $database->FetchMultiple(($command, 'fetching same-material ' . $group);
+    $result = $database->FetchMultiple($command, 'fetching same-material ' . $group);
 
     $content .= '<h5>' . $group . '</h5>' .
                 '<table><tr class="titlerow"><th>Count</th><th>Materials</th><th>Makes</th></tr>';

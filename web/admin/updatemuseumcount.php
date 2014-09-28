@@ -11,13 +11,19 @@ require_once 'commons/grammar.php';
 require_once 'commons/formatting.php';
 require_once 'commons/museumlib.php';
 
+if($admin['manageitems'] != 'yes')
+{
+    header('Location: /admin/tools.php');
+    exit();
+}
+
 $command = 'SELECT COUNT(*) AS c,userid FROM psypets_museum GROUP BY(userid)';
-$users = $database->FetchMultiple(($command, 'fetching users who have donated');
+$users = $database->FetchMultiple($command, 'fetching users who have donated');
 
 foreach($users as $user)
 {
   $command = 'UPDATE monster_users SET museumcount=' . $user['c'] . ' WHERE idnum=' . $user['userid'] . ' LIMIT 1';
-  $database->FetchMultiple(($command, 'updating museum count for user #' . $user['userid']);
+  $database->FetchMultiple($command, 'updating museum count for user #' . $user['userid']);
   
   if($database->AffectedRows() > 0)
     echo $user['userid'] . ' had their museum count updated to ' . $user['c'] . '<br />';

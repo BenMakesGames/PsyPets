@@ -22,6 +22,8 @@ if($admin["clairvoyant"] != "yes")
   exit();
 }
 
+$page = (int)$_GET['page'];
+
 require 'commons/html.php';
 ?>
  <head>
@@ -40,7 +42,7 @@ require 'commons/html.php';
       <li>200 - Strong Paper? (kites; things which get thrown around, like shuriken)</li>
       <li>100 - Paper</li>
      </ul>
-<table border=0 cellspacing=0 cellpadding=4>
+<table>
 <tr class="titlerow">
  <th>Item</th>
  <th>Durability</th>
@@ -48,12 +50,11 @@ require 'commons/html.php';
  <th>Combine?</th>
 </tr>
 <?php
-$command = "SELECT * FROM monster_items WHERE 1 ORDER BY itemname ASC";
-$result = mysql_query($command);
+$items = fetch_multiple('SELECT * FROM monster_items WHERE 1 ORDER BY itemname ASC LIMIT ' . ($page * 20) . ',20');
 
 $bgcolor = begin_row_color();
 
-while($item = mysql_fetch_assoc($result))
+foreach($item as $items)
 {
 ?>
 <tr bgcolor="<?= $bgcolor ?>">
@@ -65,8 +66,6 @@ while($item = mysql_fetch_assoc($result))
 <?php
   $bgcolor = alt_row_color($bgcolor);
 }
-
-mysql_free_result($result);
 ?>
 </table>
 <?php include 'commons/footer_2.php'; ?>

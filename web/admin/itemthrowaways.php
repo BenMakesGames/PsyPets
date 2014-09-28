@@ -24,26 +24,26 @@ if($admin['clairvoyant'] != 'yes')
 if($_POST['action'] == 'Clear' && $admin['manageitems'] == 'yes')
 {
   $command = 'TRUNCATE TABLE psypets_gamesold';
-  $database->FetchNone(($command, 'emptying item throwaways table');
+  $database->FetchNone($command, 'emptying item throwaways table');
 }
 
 $command = 'SELECT itemname,quantity AS qty FROM psypets_gamesold WHERE transaction=\'recycled\' ORDER BY quantity DESC';
-$recycled = $database->FetchMultiple(($command, 'fetching most-recycled items');
+$recycled = $database->FetchMultiple($command, 'fetching most-recycled items');
 
 $command = 'SELECT itemname,quantity AS qty FROM psypets_gamesold WHERE transaction=\'greenhoused\' ORDER BY quantity DESC';
-$greenhoused = $database->FetchMultiple(($command, 'fetching most-tossed items');
+$greenhoused = $database->FetchMultiple($command, 'fetching most-tossed items');
 
 $command = 'SELECT itemname,quantity AS qty FROM psypets_gamesold WHERE transaction=\'pawned\' ORDER BY quantity DESC';
-$pawned = $database->FetchMultiple(($command, 'fetching most-pawned items');
+$pawned = $database->FetchMultiple($command, 'fetching most-pawned items');
 
 $command = 'SELECT itemname,quantity AS qty FROM psypets_gamesold WHERE transaction=\'sold\' ORDER BY quantity DESC';
-$gamesold = $database->FetchMultiple(($command, 'fetching most-sold items');
+$gamesold = $database->FetchMultiple($command, 'fetching most-sold items');
 
 $command = 'SELECT itemname,quantity AS qty FROM psypets_gamesold WHERE transaction=\'tossed\' ORDER BY quantity DESC';
-$tossed = $database->FetchMultiple(($command, 'fetching most-tossed items');
+$tossed = $database->FetchMultiple($command, 'fetching most-tossed items');
 
 $command = 'SELECT itemname,SUM(quantity) AS qty FROM psypets_gamesold GROUP BY itemname ORDER BY qty DESC';
-$total = $database->FetchMultiple(($command, 'fetching total discarded items');
+$total = $database->FetchMultiple($command, 'fetching total discarded items');
 
 include 'commons/html.php';
 ?>

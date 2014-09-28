@@ -15,8 +15,14 @@ require_once 'commons/arklib.php';
 require_once 'commons/petlib.php';
 require_once 'commons/userlib.php';
 
+if($admin['manageitems'] != 'yes')
+{
+    header('Location: /admin/tools.php');
+    exit();
+}
+
 $command = 'SELECT * FROM psypets_ark WHERE graphic IN (\'' . implode('\',\'', $ARK_GRAPHICS_EXCLUDED) . '\')';
-$bad_donations = $database->FetchMultiple(($command, 'fetching bad ark donations');
+$bad_donations = $database->FetchMultiple($command, 'fetching bad ark donations');
 
 $removed_by_user = array();
 
@@ -33,11 +39,11 @@ foreach($bad_donations as $pet)
   {
     $petid = create_offspring($owner['user'], 1, array($pet['graphic']), random_blood_type(), random_blood_type(), false);
     $command = 'UPDATE monster_pets SET gender=\'' . $pet['gender'] . '\',location=\'shelter\' WHERE idnum=' . $petid . ' LIMIT 1';
-    $database->FetchNone(($command, 'correcting created pet\'s gender and location');
+    $database->FetchNone($command, 'correcting created pet\'s gender and location');
   }
   
   $command = 'DELETE FROM psypets_ark WHERE userid=' . $pet['userid'] . ' AND graphic=\'' . $pet['graphic'] . '\' AND gender=\'' . $pet['gender'] . '\' LIMIT 1';
-  $database->FetchNone(($command, 'deleting bad donation record');
+  $database->FetchNone($command, 'deleting bad donation record');
 
   echo $pet['gender'] . ' ' . $pet['graphic'] . ' from ' . $owner['display'] . ' (' . $owner['user'] . ') has been removed.<br />';
   
@@ -56,7 +62,7 @@ if(count($removed_by_user) > 0)
     $userid = $userids_by_user[$user];
 
     $command = 'UPDATE monster_users SET arkcount=arkcount-' . $quantity . ' WHERE idnum=' . $userid . ' LIMIT 1';
-    $database->FetchNone(($command, 'updating ark count');
+    $database->FetchNone($command, 'updating ark count');
     
     echo '(' . $user . ') has been psymailed about his/her ' . $quantity . ' removals.<br />';
   }

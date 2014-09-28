@@ -23,19 +23,7 @@ if($admin['clairvoyant'] != 'yes')
 $item_entries = array();
 
 $command = "SELECT monster_items.graphic,monster_inventory.* FROM monster_items,monster_inventory WHERE monster_inventory.itemname=monster_items.itemname AND monster_items.rare='yes' ORDER BY monster_inventory.idnum ASC";
-$result = mysql_query($command);
-if(!$result)
-{
-  echo "adminitems.php<br />\n" .
-       "Error in <i>$command</i><br />\n" .
-       mysql_error() . "<br />\n";
-  exit();
-}
-
-while($item = mysql_fetch_assoc($result))
-  $item_entries[] = $item;
-
-mysql_free_result($result);
+$item_entries = fetch_multiple($command);
 
 include 'commons/html.php';
 ?>

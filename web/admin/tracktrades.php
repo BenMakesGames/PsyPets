@@ -29,7 +29,7 @@ if(array_key_exists('resident', $_GET))
     $resident_name = $resident['display'];
 
     $command = 'SELECT * FROM monster_trades WHERE userid1=' . $resident['idnum'] . ' OR userid2=' . $resident['idnum'] . ' ORDER BY tradeid DESC';
-    $trades = $database->FetchMultiple(($command, 'fetching resident\'s trades');
+    $trades = $database->FetchMultiple($command, 'fetching resident\'s trades');
   }
 }
 

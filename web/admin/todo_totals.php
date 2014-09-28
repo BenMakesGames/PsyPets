@@ -33,7 +33,7 @@ if(strlen($tag) > 0)
 else
 	$command = 'SELECT * FROM psypets_ideachart';
 
-$wishes = $database->FetchMultiple(_by($command, 'idnum', 'fetching wishes');
+$wishes = $database->FetchMultipleBy($command, 'idnum', 'fetching wishes');
 
 foreach($wishes as $id=>$wish)
 {
@@ -63,7 +63,7 @@ foreach($wishes as $id=>$wish)
 
   $wishes[$id]['votes_-2'] = $data['votes'];
 
-	$these_tags = $database->FetchMultiple((
+	$these_tags = $database->FetchMultiple(
 		'SELECT * FROM psypets_ideachart_tags	WHERE ideaid=' . $id
 	);
 

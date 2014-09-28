@@ -1,7 +1,6 @@
 <?php
 $IGNORE_MAINTENANCE = true;
 
-
 require_once 'commons/init.php';
 
 $require_petload = 'no';
@@ -20,13 +19,13 @@ if($admin['abusewatcher'] != 'yes')
 }
 
 $command = 'SELECT postid,COUNT(voterid) AS total FROM psypets_post_thumbs WHERE vote=-1 GROUP BY postid ORDER BY total DESC';
-$negative_votes = $database->FetchMultiple(_by($command, 'postid', 'fetching total negative votes');
+$negative_votes = $database->FetchMultipleBy($command, 'postid', 'fetching total negative votes');
 
 $command = 'SELECT postid,COUNT(voterid) AS total FROM psypets_post_thumbs WHERE vote=1 GROUP BY postid ORDER BY total DESC';
-$positive_votes = $database->FetchMultiple(_by($command, 'postid', 'fetching total positive votes');
+$positive_votes = $database->FetchMultipleBy($command, 'postid', 'fetching total positive votes');
 
 $command = 'SELECT postid,SUM(vote) AS total,COUNT(voterid) AS votes FROM psypets_post_thumbs GROUP BY postid ORDER BY votes DESC';
-$total_votes = $database->FetchMultiple(_by($command, 'postid', 'fetching total votes');
+$total_votes = $database->FetchMultipleBy($command, 'postid', 'fetching total votes');
 
 $detailid = (int)$_GET['details'];
 
@@ -36,7 +35,7 @@ if($detailid > 0 && array_key_exists($detailid, $total_votes))
   $post = $database->FetchSingle($command, 'fetching post');
 
   $command = 'SELECT * FROM psypets_post_thumbs WHERE postid=' . $detailid;
-  $voterids = $database->FetchMultiple(($command, 'fetching voters');
+  $voterids = $database->FetchMultiple($command, 'fetching voters');
 
   $got_details = true;
 }

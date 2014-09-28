@@ -24,7 +24,7 @@ if($_GET['edit'] == 'prey')
   $param = 'prey';
   $tab = 'prey';
 
-  $monsters = $database->FetchMultiple(('
+  $monsters = $database->FetchMultiple('
     SELECT *
     FROM monster_prey
     WHERE activity=\'hunt\'
@@ -36,7 +36,7 @@ else if($_GET['edit'] == 'fish')
   $param = 'prey';
   $tab = 'fish';
 
-  $monsters = $database->FetchMultiple(('
+  $monsters = $database->FetchMultiple('
     SELECT *
     FROM monster_prey
     WHERE activity=\'fish\'
@@ -48,7 +48,7 @@ else
   $param = 'monster';
   $tab = 'monster';
 
-  $monsters = $database->FetchMultiple(('
+  $monsters = $database->FetchMultiple('
     SELECT *
     FROM monster_monsters
     ORDER BY level ASC

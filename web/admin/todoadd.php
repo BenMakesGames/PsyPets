@@ -46,7 +46,7 @@ if($_POST['action'] == 'add')
 
   if(count($errors) == 0)
   {
-    $database->FetchNone(('
+    $database->FetchNone('
 	    INSERT INTO psypets_ideachart (postdate, sdesc, ldesc, category, authorid)
 	    VALUES
       (
@@ -64,7 +64,7 @@ if($_POST['action'] == 'add')
       mail($SETTINGS['author_email'], 'new wish list wish: ' . $sdesc, 'posted by ' . $user['display'] . ":\n" . $ldesc, 'From: ' . $SETTINGS['site_name'] . ' <' . $SETTINGS['site_mailer'] . '>');
 
     $command = 'UPDATE monster_users SET wishlistupdate=\'yes\'';
-    $database->FetchNone(($command, 'notifying residents of change (addition)');
+    $database->FetchNone($command, 'notifying residents of change (addition)');
 
     header('Location: /tododetails.php?id=' . $id);
     exit();

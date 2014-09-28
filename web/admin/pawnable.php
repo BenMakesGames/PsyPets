@@ -23,7 +23,7 @@ if($admin["manageitems"] != "yes")
 }
 
 $command = 'SELECT itemname FROM monster_items WHERE can_pawn_for=\'yes\' AND nosellback=\'yes\'';
-$items = $database->FetchMultiple(($command, 'fetching standard items that do not recycle');
+$items = $database->FetchMultiple($command, 'fetching standard items that do not recycle');
 
 include 'commons/html.php';
 ?>

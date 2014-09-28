@@ -29,10 +29,10 @@ if($itemid > 0)
   $inventory = $database->FetchSingle($command, 'fetching item');
 
   $command = 'SELECT * FROM monster_auctions WHERE itemid=' . $itemid;
-  $auctions = $database->FetchMultiple(($command, 'fetching auctions');
+  $auctions = $database->FetchMultiple($command, 'fetching auctions');
 
   $command = 'SELECT * FROM monster_trades WHERE items1 LIKE \'%' . $itemid . '%\' OR items2 LIKE \'%' . $itemid . '%\'';
-  $results = $database->FetchMultiple(($command, 'fetching trades');
+  $results = $database->FetchMultiple($command, 'fetching trades');
 
   $trades = array();
 
