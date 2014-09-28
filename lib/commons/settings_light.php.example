@@ -30,6 +30,7 @@ $SETTINGS['cookie_name'] = 'psypets_session';
 $SETTINGS['cookie_path'] = '/';
 $SETTINGS['cookie_domain'] = $SETTINGS['site_domain']; // or ".domain.tld"
 
+$SETTINGS['handydb']['persistent'] = true; // try setting to false if you get mysql error 2005
 $SETTINGS['handydb']['host'] = 'localhost';
 $SETTINGS['handydb']['user'] = 'DB USERNAME HERE';
 $SETTINGS['handydb']['password'] = 'DB PASSWORD HERE';
