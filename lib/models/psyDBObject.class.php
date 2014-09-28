@@ -88,13 +88,13 @@ abstract class psyDBObject
             try
             {
                 psyDBObject::$db_connection = mysqli_connect(
-                    'p:' . $SETTINGS['handydb']['host'],
+                    ($SETTINGS['handydb']['persistent'] ? 'p:' : '') . $SETTINGS['handydb']['host'],
                     $SETTINGS['handydb']['user'],
                     $SETTINGS['handydb']['password'],
                     $SETTINGS['handydb']['database']
                 );
             }
-            catch(\Exception $e)
+            catch(Exception $e)
             {
                 var_dump($e);
                 die();
