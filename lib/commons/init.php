@@ -1,6 +1,8 @@
 <?php
-define('WEB_ROOT', $_SERVER['DOCUMENT_ROOT']);
-define('LIB_ROOT', $_SERVER['DOCUMENT_ROOT'] . '/../lib');
+define('WEB_ROOT', realpath(dirname(dirname(dirname(__FILE__))) . '/web'));
+define('LIB_ROOT', realpath(dirname(dirname(__FILE__))));
+
+set_include_path(get_include_path() . PATH_SEPARATOR . LIB_ROOT);
 
 function __autoload($class_name)
 {

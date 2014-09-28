@@ -5,7 +5,7 @@ class HandyDB
 
     private $_mysqli;
 
-    public function __construct($settings)
+    public function __construct($settings = false)
     {
         if(!$settings)
         {
@@ -134,24 +134,31 @@ class HandyDB
     {
         global $SETTINGS;
 
-        $message = '
-			<h3>' . $_SERVER['REQUEST_URI'] . '</h3>
-			<p>Referrer: ' . $_SERVER['HTTP_REFERER'] . '</p>
-			<p>SQL Statement: ' . $query . '</p>
-			<p>SQL Error: ' . $this->_mysqli->error . ' (#' . $this->_mysqli->errno . ')</p>
-			<h4>Backtrace</h4>
-			<pre>' . print_r(debug_backtrace(), true) . '</pre>
-		';
+        if(PHP_SAPI == 'cli')
+        {
+            throw new Exception('SQL Error: ' . $this->_mysqli->error . ' (#' . $this->_mysqli->errno . ')');
+        }
+        else
+        {
+            $message = '
+                <h3>' . $_SERVER['REQUEST_URI'] . '</h3>
+                <p>Referrer: ' . $_SERVER['HTTP_REFERER'] . '</p>
+                <p>SQL Statement: ' . $query . '</p>
+                <p>SQL Error: ' . $this->_mysqli->error . ' (#' . $this->_mysqli->errno . ')</p>
+                <h4>Backtrace</h4>
+                <pre>' . print_r(debug_backtrace(), true) . '</pre>
+            ';
 
-        mail(
-            $SETTINGS['author_email'],
-            $SETTINGS['site_name'] . ' fatal error',
-            $message,
-            'MIME-Version: 1.0' . "\n" .
-            'Content-type: text/html; charset=utf-8' . "\n" .
-            'From: ' . $SETTINGS['site_mailer'] . "\n"
-        );
+            mail(
+                $SETTINGS['author_email'],
+                $SETTINGS['site_name'] . ' fatal error',
+                $message,
+                'MIME-Version: 1.0' . "\n" .
+                'Content-type: text/html; charset=utf-8' . "\n" .
+                'From: ' . $SETTINGS['site_mailer'] . "\n"
+            );
 
-        die('<p>A particularly-nasty error has occurred.  ' . $SETTINGS['author_resident_name'] . ' has been e-mailed with the details of this error.</p><p>Use your browser\'s back button, and retry doing whatever it was you were trying to do.  If the problem persists, please contact That Guy Ben with details about what you were trying to do.  It\'ll help him fix whatever bug may be at work here.</p><p>Sorry about the inconvenience!</p>');
+            die('<p>A particularly-nasty error has occurred.  ' . $SETTINGS['author_resident_name'] . ' has been e-mailed with the details of this error.</p><p>Use your browser\'s back button, and retry doing whatever it was you were trying to do.  If the problem persists, please contact That Guy Ben with details about what you were trying to do.  It\'ll help him fix whatever bug may be at work here.</p><p>Sorry about the inconvenience!</p>');
+        }
     }
 }
