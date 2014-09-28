@@ -12,9 +12,6 @@ if(substr($destination, 0, 8) == 'storage/')
 $i = mt_rand(1, 43);
 $now = time();
 
-if(array_key_exists('i', $_GET) && $user['admin']['alphalevel'] >= 10)
-  $i = (int)$_GET['i'];
-
 $AGAIN_WITH_SAME = true;
 
 if($i == 1)

@@ -14,7 +14,7 @@ require_once 'commons/grammar.php';
 require_once 'commons/formatting.php';
 require_once 'commons/livebroadcastlib.php';
 
-if($user['admin']['alphalevel'] < 6)
+if($user['admin']['coder'] != 'yes')
 {
   header('Location: /livebroadcast.php');
   exit();

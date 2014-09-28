@@ -73,7 +73,7 @@ if($_POST['action'] == 'delete')
 }
 else if($_POST['action'] == 'Edit')
 {
-  if($user['admin']['managewishlist'] == 'yes' && ($user['admin']['alphalevel'] >= 8 || $user['idnum'] == $idea['authorid']))
+  if($user['admin']['managewishlist'] == 'yes' && ($user['admin']['coder'] == 'yes' || $user['idnum'] == $idea['authorid']))
   {
     $sdesc = htmlspecialchars(trim($_POST['title']));
     $ldesc = htmlspecialchars(trim($_POST['entry']));
@@ -118,7 +118,7 @@ include 'commons/html.php';
 <?php include 'commons/header_2.php'; ?>
     <h4><a href="/admin/tools.php">Admin Tools</a> &gt; <a href="/admin/todo_totals.php">To-do List</a> &gt; <a href="/tododetails.php?id=<?= $ideaid ?>"><?= $idea['sdesc'] ?></a> &gt; Edit</h4>
 <?php
-if($user['admin']['managewishlist'] == 'yes' && ($user['admin']['alphalevel'] >= 8 || $user['idnum'] == $idea['authorid']))
+if($user['admin']['managewishlist'] == 'yes' && ($user['admin']['coder'] == 'yes' || $user['idnum'] == $idea['authorid']))
 {
 ?>
     <form action="todoedit.php?id=<?= $ideaid ?>" method="post">

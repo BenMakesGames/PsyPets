@@ -23,7 +23,7 @@ $this_post = $database->FetchSingle($command, 'fetching post');
 
 if($this_post['troll_flag'] == 'yes')
 {
-  if($user['admin']['alphalevel'] >= 6)
+  if($user['admin']['manageaccounts'] == 'yes')
   {
     $command = 'UPDATE monster_posts SET troll_flag=\'no\',locked=\'no\' WHERE idnum=' . $postid . ' LIMIT 1';
     $database->FetchNone($command, 'unmarking post as containing trolls');

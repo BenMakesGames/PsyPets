@@ -26,9 +26,6 @@ else
 {
   $i = rand() % 22;
 
-  if(array_key_exists('i', $_GET) && $user['admin']['alphalevel'] >= 10)
-    $i = (int)$_GET['i'];
-
   if($i == 0)
   {
     give_money($user, (rand() % 10 + 1) * 100, 'Created by the Deck of Many Things');

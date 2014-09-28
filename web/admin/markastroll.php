@@ -12,7 +12,7 @@ require_once 'commons/userlib.php';
 require_once 'commons/threadfunc.php';
 require_once 'commons/trolllib.php';
 
-if($user['admin']['alphalevel'] >= 6)
+if($user['admin']['manageaccounts'] == 'yes')
 {
   $postid = (int)$_GET['postid'];
 

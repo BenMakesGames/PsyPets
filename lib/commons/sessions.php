@@ -138,9 +138,6 @@ if($user !== false)
   else
     $admin = false;
 
-  if($admin === false)
-    $admin['alphalevel'] = 0;
-
   $user['admin'] = $admin;
 
   $birthday = explode('-', $user['birthday']);

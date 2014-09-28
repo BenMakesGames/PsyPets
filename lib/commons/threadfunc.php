@@ -410,7 +410,7 @@ function render_post(&$this_post, &$this_thread, &$this_plaza, &$user = array(),
   if($admin['deletespam'] == 'yes')
     $admin_commands[] = '<a href="/admin/spamcontrol.php?userid=' . $this_post['createdby'] . '&amp;action=delete&amp;p_' . $this_post['idnum'] . '=yes" onclick="return confirm(\'Really delete this post?\');">delete</a>';
 
-  if($user['admin']['alphalevel'] >= 6)
+  if($admin['deletespam'] == 'yes' && $admin['manageaccounts'] == 'yes')
   {
     $text = $user['display'] . ' (' . $user['user'] . ') ' . $this_post['title'] . ' ' . $this_post['body'];
     $bayesian_filter = new spamchecker();

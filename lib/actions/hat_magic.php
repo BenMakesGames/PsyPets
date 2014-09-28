@@ -5,9 +5,6 @@ if($okay_to_be_here !== true)
 $i = mt_rand(1, 10);
 $now = time();
 
-if(array_key_exists('i', $_GET) && $user['admin']['alphalevel'] >= 10)
-  $i = (int)$_GET['i'];
-
 $AGAIN_WITH_SAME = true;
 
 switch($i)

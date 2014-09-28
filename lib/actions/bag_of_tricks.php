@@ -22,9 +22,6 @@ else
   }
 }
 
-if(array_key_exists("i", $_GET) && $user['admin']['alphalevel'] >= 10)
-  $i = (int)$_GET["i"];
-
 $AGAIN_WITH_SAME = true;
 
 if($data <= 0)

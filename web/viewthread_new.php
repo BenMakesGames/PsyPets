@@ -382,13 +382,13 @@ foreach($thread_posts as $this_post)
 
   $admin_commands = array();
 
-  if($user['admin']['alphalevel'] >= 6)
+  if($user['admin']['manageaccounts'] == 'yes')
     $admin_commands[] = '<i>#' . $this_post['idnum'] . '</i>';
 
   if($admin['deletespam'] == 'yes')
     $admin_commands[] = '<a href="/admin/spamcontrol.php?userid=' . $this_post['createdby'] . '&amp;action=delete&amp;p_' . $this_post['idnum'] . '=yes" onclick="return confirm(\'Really delete this post?\');">delete</a>';
 
-  if($user['admin']['alphalevel'] >= 6)
+  if($admin['deletespam'] == 'yes' && $user['admin']['manageaccounts'] == 'yes')
   {
     if($this_post['troll_flag'] == 'no')
       $admin_commands[] = '<a href="/admin/markastroll.php?postid=' . $this_post['idnum'] . '" onclick="return confirm(\'Flag this post as containing trolls?\');">trolls</a>';

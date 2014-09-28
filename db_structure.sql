@@ -73,7 +73,6 @@ CREATE TABLE `monster_admins` (
   `deletespam` enum('yes','no') NOT NULL DEFAULT 'no',
   `seeserversettings` enum('yes','no') NOT NULL DEFAULT 'no',
   `coder` enum('yes','no') NOT NULL DEFAULT 'no',
-  `alphalevel` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`user`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -124,7 +123,6 @@ CREATE TABLE `monster_events` (
   `timestamp` int(10) unsigned NOT NULL DEFAULT '0',
   `host` varchar(32) NOT NULL DEFAULT '',
   `graphic` varchar(32) NOT NULL DEFAULT '',
-  `alphalevel` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`idnum`),
   KEY `finished` (`finished`),
   KEY `event` (`event`),

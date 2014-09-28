@@ -140,7 +140,7 @@ $(function() {
         $alert .= ' <a href="/adminloginfailures.php">FL</a>';
     }
 
-    if($user['admin']['alphalevel'] > 0)
+    if($user['admin']['clairvoyant'] == 'yes')
     {
       $goal = include 'immediategoal.php';
       $alert .= ' | <b style="color:#906;">' . $goal . '</b>';
