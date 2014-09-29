@@ -198,27 +198,27 @@ function check_pets($userid, $hour_limit = false)
       $mypets[$idnum]['skill_wit']           = max(0, $mypets[$idnum]['wit']           + successes($tool_item['equip_wit']));
 
       $mypets[$idnum]['skill_athletics']     = max(0, $mypets[$idnum]['athletics']     + successes($tool_item['equip_athletics']));
-      $mypets[$idnum]['skill_stealth']       = max(0, $mypets[$idnum]['stealth']       + successes($tool_item['equip_stealth'])        + round($god['rigzivizgi']['attitude'] / 30));
+      $mypets[$idnum]['skill_stealth']       = max(0, $mypets[$idnum]['stealth']       + successes($tool_item['equip_stealth'])        + round($gods['rigzivizgi']['attitude'] / 30));
 
-      $mypets[$idnum]['skill_mechanics']     = max(0, $mypets[$idnum]['mechanics']     + successes($tool_item['equip_mechanics'])      + round($god['kirikashu']['attitude'] / 30));
-      $mypets[$idnum]['skill_electronics']   = max(0, $mypets[$idnum]['eng']           + successes($tool_item['equip_electronics'])    + round($god['kirikashu']['attitude'] / 30));
+      $mypets[$idnum]['skill_mechanics']     = max(0, $mypets[$idnum]['mechanics']     + successes($tool_item['equip_mechanics'])      + round($gods['kirikashu']['attitude'] / 30));
+      $mypets[$idnum]['skill_electronics']   = max(0, $mypets[$idnum]['eng']           + successes($tool_item['equip_electronics'])    + round($gods['kirikashu']['attitude'] / 30));
       $mypets[$idnum]['skill_hunting']       = max(0, $mypets[$idnum]['sur']           + successes($tool_item['equip_hunting']));
-      $mypets[$idnum]['skill_gathering']     = max(0, $mypets[$idnum]['gathering']     + successes($tool_item['equip_gathering'])      + round($god['gijubi']['attitude'] / 30));
+      $mypets[$idnum]['skill_gathering']     = max(0, $mypets[$idnum]['gathering']     + successes($tool_item['equip_gathering'])      + round($gods['gijubi']['attitude'] / 30));
       $mypets[$idnum]['skill_smithing']      = max(0, $mypets[$idnum]['smi']           + successes($tool_item['equip_smithing']));
       $mypets[$idnum]['skill_tailoring']     = max(0, $mypets[$idnum]['tai']           + successes($tool_item['equip_tailoring']));
       $mypets[$idnum]['skill_leatherworking']= max(0, $mypets[$idnum]['leather']       + successes($tool_item['equip_leather']));
-      $mypets[$idnum]['skill_adventuring']   = max(0, $mypets[$idnum]['bra']           + successes($tool_item['equip_adventuring'])    + round($god['rigzivizgi']['attitude'] / 30));
-      $mypets[$idnum]['skill_crafting']      = max(0, $mypets[$idnum]['cra']           + successes($tool_item['equip_crafting'])       + round($god['gijubi']['attitude'] / 30));
-      $mypets[$idnum]['skill_painting']      = max(0, $mypets[$idnum]['painting']      + successes($tool_item['equip_painting'])       + round($god['gijubi']['attitude'] / 30));
-      $mypets[$idnum]['skill_carpentry']     = max(0, $mypets[$idnum]['carpentry']     + successes($tool_item['equip_carpentry'])      + round($god['gijubi']['attitude'] / 30));
-      $mypets[$idnum]['skill_sculpting']     = max(0, $mypets[$idnum]['sculpting']     + successes($tool_item['equip_sculpting'])      + round($god['gijubi']['attitude'] / 30));
-      $mypets[$idnum]['skill_jeweling']      = max(0, $mypets[$idnum]['jeweling']      + successes($tool_item['equip_jeweling'])       + round($god['kirikashu']['attitude'] / 30));
+      $mypets[$idnum]['skill_adventuring']   = max(0, $mypets[$idnum]['bra']           + successes($tool_item['equip_adventuring'])    + round($gods['rigzivizgi']['attitude'] / 30));
+      $mypets[$idnum]['skill_crafting']      = max(0, $mypets[$idnum]['cra']           + successes($tool_item['equip_crafting'])       + round($gods['gijubi']['attitude'] / 30));
+      $mypets[$idnum]['skill_painting']      = max(0, $mypets[$idnum]['painting']      + successes($tool_item['equip_painting'])       + round($gods['gijubi']['attitude'] / 30));
+      $mypets[$idnum]['skill_carpentry']     = max(0, $mypets[$idnum]['carpentry']     + successes($tool_item['equip_carpentry'])      + round($gods['gijubi']['attitude'] / 30));
+      $mypets[$idnum]['skill_sculpting']     = max(0, $mypets[$idnum]['sculpting']     + successes($tool_item['equip_sculpting'])      + round($gods['gijubi']['attitude'] / 30));
+      $mypets[$idnum]['skill_jeweling']      = max(0, $mypets[$idnum]['jeweling']      + successes($tool_item['equip_jeweling'])       + round($gods['kirikashu']['attitude'] / 30));
       $mypets[$idnum]['skill_mining']        = max(0, $mypets[$idnum]['mining']        + successes($tool_item['equip_mining']));
       $mypets[$idnum]['skill_lumberjacking'] = max(0, $mypets[$idnum]['gathering']     + successes($tool_item['equip_lumberjacking']));
-      $mypets[$idnum]['skill_fishing']       = max(0, $mypets[$idnum]['fishing']       + successes($tool_item['equip_fishing'])        + round($god['gijubi']['attitude'] / 30));
-      $mypets[$idnum]['skill_binding']       = max(0, $mypets[$idnum]['binding']       + successes($tool_item['equip_binding'])        + round(($god['gijubi']['attitude'] + $god['kirikashu']['attitude'] + $god['rigzivizgi']['attitude']) / 60));
-      $mypets[$idnum]['skill_chemistry']     = max(0, $mypets[$idnum]['chemistry']     + successes($tool_item['equip_chemistry'])      + round($god['kirikashu']['attitude'] / 30));
-      $mypets[$idnum]['skill_gardening']     = max(0, $mypets[$idnum]['gathering']     + successes($tool_item['equip_gardening'])      + round($god['gijubi']['attitude'] / 30));
+      $mypets[$idnum]['skill_fishing']       = max(0, $mypets[$idnum]['fishing']       + successes($tool_item['equip_fishing'])        + round($gods['gijubi']['attitude'] / 30));
+      $mypets[$idnum]['skill_binding']       = max(0, $mypets[$idnum]['binding']       + successes($tool_item['equip_binding'])        + round(($gods['gijubi']['attitude'] + $gods['kirikashu']['attitude'] + $gods['rigzivizgi']['attitude']) / 60));
+      $mypets[$idnum]['skill_chemistry']     = max(0, $mypets[$idnum]['chemistry']     + successes($tool_item['equip_chemistry'])      + round($gods['kirikashu']['attitude'] / 30));
+      $mypets[$idnum]['skill_gardening']     = max(0, $mypets[$idnum]['gathering']     + successes($tool_item['equip_gardening'])      + round($gods['gijubi']['attitude'] / 30));
       $mypets[$idnum]['skill_music']         = max(0, $mypets[$idnum]['music']         + successes($tool_item['equip_music']));
       $mypets[$idnum]['skill_astronomy']     = max(0, $mypets[$idnum]['astronomy']     + successes($tool_item['equip_astronomy']));
 
@@ -269,7 +269,7 @@ function check_pets($userid, $hour_limit = false)
 
     $update_duration_start = time();
 
-    if(mt_rand(1, 720 + $god['rigzivizgi']['attitude']) == 1)
+    if(mt_rand(1, 720 + $gods['rigzivizgi']['attitude']) == 1)
        $house['rats'] = 'yes';
 
     $GLOBALS['database']->FetchNone('
@@ -816,7 +816,7 @@ function hourly_pet_sleeping(&$mypet, &$myuser, $hour)
   gain_energy($mypet, rand(2 + floor($mypet['sta'] / 2), 3 + $mypet['sta']));
   $mypet['asleep_time']++;
 	
-	// negative loss is not counted; this is a hacky way to randomize loss while sleeping
+    // negative loss is not counted; this is a hacky way to randomize loss while sleeping
   lose_stat($mypet, 'food', mt_rand(-2, ($preg_days >= 14 ? 2 : 1)));
 
   $energy_percent = $mypet['energy'] / max_energy($mypet);
@@ -826,7 +826,7 @@ function hourly_pet_sleeping(&$mypet, &$myuser, $hour)
   if($mypet['food'] <= 3)
   {
     $desire = -($mypet['food'] - 4);
-    $hungry += ceil($desire * $desire);
+    $hungry = ceil($desire * $desire);
   }
   else
     $hungry = 0;
@@ -1392,7 +1392,7 @@ function hourly_pet(&$mypet, &$myprojects, &$myuser, $hour, $num_pets, &$house_s
 
   if($mypet['food'] > 0 && $mypet['caffeinated'] == 0 && $mypet['sleeping'] == 'no')
   {
-    if($mypet['energy'] + $eat < 0)
+    if($mypet['energy'] + $todo['eat'] < 0)
     {
       $newpet['sleeping'] = 'yes';
       add_logged_event_cached($myuser['idnum'], $mypet['idnum'], $hour, 'hourly', 'sleep', $mypet['petname'] . ' passed out.');
@@ -1406,7 +1406,7 @@ function hourly_pet(&$mypet, &$myprojects, &$myuser, $hour, $num_pets, &$house_s
       $chance *= $chance * 100;
       $chance += $mypet['skill_conscientious'] * 2;
 
-      if(rand(1, 100) + $eat <= $chance)
+      if(rand(1, 100) + $todo['eat'] <= $chance)
       {
         $newpet['sleeping'] = 'yes';
 
@@ -1975,9 +1975,9 @@ function delete_project($idnum)
 
 function work_on_homeimprovement(&$project, &$mypet, &$myuser, $hour)
 {
-  $dice += equipment_specific_bonus($mypet['tool'], $project);
+    $bonus_dice = equipment_specific_bonus($mypet['tool'], $project);
   
-  $success_dice = successes(carpentry_dice($mypet));
+  $success_dice = successes(carpentry_dice($mypet) + $bonus_dice);
 
   if($success_dice < 1)
     return false;
@@ -3114,6 +3114,8 @@ function equipment_specific_bonus($tool, $target)
 
   if($target['is_deep_sea'] == 'yes' && $tool['equip_pressurized'] == 'yes')
     $bonus += 2;
+
+    return $bonus;
 }
 
 function try_adventuring(&$mypet, &$myuser, $hour, &$monster_list)
@@ -4288,9 +4290,9 @@ function play_game_room(&$mypet, &$myuser, $hour, $house_size, &$game_room, &$ga
   else
     $max_drop_chance = 1000;
 
-  $dice += equipment_specific_bonus($mypet['tool'], $game);
+  $dice = equipment_specific_bonus($mypet['tool'], $game);
   
-  $success_dice = successes($skill);
+  $success_dice = successes($skill + $dice);
     
   if($success_dice > successes($gamedifficulty))
   {

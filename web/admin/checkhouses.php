@@ -1,7 +1,6 @@
 <?php
 $IGNORE_MAINTENANCE = true;
 
-
 require_once 'commons/init.php';
 
 $require_petload = "no";
@@ -14,7 +13,6 @@ require_once "commons/grammar.php";
 require_once "commons/formatting.php";
 require_once "commons/houselib.php";
 
-// must be at least admin level 5 to view this page
 if($admin["manageaccounts"] != "yes")
 {
   Header("Location: /admin/tools.php");

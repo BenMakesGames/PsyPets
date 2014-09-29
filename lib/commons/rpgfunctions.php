@@ -56,7 +56,7 @@ function dice_roll($d, $s)
 function successes($dice)
 {
   if($dice <= 0)
-    return $dice;
+    return (int)$dice;
 
   $total = 0;
 
