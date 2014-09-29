@@ -264,7 +264,7 @@ function get_item_byname($name, $reload_from_db = false)
 {
   $key = md5('item by name:' . $name);
 
-  $item = cache_get($key);
+  $item = Cache::Get($key);
 
   if(!is_array($item) || $reload_from_db === true)
   {
@@ -275,7 +275,7 @@ function get_item_byname($name, $reload_from_db = false)
       LIMIT 1
     ');
     
-    cache_add($key, $item);
+    Cache::Add($key, $item);
   }
 
   return $item;
@@ -285,7 +285,7 @@ function get_item_byid($id, $reload_from_db = false)
 {
   $key = md5('item by id:' . $id);
 
-  $item = cache_get($key);
+  $item = Cache::Get($key);
   
   if($item === false || $reload_from_db === true)
   {
@@ -296,7 +296,7 @@ function get_item_byid($id, $reload_from_db = false)
       LIMIT 1
     ');
 
-    cache_add($key, $item);
+    Cache::Add($key, $item);
   }
   
   return $item;

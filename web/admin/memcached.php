@@ -12,6 +12,7 @@ require_once 'commons/sessions.php';
 require_once 'commons/grammar.php';
 require_once 'commons/formatting.php';
 require_once 'commons/chemistrylib.php';
+require_once 'commons/cachelib.php';
 
 if($admin['seeserversettings'] != 'yes')
 {
@@ -19,12 +20,12 @@ if($admin['seeserversettings'] != 'yes')
   exit();
 }
 
-$memcache = new Memcache;
-$memcache->connect('localhost', 11211) or die ("Could not connect to server.");
-
 if($_POST['action'] == 'Flush Memcached')
 {
-  $memcache->flush();
+  if(Cache::$MEMCACHE_SERVER->flush())
+      $CONTENT['messages'][] = 'Memcached server has been flushed.';
+    else
+        $CONTENT['messages'][] = 'Could not flush memcached server :(';
 }
 
 require 'commons/html.php';
@@ -37,7 +38,7 @@ require 'commons/html.php';
 <?php include 'commons/header_2.php'; ?>
      <h4><a href="/admin/tools.php">Administrative Tools</a> &gt; Memcached</h4>
 <?php
-$stats = $memcache->getStats();
+$stats = Cache::$MEMCACHE_SERVER->getStats();
 
 echo '<table>';
 $rowclass = begin_row_class();
@@ -54,7 +55,7 @@ $key = md5($lookup);
 ?>
 <form method="post"><p><input type="submit" class="bigbutton" name="action" value="Flush Memcached" /></p></form>
 <?php
-$get_result = $memcache->get($key);
+$get_result = Cache::$MEMCACHE_SERVER->get($key);
 echo '<h4>TEST: memcached[' . $key . '] (' . $lookup . ')</h4>';
 
 echo '<pre>';

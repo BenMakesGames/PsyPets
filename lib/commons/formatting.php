@@ -558,13 +558,13 @@ function format_text($line, $cache = true)
 	{
 		$key = md5('user text:' . $line);
 
-		$text = cache_get($key);
+		$text = Cache::Get($key);
 
 		if($text === false)
 		{
 			$text = _format_text_uncached($line);
 			
-			cache_add($key, $text);
+			Cache::Add($key, $text);
 		}
 		
 		return $text;
@@ -703,7 +703,7 @@ function smilize($strings, $do_it = true)
   $patterns = array(
     '/\B>[_\.]<\B/' => '<img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/ergk.gif" alt="[ergk!]" class="smiley inlineimage" />',
 
-    '/\B¬_?¬\B/'   => '<img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/suspicious.gif" alt="[is suspicious]" class="smiley inlineimage" />',
+    '/\Bï¿½_?ï¿½\B/'   => '<img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/suspicious.gif" alt="[is suspicious]" class="smiley inlineimage" />',
     '/\B>_?>\B/' => '<img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/suspicious.gif" alt="[is suspicious]" class="smiley inlineimage" />',
 
     '/\B:-?\(\B/'   => '<img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/aw.gif" alt="[sad]" class="smiley inlineimage" />',
