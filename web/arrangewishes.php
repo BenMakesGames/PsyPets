@@ -99,7 +99,7 @@ include 'commons/html.php';
 <body>
 <?php include 'commons/header_2.php'; ?>
 <h4>To-do List <?= (strlen($tag) > 0 ? '(' . $tag . ')' : '') ?></h4>
-<p>I (<?= User::Link($SETTINGS['author_resident_name']) ?>) use the To-do List to keep track of changes I want to make.  Feel free to leave you opinion on a change; I'll try to focus my efforts on changes which recieve a lot of positive review, and may think twice or ask your opinions about those which receive largely negative review.</p>
+<p>I (<?= User::Link($SETTINGS['author_resident_name']) ?>) use the To-do List to keep track of work to be done. These items are not necessarily final. If you have questions or comments about any of these items, feel free to ask!</p>
 <?php
 if($is_manager)
     echo '<ul><li><a href="/admin/todoadd.php">Add a to-do item</a></li></ul>';
