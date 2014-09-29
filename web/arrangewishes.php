@@ -135,6 +135,7 @@ if($is_manager)
     </div>
     <?php foreach($votes as $id=>$vote): ?>
         <div id="idea-details-<?= $id ?>" class="idea-details" style="display:none;">
+            <p><b>Category:</b> <?= $ideas[$id]['category'] ?></p>
             <?php if($ideas[$id]['ldesc']): ?>
                 <p><b>Description:</b> <?= $ideas[$id]['ldesc'] ?></p>
             <?php else: ?>
