@@ -197,19 +197,19 @@ $(function() {
   // min-width fixes a vanishing display issue with IE7 (and 8?)
   echo '</div>',
        '<ul id="wealth" style="min-width:0;">',
-       '<li><a href="/bank.php"><span id="moneysonhand">' . $user['money'] . '</span><span class="money" title="moneys">m</span></a></li>';
+       '<li><a href="/bank.php"><span id="moneysonhand">' . FormatNumber($user['money'], $user) . '</span><span class="money" title="moneys">m</span></a></li>';
 
   if($user['stickers_to_give'] > 0)
-    echo '<li>' . $user['stickers_to_give'] . '<img src="/gfx/goldstar.png" alt=" Gold Star stickers" title="Gold Star stickers" width="16" height="16" class="inlineimage" /></li>';
+    echo '<li>' . FormatNumber($user['stickers_to_give'], $user) . '<img src="/gfx/goldstar.png" alt=" Gold Star stickers" title="Gold Star stickers" width="16" height="16" class="inlineimage" /></li>';
 
   if($user['rupees'] > 0)
-    echo '<li><a href="/mysteriousshop.php">' . $user['rupees'] . '<img src="/gfx/rupees.png" alt=" Rupees" width="16" title="Rupees" height="16" class="inlineimage" /></a></li>';
+    echo '<li><a href="/mysteriousshop.php">' . FormatNumber($user['rupees'], $user) . '<img src="/gfx/rupees.png" alt=" Rupees" width="16" title="Rupees" height="16" class="inlineimage" /></a></li>';
 
   if($user['karma'] > 0)
-    echo '<li><a href="/wheeloffate.php">' . $user['karma'] . '<img src="/gfx/karma.png" alt=" Karma" title="Karma" width="16" height="16" class="inlineimage" /></a></li>';
+    echo '<li><a href="/wheeloffate.php">' . FormatNumber($user['karma'], $user) . '<img src="/gfx/karma.png" alt=" Karma" title="Karma" width="16" height="16" class="inlineimage" /></a></li>';
 
   if($user['favor'] > 0)
-    echo '<li>' . $user['favor'] . ' <a href="/autofavor.php">Favor</a></li>';
+    echo '<li>' . FormatNumber($user['favor'], $user) . ' <a href="/autofavor.php">Favor</a></li>';
 
   $command = '
     SELECT
@@ -229,7 +229,7 @@ $(function() {
   if(count($extra_currencies) > 0)
   {
     foreach($extra_currencies as $currency)
-      echo '<li>' . $currency['amount'] . '<abbr title="' . $currency['name'] . '">' . $currency['symbol'] . '</abbr></li>';
+      echo '<li>' . FormatNumber($currency['amount'], $user) . '<abbr title="' . $currency['name'] . '">' . $currency['symbol'] . '</abbr></li>';
   }
 
   if($house && array_key_exists('hoursearned', $house))

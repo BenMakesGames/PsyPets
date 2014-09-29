@@ -32,8 +32,8 @@ $points = array(
   'active_pets_per_resident' =>   array('type' => 'line',    'points' => array('numactivepets/numactiveusers'), 'colors' => array('#990'),         'legend' => array('Average Pets per Player in Last Day')),
   'female_pets' =>                array('type' => 'stacked', 'points' => array('numpets-malepets', 'malepets'), 'colors' => array('#f9f', '#69c'), 'legend' => array('Female Pets', 'Male Pets')),
   'average_level_per_pet' =>      array('type' => 'line',    'points' => array('totallevels/numpets'),          'colors' => array('#990'),         'legend' => array('Average Pet Level')),
-  'total_moneys' =>               array('type' => 'stacked', 'points' => array('savings', 'cash'),              'colors' => array('#060', '#090'), 'legend' => array('Money in Savings', 'Moneys On-hand')),
-  'average_money_per_resident' => array('type' => 'line',    'points' => array('(cash+savings)/numusers'),      'colors' => array('#090'),         'legend' => array('Average Moneys per Player')),
+  'total_moneys' =>               array('type' => 'stacked', 'points' => array('cash'),                         'colors' => array('#090'),         'legend' => array('Moneys')),
+  'average_money_per_resident' => array('type' => 'line',    'points' => array('cash/numusers'),                'colors' => array('#090'),         'legend' => array('Average Moneys per Player')),
   'items_per_resident' =>         array('type' => 'line',    'points' => array('objects/numusers'),             'colors' => array('#990'),         'legend' => array('Average Items per Player'))
 );
 

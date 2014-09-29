@@ -53,7 +53,6 @@ function check_pets($userid, $hour_limit = false)
     $money_spent = 0;
     $money_gained = 0;
     $money_donated = 0;
-    $savings_diverted = 0;
 
     $hours = floor(($now - $house['lasthour']) / (60 * 60));
 
@@ -653,25 +652,7 @@ function check_pets($userid, $hour_limit = false)
                 $myuser['money'] += $allowance;
             }
 
-            $new_savings = $myuser['savings'];
-
-            for($i = 0; $i < $days_past; ++$i)
-            {
-                $interest = $new_savings * interest_rate();
-                if($interest > $allowance_value)
-                    $interest = $allowance_value;
-
-                $new_savings += $interest;
-
-                if($interest != floor($interest))
-                    $report_detail = 'More precisely: ' . round($interest, 2) . '<span class="money">m</span>';
-                else
-                    $report_detail = '';
-
-                add_transaction($myuser['user'], $now, 'Bank interest', $interest, $report_detail);
-            }
-
-            $command = "UPDATE monster_users SET savings='$new_savings',adoptedtoday='no' WHERE idnum=$userid LIMIT 1";
+            $command = "UPDATE monster_users SET adoptedtoday='no' WHERE idnum=$userid LIMIT 1";
             $GLOBALS['database']->FetchNone($command, 'check_pets');
         } // if we have live petes
 
@@ -697,31 +678,9 @@ function check_pets($userid, $hour_limit = false)
 
             if($storage_fee > $myuser['money'])
             {
-                if($myuser['savings_pay_storage'] == 'no' || $storage_fee > $myuser['money'] + $myuser['savings'] + 1)
-                {
-                    add_db_message($userid, FLASH_MESSAGE_ALLOWANCE, 'You were not able to pay your Storage rent.  The items you had in Storage have been seized!  (Check your Storage for instructions on how to retreive them.)');
-                    $command = 'UPDATE monster_inventory SET forsale=0,location=\'seized\',changed=' . $simulated_time . ' WHERE location LIKE \'storage%\' AND location!=\'storage/outgoing\' AND user=' . quote_smart($myuser['user']);
-                    $GLOBALS['database']->FetchNone($command, 'checkpet.php/check_pets()');
-                }
-                else
-                {
-                    $cost_for_savings = $storage_fee - $myuser['money'] + 1;
-
-                    $savings_diverted += $cost_for_savings;
-
-                    $myuser['savings'] -= $cost_for_savings;
-
-                    $command = "UPDATE monster_users SET savings='$new_savings' WHERE idnum=$userid LIMIT 1";
-                    $GLOBALS['database']->FetchNone($command, 'deducting money from savings');
-
-                    $money_spent += $storage_fee;
-
-                    give_money($myuser, $cost_for_savings, 'Diverted from Savings');
-                    take_money($myuser, 1, "Bank fee for diverting money from Savings");
-                    take_money($myuser, $storage_fee, "Storage rent");
-
-                    $myuser['money'] = 0;
-                }
+                add_db_message($userid, FLASH_MESSAGE_ALLOWANCE, 'You were not able to pay your Storage rent.  The items you had in Storage have been seized!  (Check your Storage for instructions on how to retreive them.)');
+                $command = 'UPDATE monster_inventory SET forsale=0,location=\'seized\',changed=' . $simulated_time . ' WHERE location LIKE \'storage%\' AND location!=\'storage/outgoing\' AND user=' . quote_smart($myuser['user']);
+                $GLOBALS['database']->FetchNone($command, 'checkpet.php/check_pets()');
             }
             else
             {
@@ -740,9 +699,6 @@ function check_pets($userid, $hour_limit = false)
 
     process_cached_inventory();
     process_pet_log_cache();
-
-    if($savings_diverted > 0)
-        add_db_message($userid, FLASH_MESSAGE_ALLOWANCE, 'Diverted ' . $savings_diverted . '<span class="money">m</span> from Savings in order to pay fees.');
 
     if($money_spent > 0)
         add_db_message($userid, FLASH_MESSAGE_ALLOWANCE, 'Paid ' . $money_spent . '<span class="money">m</span> in Storage fees.');

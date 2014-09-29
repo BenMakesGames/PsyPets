@@ -27,8 +27,8 @@ $stats = $database->FetchMultiple('
     numactivepets/numactiveusers AS active_pets_per_resident,
     numpets-malepets AS female_pets,
     totallevels/numpets AS average_level_per_pet,
-    cash+savings AS total_moneys,
-    (cash+savings)/numusers AS average_money_per_resident,
+    cash AS total_moneys,
+    cash/numusers AS average_money_per_resident,
     objects/numusers AS items_per_resident
   FROM monster_statistics
   ORDER BY timestamp DESC

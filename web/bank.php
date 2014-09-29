@@ -21,87 +21,19 @@ if($user['bankflag'] == 'yes')
   $user['bankflag'] = 'no';
 }
 
-if($_POST['submit'] == 'Transact')
-{
-  if(preg_match("/^([0-9]+)$/", $_POST['amount']))
-  {
-    // user deposits
-    if($_POST['action'] == 'deposit')
-    {
-      $amount = (int)$_POST['amount'];
-      if($user['money'] >= $amount)
-      {
-        $command = 'UPDATE monster_users ' .
-                   'SET money=money-' . $amount . ', ' .
-                       'savings=savings+' . $amount . ' ' .
-                   'WHERE `user`=' . quote_smart($user['user']) . ' LIMIT 1';
-        $database->FetchNone($command, 'bank.php');
-
-        $user['money'] -= $amount;
-        $user['savings'] += $amount;
-          
-        $error_message = 'Done!  Is there anything else I can help you with?';
- 
-        $_POST['amount'] = '';
-        $_POST['action'] = '';
-      }
-      else
-        $error_message = 'You do not have ' . $amount . '<span class="money">m</span> on hand...';
-    }
-    // withdraw
-    else if($_POST['action'] == 'withdraw')
-    {
-      $amount = (int)$_POST['amount'];
-      if($user['savings'] >= $amount)
-      {
-        $command = 'UPDATE monster_users ' .
-                   'SET money=money+' . $amount . ', ' .
-                       'savings=savings-' . $amount . ' ' .
-                   'WHERE `user`=' . quote_smart($user['user']) . ' LIMIT 1';
-        $database->FetchNone($command, 'bank.php');
-
-        $user['money'] += $amount;
-        $user['savings'] -= $amount;
-
-        $error_message = 'Done!  Is there anything else I can help you with?';
- 
-        $_POST['amount'] = '';
-        $_POST['action'] = '';
-      }
-      else
-        $error_message = 'You don\'t have ' . $amount . '<span class="money">m</span> in savings, and no: I won\'t give you a loan.';
-    }
-    else
-      $error_message = 'Do what now?';
-  }
-  else
-    $error_message = 'Sorry, how many moneys did you say?  Maybe I misheard, but that didn\'t sound like a number...';
-}
-else if($_POST['action'] == 'cleartransactions')
+if($_POST['action'] == 'cleartransactions')
 {
   clear_transactions($user['user']);
-}
-else if($_POST['action'] == 'updatebilling')
-{
-  if($_POST['allowbilling'] == 'yes' || $_POST['allowbilling'] == 'on')
-    $user['savings_pay_storage'] = 'yes';
-  else
-    $user['savings_pay_storage'] = 'no';
-
-  $command = 'UPDATE monster_users SET savings_pay_storage=' . quote_smart($user['savings_pay_storage']) . ' WHERE idnum=' . $user['idnum'] . ' LIMIT 1';
-  $database->FetchNone($command, 'bank.php');
-  
-  $error_message = 'Your billing options have been updated.';
 }
 
 $badges = get_badges_byuserid($user['idnum']);
 
-if($badges['thousandaire'] == 'no' && $user['money'] + $user['savings'] >= 1000)
+if($badges['thousandaire'] == 'no' && $user['money'] >= 1000)
 {
   $got_badge_thousandaire = true;
   set_badge($user['idnum'], 'thousandaire');
 }
-else if($badges['millionaire'] == 'no' && $user['money'] + $user['savings'] >= 1000000)
+else if($badges['millionaire'] == 'no' && $user['money'] >= 1000000)
 {
   $got_badge_millionaire = true;
   set_badge($user['idnum'], 'millionaire');
@@ -480,24 +412,6 @@ if(count($options) > 0)
 if(strlen($_GET["msg"]) > 0)
   $error_message = form_message(explode(",", $_GET["msg"]));
 ?>
-     <p>Bank Balance: <?= sprintf('%01.2f', $user['savings']) ?><span class="money">m</span></p>
-     <form method="post">
-     <table>
-      <tr>
-       <td>
-        <input type="radio" name="action" value="deposit" <?= ($_POST['action'] != 'withdraw' ? 'checked' : '') ?> id="transaction_deposit"><label for="transaction_deposit"> Deposit</label><br />
-        <input type="radio" name="action" value="withdraw" <?= ($_POST['action'] == 'withdraw' ? 'checked' : '') ?>  id="transaction_withdraw"><label for="transaction_withdraw"> Withdraw</label><br />
-       </td>
-       <td><input name="amount" style="width:64px;" value="<?= $_POST['amount'] ?>" /></td>
-       <td><input type="hidden" name="submit" value="Transact" /><input type="submit" value="Transact" /></td>
-      </tr>
-     </table>
-     </form>
-     <h5>Billing Options</h5>
-     <form method="post">
-     <p><input type="checkbox" name="allowbilling"<?= $user['savings_pay_storage'] == 'yes' ? ' checked' : '' ?> /> Allow money from Savings to be automatically withdrawn to pay daily fees if you don't have enough on-hand.  (A 1<span class="money">m</span> service fee will be charged every time this is done.)</p>
-     <p><input type="hidden" name="action" value="updatebilling" /><input type="submit" value="Confirm" /></p>
-     </form>
      <h5 id="transactions">Transaction History</h5>
 <?php
 if(count($transactions) > 0)

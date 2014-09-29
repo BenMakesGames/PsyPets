@@ -18,7 +18,7 @@ if($admin['clairvoyant'] != 'yes')
     exit();
 }
 
-$wealthiest = fetch_multiple("SELECT * FROM monster_users WHERE is_npc='no' AND disabled='no' ORDER BY money+savings DESC LIMIT 10");
+$wealthiest = fetch_multiple("SELECT display,money FROM monster_users WHERE is_npc='no' AND disabled='no' ORDER BY money DESC LIMIT 10");
 
 include 'commons/html.php';
 ?>
@@ -31,7 +31,7 @@ include 'commons/html.php';
     <h4><a href="/admin/tools.php">Administrative Tools</a> &gt; Wealthiest 10</h4>
     <ol>
         <?php foreach($wealthiest as $this_user): ?>
-            <li><p><a href="/userprofile.php?user=<?= link_safe($this_user["display"]) ?>"><?= $this_user["display"] ?></a> has <?= $this_user["money"] ?> moneys on-hand and <?= $this_user["savings"] ?> moneys in the bank.</p></li>
+            <li><p><a href="/userprofile.php?user=<?= link_safe($this_user["display"]) ?>"><?= $this_user["display"] ?></a> has <?= $this_user["money"] ?> moneys.</p></li>
         <?php endforeach; ?>
     </ol>
     <?php include 'commons/footer_2.php'; ?>

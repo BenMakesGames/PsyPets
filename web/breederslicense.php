@@ -89,7 +89,7 @@ else
   {
     echo '<p>The license itself costs ' . value_with_inflation(10000) . '<span class="money">m</span>.</p>';
     
-    if($user['money'] + $user['savings'] < value_with_inflation(10000) * 3)
+    if($user['money'] < value_with_inflation(10000) * 3)
       echo '<p>If this seems like a lot to you, then frankly, you aren\'t ready to wield the Breeder\'s License.</p>';
 
     if($user['money'] >= value_with_inflation(10000))

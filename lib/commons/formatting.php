@@ -2,6 +2,11 @@
 require_once 'commons/HTMLPurifier.standalone.php';
 require_once 'commons/cachelib.php';
 
+function FormatNumber($number, $user)
+{
+    return number_format($number, 0, '.', ',');
+}
+
 function GetPurifier()
 {
 	static $html_purifier = false;

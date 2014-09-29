@@ -25,7 +25,6 @@ $now = time();
   $num_weekly_users = 0;
   $numpets = 0;
   $cash = 0;
-  $savings = 0;
   $objects = $object_data['qty'];
   $totallevels = 0;
   $maxlevel = 0;
@@ -36,7 +35,7 @@ $now = time();
   $lurkers = 0;
   $posters = 0;
 
-	$users = $database->FetchMultiple('SELECT idnum,user,money,savings,lastactivity,daily_posts,daily_threadviews FROM monster_users WHERE is_npc=\'no\'');
+	$users = $database->FetchMultiple('SELECT idnum,user,money,lastactivity,daily_posts,daily_threadviews FROM monster_users WHERE is_npc=\'no\'');
 
   foreach($users as $this_user)
   {
@@ -44,7 +43,6 @@ $now = time();
     {
       $numusers++;
       $cash += $this_user['money'];
-      $savings += $this_user['savings'];
 
       if($timestamp - $this_user['lastactivity'] < 60 * 60 * 24)
       {
@@ -132,7 +130,6 @@ $now = time();
       `numpets`,
       `numactivepets`,
       `cash`,
-      `savings`,
       `voucherfavor`,
       `objects`,
       `totallevels`,
@@ -155,7 +152,6 @@ $now = time();
       ' . $numpets . ',
       ' . $activepets . ',
       ' . $cash . ',
-      ' . $savings . ',
       ' . $voucher_favor . ',
       ' . $objects . ',
       ' . $totallevels . ',

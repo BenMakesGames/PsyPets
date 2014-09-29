@@ -572,7 +572,6 @@ if($admin['clairvoyant'] == 'yes')
        <td valign="top" class="centered"><span class="money">m</span></td>
        <td>
         <?= $profile_user['money'] ?> cash<br />
-        <?= $profile_user['savings'] ?> in the bank<br />
        </td>
       </tr>
 <?php
