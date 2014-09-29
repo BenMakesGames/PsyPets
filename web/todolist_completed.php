@@ -68,7 +68,7 @@ include 'commons/html.php';
      <h4>To-do List &gt; Completed Items</h4>
 <?php
 if($is_manager)
-  echo '<ul><li><a href="/admin/todo_totals.php">Manage To-do List</a></li></ul>';
+  echo '<ul><li><a href="/admin/todoadd.php">Add a to-do item</a></li></ul>';
 ?>
      <ul class="tabbed">
       <li><a href="arrangewishes.php">Your Vote</a></li>

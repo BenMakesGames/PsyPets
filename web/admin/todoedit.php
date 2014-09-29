@@ -26,7 +26,7 @@ if($idea === false)
   exit();
 }
 
-$is_manager = ($user['admin']['managewishlist'] == 'yes');
+$is_manager = ($user['admin']['coder'] == 'yes');
 
 if(!$is_manager)
 {
@@ -111,12 +111,12 @@ else if($_POST['action'] == 'Edit')
 include 'commons/html.php';
 ?>
  <head>
-  <title><?= $SETTINGS['site_name'] ?> &gt; Admin Tools &gt; To-do List &gt; <?= $idea['sdesc'] ?> &gt; Edit</title>
+  <title><?= $SETTINGS['site_name'] ?> &gt; To-do List &gt; <?= $idea['sdesc'] ?> &gt; Edit</title>
 <?php include 'commons/head.php'; ?>
  </head>
  <body>
 <?php include 'commons/header_2.php'; ?>
-    <h4><a href="/admin/tools.php">Admin Tools</a> &gt; <a href="/admin/todo_totals.php">To-do List</a> &gt; <a href="/tododetails.php?id=<?= $ideaid ?>"><?= $idea['sdesc'] ?></a> &gt; Edit</h4>
+    <h4><a href="/arrangewishes.php">To-do List</a> &gt; <a href="/tododetails.php?id=<?= $ideaid ?>"><?= $idea['sdesc'] ?></a> &gt; Edit</h4>
 <?php
 if($user['admin']['managewishlist'] == 'yes' && ($user['admin']['coder'] == 'yes' || $user['idnum'] == $idea['authorid']))
 {

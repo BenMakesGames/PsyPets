@@ -16,7 +16,7 @@ require_once 'commons/formatting.php';
 require_once 'commons/threadfunc.php';
 require_once 'commons/todolistlib.php';
 
-if($user['admin']['managewishlist'] != 'yes')
+if($user['admin']['coder'] != 'yes')
 {
   header('Location: /todolist.php');
   exit();
@@ -79,7 +79,7 @@ include 'commons/html.php';
  </head>
  <body>
 <?php include 'commons/header_2.php'; ?>
-     <h4><a href="/admin/tools.php">Admin Tools</a> &gt; <a href="/admin/todo_totals.php">To-do List</a> &gt; Add</h4>
+     <h4><a href="/arrangewishes.php">To-do List</a> &gt; Add</h4>
 <?php
 if(count($errors) > 0)
   echo '<ul><li>' . implode('</li><li>', $errors) . '</li></ul>';
