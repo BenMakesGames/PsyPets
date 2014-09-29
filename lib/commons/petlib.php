@@ -223,14 +223,14 @@ function log_level_up(&$pet, $stat, $amount, $hour)
 function are_immediate_family_members($pet1, $pet2)
 {
 	return(
-		$this_pet['motherid'] == $for_that_pet['motherid']
-		|| $this_pet['motherid'] == $for_that_pet['fatherid']
-		|| $this_pet['fatherid'] == $for_that_pet['motherid']
-		|| $this_pet['fatherid'] == $for_that_pet['fatherid']
-		|| $this_pet['motherid'] == $for_that_pet['idnum']
-		|| $this_pet['fatherid'] == $for_that_pet['idnum']
-		|| $this_pet['idnum'] == $for_that_pet['motherid']
-		|| $this_pet['idnum'] == $for_that_pet['fatherid']
+        $pet1['motherid'] == $pet2['motherid']
+		|| $pet1['motherid'] == $pet2['fatherid']
+		|| $pet1['fatherid'] == $pet2['motherid']
+		|| $pet1['fatherid'] == $pet2['fatherid']
+		|| $pet1['motherid'] == $pet2['idnum']
+		|| $pet1['fatherid'] == $pet2['idnum']
+		|| $pet1['idnum'] == $pet2['motherid']
+		|| $pet1['idnum'] == $pet2['fatherid']
 	);
 }
 
