@@ -87,9 +87,6 @@ function get_logged_events_byuser_bypet($userid, $petid, $pagenum)
 
 function get_new_logged_events_byuser_bypet($userid, $petid, $oldtime)
 {
-  $start = ($pagenum - 1) * 20;
-  $length = 20;
-
   $command = "SELECT * FROM monster_petlogs WHERE userid=$userid AND petid=$petid AND timestamp>" . $oldtime . ' ORDER BY timestamp DESC,hour ASC,idnum ASC';
   $events = fetch_multiple($command, 'userlib.php/get_new_logged_events_byuser_bypet()');
 
@@ -346,12 +343,6 @@ function set_badge($userid, $badge)
   fetch_none($command, 'user library > set badge');
 }
 
-function delete_old_projects_by_userid($userid)
-{
-  $command = "DELETE FROM monster_projects WHERE complete='yes' AND location=$userid AND completetime<" . ($now - (60 * 60 * 24));
-  fetch_none($command, 'userlib.php/delete_old_projects_by_userid()');
-}
-
 function get_projects_by_userid($userid)
 {
   $command = "SELECT * FROM monster_projects WHERE location=$userid ORDER BY complete,idnum ASC";
@@ -386,7 +377,7 @@ function psymail_user2(&$to, &$from, $subject, $body, $items)
 
     $message = '<strong>' . $from['display'] . '</strong> has sent you a PsyMail!';
     if($items > 0)
-      $message .= ' (With ' . $item . ' item' . ($items != 1 ? 's' : '') . ' attached!)';
+      $message .= ' (With ' . $items . ' item' . ($items != 1 ? 's' : '') . ' attached!)';
     $message .= '<br /><br />It\'s entitled "' . $subject . '".  ' . $description . '  ' .
                 '<a href="https://' . $SETTINGS['site_domain'] . '/readmail.php?mail=' . $mailid . '">Would you like to read it?</a>';
 
