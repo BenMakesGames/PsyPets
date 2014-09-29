@@ -136,11 +136,11 @@ if($is_manager)
     <?php foreach($votes as $id=>$vote): ?>
         <div id="idea-details-<?= $id ?>" class="idea-details" style="display:none;">
             <?php if($ideas[$id]['ldesc']): ?>
-                <p><?= $ideas[$id]['ldesc'] ?></p>
+                <p><b>Description:</b> <?= $ideas[$id]['ldesc'] ?></p>
             <?php else: ?>
                 <p>No description was provided.</p>
             <?php endif; ?>
-            <p><?php foreach($tags[$id] as $tag): ?><?= $tag ?><?php endforeach; ?></p>
+            <p><b>Tags:</b> <?php foreach($tags[$id] as $tag): ?><?= $tag ?><?php endforeach; ?></p>
             <?php if($is_manager): ?><p><input type="button" onclick="location.href='/admin/todoedit.php?id=<?= $id ?>'" value="Edit" /></p><?php endif; ?>
         </div>
     <?php endforeach; ?>
