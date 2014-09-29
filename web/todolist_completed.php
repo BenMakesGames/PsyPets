@@ -71,7 +71,7 @@ if($is_manager)
   echo '<ul><li><a href="/admin/todoadd.php">Add a to-do item</a></li></ul>';
 ?>
      <ul class="tabbed">
-      <li><a href="arrangewishes.php">Your Vote</a></li>
+      <li><a href="arrangewishes.php">To-do</a></li>
       <li class="activetab"><a href="todolist_completed.php">Completed Items</a></li>
      </ul>
 <?php

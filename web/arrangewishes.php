@@ -80,7 +80,7 @@ $tag_range = $tag_max - $tag_min + 1;
 include 'commons/html.php';
 ?>
 <head>
-    <title><?= $SETTINGS['site_name'] ?> &gt; To-do List <?= (strlen($tag) > 0 ? '(' . $tag . ')' : '') ?> &gt; Your Vote</title>
+    <title><?= $SETTINGS['site_name'] ?> &gt; To-do List <?= (strlen($tag) > 0 ? '(' . $tag . ')' : '') ?> &gt; To-do</title>
     <?php include "commons/head.php"; ?>
     <script type="text/javascript" src="//<?= $SETTINGS['static_domain'] ?>/js/todolist.js"></script>
     <script>
@@ -105,7 +105,7 @@ if($is_manager)
     echo '<ul><li><a href="/admin/todoadd.php">Add a to-do item</a></li></ul>';
 ?>
 <ul class="tabbed">
-    <li class="activetab"><a href="/arrangewishes.php">Your Vote</a></li>
+    <li class="activetab"><a href="/arrangewishes.php">To-do</a></li>
     <li><a href="/todolist_completed.php">Completed Items</a></li>
 </ul>
 <!-- idea list -->
