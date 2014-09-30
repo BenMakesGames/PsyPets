@@ -58,24 +58,22 @@ else
 include 'commons/html.php';
 ?>
  <head>
-  <title><?= $SETTINGS['site_name'] ?> &gt; Administrative Tools &gt; Monster & Prey Editor</title>
+  <title><?= $SETTINGS['site_name'] ?> &gt; Administrative Tools &gt; Monster & Prey Viewer</title>
 <?php include "commons/head.php"; ?>
  </head>
  <body>
 <?php include 'commons/header_2.php'; ?>
-     <h4><a href="/admin/tools.php">Administrative Tools</a> &gt; Monster & Prey Editor</h4>
+     <h4><a href="/admin/tools.php">Administrative Tools</a> &gt; Monster & Prey Viewer</h4>
      <ul class="tabbed">
       <li<?= $tab == 'monster' ? ' class="activetab"' : '' ?>><a href="/admin/monstereditor.php?edit=monster">Monsters</a></li>
       <li<?= $tab == 'prey' ? ' class="activetab"' : '' ?>><a href="/admin/monstereditor.php?edit=prey">Prey</a></li>
       <li<?= $tab == 'fish' ? ' class="activetab"' : '' ?>><a href="/admin/monstereditor.php?edit=fish">"Fish"</a></li>
      </ul>
      <ul>
-      <li><a href="/admin/newmonster.php?edit=<?= $param ?>">New <?= $param ?></a></li>
       <li><a href="/admin/monstereditor.php?edit=<?= $param ?>&amp;check=1">Check for bad loot</a></li>
      </ul>
 <table>
 <tr class="titlerow">
- <th></th>
  <th>Level</th>
  <th></th>
  <th>Name & Type</th>
@@ -110,7 +108,6 @@ foreach($monsters as $monster)
     $real_prizes = $prizes;
 ?>
 <tr class="<?= $bgcolor ?>">
- <td valign="top"><a href="/admin/editmonster.php?<?= $param ?>=<?= urlencode($monster['name']) ?>">edit</a></td>
  <td valign="top" class="centered"><?php
   echo $monster['level'];
 

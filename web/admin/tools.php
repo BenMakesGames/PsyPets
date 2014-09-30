@@ -115,8 +115,8 @@ if($admin['manageitems'] == 'yes' || $admin['clairvoyant'] == 'yes')
 
   if($admin['manageitems'] == 'yes')
   {
-    echo '<li><a href="/admin/anagramize_items.php" class="admintool">Anagramizer</a><br />Calculate and store anagram-friendly item names to the database.</li>' .
-         '<li><a href="/admin/recipeeditor.php" class="admintool">Recipe Editor</a><br />Create and edit recipes which are prepared by players.</li>';
+    echo '<li><a href="/admin/anagramize_items.php" class="admintool">Anagramizer</a><br />View all item anagrams.</li>' .
+         '<li><a href="/admin/recipeeditor.php" class="admintool">Recipe Viewer</a></li>';
   }
 
   if($admin['clairvoyant'] == 'yes')
@@ -127,8 +127,8 @@ if($admin['manageitems'] == 'yes' || $admin['clairvoyant'] == 'yes')
 
   if($admin['manageitems'] == 'yes')
     echo '
-      <li><a href="/admin/projecteditor.php" class="admintool">Project Editor</a><br />Create and edit craft and invention projects.</li>
-      <li><a href="/admin/monstereditor.php" class="admintool">Monster &amp; Prey Editor</a><br />Create and edit monsters and prey.</li>
+      <li><a href="/admin/projecteditor.php" class="admintool">Project Viewer</a></li>
+      <li><a href="/admin/monstereditor.php" class="admintool">Monster &amp; Prey Viewer</a></li>
       <li><b>Location Editor</b><br /><a href="/admin/locationeditor_gathering.php">Gathering</a> | <a href="/admin/locationeditor_mines.php">Mining</a> | <a href="/admin/locationeditor_lumberjacking.php">Lumberjacking</a></li>
       <li><a href="/admin/inconsistentitems.php" class="admintool">Inconsistent Items</a><br />Checks for items which have inconsistent properties (like being permanent, but gamesellable)</li>
       <li><a href="/admin/equipoutliers.php" class="admintool">Equipment Effect-Availability Outliers</li>
