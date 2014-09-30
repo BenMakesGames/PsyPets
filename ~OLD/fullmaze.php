@@ -1,4 +1,7 @@
 <?php
+
+// the pattern is too big; this script just crashes the browser
+
 require_once 'commons/dbconnect.php';
 require_once 'commons/sessions.php';
 require_once 'commons/mazelib.php';
