@@ -57,7 +57,7 @@ if($got_details)
   echo '
     <h5>Written ' . duration($now - $post['creationdate'], 2) . ' ago</h5>
     <p>' . $post['body'] . '</p>
-    <ul><li><a href="jumptopost.php?postid=' . $post['idnum'] . '">Jump to post</a></li></ul>
+    <ul><li><a href="/jumptopost.php?postid=' . $post['idnum'] . '">Jump to post</a></li></ul>
     <h5>Voters</h5><table>
   ';
 
@@ -97,7 +97,7 @@ foreach($total_votes as $postid=>$vote)
 {
   echo '
     <tr class="' . $rowclass . '">
-     <td><a href="jumptopost.php?postid=' . $postid . '">' . $postid . '</a></td>
+     <td><a href="/jumptopost.php?postid=' . $postid . '">' . $postid . '</a></td>
      <td class="centered">' . $vote['votes'] . '</td>
      <td class="centered">' . $positive_votes[$postid]['total'] . '</td>
      <td class="centered">' . $negative_votes[$postid]['total'] . '</td>
