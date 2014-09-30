@@ -397,7 +397,7 @@ if($user['admin']['manageaccounts'] == 'yes')
 <form action="admin_resetpetgraphic.php?id=<?= $this_pet['idnum'] ?>" method="post" onsubmit="return confirm('Really reset this pet graphic to that of a Desikh?');" >
 <p><input type="submit" name="action" value="Reset to Desikh" class="bigbutton" /></p>
 </form>
-<form action="admin_protectpet.php?id=<?= $this_pet['idnum'] ?>" method="post" onsubmit="return confirm('Really change this pet\'s protection state?');" >
+<form action="../~OLD/admin_protectpet.php?id=<?= $this_pet['idnum'] ?>" method="post" onsubmit="return confirm('Really change this pet\'s protection state?');" >
 <p><input type="submit" name="action" value="<?php echo ($this_pet['protected'] == 'yes' ? 'Unprotect Pet' : 'Protect Pet'); ?>" class="bigbutton" /></p>
 </form>
 <?php

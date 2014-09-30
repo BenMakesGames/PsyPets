@@ -31,7 +31,7 @@ function get_profile_item_ranking($userid, $itemid)
 
 function RenderEncyclopediaItem(&$item, &$user, &$pets)
 {
-    global $CUSTOM_DESC, $PET_STAT_DESCRIPTIONS, $now, $chassis, $parts;
+    global $CUSTOM_DESC, $PET_STAT_DESCRIPTIONS, $now;
 
     $is_edible = ($item['is_edible'] == 'yes');
     $is_equip = ($item['is_equipment'] == 'yes');
@@ -40,8 +40,6 @@ function RenderEncyclopediaItem(&$item, &$user, &$pets)
     $is_toy = (strlen($item['playdesc']) > 0);
     $is_hourly = ($item['hourlyfood'] != 0 || $item['hourlysafety'] != 0 || $item['hourlylove'] != 0 || $item['hourlyesteem'] != 0);
     $is_recyclable = ($item['can_recycle'] == 'yes');
-    $is_pvp_chassis = array_key_exists($item['itemname'], $chassis);
-    $is_pvp_part = array_key_exists($item['itemname'], $parts);
     $can_pawn_with = ($item['can_pawn_with'] == 'yes');
     $can_pawn_for = ($item['can_pawn_for'] == 'yes');
 
@@ -208,7 +206,6 @@ function RenderEncyclopediaItem(&$item, &$user, &$pets)
     if($is_edible) $properties[] = '<li>Is edible' . ($user['idnum'] > 0 ? ' (see below)' : '') . '</li>';
     if($is_equip) $properties[] = '<li>Is a tool for pets<a href="/help/equipment.php" class="help">?</a> (equipment details below)</li>';
     if($is_key) $properties[] = '<li>Is a key for pets<a href="/help/equipment.php" class="help">?</a></li>';
-    if($is_pvp_chassis || $is_pvp_part) $properties[] = '<li>Is usable as an Airship part (see below)</li>';
     if($is_useable) $properties[] = '<li>Can be used: "' . $action[0] . '"</li>';
     if($is_toy)
     {
@@ -583,33 +580,6 @@ if($user['idnum'] > 0)
             echo '</table>';
         } // if logged in
     } // if an equipment
-
-    if($is_pvp_chassis)
-    {
-
-        echo '
-      <hr />
-      <h5>Airship Chassis</h5>
-      <ul>
-    ';
-
-        echo render_airship_bonuses_as_list_xhtml($chassis[$item['itemname']]);
-
-        echo '</ul>';
-    }
-
-    if($is_pvp_part)
-    {
-        echo '
-      <hr />
-      <h5>Airship Part</h5>
-      <ul>
-    ';
-
-        echo render_airship_bonuses_as_list_xhtml($parts[$item['itemname']]);
-
-        echo '</ul>';
-    }
 
     if($number_in_game > 0 && $number_in_game <= 12)
     {

@@ -32,8 +32,6 @@ $is_useable = (strlen($item['action']) > 0);
 $is_toy = (strlen($item['playdesc']) > 0);
 $is_hourly = ($item['hourlyfood'] != 0 || $item['hourlysafety'] != 0 || $item['hourlylove'] != 0 || $item['hourlyesteem'] != 0);
 $is_recyclable = ($item['can_recycle'] == 'yes');
-$is_pvp_chassis = array_key_exists($item['itemname'], $chassis);
-$is_pvp_part = array_key_exists($item['itemname'], $parts); 
 
 if($is_useable > 0)
   $action = explode(';', $item['action']);
@@ -74,7 +72,7 @@ $number_in_basements = (int)$data['SUM(quantity)'];
 
 $total_in_existance = $number_in_game + $number_in_basements + $number_in_market;
 
-$highbid = get_highbid_byitem($item['itemname']);
+$highbid = get_highbid_byitem($item['itemname'], 0);
 
 header('Content-type: text/plain; charset=UTF-8');
 
@@ -119,11 +117,9 @@ if($item['noexchange'] == 'no')
 
 $info[] = 'is_food=' . ($is_edible ? 'true' : 'false');
 $info[] = 'is_equipment=' . ($is_equip ? 'true' : 'false');
-$info[] = 'is_pvp_part=' . (($is_pvp_chassis || $is_pvp_part) ? 'true' : 'false');
 $info[] = 'is_recyclable=' . ($is_recyclable ? 'true' : 'false');
 $info[] = 'is_toy=' . ($is_toy ? 'true' : 'false');
 $info[] = 'is_useable=' . ($is_useable ? 'true' : 'false');
 $info[] = 'hourly_effects=' . ($is_hourly ? 'true' : 'false');
 
 echo implode("\r\n", $info) . "\r\n";
-?>
