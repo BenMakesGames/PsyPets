@@ -19,6 +19,5 @@ function set_global($name, $value)
   if(get_magic_quotes_gpc())
     $value = stripslashes($value);
 
-  $GLOBALS['database']->FetchNone('UPDATE monster_globals SET value=\'' . $GLOBALS['database']->Quote($value) . '\' WHERE name=' . $GLOBALS['database']->Quote($name) . ' LIMIT 1');
+  fetch_none('UPDATE monster_globals SET `value`=' . quote_smart($value) . ' WHERE `name`=' . quote_smart($name) . ' LIMIT 1');
 }
-?>
