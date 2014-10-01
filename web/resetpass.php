@@ -64,7 +64,7 @@ if($_POST["submit"] == "Reset Password")
 <p>After resetting your password and logging in, please, please, <strong>please</strong> change your password using the My Account pages.  (You\'d probably have a hard time remembering the one I made you just now, anyway! :P)</p>
 <p>The link in this e-mail will remain valid for 24 hours, after which point you will need to request another password reset, if you still need one.</p>';
 
-            mail($_POST['email'],  $SETTINGS['site_name'] . ' lost password', $message, "MIME-Version: 1.0\nContent-type: text/html; charset=utf-8\nFrom: " . $SETTINGS['site_mailer']);
+            mail($this_user['email'],  $SETTINGS['site_name'] . ' lost password', $message, "MIME-Version: 1.0\nContent-type: text/html; charset=utf-8\nFrom: " . $SETTINGS['site_mailer']);
 
             header('Location: /resetsuccess.php');
         }
