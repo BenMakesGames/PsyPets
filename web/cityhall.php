@@ -287,7 +287,7 @@ foreach($announcements as $general_post)
    <div class="cityhallpost category_<?= $category ?>">
     <h5><?= format_text($general_post['subject']) ?></h5>
     <img src="gfx/avatars/<?= $author['graphic'] ?>" alt="" width="48" height="48" align="right" />
-	<div style="max-width:880px"><?= format_text($general_post['message']) ?></div>
+	<div style="max-width:850px"><?= format_text($general_post['message']) ?></div>
     <div class="signature">
      posted by <?= resident_link($author['display']) ?> on <?= local_time($general_post['date'], $user['timezone'], $user['daylightsavings']) ?>
 <?php
