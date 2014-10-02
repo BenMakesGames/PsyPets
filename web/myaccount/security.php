@@ -54,7 +54,7 @@ if($_POST["action"] == "changepassword")
   {
     $md5_pass = md5($_POST['pass1']);
   
-    $database->FetchSingle("UPDATE `monster_users` SET pass=" . quote_smart($md5_pass) . ",passworddate=" . $now . " WHERE idnum=" . quote_smart($user["idnum"]) . " LIMIT 1");
+    $database->FetchNone("UPDATE `monster_users` SET pass=" . quote_smart($md5_pass) . ",passworddate=" . $now . " WHERE idnum=" . quote_smart($user["idnum"]) . " LIMIT 1");
 
     $general_message = 'Account updated successfully.';
 
