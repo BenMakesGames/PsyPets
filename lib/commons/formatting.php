@@ -774,11 +774,11 @@ function smilize($strings, $do_it = true)
 function link_to_room($room)
 {
   if($room == 'home')
-    return '<a href="/houseaction.php?room=Common">My House</a>';
+    return '<a href="/myhouse.php">My House</a>';
   else if(substr($room, 0, 5) == 'home/')
   {
     $room = substr($room, 5);
-    return '<a href="/houseaction.php?room=' . $room . '">' . ($room{0} == '$' ? substr($room, 1) : $room) . '</a>';
+    return '<a href="/myhouse.php?room=' . $room . '">' . ($room{0} == '$' ? substr($room, 1) : $room) . '</a>';
   }
   else if($room == 'storage')
     return '<a href="/storage.php">Storage</a>';

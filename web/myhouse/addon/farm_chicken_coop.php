@@ -89,7 +89,7 @@ if($_GET['action'] == 'collect')
 
       add_inventory_quantity($user['user'], '', $itemname, 'Collected from ' . $user['display'] . '\'s Chicken Coop', 'home', $quantity);
       
-      $message = '<p class="success">IT IS DONE!  You\'ll find it in <a href="/houseaction.php?room=Common">your Common room</a>.</p>';
+      $message = '<p class="success">IT IS DONE!  You\'ll find it in <a href="/myhouse.php">your Common room</a>.</p>';
     }
     else
       $message = '<p class="failure">There are none to collect!</p>';

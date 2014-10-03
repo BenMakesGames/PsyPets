@@ -96,8 +96,8 @@ abstract class psyDBObject
             }
             catch(Exception $e)
             {
-                var_dump($e);
-                die();
+                //var_dump($e);
+                //die();
             }
 
             if(mysqli_connect_errno())

@@ -84,7 +84,7 @@ class House extends psyDBObject
         if($room->Name() == $this_room)
           $classes[] = 'activetab';
       
-        $xhtml .= ' <li class="' . implode(' ', $classes) . '"><nobr><a href="/houseaction.php?room=' . link_safe($room->ID()) . '">' . $room->Name() . '</a></nobr></li>';
+        $xhtml .= ' <li class="' . implode(' ', $classes) . '"><nobr><a href="/myhouse.php?room=' . link_safe($room->ID()) . '">' . $room->Name() . '</a></nobr></li>';
       }
     }
 
@@ -100,7 +100,7 @@ class House extends psyDBObject
       }
     }
 
-    $xhtml .= '<li style="border: 0; background-color: transparent;"><a href="/managerooms.php"><img src="/gfx/pencil_small.png" height="13" width="15" alt="(manage rooms)" style="vertical-align:text-bottom;" /></a></li></ul>';
+    $xhtml .= '<li style="border: 0; background-color: transparent;"><a href="/myhouse/managerooms.php"><img src="/gfx/pencil_small.png" height="13" width="15" alt="(manage rooms)" style="vertical-align:text-bottom;" /></a></li></ul>';
     
     return $xhtml;
   }

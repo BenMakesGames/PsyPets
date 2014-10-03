@@ -68,7 +68,7 @@ else if($location == 'home')
 {
     $at_home = true;
     $raw_loc = $user['display'] . '\'s House';
-    $this_loc = '<a href="/houseaction.php?room=Common">' . $raw_loc . '</a>';
+    $this_loc = '<a href="/myhouse.php">' . $raw_loc . '</a>';
 }
 else if($location == 'storage/mystore')
 {
@@ -97,7 +97,7 @@ else
         $room_display = $room;
 
     $raw_loc = $user['display'] . "'s House &gt; $room_display Room";
-    $this_loc = '<a href="/houseaction.php?room=Common">' . $user['display'] . '\'s House</a> &gt; <a href="/myhouse.php">' . $room_display . ' Room</a>';
+    $this_loc = '<a href="/myhouse.php">' . $user['display'] . '\'s House</a> &gt; <a href="/myhouse.php">' . $room_display . ' Room</a>';
 }
 
 if($action_info[1] == 'pinetree.php')

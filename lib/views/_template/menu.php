@@ -4,7 +4,7 @@
   <div id="residence_menu">
    <div class="column">
     <ul class="plainlist nomargin">
-     <li><a href="/houseaction.php?room=Common"><img src="//<?= $SETTINGS['static_domain'] ?>/gfx/menu/myhouse.png" width="24" height="24" alt="" /> My House</a></li>
+     <li><a href="/myhouse.php"><img src="//<?= $SETTINGS['static_domain'] ?>/gfx/menu/myhouse.png" width="24" height="24" alt="" /> My House</a></li>
      <li><a href="/storage.php"><img src="//<?= $SETTINGS['static_domain'] ?>/gfx/menu/storage.png" width="24" height="24" alt="" /> Storage</a></li>
 <?php
 if($user['license'] == 'yes')
@@ -38,7 +38,7 @@ if($user['show_roleplay'] == 'yes')
 <?php
 echo '
   <div class="column" id="myrooms">
-  <h5>Rooms <a href="/managerooms.php"><img src="/gfx/pencil.png" alt="(edit)" style="vertical-align:bottom;" /></a></h5>
+  <h5>Rooms <a href="/myhouse/managerooms.php"><img src="/gfx/pencil.png" alt="(edit)" style="vertical-align:bottom;" /></a></h5>
 ';
 
 if(strlen($house['rooms']) > 0)
@@ -53,7 +53,7 @@ if(strlen($house['rooms']) > 0)
     if($i == $house['max_rooms_shown'])
       $room_class = ' class="dim"';
 
-    echo '<li><a href="/houseaction.php?room=' . $menu_room . '"' . $room_class . '>' . ($menu_room{0} == '$' ? substr($menu_room, 1) : $menu_room) . '</a></li>';
+    echo '<li><a href="/myhouse.php?room=' . $menu_room . '"' . $room_class . '>' . ($menu_room{0} == '$' ? substr($menu_room, 1) : $menu_room) . '</a></li>';
   }
 
   echo '</ul></div>';
@@ -63,7 +63,7 @@ if(strlen($house['addons']) > 0)
 {
   echo '
     <div class="column" id="myaddons">
-    <h5>Add-ons <a href="/arrangeaddons.php"><img src="/gfx/pencil.png" alt="(edit)" style="vertical-align:bottom;" /></a></h5>
+    <h5>Add-ons <a href="/myhouse/arrangeaddons.php"><img src="/gfx/pencil.png" alt="(edit)" style="vertical-align:bottom;" /></a></h5>
     <ul class="plainlist nomargin">
   ';
 

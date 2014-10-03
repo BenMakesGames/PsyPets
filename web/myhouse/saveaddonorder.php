@@ -34,7 +34,7 @@ foreach($list as $room)
 
 if(count($addons) > 0)
 {
-  header('Location: ./arrangeaddons.php');
+  header('Location: /myhouse/arrangeaddons.php');
   exit();
 }
 
@@ -46,5 +46,4 @@ $q_addons = quote_smart(implode(',', $newaddons));
 $command = 'UPDATE monster_houses SET addons=' . $q_addons . ',max_addons_shown=' . $last_addon . ' WHERE idnum=' . $house['idnum'] . ' LIMIT 1';
 $database->FetchNone($command, 'rearranging house addons');
 
-header('Location: ./arrangeaddons.php?msg=93');
-?>
+header('Location: /myhouse/arrangeaddons.php?msg=93');

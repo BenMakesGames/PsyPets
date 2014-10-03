@@ -33,18 +33,6 @@ function pet_blurb(&$user, &$house, $petnum, $maxpets, &$mypet, $loveoptions, $l
 
   $half_hour_OK = false;
 
-  $newer_log = newer_log_exists_byuser_bypet($user['idnum'], $mypet['idnum'], $mypet['last_log_check']);
-  if($newer_log)
-  {
-    $log_graphic = 'petlog_new';
-    $log_descript = 'view pet logs - new activity has been logged!';
-  }
-  else
-  {
-    $log_graphic = 'petlog';
-    $log_descript = 'view pet logs';
-  }
-
   $cause_of_death = array(
     'starved' => 'starved to death',
     'magical' => 'was transported to the elemental plane of negative energy',
@@ -93,8 +81,6 @@ function pet_blurb(&$user, &$house, $petnum, $maxpets, &$mypet, $loveoptions, $l
 
   if($mypet['zombie'] == 'no')
     echo '<a href="/pet_entool.php?id=' . $mypet['idnum'] . '"><img src="/gfx/the_hand.png" width="16" height="16" alt="Equip" /></a>';
-
-  echo '<a href="/petlogs.php?petid=' . $mypet['idnum'] . '"><img src="/gfx/' . $log_graphic . '.png" width="18" height="16" alt="' . $log_descript . '" /></a>';
 
   if($mypet['original'] == 'no')
     echo '<img src="/gfx/exchange_pet.png" width="12" height="16" title="You have NOT had this pet since it was level 1." />';
@@ -175,8 +161,6 @@ function pet_blurb(&$user, &$house, $petnum, $maxpets, &$mypet, $loveoptions, $l
   {
     if($mypet['sleeping'] == 'no')
     {
-      echo $energy_note;
-
       if($mypet['caffeinated'] > 0)
         echo '<span class="progress">is caffeinated!</span>' . ($maxpets < 3 ? '<a href="/help/energy.php" class="help">?</a>' : '') . '<br />';
       else if($mypet['energy'] <= 0)
@@ -189,8 +173,6 @@ function pet_blurb(&$user, &$house, $petnum, $maxpets, &$mypet, $loveoptions, $l
         echo 'is wide awake.<br />';
       else
         echo '...<br />';
-
-      echo $food_note;
 
       if($mypet['food'] <= 0)
         echo '<span class="failure">is starving.</span>' . ($maxpets < 3 ? '<a href="/help/food.php" class="help">?</a>' : '') . '<br />';
@@ -205,8 +187,6 @@ function pet_blurb(&$user, &$house, $petnum, $maxpets, &$mypet, $loveoptions, $l
       else
         echo '...<br />';
 
-      echo $safety_note;
-
       if($mypet['safety'] <= 0)
         echo '<span class="failure">cowers in a corner.</span>' . ($maxpets < 3 ? '<a href="/help/safety.php" class="help">?</a>' : '') . '<br />';
       else if($mypet['safety'] <= 5)
@@ -216,8 +196,6 @@ function pet_blurb(&$user, &$house, $petnum, $maxpets, &$mypet, $loveoptions, $l
       else
         echo '...<br />';
 
-      echo $love_note;
-
       if($mypet['love'] <= 0)
         echo '<span class="failure">whines at you.</span>' . ($maxpets < 3 ? '<a href="/help/love.php" class="help">?</a>' : '') . '<br />';
       else if($mypet['love'] <= 6)
@@ -226,8 +204,6 @@ function pet_blurb(&$user, &$house, $petnum, $maxpets, &$mypet, $loveoptions, $l
         echo 'nuzzles you.<br />';
       else
         echo '...<br />';
-
-      echo $esteem_note;
 
       if($mypet['esteem'] <= 0)
         echo '<span class="failure">seems depressed.</span>' . ($maxpets < 3 ? '<a href="/help/esteem.php" class="help">?</a>' : '') . '<br />';
@@ -245,7 +221,7 @@ function pet_blurb(&$user, &$house, $petnum, $maxpets, &$mypet, $loveoptions, $l
     }
 
     if($mypet['sleeping'] == 'yes')
-      echo $energy_note . 'is sleeping.<br />';
+      echo 'is sleeping.<br />';
 
     if($mypet['nasty_wound'] > 0)
       echo '<span class="failure">has a ' . wound_description($mypet['nasty_wound']) . '</span><a href="/help/wounds.php" class="help">?</a><br />';

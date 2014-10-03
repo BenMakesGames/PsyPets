@@ -41,7 +41,7 @@ foreach($list as $room)
 
 if(count($rooms) > 0)
 {
-  header('Location: ./arrangerooms.php');
+  header('Location: /myhouse/arrangerooms.php');
   exit();
 }
 
@@ -54,5 +54,4 @@ $q_walls = quote_smart(implode(',', $newwalls));
 $command = 'UPDATE monster_houses SET rooms=' . $q_rooms . ',wallpapers=' . $q_walls . ',max_rooms_shown=' . $last_room . ' WHERE idnum=' . $house['idnum'] . ' LIMIT 1';
 $database->FetchNone($command, 'rearranging house rooms');
 
-header('Location: ./arrangerooms.php?msg=93');
-?>
+header('Location: /myhouse/arrangerooms.php?msg=93');

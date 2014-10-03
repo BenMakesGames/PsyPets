@@ -61,7 +61,7 @@ function max_active_pets(&$user, &$house)
 
 function room_display(&$house)
 {
-  global $THIS_ROOM, $SETTINGS;
+  global $SETTINGS, $THIS_ROOM;
 
   $m_rooms = take_apart(',', $house['rooms']);
   $addons = take_apart(',', $house['addons']);
@@ -86,7 +86,7 @@ function room_display(&$house)
     if($room == $THIS_ROOM)
       $classes[] = 'activetab';
   
-    echo ' <li class="' . implode(' ', $classes) . '"><nobr><a href="/houseaction.php?room=' . link_safe($room) . '">' . str_replace('$', '', $room) . '</a></nobr></li>';
+    echo ' <li class="' . implode(' ', $classes) . '"><nobr><a href="/myhouse.php?room=' . urlencode($room) . '" class="js-load-room" data-room="' . htmlspecialchars($room) . '">' . str_replace('$', '', $room) . '</a></nobr></li>';
 
     $i++;
   }
@@ -106,7 +106,7 @@ function room_display(&$house)
     $i++;
   }
 
-  echo '<li style="border: 0; background-color: transparent;"><a href="/managerooms.php"><img src="/gfx/pencil_small.png" height="13" width="15" alt="(manage rooms)" style="vertical-align:text-bottom;" /></a></li>';
+  echo '<li style="border: 0; background-color: transparent;"><a href="/myhouse/managerooms.php"><img src="/gfx/pencil_small.png" height="13" width="15" alt="(manage rooms)" style="vertical-align:text-bottom;" /></a></li>';
 
   echo '</ul>';
 }
@@ -119,7 +119,7 @@ function get_home_improvement_byid($idnum)
   return $improvement;
 }
 
-function add_house($userid, $locid, $size)
+function add_house($userid, $size)
 {
   $command = "INSERT INTO monster_houses (`userid`, `maxbulk`, `rooms`, `wallpapers`) VALUES ($userid, $size, '\$Protected', 'none,none')";
   fetch_none($command, 'add_house');

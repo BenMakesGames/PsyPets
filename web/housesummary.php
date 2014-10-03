@@ -103,9 +103,9 @@ if(count($inventory) > 0)
       }
 
       if($cur_room == 'home')
-        $room_link = 'houseaction.php?room=Common';
+        $room_link = 'myhouse.php';
       else
-        $room_link = 'houseaction.php?room=' . substr($cur_room, 5);
+        $room_link = 'myhouse.php?room=' . substr($cur_room, 5);
 
       $room_id++;
       echo '<tr><td colspan="4"><h5 id="r' . $room_id . '" class="separator"><a href="' . $room_link . '">' . say_room($cur_room) . '</a> (' . $item_total[$cur_room] . ' items)</h5></td></tr>' .

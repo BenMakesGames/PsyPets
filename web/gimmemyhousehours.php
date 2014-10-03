@@ -11,5 +11,3 @@ $command = 'UPDATE monster_users SET no_hours_fool=\'no\' WHERE idnum=' . $user[
 $database->FetchNone($command, 'good to go for house hours');
 
 header('Location: /incoming.php');
-exit();
-?>

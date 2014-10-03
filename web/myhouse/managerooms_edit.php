@@ -1,4 +1,6 @@
 <?php
+require_once 'commons/init.php';
+
 // confirm the session...
 require_once 'commons/dbconnect.php';
 require_once 'commons/rpgfunctions.php';
@@ -9,9 +11,7 @@ require_once 'commons/houselib.php';
 
 $THIS_ROOM = 'Add/Remove';
 
-$locid = $user['locid'];
-
-$house = get_house_byuser($user['idnum'], $locid);
+$house = get_house_byuser($user['idnum']);
 
 $rooms = take_apart(',', $house['rooms']);
 
@@ -19,12 +19,9 @@ $my_room = $_GET['room'];
 
 if(!in_array($my_room, $rooms))
 {
-  header('Location: ./managerooms.php');
+  header('Location: /myhouse/managerooms.php');
 	exit();
 }
-
-$nopetrooms = take_apart(',', $house['nopet_rooms']);
-$show_pets = (!in_array($my_room, $nopetrooms));
 
 if($my_room{0} == '$')
 {
@@ -75,34 +72,6 @@ if($_POST['action'] == 'edit')
     if($_POST['protected'] == 'yes' || $_POST['protected'] == 'on')
       $room = '$' . $room;
 
-    // if the room is NOT a 'no pet' room...
-    if($show_pets)
-    {
-      // ... and we want it to be a 'no pet' room:
-      if(!($_POST['showpets'] == 'yes' || $_POST['showpets'] == 'on'))
-      {
-        $nopetrooms[] = $room;
-        $extra_update = ',nopet_rooms=' . quote_smart(implode(',', $nopetrooms));
-      }
-    }
-    // if the room is a 'no pet' room
-    else
-    {
-      // ... and we DON'T want it to be a 'no pet' room:
-      if($_POST['showpets'] == 'yes' || $_POST['showpets'] == 'on')
-      {
-        $i = array_search($my_room, $nopetrooms);
-        if($i !== false)
-          unset($nopetrooms[$i]);
-
-        $i = array_search($room, $nopetrooms);
-        if($i !== false)
-          unset($nopetrooms[$i]);
-
-        $extra_update = ',nopet_rooms=' . quote_smart(implode(',', $nopetrooms));
-      }
-    }
-
     $i = array_search($my_room, $rooms);
     $rooms[$i] = $room;
 
@@ -120,7 +89,7 @@ if($_POST['action'] == 'edit')
       $database->FetchNone($command, 'updating autosorter rules');
     }
     
-    header('Location: ./managerooms.php');
+    header('Location: /myhouse/managerooms.php');
     exit();
   }
 }
@@ -134,7 +103,7 @@ include 'commons/html.php';
  <body>
 <?php include 'commons/header_2.php'; ?>
      <?= ($check_message ? "<p style=\"color:blue;\">$check_message</p>" : "") ?>
-     <h4><a href="myhouse.php"><?= $user["display"] ?>'s House</a> &gt; Manage Rooms &gt; <?= $room_display ?></h4>
+     <h4><a href="/myhouse.php"><?= $user["display"] ?>'s House</a> &gt; Manage Rooms &gt; <?= $room_display ?></h4>
      <p>Depending on the number of items in the room, and the changes being made, this operation could take a while!  Please be patient!</p>
 <?php
 if($_POST['message'])
@@ -144,9 +113,8 @@ if($_POST['message'])
      <table>
       <tr><th>Room name:</th><td><input name="room" maxlength="10" size="10" value="<?= $room_display ?>" /></td></tr>
       <tr><th>Locked:</th><td><input type="checkbox" name="protected"<?= $protected ? ' checked="checked"' : '' ?> /></td></tr>
-      <tr><th>Show pets:</th><td><input type="checkbox" name="showpets"<?= $show_pets ? ' checked="checked"' : '' ?> /></td></tr>
      </table>
-     <p><input type="button" onclick="location.href='managerooms.php';" value="Cancel" /> <input type="hidden" name="action" value="edit" /><input type="submit" value="Update" /></p>
+     <p><input type="button" onclick="location.href='/myhouse/managerooms.php';" value="Cancel" /> <input type="hidden" name="action" value="edit" /><input type="submit" value="Update" /></p>
      </form>
 <?php include 'commons/footer_2.php'; ?>
  </body>

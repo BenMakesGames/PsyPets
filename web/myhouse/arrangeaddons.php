@@ -1,4 +1,6 @@
 <?php
+require_once 'commons/init.php';
+
 // confirm the session...
 require_once 'commons/dbconnect.php';
 require_once 'commons/rpgfunctions.php';
@@ -55,18 +57,18 @@ include 'commons/html.php';
 
   function savelist()
   {
-		window.location = 'saveaddonorder.php?list=' + junkdrawer.serializeList(document.getElementById('roomarranger'));
+		window.location = '/myhouse/saveaddonorder.php?list=' + junkdrawer.serializeList(document.getElementById('roomarranger'));
   }
   </script>
  </head>
  <body>
 <?php include 'commons/header_2.php'; ?>
      <?= ($check_message ? "<p style=\"color:blue;\">$check_message</p>" : "") ?>
-     <h4><a href="myhouse.php"><?= $user["display"] ?>'s House</a> &gt; Arrange Add-ons</h4>
+     <h4><a href="/myhouse.php"><?= $user["display"] ?>'s House</a> &gt; Arrange Add-ons</h4>
 <ul class="tabbed">
- <li><a href="managerooms.php">Add/Remove Rooms</a></li>
- <li><a href="arrangerooms.php">Arrange Rooms</a></li>
- <li class="activetab"><a href="arrangeaddons.php">Arrange Add-ons</a></li>
+ <li><a href="/myhouse/managerooms.php">Add/Remove Rooms</a></li>
+ <li><a href="/myhouse/arrangerooms.php">Arrange Rooms</a></li>
+ <li class="activetab"><a href="/myhouse/arrangeaddons.php">Arrange Add-ons</a></li>
 </ul>
 <?php
 if(strlen($_GET['msg']) > 0)
@@ -79,7 +81,7 @@ if($error_message)
 <p>Add-ons below the "hidden add-ons" separator will not be listed at home, but will still be listed in the Residence menu.  Hiding an add-on does not disable it in any way.  For example, pets can still interact with a hidden Lake or Farm.</p>
 <div id="spinner">
 <center>Hold on a sec while the page loads...<br /><br />
-<img src="gfx/throbber.gif" height="16" width="16" alt="" /></center>
+<img src="/gfx/throbber.gif" height="16" width="16" alt="" /></center>
 </div>
 <div id="sortme" style="display:none;">
 <?php
@@ -100,7 +102,7 @@ if(count($rooms) > 0)
     echo '<li id="separator" style="font-style:italic; text-align: center;">&#9660; hidden add-ons &#9660;</li>';
 ?>
 </ul>
-<p style="clear:both; padding-top: 1em;"><input type="button" value="Cancel" onclick="window.location='myhouse.php';"/> <input type="button" value="Save" onclick="savelist()"/></p>
+<p style="clear:both; padding-top: 1em;"><input type="button" value="Cancel" onclick="window.location='/myhouse.php';"/> <input type="button" value="Save" onclick="savelist()"/></p>
 <?php
 }
 else

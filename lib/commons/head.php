@@ -2,11 +2,11 @@
 $style_layout = (array_key_exists($user['style_layout'], $SITE_LAYOUTS) ? $user['style_layout'] : 'default');
 $style_color = (array_key_exists($user['style_color'], $SITE_COLORS) ? $user['style_color'] : 'telkoth');
 
-$commons_style_version = 24;
+$commons_style_version = 25;
 $layout_style_version = 46;
 $color_style_version = 24;
 
-$pp_js_version = 19;
+$pp_js_version = 20;
 $mm_js_version = '-pp11';
 /*
 if($user['idnum'] == 1)
@@ -36,7 +36,7 @@ if($user['idnum'] == 1)
   <meta name="msapplication-window" content="width=device-width;height=device-height" />
   <meta name="msapplication-tooltip" content="Play PsyPets!" />
   <meta name="msapplication-starturl" content="/" />
-  <meta name="msapplication-task" content="name=My House;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/houseaction.php?room=Common;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/myhouse.ico" />
+  <meta name="msapplication-task" content="name=My House;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/myhouse.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/myhouse.ico" />
   <meta name="msapplication-task" content="name=Incoming;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/incoming.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/incoming.ico" />
   <meta name="msapplication-task" content="name=My Notepad;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/mynotepad.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/mynotepad.ico" />
   <meta name="msapplication-task" content="name=Mailbox;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/post.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/mailbox.ico" />

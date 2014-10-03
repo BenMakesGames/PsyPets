@@ -1,5 +1,7 @@
 <?php
-$url = 'managerooms.php';
+require_once 'commons/init.php';
+
+$url = '/myhouse/managerooms.php';
 $require_petload = 'no';
 
 // confirm the session...
@@ -16,8 +18,6 @@ if($rooms_tutorial_quest === false)
   $no_tip = true;
 
 $THIS_ROOM = 'Add/Remove';
-
-$locid = $user['locid'];
 
 $rooms = take_apart(',', $house['rooms']);
 $walls = take_apart(',', $house['wallpapers']);
@@ -119,11 +119,11 @@ if($rooms_tutorial_quest === false)
   add_quest_value($user['idnum'], 'tutorial: rooms', 1);
 }
 ?>
-     <h4><a href="myhouse.php"><?= $user['display'] ?>'s House</a> &gt; Manage Rooms</h4>
+     <h4><a href="/myhouse.php"><?= $user['display'] ?>'s House</a> &gt; Manage Rooms</h4>
 <ul class="tabbed">
- <li class="activetab"><a href="managerooms.php">Add/Remove Rooms</a></li>
- <li><a href="arrangerooms.php">Arrange Rooms</a></li>
- <li><a href="arrangeaddons.php">Arrange Add-ons</a></li>
+ <li class="activetab"><a href="/myhouse/managerooms.php">Add/Remove Rooms</a></li>
+ <li><a href="/myhouse/arrangerooms.php">Arrange Rooms</a></li>
+ <li><a href="/myhouse/arrangeaddons.php">Arrange Add-ons</a></li>
 </ul>
      <p>Locked rooms are not accessible by pets (the items in a locked room will not be eaten, used in crafts, etc).</p>
      <p>If you delete a room which contains items, those items will be moved into the Common room.</p>
@@ -135,8 +135,7 @@ if($rooms_tutorial_quest === false)
 ?>
      <table>
       <tr class="titlerow">
-       <th class="centered"><img src="gfx/roomlock.png" width="10" height="11" alt="Locked?" title="Locked?" /></th>
-       <th class="centered"><img src="gfx/tinydesikh.png" width="10" height="11" alt="Show Pets?" title="Show Pets?" /></th>
+       <th class="centered"><img src="/gfx/roomlock.png" width="10" height="11" alt="Locked?" title="Locked?" /></th>
        <th>Room</th>
        <th class="centered">Action</th>
       </tr>
@@ -158,14 +157,9 @@ if(count($rooms) > 0)
       echo '<td class="centered">&#10004;</td>';
     else
       echo '<td></td>';
-
-    if(in_array($room, $nopetrooms))
-      echo '<td></td>';
-    else
-      echo '<td class="centered">&#10004;</td>';
 ?>
        <td><?= $roomname ?></td>
-       <td class="centered"><a href="<?= $url ?>?action=delete&room=<?= $room ?>" onclick="return confirm('Really delete the <?= $roomname ?> room?')"><img src="gfx/trash.png" alt="delete" /></a><a href="managerooms_edit.php?room=<?= $room ?>"><img src="gfx/pencil.png" alt="edit" /></a></td>
+       <td class="centered"><a href="<?= $url ?>?action=delete&room=<?= $room ?>" onclick="return confirm('Really delete the <?= $roomname ?> room?')"><img src="/gfx/trash.png" alt="delete" /></a><a href="managerooms_edit.php?room=<?= $room ?>"><img src="/gfx/pencil.png" alt="edit" /></a></td>
       </tr>
 <?php
     $bgcolor = alt_row_class($bgcolor);
@@ -176,7 +170,6 @@ if(count($rooms) > 0)
       <input type="hidden" name="action" value="create" />
       <tr class="<?= $bgcolor ?>">
        <td><input type="checkbox" name="protected" /></td>
-       <td><input type="checkbox" name="showpets" /></td>
        <td><input name="room" maxlength="10" size="10" /></td><td><input type="submit" value="Create" /></td>
       </tr>
       </form>

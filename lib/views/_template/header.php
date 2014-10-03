@@ -19,11 +19,11 @@ $SITE_COLORS = array(
 $style_layout = (array_key_exists($_user->SiteLayout(), $SITE_LAYOUTS) ? $_user->SiteLayout() : 'default');
 $style_color = (array_key_exists($_user->SiteColorTheme(), $SITE_COLORS) ? $_user->SiteColorTheme() : 'telkoth');
 
-$commons_style_version = 24;
+$commons_style_version = 25;
 $layout_style_version = 46;
 $color_style_version = 24;
 
-$pp_js_version = 19;
+$pp_js_version = 20;
 $mm_js_version = '-pp11';
 /*
 if($user['idnum'] == 1)

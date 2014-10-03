@@ -43,7 +43,7 @@ while($this_user = mysql_fetch_assoc($result))
 
   if(mysql_num_rows($house_result) == 0)
   {
-    add_house($this_user["idnum"], 1, $this_user["homesize"]);
+    add_house($this_user["idnum"], $this_user["homesize"]);
     echo "Created a house for ". $this_user["display"] . ".<br />\n";
   }
 
