@@ -51,6 +51,7 @@ class Migration_5
               `idnum` int(10) unsigned NOT NULL,
               `timestamp` int(10) unsigned NOT NULL,
               `questid` int(10) unsigned NOT NULL,
+              `logid` int(10) unsigned NOT NULL,
               `text` int(11) NOT NULL
             ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
         ");
