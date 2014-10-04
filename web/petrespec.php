@@ -1,4 +1,5 @@
 <?php
+require_once 'commons/init.php';
 
 // confirm the session...
 require_once 'commons/dbconnect.php';
@@ -9,15 +10,12 @@ require_once 'commons/grammar.php';
 require_once 'commons/utility.php';
 require_once 'commons/petlib.php';
 require_once 'commons/petbadges.php';
-require_once 'commons/shortscale.php';
 
 require_once 'libraries/db_messages.php';
 
 $petid = (int)$_GET['petid'];
 
-$command = 'SELECT * FROM `monster_pets` ' .
-           'WHERE idnum=' . $petid . ' LIMIT 1';
-$this_pet = $database->FetchSingle($command, 'fetching pet');
+$this_pet = $database->FetchSingle('SELECT * FROM `monster_pets` WHERE idnum=' . $petid . ' LIMIT 1');
 
 if($this_pet === false)
 {
@@ -45,7 +43,7 @@ if($this_pet['user'] != $user['user'] || $this_pet['free_respec'] != 'yes')
 
 $petbadges = get_pet_badges($petid);
 
-$life = shortScale::toOrdinal($this_pet['incarnation']);
+$life = ShortScale::toOrdinal($this_pet['incarnation']);
 
 $max_advantages = $this_pet['incarnation'] - 1;
 
@@ -62,6 +60,8 @@ if($_POST['action'] == 'Respec')
     $errors[] = '<span class="failure">You need to pick <em>at least</em> three statements to describe your pet.</span>';
   else if(count($_POST['descriptions']) > 10)
     $errors[] = '<span class="failure">You may not pick more than 10 statements to describe your pet.</span>';
+
+  $advantages = 0;
 
   foreach($_POST as $key=>$value)
   {
@@ -290,7 +290,7 @@ if($_POST['action'] == 'Respec')
       $total += $value;
 
     $points = pet_level($this_pet);
-    
+    $new_points = 0;
     $new_total = 0;
     
     foreach($weights as $stat=>$value)
@@ -479,10 +479,9 @@ include 'commons/petprofile/pets.php';
      </ul>
      <p><input type="submit" name="action" value="Respec" /></p>
      </form>
-<?php
-if($pet['toolid'] > 0)
-  echo '<p><i>(The tool ' . $pet['petname'] . ' is using will be dropped into the Common Room of your house.)</i></p>';
-?>
+<?php if($pet['toolid'] > 0): ?>
+  <p><i>(The tool <?= $pet['petname'] ?> is using will be dropped into the Common Room of your house.)</i></p>
+<?php endif; ?>
 <?php include 'commons/footer_2.php'; ?>
  </body>
 </html>

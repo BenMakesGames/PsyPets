@@ -1,4 +1,6 @@
 <?php
+namespace PsyPets;
+
 $require_petload = 'no';
 
 // confirm the session...

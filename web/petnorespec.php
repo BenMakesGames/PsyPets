@@ -8,7 +8,6 @@ require_once 'commons/grammar.php';
 require_once 'commons/utility.php';
 require_once 'commons/petlib.php';
 require_once 'commons/petbadges.php';
-require_once 'commons/shortscale.php';
 
 $petid = (int)$_GET['petid'];
 

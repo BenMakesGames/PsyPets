@@ -1,4 +1,6 @@
 <?php
+namespace PsyPets;
+
 // confirm the session...
 require_once "commons/dbconnect.php";
 require_once "commons/rpgfunctions.php";

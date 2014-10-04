@@ -1,4 +1,6 @@
 <?php
+namespace PsyPets;
+
 $require_login = "no";
 $invisible = "yes";
 $require_petload = 'no';

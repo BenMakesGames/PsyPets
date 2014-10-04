@@ -6,11 +6,9 @@ $use_time = (int)$this_inventory['data'];
 
 if($now < $use_time)
 {
-  require_once 'commons/shortscale.php';
-
   $minutes = ceil(($use_time - $now) / 60);
 
-  echo '<p>You can barely make out traces of words on the top of the scroll - they\'re impossible to read!  You get the feeling though that, given a little time, the words will make themselves visible again.</p><p><i>*cough*' . str_replace(' ', '', shortScale::toCardinal($minutes)) . 'moreminutes*cough*</i></p>';
+  echo '<p>You can barely make out traces of words on the top of the scroll - they\'re impossible to read!  You get the feeling though that, given a little time, the words will make themselves visible again.</p><p><i>*cough*' . str_replace(' ', '', ShortScale::toCardinal($minutes)) . 'moreminutes*cough*</i></p>';
 }
 else if(count($userpets) == 0)
 {
@@ -70,4 +68,3 @@ else
 <p>Having read the list, the words begin to fade, and after a few seconds you're left with what appears to be a blank piece of paper, but you can feel that there's magic in it still!</p><p>Perhaps it just needs time to regenerate its power?</p><p><i>*cough*youhavetowaitanhour*cough*</i></p>
 <?php
 }
-?>

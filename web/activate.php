@@ -1,4 +1,6 @@
 <?php
+namespace PsyPets;
+
 require_once 'commons/rpgfunctions.php';
 require_once 'commons/encryption.php';
 require_once 'commons/dbconnect.php';

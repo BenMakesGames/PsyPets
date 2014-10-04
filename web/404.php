@@ -1,4 +1,6 @@
 ﻿<?php
+namespace PsyPets;
+
 require_once 'commons/init.php';
 
 $require_login = 'no';

@@ -1,5 +1,5 @@
 <?php
-class shortScale
+class ShortScale
 {
   // Source: Wikipedia (http://en.wikipedia.org/wiki/Names_of_large_numbers)
   private static $scale = array('', 'thousand', 'million', 'billion', 'trillion', 'quadrillion', 'quintillion', 'sextillion', 'octillion', 'nonillion', 'decillion', 'undecillion', 'duodecillion', 'tredecillion', 'quattuordecillion', 'quindecillion', 'sexdecillion', 'septendecillion', 'octodecillion', 'noverndecillion', 'vigintillion');
@@ -85,4 +85,3 @@ class shortScale
     return trim($pre . $post);
   }
 }
-?>

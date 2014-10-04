@@ -1,4 +1,6 @@
 <?php
+namespace PsyPets;
+
 $whereat = 'storage';
 $require_petload = 'no';
 

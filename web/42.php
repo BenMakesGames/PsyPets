@@ -1,4 +1,6 @@
 <?php
+namespace PsyPets;
+
 $whereat = 'home';
 
 // confirm the session...

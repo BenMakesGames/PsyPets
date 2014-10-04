@@ -1,4 +1,6 @@
 <?php
+namespace PsyPets;
+
 $require_login = 'no';
 
 // confirm the session...
