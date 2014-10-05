@@ -17,11 +17,23 @@ abstract class PetQuest
     }
 
     abstract public function Work();
+
+    /** @param array $args */
+    /** @return array */
     abstract protected function Init($args);
 
     public static function Insert($questClass, &$userpets, $args)
     {
         $progress = $questClass::Init($args);
+
+        // @TODO: create new record:
+        /*
+        fetch_none('
+            INSERT INTO psypets_pet_quest_progress (data) VALUES
+        ');
+        */
+        // @TODO: create records for participating pets
+
         return new $questClass($progress, $userpets);
     }
 
