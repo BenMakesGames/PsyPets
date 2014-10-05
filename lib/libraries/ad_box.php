@@ -1,15 +1,20 @@
 <?php
 function get_ad_text()
 {
-    global $PAGE, $SETTINGS;
+    global $PAGE, $SETTINGS, $now;
 
     list($now_day, $now_month, $now_year) = explode(' ', date('j n Y'));
 
     $i = mt_rand(1, 100);
 
     global $_GET;
-    if($i <= 5) // player ads (5% frequency)
+
+    if($i <= 50) // player ads (50% frequency)
     {
+
+        // @TODO: add link to GitHub repo
+        // @TODO: add block for linking to PsyPets-y games (TerrePets is the only one for now; see if Onyx wants to prepare a graphic for this purpose)
+
         switch(mt_rand(1, 2))
         {
             case 1:
@@ -22,6 +27,7 @@ function get_ad_text()
                 return '<a href="http://www.facebook.com/pages/PsyPets/10560487070"><img src="' . $SETTINGS['protocol'] . '://saffron.psypets.net/gfx/ads/' . $files[$day_since_1970 % count($files)] . '" width="234" height="60" alt="PsyPets Facebook page" id="iamsooooimportant" /></a>';
 
             case 2:
+            default:
                 $PAGE['checkad'] = true;
                 $PAGE['adname'] = 'iamsooooimportant';
                 $PAGE['adlink'] = '<a href="http://twitter.com/#!/psypetsideas">PsyPets ideas @ twitter</a>';
@@ -43,7 +49,7 @@ function get_ad_text()
             */
         }
     }
-    else // Monthly ad (20% frequency)
+    else // Monthly ad (50% frequency)
     {
         $monthly_files = array(
             1 => array(
@@ -140,4 +146,3 @@ function get_ad_text()
         return '<a href="/' . $url . '"><img src="' . $SETTINGS['protocol'] . '://saffron.psypets.net/gfx/ads/' . $img . '" width="234" height="60" id="iamsooooimportant" /></a>';
     }
 }
-?>
