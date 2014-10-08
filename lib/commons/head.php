@@ -36,12 +36,12 @@ if($user['idnum'] == 1)
   <meta name="msapplication-window" content="width=device-width;height=device-height" />
   <meta name="msapplication-tooltip" content="Play PsyPets!" />
   <meta name="msapplication-starturl" content="/" />
-  <meta name="msapplication-task" content="name=My House;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/myhouse.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/myhouse.ico" />
-  <meta name="msapplication-task" content="name=Incoming;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/incoming.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/incoming.ico" />
-  <meta name="msapplication-task" content="name=My Notepad;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/mynotepad.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/mynotepad.ico" />
-  <meta name="msapplication-task" content="name=Mailbox;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/post.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/mailbox.ico" />
-  <meta name="msapplication-task" content="name=Plaza;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/plaza.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/plaza.ico" />
-  <meta name="msapplication-task" content="name=City Hall;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/cityhall.php;icon-uri=<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/msapp/cityhall.ico" />
+  <meta name="msapplication-task" content="name=My House;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/myhouse.php;icon-uri=<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/msapp/myhouse.ico" />
+  <meta name="msapplication-task" content="name=Incoming;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/incoming.php;icon-uri=<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/msapp/incoming.ico" />
+  <meta name="msapplication-task" content="name=My Notepad;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/mynotepad.php;icon-uri=<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/msapp/mynotepad.ico" />
+  <meta name="msapplication-task" content="name=Mailbox;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/post.php;icon-uri=<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/msapp/mailbox.ico" />
+  <meta name="msapplication-task" content="name=Plaza;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/plaza.php;icon-uri=<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/msapp/plaza.ico" />
+  <meta name="msapplication-task" content="name=City Hall;action-uri=<?= $SETTINGS['protocol'] ?>://www.psypets.net/cityhall.php;icon-uri=<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/msapp/cityhall.ico" />
   <script type="text/javascript" src="<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/js/jquery-1.7.2.min.js"></script>
   <script type="text/javascript" src="<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/js/jquery.hoverIntent.minified.js"></script>
   <script type="text/javascript" src="<?= $SETTINGS['protocol'] ?>://<?= $SETTINGS['static_domain'] ?>/js/jquery.megamenu<?= $mm_js_version ?>.js"></script>

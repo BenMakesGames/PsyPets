@@ -24,7 +24,7 @@ function get_ad_text()
 
                 $files = array('fb.png');
                 $day_since_1970 = floor($now / (24 * 60 * 60));
-                return '<a href="http://www.facebook.com/pages/PsyPets/10560487070"><img src="' . $SETTINGS['protocol'] . '://saffron.psypets.net/gfx/ads/' . $files[$day_since_1970 % count($files)] . '" width="234" height="60" alt="PsyPets Facebook page" id="iamsooooimportant" /></a>';
+                return '<a href="http://www.facebook.com/pages/PsyPets/10560487070"><img src="//' . $SETTINGS['static_domain'] . '/gfx/ads/' . $files[$day_since_1970 % count($files)] . '" width="234" height="60" alt="PsyPets Facebook page" id="iamsooooimportant" /></a>';
 
             case 2:
             default:
@@ -35,7 +35,7 @@ function get_ad_text()
                 $files = array('twitter.png');
                 $day_since_1970 = floor($now / (24 * 60 * 60));
 
-                return '<a href="http://twitter.com/#!/psypetsideas"><img src="http://saffron.psypets.net/gfx/ads/' . $files[$day_since_1970 % count($files)] . '" width="234" height="60" alt="PsyPets ideas @ twitter" id="iamsooooimportant" /></a>';
+                return '<a href="http://twitter.com/#!/psypetsideas"><img src="http://' . $SETTINGS['static_domain'] . '/gfx/ads/' . $files[$day_since_1970 % count($files)] . '" width="234" height="60" alt="PsyPets ideas @ twitter" id="iamsooooimportant" /></a>';
             /*
             case 3:
                 $PAGE['checkad'] = true;
@@ -45,7 +45,7 @@ function get_ad_text()
                 $files = array('zazzlestore.png');
                 $day_since_1970 = floor($now / (24 * 60 * 60));
 
-                return '<a href="http://www.zazzle.com/telkoth*"><img src="' . $SETTINGS['protocol'] . '://saffron.psypets.net/gfx/ads/' . $files[$day_since_1970 % count($files)] . '" width="234" height="60" alt="PsyPets merchandise at zazzle.com" id="iamsooooimportant" /></a>';
+                return '<a href="http://www.zazzle.com/telkoth*"><img src="//' . $SETTINGS['static_domain'] . '/gfx/ads/' . $files[$day_since_1970 % count($files)] . '" width="234" height="60" alt="PsyPets merchandise at zazzle.com" id="iamsooooimportant" /></a>';
             */
         }
     }
@@ -143,6 +143,6 @@ function get_ad_text()
         $PAGE['checkad'] = true;
         $PAGE['adname'] = 'iamsooooimportant';
 
-        return '<a href="/' . $url . '"><img src="' . $SETTINGS['protocol'] . '://saffron.psypets.net/gfx/ads/' . $img . '" width="234" height="60" id="iamsooooimportant" /></a>';
+        return '<a href="/' . $url . '"><img src="//' . $SETTINGS['static_domain'] . '/gfx/ads/' . $img . '" width="234" height="60" id="iamsooooimportant" /></a>';
     }
 }

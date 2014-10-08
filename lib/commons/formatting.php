@@ -140,6 +140,7 @@ function str_insert($insert, $into, $offset)
 
 function wbr_it_up($text)
 {
+    $skip = 0;
   $chunks = explode(' ', $text);
   $newchunks = array();
   foreach($chunks as $chunk)
@@ -702,6 +703,8 @@ function symbolize($strings)
 
 function smilize($strings, $do_it = true)
 {
+    global $SETTINGS;
+
   if(!$do_it)
     return $strings;
 

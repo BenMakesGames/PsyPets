@@ -64,7 +64,7 @@ include 'commons/html.php';
      <?= ($check_message ? "<p style=\"color:blue;\">$check_message</p>" : "") ?>
      <h4>Mysterious Shop &gt; Special Offers</h4>
 <?php
-echo '<img src="' . $SETTINGS['protocol'] . '://saffron.psypets.net/gfx/npcs/mysteriousshop.png" align="right" width="350" height="120" alt="(Mysterious Shop owner)" />';
+echo '<img src="//' . $SETTINGS['static_domain'] . '/gfx/npcs/mysteriousshop.png" align="right" width="350" height="120" alt="(Mysterious Shop owner)" />';
 
 include 'commons/dialog_open.php';
 echo '<p>' . $message . '</p>';

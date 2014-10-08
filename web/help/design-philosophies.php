@@ -21,7 +21,7 @@ include 'commons/html.php';
   <h4><a href="/cityhall.php">City Hall</a> &gt; <a href="/help/">Help Desk</a> &gt; Design Philosophies</h4>
   <p>If a feature is to be added, it should be compared against these philosophies.  If a feature does not fit within these philosophies, it should not be added.</p>
   <p>If a feature is to be removed (or changed), the same question should be asked: will <em>removing</em> this feature serve these philosophies?</p>
-  <img src="//saffron.psypets.net/gfx/help/pillar_pets_first.png" width="75" height="150" alt="" align="right" />
+  <img src="//<?= $SETTINGS['static_domain'] ?>/gfx/help/pillar_pets_first.png" width="75" height="150" alt="" align="right" />
   <h5>The Pets Are The Primary Agents</h5>
   <p>In some games, the player takes on the role of a hero that grows in power as the game progresses, and it's alright for PsyPets to have player-advancement as well, but the <em>main</em> focus is on pet-advancement: you can't build supercomputers, your pets can; you can't defeat the mighty Kundrav - a dragon from Persian mythology - your pets can.</p>
   <p>As the player, you provide the pets a good environment and home, giving them the freedom to do these things.</p>

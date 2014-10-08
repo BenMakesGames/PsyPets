@@ -60,7 +60,7 @@ include 'commons/html.php';
      </ul>
 <?php
 // BANKER LAKISHA
-echo '<a href="npcprofile.php?npc=Lakisha+Pawlak"><img src="' . $SETTINGS['protocol'] . '://saffron.psypets.net/gfx/npcs/banker_lakisha.png" align="right" width="350" height="427" alt="(Lakisha the Banker)" /></a>';
+echo '<a href="npcprofile.php?npc=Lakisha+Pawlak"><img src="//' . $SETTINGS['static_domain'] . '/gfx/npcs/banker_lakisha.png" align="right" width="350" height="427" alt="(Lakisha the Banker)" /></a>';
 
 if($user['license'] != 'yes')
 {

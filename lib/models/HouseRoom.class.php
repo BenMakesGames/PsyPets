@@ -9,7 +9,8 @@ class HouseRoom extends psyDBObject
   
   public function RenderImageXHTML()
   {
-    return '<img src="//saffron.psypets.net/gfx/rooms/' . $this->_data['appearance'] . '" width="' . $this->_data['pixel_width'] . '" height="' . $this->_data['pixel_height'] . '" alt="' . $this->_data['name'] . '" title="' . $this->_data['name'] . '" />';
+      global $SETTINGS;
+    return '<img src="//' . $SETTINGS['static_domain'] . '/gfx/rooms/' . $this->_data['appearance'] . '" width="' . $this->_data['pixel_width'] . '" height="' . $this->_data['pixel_height'] . '" alt="' . $this->_data['name'] . '" title="' . $this->_data['name'] . '" />';
   }
 
   public function PixelX()

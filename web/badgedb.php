@@ -101,7 +101,7 @@ if($error_message)
   echo '     <p class="failure">' . $error_message . '</p>';
 ?>
 <?php
-echo '<a href="/npcprofile.php?npc=Marian+Witford"><img src="//saffron.psypets.net/gfx/npcs/marian-the-librarian.png" align="right" width="350" height="350" alt="(Marian the Librarian)" /></a>';
+echo '<a href="/npcprofile.php?npc=Marian+Witford"><img src="//' . $SETTINGS['static_domain'] . '/gfx/npcs/marian-the-librarian.png" align="right" width="350" height="350" alt="(Marian the Librarian)" /></a>';
 
 include 'commons/dialog_open.php';
 

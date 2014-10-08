@@ -141,7 +141,7 @@ if($challenge['step'] == 0)
 {
   if(date('Ymd') != $challenge['lastchallenge'])
   {
-    echo '<a href="/npcprofile.php?npc=Jerrad+Shiflett"><img src="//saffron.psypets.net/gfx/npcs/adventurer.png" align="right" width="350" height="410" alt="(Jerrad the Adventurer)" /></a>';
+    echo '<a href="/npcprofile.php?npc=Jerrad+Shiflett"><img src="//' . $SETTINGS['static_domain'] . '/gfx/npcs/adventurer.png" align="right" width="350" height="410" alt="(Jerrad the Adventurer)" /></a>';
 
     include 'commons/dialog_open.php';
 ?>
@@ -164,7 +164,7 @@ if($challenge['step'] == 0)
   }
   else
   {
-    echo '<a href="/npcprofile.php?npc=Jerrad+Shiflett"><img src="//saffron.psypets.net/gfx/npcs/adventurer.png" align="right" width="350" height="410" alt="(Jerrad the Adventurer)" /></a>';
+    echo '<a href="/npcprofile.php?npc=Jerrad+Shiflett"><img src="//' . $SETTINGS['static_domain'] . '/gfx/npcs/adventurer.png" align="right" width="350" height="410" alt="(Jerrad the Adventurer)" /></a>';
     include 'commons/dialog_open.php';
     echo '<p>You have already completed today\'s adventure.  You\'ll have to wait until tomorrow to start another.</p>';
     include 'commons/dialog_close.php';

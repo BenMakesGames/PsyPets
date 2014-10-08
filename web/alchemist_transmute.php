@@ -29,7 +29,7 @@ include 'commons/html.php';
       <li class="activetab"><a href="alchemist_transmute.php">Pet Transmutations</a></li>
      </ul>
 <?php
-echo '<a href="npcprofile.php?npc=Thaddeus"><img src="' . $SETTINGS['protocol'] . '://saffron.psypets.net/gfx/npcs/thaddeus.png" align="right" width="350" height="250" alt="(Thaddeus the Alchemist)" /></a>';
+echo '<a href="npcprofile.php?npc=Thaddeus"><img src="//' . $SETTINGS['static_domain'] . '/gfx/npcs/thaddeus.png" align="right" width="350" height="250" alt="(Thaddeus the Alchemist)" /></a>';
 
 include 'commons/dialog_open.php';
 

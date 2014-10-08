@@ -33,7 +33,7 @@ if($cave_quest['value'] == 1)
   if($data['c'] > 0)
   {
 ?>
-<table><tr><td><img src="//saffron.psypets.net/gfx/items/bomb_smoke.png" alt="" /></td><td><a href="itemaction.php?idnum=<?= $this_inventory['idnum'] ?>&step=2">Set it up the bomb!</a></td><td>(<?= $data['c'] ?> in your house)</td></tr></table>
+<table><tr><td><img src="//<?= $SETTINGS['static_domain'] ?>/gfx/items/bomb_smoke.png" alt="" /></td><td><a href="itemaction.php?idnum=<?= $this_inventory['idnum'] ?>&step=2">Set it up the bomb!</a></td><td>(<?= $data['c'] ?> in your house)</td></tr></table>
 <?php
   }
   else

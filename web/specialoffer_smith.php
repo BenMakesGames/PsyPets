@@ -76,7 +76,7 @@ include 'commons/html.php';
      </ul>
 <?php
 // SMITHY NPC NINA
-echo '<a href="/npcprofile.php?npc=Nina+Faber"><img src="//saffron.psypets.net/gfx/npcs/smithy2.png" align="right" width="350" height="280" alt="(Nina the Smithy)" /></a>';
+echo '<a href="/npcprofile.php?npc=Nina+Faber"><img src="//' . $SETTINGS['static_domain'] . '/gfx/npcs/smithy2.png" align="right" width="350" height="280" alt="(Nina the Smithy)" /></a>';
 
 if(strlen($_GET['msg']) > 0)
   $error_message = form_message(explode(',', $_GET['msg']));
