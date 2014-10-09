@@ -344,21 +344,18 @@ include 'commons/html.php';
   </script>
  </head>
  <body>
-<?php include 'commons/header_2.php'; ?>
-     <h4><a href="/park.php">The Park</a> &gt; Host Event (step 1 of 2)</h4>
-<?php
-$command = 'SELECT idnum,name FROM `monster_events` ' .
-           'WHERE host=' . quote_smart($user['user']) . ' AND finished=\'no\' LIMIT 1';
-$this_event = $database->FetchSingle($command, 'fetching existing event');
-
-echo '
-  <ul class="tabbed">
-   <li><a href="/park.php">Browse Events</a></li>
-   <li class="activetab"><a href="/hostevent1.php">Host a new event</a></li>
-   <li><a href="/park_exchange.php">Exchanges</a></li>
-  </ul>
-';
-?>
+    <?php include 'commons/header_2.php'; ?>
+    <h4><a href="/park.php">The Park</a> &gt; Host Event (step 1 of 2)</h4>
+    <?php
+    $command = 'SELECT idnum,name FROM `monster_events` ' .
+               'WHERE host=' . quote_smart($user['user']) . ' AND finished=\'no\' LIMIT 1';
+    $this_event = $database->FetchSingle($command, 'fetching existing event');
+    ?>
+    <ul class="tabbed">
+        <li><a href="/park.php">Browse Events</a></li>
+        <li class="activetab"><a href="/hostevent1.php">Host a new event</a></li>
+        <li><a href="/park_exchange.php">Exchanges</a></li>
+    </ul>
      <form method="post" name="hostevent">
      <h5>Basic Information</h5>
      <table class="verticaltable">
@@ -373,7 +370,7 @@ else
 ?>
       </tr>
       <tr>
-       <th valign="top">Icon:</td>
+       <th valign="top">Icon:</th>
        <td colspan="2">
         <table>
          <tr>
@@ -430,7 +427,7 @@ else
 ?>
       </tr>
       <tr>
-       <th>Fee:</td>
+       <th>Fee:</th>
        <td><input name="fee" maxlength="4" size="4" value="<?= $_POST['fee'] ?>" /><span class="money">m</span></td>
 <?php
 if($fee_error)
@@ -452,7 +449,7 @@ else
      <p><textarea name="postreport" cols="40" rows="4" style="width:400px;"><?= $the_postreport ?></textarea></p>
      <p><input type="submit" name="submit" value="Next &gt;" /> <input type="submit" name="submit" value="Cancel" /></p>
      </form>
-<?php echo formatting_help(); ?>
-<?php include 'commons/footer_2.php'; ?>
+    <?php include 'commons/formatting_help.php'; ?>
+    <?php include 'commons/footer_2.php'; ?>
  </body>
 </html>

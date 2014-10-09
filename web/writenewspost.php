@@ -129,7 +129,7 @@ if($user['admin']['proxypost'] == 'yes')
   <td><input name="subject" value="<?= str_replace('"', '&quot;', $_POST['subject']) ?>" style="width:440px;" /></td>
  </tr>
  <tr>
-  <th colspan="2">Message:</td>
+  <th colspan="2">Message:</th>
  </tr>
  <tr>
   <td colspan="2">
@@ -164,7 +164,7 @@ if($user['admin']['proxypost'] == 'yes')
  </tr>
 </table>
 </form>
-<?php echo formatting_help(); ?>
+<?php include 'commons/formatting_help.php'; ?>
 <?php include 'commons/footer_2.php'; ?>
  </body>
 </html>

@@ -229,23 +229,18 @@ include 'commons/html.php';
 <?php include 'commons/header_2.php'; ?>
      <?= ($check_message ? "<p style=\"color:blue;\">$check_message</p>" : "") ?>
      <h4><a href="plaza.php">Plaza Forums</a> &gt; <a href="viewplaza.php?plaza=<?= $plazainfo["idnum"] ?>"><?= $plazainfo["title"] ?></a></h4>
-<?php
-if(count($errors) > 0)
-  echo '<ul><li>' . implode('</li><li>', $errors) . '</li></ul>';
-
-if($preview)
-{
-?>
-     <h4>Preview</h4>
-     <p><table class="preview"><tr><td>
-     <?= format_text($preview_body, false) ?>
-     </td></tr></table></p>
-     <h4>Write Reply</h4>
-<?php
-}
-else if(strlen($body) == 0)
-  $body = $user['defaultstyle'];
-?>
+    <?php if(count($errors) > 0): ?>
+      <ul><li><?= implode('</li><li>', $errors) ?></li></ul>
+    <?php endif; ?>
+    <?php if($preview): ?>
+         <h4>Preview</h4>
+         <p><table class="preview"><tr><td>
+         <?= format_text($preview_body, false) ?>
+         </td></tr></table></p>
+         <h4>Write Reply</h4>
+    <?php elseif(strlen($body) == 0): ?>
+      $body = $user['defaultstyle'];
+    <?php endif; ?>
      <form action="newthread.php?plaza=<?= $plazaid ?>" method="post" name="newthread" id="newthread">
      <input type="hidden" name="replyto" value="<?= $_POST['replyto'] ?>">
      <table>
@@ -279,7 +274,7 @@ else if(strlen($body) == 0)
        <td colspan="2" align="right"><input type="submit" name="action" value="Preview" />&nbsp;<input type="submit" name="action" value="Post" /></td>
       </tr>
      </table>
-     <?= formatting_help(); ?>
-<?php include 'commons/footer_2.php'; ?>
+    <?php include 'commons/formatting_help.php'; ?>
+    <?php include 'commons/footer_2.php'; ?>
  </body>
 </html>

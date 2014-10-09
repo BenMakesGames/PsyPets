@@ -354,7 +354,7 @@ function DoDDR($event, $pets, $users)
   $exp_mult = ceil($avg_level / 4);
 
   if(strlen($event['prizes']) > 0)
-    $prizes = split(',', $event['prizes']);
+    $prizes = explode(',', $event['prizes']);
   else
     $prizes = array();
 
@@ -1177,7 +1177,7 @@ function DoLongJump($event, $pets, $users)
   $exp_mult = ceil($avg_level / 4);
 
   if(strlen($event['prizes']) > 0)
-    $prizes = split(',', $event['prizes']);
+    $prizes = explode(',', $event['prizes']);
   else
     $prizes = array();
 
@@ -1233,7 +1233,7 @@ function DoFishing($event, $pets, $users)
   $exp_mult = ceil($avg_level / 4);
 
   if(strlen($event['prizes']) > 0)
-    $prizes = split(',', $event['prizes']);
+    $prizes = explode(',', $event['prizes']);
   else
     $prizes = array();
 
@@ -1289,7 +1289,7 @@ function DoFashion($event, $pets, $users)
   $exp_mult = ceil($avg_level / 4);
 
   if(strlen($event['prizes']) > 0)
-    $prizes = split(',', $event['prizes']);
+    $prizes = explode(',', $event['prizes']);
   else
     $prizes = array();
 
@@ -1360,7 +1360,7 @@ function DoStrategyGame($event, $pets, $users)
   $exp_mult = ceil($avg_level / 4);
 
   if(strlen($event['prizes']) > 0)
-    $prizes = split(',', $event['prizes']);
+    $prizes = explode(',', $event['prizes']);
   else
     $prizes = array();
 
@@ -1415,7 +1415,7 @@ function DoDigcraft($event, $pets, $users)
   $exp_mult = ceil($avg_level / 4);
 
   if(strlen($event['prizes']) > 0)
-    $prizes = split(',', $event['prizes']);
+    $prizes = explode(',', $event['prizes']);
   else
     $prizes = array();
 
@@ -1472,7 +1472,7 @@ function DoGenericCrafts($event, $pets, $users)
   $exp_mult = ceil($avg_level / 4);
 
   if(strlen($event['prizes']) > 0)
-    $prizes = split(',', $event['prizes']);
+    $prizes = explode(',', $event['prizes']);
   else
     $prizes = array();
 
@@ -1528,7 +1528,7 @@ function DoHunt($event, $pets, $users)
   $exp_mult = ceil($avg_level / 4);
 
   if(strlen($event['prizes']) > 0)
-    $prizes = split(',', $event['prizes']);
+    $prizes = explode(',', $event['prizes']);
   else
     $prizes = array();
 
@@ -1731,7 +1731,7 @@ function DoBrawl($event, $pets, $users)
   $exp_mult = ceil($avg_level / 4);
 
   if(strlen($event['prizes']) > 0)
-    $prizes = split(',', $event['prizes']);
+    $prizes = explode(',', $event['prizes']);
   else
     $prizes = array();
 
@@ -1848,7 +1848,7 @@ function DoRoborena($event, $pets, $users)
   $exp_mult = ceil($avg_level / 4);
 
   if(strlen($event['prizes']) > 0)
-    $prizes = split(',', $event['prizes']);
+    $prizes = explode(',', $event['prizes']);
   else
     $prizes = array();
 
@@ -1977,7 +1977,7 @@ function DoCookOff($event, $pets, $users)
   $exp_mult = ceil($avg_level / 4);
 
   if(strlen($event['prizes']) > 0)
-    $prizes = split(',', $event['prizes']);
+    $prizes = explode(',', $event['prizes']);
   else
     $prizes = array();
 
@@ -2352,4 +2352,3 @@ function DoCookOff($event, $pets, $users)
 
   return array($user_places, $user_prizes, $report);
 }
-?>

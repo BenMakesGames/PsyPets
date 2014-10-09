@@ -363,7 +363,7 @@ foreach($friends as $friend)
   <td><input name="subject" value="<?= str_replace('"', '&quot;', $_POST["subject"]) ?>" style="width:440px;" /></td>
  </tr>
  <tr>
-  <th colspan=2>Message:</td>
+  <th colspan=2>Message:</th>
  </tr>
  <tr>
   <td colspan=2>
@@ -409,7 +409,7 @@ if($user['license'] == 'yes' && $num_inventory_items > 0)
 }
 ?>
 </form>
-<?php echo formatting_help(); ?>
+<?php include 'commons/formatting_help.php'; ?>
 <?php include 'commons/footer_2.php'; ?>
  </body>
 </html>

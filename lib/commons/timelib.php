@@ -136,7 +136,7 @@ function is_hanukkah()
   $SATURDAY = 6;
 
   $jewishDate = jdtojewish($jdCurrent);
-  list($jewishMonth, $jewishDay, $jewishYear) = split('/', $jewishDate);
+  list($jewishMonth, $jewishDay, $jewishYear) = explode('/', $jewishDate);
 
   // Holidays in Kislev/Tevet
   $hanukkahStart = jewishtojd($KISLEV, 25, $jewishYear);
@@ -144,4 +144,3 @@ function is_hanukkah()
 
   return($hanukkahNo >= 1 && $hanukkahNo <= 8);
 }
-?>

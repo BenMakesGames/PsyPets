@@ -119,7 +119,7 @@ foreach($petlist as $pet)
   </table>
   <p><input type="submit" name="submit" value="Update Profile" class="bigbutton" /></p>
   </form>
-<?php echo formatting_help(); ?>
+<?php include 'commons/formatting_help.php'; ?>
 <?php include 'commons/footer_2.php'; ?>
  </body>
 </html>

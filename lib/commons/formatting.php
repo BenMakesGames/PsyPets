@@ -282,14 +282,15 @@ function highlight_words($text, $words, $exact)
     foreach($words as $word)
     {
       $word = str_replace('+', '\+', $word);
-      $text = eregi_replace("([^A-Za-z])(" . $word . ")([^A-Za-z])", "\\1<font style=\"background: #ffff00;\">\\2</font>\\3", $text);
-      $text = eregi_replace("^()(" . $word . ")([^A-Za-z])", "\\1<font style=\"background: #ffff00;\">\\2</font>\\3", $text);
-      $text = eregi_replace("([^A-Za-z])(" . $word . ")()$", "\\1<font style=\"background: #ffff00;\">\\2</font>\\3", $text);
-      $text = eregi_replace("^()(" . $word . ")()$", "\\1<font style=\"background: #ffff00;\">\\2</font>\\3", $text);
+      $text = preg_replace("/([^A-Za-z])(" . $word . ")([^A-Za-z])/i", "\\1<font style=\"background: #ffff00;\">\\2</font>\\3", $text);
+      $text = preg_replace("/^()(" . $word . ")([^A-Za-z])/i", "\\1<font style=\"background: #ffff00;\">\\2</font>\\3", $text);
+      $text = preg_replace("/([^A-Za-z])(" . $word . ")()$/i", "\\1<font style=\"background: #ffff00;\">\\2</font>\\3", $text);
+      $text = preg_replace("/^()(" . $word . ")()$/i", "\\1<font style=\"background: #ffff00;\">\\2</font>\\3", $text);
     }
   }
   else
   {
+      $owords = array();
     foreach($words as $word)
       $owords[] = '<font style="background: #ffff00;">' . $word . '</font>';
 
@@ -525,12 +526,6 @@ function alt_row_color($c)
     $c = "#f0f0f0";
 
   return $c;
-}
-
-function formatting_help()
-{
-  @include 'commons/formatting_help.php';
-  return '';
 }
 
 function unlink_safe($text)
@@ -790,4 +785,3 @@ function link_to_room($room)
   else
     return $room;
 }
-?>

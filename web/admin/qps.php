@@ -21,7 +21,7 @@ if($admin['seeserversettings'] != 'yes')
   exit();
 }
 
-$last = split('-', file_get_contents('queries.txt'));
+$last = explode('-', file_get_contents('queries.txt'));
 $timestamp_old = $last[0];
 $queries_old = $last[1];
 

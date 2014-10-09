@@ -186,7 +186,7 @@ if($preview)
        <td colspan="2" align="right"><input type="submit" name="action" value="Preview" />&nbsp;<input type="submit" name="action" value="Post" /></td>
       </tr>
      </table>
-     <?= formatting_help(); ?>
-<?php include 'commons/footer_2.php'; ?>
+         <?php include 'commons/formatting_help.php'; ?>
+    <?php include 'commons/footer_2.php'; ?>
  </body>
 </html>

@@ -58,7 +58,7 @@ function count_patterns($pattern, $sequence)
 
   while(ereg($pattern, $sequence))
   {
-    $fragment = split($pattern, $sequence);
+    $fragment = explode($pattern, $sequence);
     $trimsize = strlen($fragment[0]) + 1;
     $sequence = '*' . substr($sequence, $trimsize);
 
@@ -193,4 +193,3 @@ function create_shrine($userid)
   
   return get_shrine_byuserid($userid);
 }
-?>
