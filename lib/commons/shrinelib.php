@@ -56,7 +56,7 @@ function count_patterns($pattern, $sequence)
 {
   $count = 0;
 
-  while(ereg($pattern, $sequence))
+  while(preg_match('/' . $pattern . '/', $sequence))
   {
     $fragment = explode($pattern, $sequence);
     $trimsize = strlen($fragment[0]) + 1;
