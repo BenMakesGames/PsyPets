@@ -20,7 +20,7 @@ if($_GET['step'] == 2)
   if(mt_rand(1, 20) == 1)
     echo '
       <p>Apparently not satisified with its work so far, the ', $this_inventory['itemname'], ' scribbles out one last page before dropping to the ground as a lifeless Feather:</p>
-      <p><img src="//saffron.psypets.net/gfx/dialog/magic-quill.png" alt="" width="260" height="370" /></p>
+      <p><img src="//' . $SETTINGS['static_domain'] . '/gfx/dialog/magic-quill.png" alt="" width="260" height="370" /></p>
       <p>As you reach out the grab the page, your hand passes through it, and it vanishes.</p>
       <p>Hm!</p>
     ';

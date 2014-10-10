@@ -93,7 +93,7 @@ function build_select_one_from_json(element_id, items)
     tbody.append(
       '<tr class="' + rowclass + '">' +
         '<td><input type="radio" name="item" value="' + item.itemname + '" /></td>' +
-        '<td class="centered"><img src="//saffron.psypets.net/gfx/items/' + item.graphic + '" /></td>' +
+        '<td class="centered"><img src="//<?= $SETTINGS['static_domain'] ?>/gfx/items/' + item.graphic + '" /></td>' +
         '<td>' + item.itemname + '</td>' +
         '<td class="centered">' + item.quantity + '</td>' +
       '</tr>'

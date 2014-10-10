@@ -103,7 +103,6 @@ if(strlen($_GET['msg']) > 0)
   $error_message = form_message(explode(',', $_GET['msg']));
 
 // NPC
-//echo '<a href="npcprofile.php?npc=Lakisha+Pawlak"><img src="//saffron.psypets.net/gfx/npcs/banker_lakisha.png" align="right" width="350" height="427" alt="(Lakisha the Banker)" /></a>';
 
 include 'commons/dialog_open.php';
 

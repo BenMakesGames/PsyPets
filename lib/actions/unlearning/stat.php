@@ -8,63 +8,41 @@ require_once 'libraries/db_messages.php';
 
 $lose_level = true;
 
-if($this_item['itemname'] == 'Forget')
-  $stat = 'int';
-else if($this_item['itemname'] == 'Atrophy')
-  $stat = 'str';
-else if($this_item['itemname'] == 'Stumble')
-  $stat = 'dex';
-else if($this_item['itemname'] == 'Cloud')
-  $stat = 'wit';
-else if($this_item['itemname'] == 'Blur')
-  $stat = 'per';
-else if($this_item['itemname'] == 'Waste')
-  $stat = 'sta';
+$item_stats = array(
+    'Forget' => 'int',
+    'Atrophy' => 'str',
+    'Stumble' => 'dex',
+    'Cloud' => 'wit',
+    'Blur' => 'per',
+    'Waste' => 'sta',
+    'Pacify' => 'bra',
+    'Quit' => 'athletics',
+    'Expose' => 'stealth',
+    'Domesticate' => 'sur',
+    'Urbanize' => 'gathering',
+    'Aquaphobia' => 'fishing',
+    'Collapse' => 'mining',
+    'Hackney' => 'cra',
+    'Smear' => 'painting',
+    'Mold' => 'carpentry',
+    'Dull' => 'jeweling',
+    'Chip' => 'sculpting',
+    'Static' => 'eng',
+    'Entropy' => 'mechanics',
+    'Dilute' => 'chemistry',
+    'Rust' => 'smi',
+    'Fray' => 'tai',
+    'Paradox' => 'binding',
+    'Crash' => 'pil',
+);
 
-else if($this_item['itemname'] == 'Pacify')
-  $stat = 'bra';
-else if($this_item['itemname'] == 'Quit')
-  $stat = 'athletics';
-else if($this_item['itemname'] == 'Expose')
-  $stat = 'stealth';
-else if($this_item['itemname'] == 'Domesticate')
-  $stat = 'sur';
-else if($this_item['itemname'] == 'Urbanize')
-  $stat = 'gathering';
-else if($this_item['itemname'] == 'Aquaphobia')
-  $stat = 'fishing';
-else if($this_item['itemname'] == 'Collapse')
-  $stat = 'mining';
-else if($this_item['itemname'] == 'Hackney')
-  $stat = 'cra';
-else if($this_item['itemname'] == 'Smear')
-  $stat = 'painting';
-else if($this_item['itemname'] == 'Mold')
-  $stat = 'carpentry';
-else if($this_item['itemname'] == 'Dull')
-  $stat = 'jeweling';
-else if($this_item['itemname'] == 'Chip')
-  $stat = 'sculpting';
-else if($this_item['itemname'] == 'Static')
-  $stat = 'eng';
-else if($this_item['itemname'] == 'Entropy')
-  $stat = 'mechanics';
-else if($this_item['itemname'] == 'Dilute')
-  $stat = 'chemistry';
-else if($this_item['itemname'] == 'Rust')
-  $stat = 'smi';
-else if($this_item['itemname'] == 'Fray')
-  $stat = 'tai';
-else if($this_item['itemname'] == 'Paradox')
-  $stat = 'binding';
-else if($this_item['itemname'] == 'Crash')
-  $stat = 'pil';
-
-else
+if(!array_key_exists($this_item['itemname'], $item_stats))
 {
   echo "This potion is an error! >_>  (Please report to That Guy Ben!)\n";
   exit();
 }
+
+$stat = $item_stats[$this_item['itemname']];
 
 if(count($userpets) == 0)
 {
@@ -117,7 +95,7 @@ if($target_pet['user'] != $user['user'] || $target_pet['dead'] != 'no' || $targe
   for($i = 0; $i < count($userpets); ++$i)
   {
     if($userpets[$i]['ascend'] == 'yes')
-      $extra = ' <img src="' . $SETTINGS['protocol'] . '://saffron.psypets.net/gfx/ascend.png" class="inline" width="16" height="16" alt="(pet can reincarnate)" />';
+      $extra = ' <img src="//' . $SETTINGS['static_domain'] . '/gfx/ascend.png" class="inline" width="16" height="16" alt="(pet can reincarnate)" />';
     else
       $extra = '';
 

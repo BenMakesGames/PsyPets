@@ -72,7 +72,7 @@ if($all_done)
 	$INSPIRED = array('You\'ve inspired me!',  'I\'ve decided:', 'I\'ll never forget this!', '');
 	$GOODBYES = array('Goodbye!', 'Farewell!', 'Au revoir!', 'Sayonara!', 'Auf Wiedersehen!', 'Perhaps we\'ll meet again!');
 	
-	echo '<img src="//saffron.psypets.net/gfx/items/' . $this_item['graphic'] . '" align="left" style="margin: 0 10px 10px 0;" />';
+	echo '<img src="//' . $SETTINGS['static_domain'] . '/gfx/items/' . $this_item['graphic'] . '" align="left" style="margin: 0 10px 10px 0;" />';
 	echo '<p>"' . $EXCLAMATIONS[array_rand($EXCLAMATIONS)] . '  ' . $DESCRIPTIONS[array_rand($DESCRIPTIONS)] . '</p>';
 	echo '<p>"Thank you, ' . $user['display'] . '!  ' . $INSPIRED[array_rand($INSPIRED)] . '  I\'m going to dedicate my life to discovering the wonders of the world!</p>';
 	echo '<p>"Before I go, please accept ' . ($quantity == 1 ? 'this ' . item_text_link($reward) : 'these ' . item_text_link($reward) . 's') . ' as a token of my gratitude!</p>';
@@ -87,7 +87,7 @@ else
 	$asking_for = $ASKS[$value];
 	$plea = $ASK_DESCRIPTIONS[$asking_for];
 	
-	echo '<img src="//saffron.psypets.net/gfx/items/' . $this_item['graphic'] . '" align="left" style="margin: 0 10px 10px 0;" />';
+	echo '<img src="//' . $SETTINGS['static_domain'] . '/gfx/items/' . $this_item['graphic'] . '" align="left" style="margin: 0 10px 10px 0;" />';
 	echo '<p>"' . $plea . '"</p>';
 	
 	$data = $database->FetchSingle('

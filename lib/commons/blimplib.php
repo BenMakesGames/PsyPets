@@ -144,102 +144,12 @@ function airship_record_loss(&$airship)
   fetch_none($command, 'updating win loss for ship #' . $airship['idnum']);
 }
 
-function apply_airship_crew_bonus(&$airship, $useruser)
-{
-  $bonus = airship_crew_linear_bonus($airship, $useruser);
-/*
-  $airship['attack'] += $bonus['attack'];
-  $airship['defense'] += $bonus['defense'];
-  $airship['special'] += $bonus['special'];
-  $airship['propulsion'] += $bonus['propulsion'];
-*/
-}
-
-function airship_crew_bonus(&$airship, $useruser)
-{
-  $ret = array();
-
-  if(strlen($airship['crewids']) > 0)
-  {
-    $crew = explode(',', $airship['crewids']);
-
-    foreach($crew as $petid)
-    {
-      $bonus = airship_pet_bonus($petid, $useruser);
-      foreach($bonus as $stat=>$value)
-      {
-        if($stat != 'message')
-          $ret[$stat] += $value;
-      }
-    }
-  }
-
-  return $ret;
-}
-
-function airship_crew_linear_bonus(&$airship, $useruser)
-{
-  $bonuses = airship_crew_bonus($airship, $useruser);
-
-  $final = array();
-
-  foreach($bonuses as $stat=>$bonus)
-    $final[$stat] = floor($airship[$stat] * $bonus / 100);
-
-  return $final;
-}
-
 function count_crew(&$airship)
 {
   if(strlen($airship['crewids']) == 0)
     return 0;
   else
     return substr_count($airship['crewids'], ',') + 1;
-}
-
-function render_pet_bonuses($bonuses)
-{
-  $display = array();
-
-  foreach($bonuses as $key=>$bonus)
-  {
-    if($key == 'message')
-      $display[] = $bonus;
-    else
-      $display[] = '+' . $bonus . '% ' . $key;
-  }
-  
-  return implode(', ', $display);
-}
-
-function airship_pet_bonus_direct(&$pet, $useruser)
-{
-  if($pet['user'] != $useruser)
-    $ret['message'] = 'This pet does not belong to you.';
-  else if($pet['dead'] != 'no' || $pet['zombie'] == 'yes')
-    $ret['message'] = 'This pet is dead.';
-  else if($pet['changed'] == 'yes')
-    $ret['message'] = 'This pet is in wereform!';
-  else
-  {
-    srand($pet['idnum']);
-/*
-    $ret['attack'] = ceil($pet['bra'] * 2 + $pet['str'] * 1.5 + $pet['pil'] + rand(-3, 3));
-    $ret['defense'] = ceil($pet['smi'] * 2 + $pet['sta'] * 1.5 + $pet['pil'] + rand(-3, 3));
-    $ret['special'] = ceil($pet['wit'] * 2 + $pet['stealth'] * 1.5 + $pet['pil'] + rand(-3, 3));
-    $ret['propulsion'] = ceil($pet['eng'] * 2 + $pet['dex'] * 1.5 + $pet['pil'] + rand(-3, 3));
-*/
-    mt_srand();
-  }
-
-  return $ret;
-}
-
-function airship_pet_bonus($petid, $useruser)
-{
-  $pet = get_pet_byid($petid);
-
-  return airship_pet_bonus_direct($pet, $useruser);
 }
 
 function new_airship($ownerid, $name, $item)
@@ -657,41 +567,4 @@ function list_spell_bonuses(&$pvp, &$airship)
 function has_any_spell_bonuses(&$pvp)
 {
   return(strlen($pvp['spells']) > 0);
-}
-
-function render_airship_bonuses_as_list_xhtml($bonuses)
-{
-  global $SETTINGS;
-
-  $items = array();
-
-  foreach($bonuses as $type=>$details)
-  {
-    switch($type)
-    {
-      case 'power':
-        $items[] = ($details >= 0 ? '+' : '') . $details . ' Power';
-        break;
-      case 'mana':
-        $items[] = ($details >= 0 ? '+' : '') . $details . ' Mana';
-        break;
-      case 'armor':
-        $items[] = ($details >= 0 ? '+' : '') . $details . ' Armor';
-        break;
-      case 'seats':
-        $items[] = ($details >= 0 ? '+' : '') . $details . ' Seat' . ($details == 1 || $details == -1 ? '' : 's');
-        break;
-      case 'movement':
-        $items[] = 'Movement: <img src="//saffron.psypets.net/gfx/airship/move-' . $details['direction'] . '-' . $details['distance'] . '.png" class="inlineimage" />';
-        break;
-      default:
-        $items[] = '&lt;undefined&gt;';
-        break;
-    }
-  }
-  
-  if(count($items))
-    return '<li>' . implode('</li><li>', $items) . '</li>';
-  else
-    return '';
 }

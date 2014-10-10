@@ -90,7 +90,7 @@ if($food >= 50)
 {
   echo '
     <p>The Quill offers the following avatar:</p>
-    <p><img src="//saffron.psypets.net/gfx/avatars/special-secret/book.png" alt="quill writing in book" /></p>
+    <p><img src="//' . $SETTINGS['static_domain'] . '/gfx/avatars/special-secret/book.png" alt="quill writing in book" /></p>
     <ul>
      <li><a href="itemaction.php?idnum=' . $this_inventory['idnum'] . '&action=changeavatar">Accept it!</a></li>
      <li><a href="itemaction.php?idnum=' . $this_inventory['idnum'] . '&action=discardavatar">Discard it!</a></li>

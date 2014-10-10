@@ -40,8 +40,6 @@ if($airship === false || $airship['ownerid'] != $user['idnum'])
 
 $crew_count = count_crew($airship);
 
-$bonuses = airship_crew_linear_bonus($airship, $user['user']);
-
 require 'commons/html.php';
 ?>
  <head>
@@ -58,17 +56,11 @@ room_display($house);
       <li><a href="/myhouse/addon/airship_mooring_edit.php?idnum=<?= $shipid ?>">Parts</a></li>
       <li class="activetab"><a href="/myhouse/addon/airship_mooring_crew.php?idnum=<?= $shipid ?>">Crew</a></li>
      </ul>
-     <h5>Summary</h5>
-     <p>Space remaining: <?= $airship['maxbulk'] - $airship['bulk'] ?></p>
-     <table>
-      <tr><th>Seats</th><td><?= $airship['seats'] ?></td></tr>
-      <tr><th>Weight</th><td><?= ($airship['weight'] / 10) ?></td></tr>
-     </table>
      <h5>Crew (<?= $crew_count . '/' . $airship['seats'] ?>)</h5>
 <?php if($crew_count > 0): ?>
      <table>
       <tr class="titlerow">
-       <th></th><th></th><th>Pet</th><th>Bonuses</th>
+       <th></th><th></th><th>Pet</th>
       </tr>
     <?php
       $members = explode(',', $airship['crewids']);
@@ -81,8 +73,6 @@ room_display($house);
         $pet = get_pet_byid($member);
         $count++;
 
-        $bonuses = airship_pet_bonus_direct($pet, $user['user']);
-
         if($count > $airship['seats'])
           $extra_class = ' dim';
     ?>
@@ -90,7 +80,6 @@ room_display($house);
        <td></td>
        <td><?= pet_graphic($pet) ?></td>
        <td><?= $pet['petname'] ?></td>
-       <td>&lt;undefined&gt;</td>
       </tr>
     <?php
         $rowclass = alt_row_class($rowclass);

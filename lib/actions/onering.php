@@ -46,7 +46,7 @@ else
 
   echo '
     <p>You hear the muttering of some ancient language coming from the ring itself!</p>
-    <p style="margin-left:50px;"><img src="//saffron.psypets.net/gfx/ancientscript/oneringdialog.png" /></p>
+    <p style="margin-left:50px;"><img src="//' . $SETTINGS['static_domain'] . '/gfx/ancientscript/oneringdialog.png" /></p>
     <p>When it\'s finished, a ' . $itemname . ' falls to your feet out of nowhere.</p>
   ';
 

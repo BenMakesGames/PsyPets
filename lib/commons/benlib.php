@@ -26,18 +26,19 @@ $RATINGS = array(
 
 function rate_graphic($rating)
 {
+    global $SETTINGS;
   if($rating <= -7)
-    echo '<img src="//saffron.psypets.net/gfx/emote/skull.png" alt="-" width="16" height="16" /> <img src="//saffron.psypets.net/gfx/emote/skull.png" alt="-" width="16" height="16" /> <img src="//saffron.psypets.net/gfx/emote/skull.png" alt="-" width="16" height="16" />';
+    echo '<img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/skull.png" alt="-" width="16" height="16" /> <img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/skull.png" alt="-" width="16" height="16" /> <img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/skull.png" alt="-" width="16" height="16" />';
   else if($rating <= -4)
-    echo '<img src="//saffron.psypets.net/gfx/emote/skull.png" alt="-" width="16" height="16" /> <img src="//saffron.psypets.net/gfx/emote/skull.png" alt="-" width="16" height="16" /> <img src="/gfx/shim.png" alt="" width="16" height="16" />';
+    echo '<img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/skull.png" alt="-" width="16" height="16" /> <img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/skull.png" alt="-" width="16" height="16" /> <img src="/gfx/shim.png" alt="" width="16" height="16" />';
   else if($rating <= -1)
-    echo '<img src="//saffron.psypets.net/gfx/emote/skull.png" alt="-" width="16" height="16" /> <img src="/gfx/shim.png" alt="" width="16" height="16" /> <img src="/gfx/shim.png" alt="" width="16" height="16" />';
+    echo '<img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/skull.png" alt="-" width="16" height="16" /> <img src="/gfx/shim.png" alt="" width="16" height="16" /> <img src="/gfx/shim.png" alt="" width="16" height="16" />';
   else if($rating >= 7)
-    echo '<img src="//saffron.psypets.net/gfx/emote/hee.gif" alt="+" width="16" height="16" /> <img src="//saffron.psypets.net/gfx/emote/hee.gif" alt="+" width="16" height="16" /> <img src="//saffron.psypets.net/gfx/emote/hee.gif" alt="+" width="16" height="16" />';
+    echo '<img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/hee.gif" alt="+" width="16" height="16" /> <img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/hee.gif" alt="+" width="16" height="16" /> <img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/hee.gif" alt="+" width="16" height="16" />';
   else if($rating >= 4)
-    echo '<img src="//saffron.psypets.net/gfx/emote/hee.gif" alt="+" width="16" height="16" /> <img src="//saffron.psypets.net/gfx/emote/hee.gif" alt="+" width="16" height="16" /> <img src="/gfx/shim.png" alt="" width="16" height="16" />';
+    echo '<img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/hee.gif" alt="+" width="16" height="16" /> <img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/hee.gif" alt="+" width="16" height="16" /> <img src="/gfx/shim.png" alt="" width="16" height="16" />';
   else if($rating >= 1)
-    echo '<img src="//saffron.psypets.net/gfx/emote/hee.gif" alt="+" width="16" height="16" /> <img src="/gfx/shim.png" alt="" width="16" height="16" /> <img src="/gfx/shim.png" alt="" width="16" height="16" />';
+    echo '<img src="//' . $SETTINGS['static_domain'] . '/gfx/emote/hee.gif" alt="+" width="16" height="16" /> <img src="/gfx/shim.png" alt="" width="16" height="16" /> <img src="/gfx/shim.png" alt="" width="16" height="16" />';
   else // (-1 to 1)
     echo '<img src="/gfx/shim.png" alt="" width="16" height="16" /> <img src="/gfx/shim.png" alt="" width="16" height="16" /> <img src="/gfx/shim.png" alt="" width="16" height="16" />';
 }

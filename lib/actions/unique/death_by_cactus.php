@@ -53,7 +53,7 @@ if($_GET['step'] == 2)
 else
 {
   echo '
-    <p><img src="//saffron.psypets.net/gfx/avatars/unique/cactusflower.png" align="right" />Death by Cactus can also change your avatar into that of a Cactus Flower... how about it?</p>
+    <p><img src="//' . $SETTINGS['static_domain'] . '/gfx/avatars/unique/cactusflower.png" align="right" />Death by Cactus can also change your avatar into that of a Cactus Flower... how about it?</p>
     <ul><li><a href="itemaction.php?idnum=' . $this_inventory['idnum'] . '&amp;step=2">Looks pretty!  Why not!</a></li></ul>
     <p><i>(Don\'t worry: doing so doesn\'t consume your cactus, or its flowers, or do anything else weird.  It\'s just a normal avatar change.)</i></p>
   ';

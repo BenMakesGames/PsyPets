@@ -96,7 +96,7 @@ if(count($items) > 0)
 ?>
  <tr class="<?= $rowclass ?>">
   <td><input type="number" name="fertilizer_<?= $cid ?>" size="3" maxlength="<?= strlen($item['qty']) ?>" min="0" max="<?= $item['qty'] ?>" /> / <?= $item['qty'] ?></td>
-  <td class="centered"><img src="<?= $SETTINGS['protocol'] ?>://saffron.psypets.net/gfx/items/<?= $details['graphic'] ?>" alt="" /></td>
+  <td class="centered"><img src="//<?= $SETTINGS['static_domain'] ?>/gfx/items/<?= $details['graphic'] ?>" alt="" /></td>
   <td><?= $item['itemname'] ?></td>
  </tr>
 <?php
