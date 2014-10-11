@@ -205,8 +205,11 @@ function dream_description_random_story(&$pet)
       return $pet['petname'] . ' ' . $dreamed . ' that ' . $disasters[array_rand($disasters)] . ' ' . $locations[array_rand($locations)] . ', and that ' . he_she($pet['gender']) . ' had super-powers, which ' . he_she($pet['gender']) . ' used to help survivors.';
 
     case 2:
+        $clothing = array('naked', 'wearing only a tie', 'wearing only socks', 'wearing only a belt', 'naked, but holding a gun', 'naked, except for a pair of goggles');
+        $outsides = array('town', 'the park', 'a racetrack', 'outside', 'downtown', 'in the subways', 'the neighborhood');
       $weather = array('cold', 'heat', 'wind', 'snow', 'sleet', 'explosions');
       $locations = array('in a church', 'in a school', 'in a hollow tree', 'in a large burrow', 'in an abandoned office building', 'under a parked airplane', 'in a dark corner', 'in the basement of a house');
+
 
       if($pet['likes_flavor'] > 0)
         $locations[] = $FLAVORS[$pet['likes_flavor']] . ' ' . (mt_rand(1, 2) == 1 ? 'farm' : 'factory');
@@ -219,7 +222,7 @@ function dream_description_random_story(&$pet)
       else
         $with = $friend_link;
 
-      return $pet['petname'] . ' ' . $dreamed . ' about running around town naked, trying to find shelter from the ' . $weather[array_rand($weather)] . '.  ' . ucfirst(he_she($pet['gender'])) . ' finally took refuge ' . $locations[array_rand($locations)] . ', where ' . he_she($pet['gender']) . ' ended up huddling together with ' . $with . '...';
+      return $pet['petname'] . ' ' . $dreamed . ' about running around ' . $outsides[array_rand($outsides)] . ' ' . $clothing[array_rand($clothing)] . ', trying to find shelter from the ' . $weather[array_rand($weather)] . '.  ' . ucfirst(he_she($pet['gender'])) . ' finally took refuge ' . $locations[array_rand($locations)] . ', where ' . he_she($pet['gender']) . ' ended up huddling together with ' . $with . '...';
 
     case 3:
       $game_types = array('an action-adventure video game', 'a board game', 'a low-budget RPG');
@@ -228,7 +231,7 @@ function dream_description_random_story(&$pet)
       if($pet['likes_color'] != 'none')
         $bosses[] = 'a super-intelligent shade of ' . $pet['likes_color'];
 
-      if($pet['esteem'] < max_esteem($mypet) / 3)
+      if($pet['esteem'] < max_esteem($pet) / 3)
         $victories = array('lost', 'narrowly lost', 'almost won');
       else
         $victories = array('won', 'narrowly won', 'almost lost');
@@ -262,7 +265,52 @@ function dream_description_random_story(&$pet)
       return $pet['petname'] . ' dreamed that ' . he_she($pet['gender']) . ' was a ' . ($pet['gender'] == 'male' ? 'girl' : 'boy') . ', and was hiding from ' . $opponents[array_rand($opponents)] . '!';
 
     case 7:
-      return $pet['petname'] . ' ' . $dreamed . ' about exploring ancient ruins, and even swinging along a Great Wall on vines!';
+        $monsters = array(
+            'a mummy', 'a naga', 'a little girl', 'a little boy', 'an old man', 'an old woman',
+            'a gift basket', 'the president', 'a security guard', 'a nazi', 'the Duke of Cetgueli',
+        );
+
+        if($friend !== false)
+            $monsters[] = $friend_link;
+
+        $treasures = array(
+            'a lost map',
+            'an Unreasonably Large Sword',
+            'a computer program written by the Aztecs',
+            'evidence of alien contact',
+        );
+
+        if($friend !== false && $pet['love'] < 10)
+            $treasures[] = $friend_link;
+
+        if($pet['food'] < 10)
+            $treasures[] = $FLAVORS[array_rand($FLAVORS)];
+
+        $activities = array(
+            ' by swinging along a Great Wall on vines!',
+            ', and discovering Atlantis!',
+            ', disguised as ' . $monsters[array_rand($monsters)],
+            ', looking for ' . $treasures[array_rand($treasures)],
+        );
+
+        if($pet['food'] < 10)
+            $activities[] = ' while eating ' . $FLAVORS[array_rand($FLAVORS)] . '...';
+
+        if($pet['safety'] < 10)
+            $activities[] = ' while being chased by ' . $monsters[array_rand($monsters)];
+
+        $locations = array(
+            'ancient ruins',
+            'a sunken ship',
+            'a labyrinth hidden beneath the house',
+            'the woods',
+            'Ganymede',
+            'an abandoned factory',
+            'a cave in the side of a cliff',
+            'sewer tunnels',
+        );
+
+      return $pet['petname'] . ' ' . $dreamed . ' about exploring ' . $locations[array_rand($locations)] . $activities[array_rand($activities)];
 
     case 8:
       $needs = array('Fret sheets', 'plans for a space station', 'homework notes', 'a guide on how to run a moose ranch');
@@ -298,11 +346,15 @@ function dream_description_random_story(&$pet)
 
     case 11:
       $sizes = array('mile-long', 'kilometer-long', '12-foot-wide');
+        $states = array('nearly dead', 'surprisingly peaceful', 'smaller than initially guessed');
+
+      if($pet['food'] < 10)
+          $states[] = 'hungry';
       
       if($pet['likes_color'] != 'none')
         $sizes[] = 'huge, ' . $pet['likes_color'];
     
-      return $pet['petname'] . ' ' . $dreamed . ' that a ' . $sizes[array_rand($sizes)] . ' worm had broken up from underground and into the streets of the city.  Scientists were going crazy studying the thing, which seemed to be nearly dead.';
+      return $pet['petname'] . ' ' . $dreamed . ' that a ' . $sizes[array_rand($sizes)] . ' worm had broken up from underground and into the streets of the city.  Scientists were going crazy studying the thing, which seemed to be ' . $states[array_rand($states)] . '.';
     
     case 12:
       $evil = array('an evil wizard', 'a mad scientist', 'a time-traveller', 'an evil AI');
@@ -318,7 +370,7 @@ function dream_description_random_story(&$pet)
       return $pet['petname'] . ' ' . $dreamed . ' about fighting ' . $evil[array_rand($evil)] . ' bent on turning the population into ' . $thing1 . ', or ' . $thing2 . ', or ' . $thing_i[0] . '-' . $thing2 . ', or something like that.';
     
     case 13:
-      $event = array('a fancy-dress party', 'a scientific conference', 'a wedding');
+      $event = array('a fancy-dress party', 'a scientific conference', 'a wedding', 'a convention');
     
       return $pet['petname'] . ' ' . $dreamed . ' about trying to apply for a job, but the building the interview was in was hosting ' . $event[array_rand($event)] . ', and ' . $pet['petname'] . ' was not allowed in.';
 
@@ -343,7 +395,15 @@ function dream_description_random_story(&$pet)
 
     case 16:
       $coverings = array('plants', 'wires', 'electronics', 'pipes', 'gears');
-      $disguises = array('wearing a trench coat', 'wearing a weird hat', 'wearing a necklace', 'walking around naked', 'rolling around in mud');
+
+      if($pet['safety'] < 10)
+      {
+          $coverings[] = 'gore';
+          $coverings[] = 'limbs';
+          $coverings[] = 'eyeballs';
+      }
+
+      $disguises = array('wearing a trench coat', 'wearing a weird hat', 'wearing a necklace', 'walking around naked', 'rolling around in mud', 'pretending to be a weird cat');
     
       $cover = array_rand($coverings, 2);
     
@@ -365,7 +425,7 @@ function dream_description_random_story(&$pet)
       return $pet['petname'] . ' ' . $dreamed . ' about getting ' . $food . ' at a fancy sit-down ' . $food . ' restaurant.  It was ' . $tastes[array_rand($tastes)] . '!';
 
     case 18:
-      $vehicles = array('taxi', 'bus', 'helicopter', 'train');
+      $vehicles = array('taxi', 'bus', 'helicopter', 'train', 'boat');
     
       if($pet['likes_color'] != 'none' && mt_rand(1, 3) == 1)
         $bus = 'a ' . $pet['likes_color'] . ' ' . $vehicles[array_rand($vehicles)];
