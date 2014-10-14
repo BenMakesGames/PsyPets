@@ -100,7 +100,7 @@ include 'commons/html.php';
 <?php include 'commons/header_2.php'; ?>
 <h4>To-do List <?= (strlen($tag) > 0 ? '(' . $tag . ')' : '') ?></h4>
 <p>I (<?= User::Link($SETTINGS['author_resident_name']) ?>) use the To-do List to keep track of work to be done. These items are not necessarily final. If you have questions or comments about any of these items, feel free to ask!</p>
-<p>If you're a programmer, and you want to help implement these, I'll love you forever! (And so would the players of PsyPets!) <a href="https://github.com/BenMakesGames/PsyPets">Check out the source code</a>, get in contact with me, and let's figure out how to coordinate our efforts!</p>
+<p>If you're a programmer, and you want to help implement these, I'll love you forever! (And so will the players of PsyPets!) <a href="https://github.com/BenMakesGames/PsyPets">Check out the source code</a>, get in contact with me, and let's figure out how to coordinate our efforts!</p>
 <?php
 if($is_manager)
     echo '<ul><li><a href="/admin/todoadd.php">Add a to-do item</a></li></ul>';
