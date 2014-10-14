@@ -13,7 +13,7 @@ require_once 'commons/shoutcast.php';
 
 $userprofile = get_user_profile($user['idnum']);
 
-$status = shoutcast_status('www.psypets.net', 7000);
+$status = shoutcast_status('psypets.net', 7000);
 
 if($_GET['status'] == 'online')
   $status = 'online';
@@ -77,7 +77,7 @@ if($status == 'online')
 <center><i><a href="/meta/copyright_code.php#jlguiapplet">jlGui MP3 Player Applet by JavaZOOM</a></i></center>
 </div>
 <h4>Live Broadcasting (<span class="success">currently online</span>)</h4>
-<p><a href="http://www.psypets.net:7000/listen.pls">Tune in with your favorite media player</a>, or use the Java applet on the right.<p>
+<p><a href="http://psypets.net:7000/listen.pls">Tune in with your favorite media player</a>, or use the Java applet on the right.<p>
 <?php
 }
 else
@@ -92,7 +92,7 @@ if($error)
   echo "     <p class=\"failure\">$error</p>\n";
 ?>
      <p><a href="/residentprofile.php?resident=<?= link_safe('That Guy Ben') ?>">That Guy Ben</a> talks about PsyPets and responds to your questions, comments, and suggestions (sent from this page only) <em>with his voice!</em>  Warning: responses may contain rambling.</p>
-     <p>If you can't make it for the live broadcasts (Friday at 7:00 PM, US eastern time), MP3 recordings are available at <a href="http://www.psypets.net/broadcasting">psypets.net/broadcasting</a>.</p>
+     <p>If you can't make it for the live broadcasts (Friday at 7:00 PM, US eastern time), MP3 recordings are available at <a href="http://psypets.net/broadcasting">psypets.net/broadcasting</a>.</p>
 <ul class="tabbed">
  <li><a href="/livebroadcast.php">Suggest a Topic</a></li>
  <li class="activetab"><a href="/broadcast2.php">Send an E-mail</a></li>

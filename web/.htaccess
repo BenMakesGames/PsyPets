@@ -6,12 +6,9 @@ php_flag expose_php Off
 
 RewriteEngine On
 
-# Force domain to begin with www.
-#RewriteCond %{HTTP_HOST} !^(www|nutmeg|cardamom)\. [NC]
-#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
-
-# Get rid of /original in URLs
-RewriteRule ^original/(.*)$ http://www.psypets.net/$1 [R=301,L]
+# Force domain to NOT begin with www.
+#RewriteCond %{HTTP_HOST} ^www.psypets.net$ [NC]
+#RewriteRule ^(.*)$ http://psypets.net/$1 [R=301,L]
 
 # 404 catch
 RewriteCond %{REQUEST_FILENAME} !-f

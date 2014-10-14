@@ -6,7 +6,7 @@ your very own pet game, based on psychology!
 License
 -------
 
-PsyPets, Copyright (C) 2004-2013 Ben Hendel-Doying [http://www.telkoth.net/]
+PsyPets, Copyright (C) 2004-2013 Ben Hendel-Doying [http://benmakesgames.com/]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -44,7 +44,7 @@ on your exact configuration.)
 Installing Required Software
 ----------------------------
 
-www.psypets.net runs on Linux. I have, at least at one time in the past, installed PsyPets on a Windows machine, but
+psypets.net runs on Linux. I have, at least at one time in the past, installed PsyPets on a Windows machine, but
 it was long ago, and I did not test it extensively. if you plan to install on Windows, you may encounter trouble.
 
 see INSTALL.TXT for installation instructions. these were written for CentOS/RedHat 7. if you are using a different

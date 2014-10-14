@@ -89,7 +89,7 @@ else
      <h5 style="padding-top: 2em;">A Tip</h5>
      <p>
       The code for a link to your store is:<br />
-      <span style="white-space:pre; font-family:monospace;">{link <?= $SETTINGS['protocol'] ?>://www.psypets.net/favorstore.php?resident=<?= link_safe($user['display']) ?>}</span>
+      <span style="white-space:pre; font-family:monospace;">{link <?= $SETTINGS['protocol'] ?>://psypets.net/favorstore.php?resident=<?= link_safe($user['display']) ?>}</span>
      </p>
      <p>Use this link to advertise your store in the <a href="viewplaza.php?plaza=5">Commerce</a> section of the plaza, or in an <a href="broadcast.php">in-game ad</a>!</p>
 <?php include 'commons/footer_2.php'; ?>

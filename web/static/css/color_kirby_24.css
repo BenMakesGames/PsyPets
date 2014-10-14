@@ -102,17 +102,17 @@ background: #DFE4E8;
 }
 
 .dialog { padding: 0.5em; background: #f0f0f0; }
-.dialogtop { background-image: url(//www.psypets.net/gfx/dialog_top.png); background-repeat: repeat; }
-.dialogbottom { background-image: url(//www.psypets.net/gfx/dialog_bottom.png); background-repeat: repeat; }
+.dialogtop { background-image: url(//psypets.net/gfx/dialog_top.png); background-repeat: repeat; }
+.dialogbottom { background-image: url(//psypets.net/gfx/dialog_bottom.png); background-repeat: repeat; }
 .dialogtop,.dialogbottom { height: 8px; }
 .dialogright
 {
-  background: #f0f0f0 url(//www.psypets.net/gfx/dialog_right.png) repeat-y;
+  background: #f0f0f0 url(//psypets.net/gfx/dialog_right.png) repeat-y;
   background-position: right;
 }
 .dialogleft
 {
-  background: #f0f0f0 url(//www.psypets.net/gfx/dialog_left.png) repeat-y;
+  background: #f0f0f0 url(//psypets.net/gfx/dialog_left.png) repeat-y;
   background-position: left;
   padding-left: 8px;
 }

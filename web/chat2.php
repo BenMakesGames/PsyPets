@@ -48,7 +48,7 @@ function showMenu()
      <p>[ <a href="#" onclick="document.getElementById('instructions').style.display='none';">hide all this silly text.  it's in my way.</a> ]</p>
      </div>
      <div id="textfield" style="width: 600px; height: 400px; overflow: auto; padding: 0.5em; border: 1px solid #888; background-color: #fff"></div>
-     <applet code="ChatClient/ChatClient2c.class" width="600" height="55" codebase="http://www.psypets.net/" alt="You need Java to use PsyPets' Live Chat" cache_version="2.3.0.0" mayscript>
+     <applet code="ChatClient/ChatClient2c.class" width="600" height="55" codebase="http://psypets.net/" alt="You need Java to use PsyPets' Live Chat" cache_version="2.3.0.0" mayscript>
       You need Java to use PsyPets' Live Chat
      </applet>
 <?php include 'commons/footer_2.php'; ?>

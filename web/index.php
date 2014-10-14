@@ -30,7 +30,7 @@ include 'commons/html.php';
   <link rel="encyclopedia" href="/encyclopedia.php" title="Item Encyclopedia" />
   <link rel="pet-encyclopedia" href="/petencyclopedia.php" title="Pet Encyclopedia" />
   <link rel="stylesheet" href="//<?= $SETTINGS['static_domain'] ?>/styles/pp_markup.css" />
-  <link rel="browser-game-info" href="<?= $SETTINGS['protocol'] ?>://www.psypets.net/bghxml.xml" />
+  <link rel="browser-game-info" href="<?= $SETTINGS['protocol'] ?>://psypets.net/bghxml.xml" />
  </head>
  <body>
 <?php

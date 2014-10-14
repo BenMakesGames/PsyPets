@@ -74,9 +74,9 @@ include 'commons/html.php';
       <p>&copy; Ben Hendel-Doying &amp; Megan "Nanashi-chan" Ballenger</p>
      </div>
      <div class="graphiccopy">
-      <p><img src="//www.psypets.net/gfx/iciclelights.gif" /></p>
-      <p><img src="//www.psypets.net/gfx/iciclelightscolored.gif" /></p>
-      <p><img src="//www.psypets.net/gfx/blinkylights.gif" /></p>
+      <p><img src="//psypets.net/gfx/iciclelights.gif" /></p>
+      <p><img src="//psypets.net/gfx/iciclelightscolored.gif" /></p>
+      <p><img src="//psypets.net/gfx/blinkylights.gif" /></p>
       <p>&copy; Justin "Hara" Doak; blinking version by Megan "Nanashi-chan" Ballenger</p>
      </div>
      <div class="graphiccopy">

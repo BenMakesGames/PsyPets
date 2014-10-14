@@ -34,7 +34,7 @@ if($_POST['action'] == 'transfer' && $user['favor'] >= 50)
 
     $mailmessage = "{r " . $user['display'] . "} has transferred $amount Favor to you.  You may spend Favor to revive a dead pet, " .
                    "get a custom item, or any of many other things.  Check out the " . 
-                   "{link http://www.psypets.net/autofavor.php Favor Dispenser} for a list of options, " .
+                   "{link http://psypets.net/autofavor.php Favor Dispenser} for a list of options, " .
                    "and don't forget to thank {r " . $user['display'] . "}!";
 
     psymail_user($target_user['user'], 'lpawlak', 'Favor transfer!', $mailmessage);

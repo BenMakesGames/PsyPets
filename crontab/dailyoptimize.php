@@ -235,7 +235,7 @@ list($now_day, $now_month, $now_year) = explode(' ', date('j n Y', $now));
   // }
 
   if(mt_rand(1, 7) == 1)
-    psymail_user('telkoth', 'telkoth', 'Check the To-do List!', '<a href="https://www.psypets.net/arrangewishes.php">To-do List</a>');
+    psymail_user('telkoth', 'telkoth', 'Check the To-do List!', '<a href="https://psypets.net/arrangewishes.php">To-do List</a>');
 
   echo 'Finished daily optimize.';
 
