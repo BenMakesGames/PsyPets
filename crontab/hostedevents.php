@@ -10,7 +10,7 @@ if($maintenance_when >= 0 && $maintenance_when <= 20 && !$IGNORE_MAINTENANCE)
 
 // --- BEGIN! ---
 
-//ini_set('include_path', '/your/web/root');
+set_include_path(get_include_path() . PATH_SEPARATOR . '/var/www/html/PsyPets/lib');
 
 require_once 'commons/dbconnect.php';
 require_once 'commons/timelib.php';

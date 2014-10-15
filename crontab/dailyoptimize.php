@@ -4,7 +4,7 @@
 
 $IGNORE_MAINTENANCE = true;
 
-//ini_set('include_path', '/your/web/root');
+set_include_path(get_include_path() . PATH_SEPARATOR . '/var/www/html/PsyPets/lib');
 
 require_once 'commons/dbconnect.php';
 require_once 'commons/rpgfunctions.php';
@@ -239,4 +239,3 @@ list($now_day, $now_month, $now_year) = explode(' ', date('j n Y', $now));
 
   echo 'Finished daily optimize.';
 
-?>

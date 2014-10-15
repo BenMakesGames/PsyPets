@@ -3,7 +3,7 @@ $require_petload = 'no';
 
 $IGNORE_MAINTENANCE = true;
 
-//ini_set('include_path', '/your/web/root');
+set_include_path(get_include_path() . PATH_SEPARATOR . '/var/www/html/PsyPets/lib');
 
 require_once 'commons/dbconnect.php';
 require_once 'commons/formatting.php';
