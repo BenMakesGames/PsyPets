@@ -1,3 +1,9 @@
+**hey, listen!** this code is super-old (you probably noticed). I have fond memories of it, and am proud of what I built, but wow, I've learned a lot since then. today, I'd say PsyPets is an interesting example of how some web sites were made, in the days of IE6, before package managers and smart phones, but probably isn't super-relevant today. also, the code is rife with problems, and bad decisions :P
+
+I have a new pet game, [Poppy Seed Pets](https://poppyseedpets.com), which uses modern tools, and better software and game-design practices. If you like pet games, check it out! :)
+
+<a href='https://ko-fi.com/A0A12KQ16' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi3.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
 PsyPets
 =======
 
